@@ -1,0 +1,53 @@
+@import './fonts';
+
+body {
+  font-family: $product-sans;
+}
+
+.navbar {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #f7fafc;
+  }
+  .logo {
+    font-family: $montserrat;
+    p {
+      margin: 0;
+      font-size: 20px;
+      position: relative;
+      line-height: 1;
+      &:first-of-type {
+        font-weight: 500;
+        font-style: italic;
+      }
+      &:last-of-type {
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+.hero {
+  &-title {
+    font-family: $product-sans !important;
+  }
+}
+
+.article {
+  &-link {
+    svg {
+      transition: margin 200ms ease-in-out;
+    }
+    &:hover {
+      svg {
+        margin-left: 3px;
+      }
+    }
+  }
+}
