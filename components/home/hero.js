@@ -11,14 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 
-export default function Hero({
-  title,
-  subtitle,
-  image,
-  ctaLink,
-  ctaText,
-  ...rest
-}) {
+export default function Hero() {
   const [meta, setMeta] = useState({
     title: 'Predicting Aesthetics of the Future',
     body:
@@ -33,8 +26,7 @@ export default function Hero({
       align='center'
       w='100%'
       m='0 auto'
-      minH='90vh'
-      bg='#F9F9F9'
+      // minH='90vh'
     >
       <Flex
         align='center'
@@ -42,8 +34,8 @@ export default function Hero({
         direction={{ base: 'column-reverse', xl: 'row' }}
         wrap='no-wrap'
         minH='70vh'
+        bg='#F9F9F9'
         mb={16}
-        {...rest}
       >
         <Stack
           spacing={{ base: 5, md: 7, xl: 10 }}
@@ -68,7 +60,6 @@ export default function Hero({
           </Heading>
           <Link href='/'>
             <Button
-              borderRadius='8px'
               py={{ base: '5', md: '7' }}
               px={{ base: '10', md: '12' }}
               lineHeight='1'
@@ -76,8 +67,10 @@ export default function Hero({
               bg='teal.400'
               color='white'
               borderRadius='50px'
+              fontWeight='normal'
+              borderRadius='false'
               _hover={{
-                bg: 'teal.300',
+                bg: 'teal.500',
               }}
             >
               Read Now

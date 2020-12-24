@@ -42,10 +42,15 @@ const Header = props => {
           pt={[4, 4, 0, 0]}
         >
           <MenuItem to='/'>Home</MenuItem>
-          <MenuItem to='/how'>Read</MenuItem>
-          <MenuItem to='/faetures'>Blog</MenuItem>
-          <MenuItem to='/pricing' isLast>
-            <Button variant='outline' borderRadius='50px' colorScheme='black'>
+          <MenuItem to='/read'>Read</MenuItem>
+          <MenuItem to='/articles'>Blog</MenuItem>
+          <MenuItem to='/collaboration' isLast>
+            <Button
+              variant='outline'
+              fontWeight='normal'
+              borderRadius='false'
+              colorScheme='black'
+            >
               Collaborate
             </Button>
           </MenuItem>
@@ -58,8 +63,8 @@ const Header = props => {
 const Logo = () => (
   <Link href='/'>
     <a>
-      <Flex w='100px' direction='column' className='logo'>
-        <Text>Ya</Text>
+      <Flex direction='column' className='logo' color='black'>
+        <Text>Ya!</Text>
         <Text>Magz</Text>
       </Flex>
     </a>

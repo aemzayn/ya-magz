@@ -16,7 +16,7 @@ body {
     border-bottom: 1px solid #f7fafc;
   }
   .logo {
-    font-family: $montserrat;
+    font-family: $montserrat !important;
     p {
       margin: 0;
       font-size: 20px;
@@ -40,6 +40,9 @@ body {
 }
 
 .article {
+  &-title {
+    font-family: $product-sans;
+  }
   &-link {
     svg {
       transition: margin 200ms ease-in-out;
@@ -49,5 +52,11 @@ body {
         margin-left: 3px;
       }
     }
+  }
+}
+
+.page {
+  &-title {
+    font-family: $product-sans !important;
   }
 }

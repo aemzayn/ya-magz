@@ -15,7 +15,14 @@ const Article = ({ article }) => {
         <Image h='100%' w='100%' objectFit='cover' src={article.img} />
       </Box>
       <VStack spacing='4' w='100%' py='4' alignItems='flex-start'>
-        <Heading as='h5' size='md' fontWeight='medium' maxW='90%' mr='auto'>
+        <Heading
+          className='article-title'
+          as='h5'
+          size='md'
+          fontWeight='medium'
+          maxW='90%'
+          mr='auto'
+        >
           {article.title}
         </Heading>
         <Text
@@ -27,7 +34,7 @@ const Article = ({ article }) => {
           {article.body}
         </Text>
         <Text color='blue.400' className='article-link'>
-          <Link href='/'>
+          <Link href={`/articles/${article.id}`}>
             <a>
               read more
               <ChevronRightIcon />
