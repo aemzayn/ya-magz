@@ -1,14 +1,17 @@
 import { ThemeProvider, theme, CSSReset } from '@chakra-ui/react'
+import { GlobalProvider } from '../context/global'
 import Header from '../components/sections/Header'
 import '../scss/styles.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <CSSReset />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <GlobalProvider>
+      <ThemeProvider theme={theme}>
+        <Header />
+        <CSSReset />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </GlobalProvider>
   )
 }
 

@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button, Flex } from '@chakra-ui/react'
-import Article from './article'
+import Article from './article-card'
 import Link from 'next/link'
-import articles from '../../data/articlesData'
 
-const Articles = () => {
+const Articles = ({ articles }) => {
   return (
     <Flex
       direction='column'

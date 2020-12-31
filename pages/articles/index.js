@@ -1,9 +1,9 @@
+import ArticleCard from '@/components/home/article-card'
+import { getAllArticles } from '@/lib/api'
 import { Flex, Heading } from '@chakra-ui/react'
-import React from 'react'
-import Article from '../../components/home/article'
-import articles from '../../data/articlesData'
 
-const ArticlesPage = () => {
+export default function ArticlesPage({ articles }) {
+  console.log(articles)
   return (
     <Flex
       direction='column'
@@ -17,12 +17,24 @@ const ArticlesPage = () => {
         Articles
       </Heading>
       <Flex direction={{ base: 'column', lg: 'row' }} w='100%' flexWrap='wrap'>
-        {articles.map(article => (
-          <Article key={article.id} article={article} />
-        ))}
+        {articles.length > 0 ? (
+          articles.map(article => (
+            <ArticleCard key={article.slug} article={article} />
+          ))
+        ) : (
+          <h4>Loading...</h4>
+        )}
       </Flex>
     </Flex>
   )
 }
 
-export default ArticlesPage
+export async function getServerSideProps() {
+  const allArticles = (await getAllArticles()) || []
+
+  return {
+    props: {
+      articles: allArticles,
+    },
+  }
+}

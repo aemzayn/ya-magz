@@ -12,7 +12,12 @@ const Article = ({ article }) => {
       className='article'
     >
       <Box w='100%' h='50%'>
-        <Image h='100%' w='100%' objectFit='cover' src={article.img} />
+        <Image
+          h='100%'
+          w='100%'
+          objectFit='cover'
+          src={article?.cover_img?.url}
+        />
       </Box>
       <VStack spacing='4' w='100%' py='4' alignItems='flex-start'>
         <Heading
@@ -23,7 +28,7 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          {article.title}
+          {article?.title}
         </Heading>
         <Text
           color='gray.500'
@@ -31,10 +36,10 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          {article.body}
+          {article?.body?.split('.').slice(0, 1).join('.') + '.'}
         </Text>
         <Text color='blue.400' className='article-link'>
-          <Link href={`/articles/${article.id}`}>
+          <Link href={`/articles/${article.slug}`}>
             <a>
               read more
               <ChevronRightIcon />

@@ -1,34 +1,37 @@
 import Head from 'next/head'
-import { Articles, Hero } from '../components/home'
-import Newsletter from '../components/home/newsletter'
-import Footer from '../components/sections/footer'
+import { Articles, Hero } from '@/components/home'
+import { getAllPostsForHome, getHeroPost } from '@/lib/api'
+import Footer from '@/components/sections/footer'
 
-export default function Home({ data }) {
-  console.log(data)
+export default function Home({ articles, heroArticle }) {
   return (
     <>
       <Head>
         <title>Ya! Magazine</title>
       </Head>
-      <Hero />
-      <Articles />
-      <Newsletter />
-      <Footer />
+      {articles && heroArticle ? (
+        <>
+          <Hero article={heroArticle} />
+          <Articles articles={articles} />
+          {/* <Newsletter /> */}
+          <Footer />
+        </>
+      ) : (
+        <h4>Loading...</h4>
+      )}
     </>
   )
 }
 
-export async function getServerSideProps(ctx) {
-  const res = await fetch(`${process.env.API_URL}/articles`)
-  const data = await res.json()
-  if (data.errors) {
-    console.error(data.errors)
-    throw new Error('Failed to fetch API')
-  }
+export async function getServerSideProps() {
+  const allArticles = (await getAllPostsForHome()) || []
+  const heroArticle = (await getHeroPost()) || {}
+  const homeArticle = allArticles.filter(art => art.id !== heroArticle.id)
 
   return {
     props: {
-      data,
-    }, // will be passed to the page component as props
+      articles: homeArticle,
+      heroArticle,
+    },
   }
 }
