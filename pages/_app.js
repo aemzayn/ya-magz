@@ -1,7 +1,7 @@
+import Header from '@/components/sections/header'
 import { ThemeProvider, theme, CSSReset } from '@chakra-ui/react'
-import { GlobalProvider } from '../context/global'
-import Header from '../components/sections/header'
-import '../scss/styles.scss'
+import { GlobalProvider } from '@/context/global'
+import '@/scss/styles.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
