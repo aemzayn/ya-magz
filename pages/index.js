@@ -11,7 +11,7 @@ export default function Home({ articles, heroArticle }) {
       </Head>
       {articles && heroArticle ? (
         <>
-          <Hero article={heroArticle} />
+          {heroArticle && <Hero article={heroArticle} />}
           <Articles articles={articles} />
           {/* <Newsletter /> */}
           <Footer />

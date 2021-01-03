@@ -3,6 +3,7 @@ import HeroTitle from './hero-title'
 import HeroCTA from './hero-cta'
 import HeroImage from './hero-image'
 import HeroLayout from './hero-layout'
+import Link from 'next/link'
 
 export default function Hero({ article }) {
   return (
@@ -18,7 +19,9 @@ export default function Hero({ article }) {
         py={{ base: '2rem', lg: '10rem', xl: 0 }}
       >
         <Text textTransform='lowercase' mb='1.2' color='gray.500'>
-          {article.category.name}
+          <Link href={`/category/${article.category.slug}`}>
+            <a>{article.category.name}</a>
+          </Link>
         </Text>
         <HeroTitle title={article.title} />
         <HeroCTA url={article.slug} />

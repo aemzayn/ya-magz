@@ -8,6 +8,7 @@ import ArticleTitle from '@/components/article/article-title'
 import ArticleCoverImage from '@/components/article/article-cover-image'
 import Layout from '@/components/article/layout'
 import HomeButton from '@/components/article/home-button'
+import ArticleCategory from '@/components/article/article-category'
 
 export default function ArticlePage({ article, paths }) {
   const [isValidPath, setIsValidPath] = useState(false)
@@ -29,6 +30,7 @@ export default function ArticlePage({ article, paths }) {
         slug={article?.author?.slug}
       />
       <ArticleTitle title={article?.title} />
+      <ArticleCategory category={article?.category} />
       <ArticleCoverImage url={article?.cover_img?.url} />
       <ArticleBody body={article?.body} />
     </Layout>

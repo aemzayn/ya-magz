@@ -3,7 +3,6 @@ import { getAllArticles } from '@/lib/api'
 import { Flex, Heading } from '@chakra-ui/react'
 
 export default function ArticlesPage({ articles }) {
-  console.log(articles)
   return (
     <Flex
       direction='column'
@@ -19,7 +18,7 @@ export default function ArticlesPage({ articles }) {
       <Flex direction={{ base: 'column', lg: 'row' }} w='100%' flexWrap='wrap'>
         {articles.length > 0 ? (
           articles.map(article => (
-            <ArticleCard key={article.slug} article={article} />
+            <ArticleCard key={article.id} article={article} />
           ))
         ) : (
           <h4>Loading...</h4>

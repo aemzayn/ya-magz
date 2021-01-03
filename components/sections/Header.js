@@ -15,8 +15,8 @@ const Header = props => {
       wrap='wrap'
       w='100%'
       mx='auto'
-      py='8'
-      px={10}
+      py={{ base: 6, lg: 8 }}
+      px='10'
       bg='white'
       color='black'
       className='navbar'
