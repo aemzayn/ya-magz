@@ -4,6 +4,7 @@ import HeroCTA from './hero-cta'
 import HeroImage from './hero-image'
 import HeroLayout from './hero-layout'
 import Link from 'next/link'
+import { getTag } from '@/lib/postTags'
 
 export default function Hero({ article }) {
   return (
@@ -18,15 +19,18 @@ export default function Hero({ article }) {
         pl={{ base: '0', xl: '8' }}
         py={{ base: '2rem', lg: '10rem', xl: 0 }}
       >
-        <Text textTransform='lowercase' mb='1.2' color='gray.500'>
-          <Link href={`/category/${article.category.slug}`}>
-            <a>{article.category.name}</a>
+        <Text mb='1.2' color='gray.500'>
+          <Link
+            href='/category/[slug]'
+            as={`/category/${getTag(article.tags[0]).slug}`}
+          >
+            <a>{getTag(article.tags[0]).name}</a>
           </Link>
         </Text>
-        <HeroTitle title={article.title} />
-        <HeroCTA url={article.slug} />
+        <HeroTitle title={article?.title} />
+        <HeroCTA url={article?.slug} />
       </Flex>
-      <HeroImage url={article.cover_img.url} />
+      <HeroImage url={article?.featuredimage} />
     </HeroLayout>
   )
 }

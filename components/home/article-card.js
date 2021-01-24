@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Box, Heading, Image, Stack, Text, VStack } from '@chakra-ui/react'
+import { Box, Heading, Image, Text, VStack } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -16,7 +16,7 @@ const Article = ({ article }) => {
           h='100%'
           w='100%'
           objectFit='cover'
-          src={article?.cover_img?.url}
+          src={article.featuredimage}
         />
       </Box>
       <VStack spacing='4' w='100%' py='4' alignItems='flex-start'>
@@ -36,7 +36,7 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          {article?.body?.split('.').slice(0, 1).join('.') + '.'}
+          {article?.excerpt}
         </Text>
         <Text color='blue.400' className='article-link'>
           <Link href={`/articles/${article.slug}`}>

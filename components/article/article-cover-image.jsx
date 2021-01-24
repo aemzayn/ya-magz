@@ -1,6 +1,6 @@
 import { Box, Image } from '@chakra-ui/react'
 
-export default function ArticleCoverImage({ url }) {
+export default function ArticleCoverImage({ featuredImage }) {
   return (
     <Box w='100%' mt='7' mb='10'>
       <Image
@@ -8,7 +8,7 @@ export default function ArticleCoverImage({ url }) {
         h='100%'
         objectFit='cover'
         objectPosition='bottom'
-        src={url}
+        src={featuredImage}
         alt='something'
       />
     </Box>

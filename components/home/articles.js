@@ -14,7 +14,7 @@ const Articles = ({ articles }) => {
     >
       <Flex direction={{ base: 'column', lg: 'row' }} w='100%' flexWrap='wrap'>
         {articles.map(article => (
-          <Article key={article.id} article={article} />
+          <Article key={article.slug} article={article} />
         ))}
       </Flex>
 

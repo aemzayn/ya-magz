@@ -1,0 +1,23 @@
+{
+  "base_url": "https://next-bulma-landingpage.now.sh/",
+  "site_title": "Ya! Magazine",
+  "site_description": "Website Education and Entertainment",
+  "site_keywords": [
+    {
+      "keyword": "Ya! Magazine"
+    },
+    {
+      "keyword": "Magazine"
+    },
+    {
+      "keyword": "Edutainment Magazine"
+    }
+  ],
+  "posts_per_page": 9,
+  "twitter_account": "@ya.magz",
+  "facebook_account": "Ya Magazine",
+  "instagram_account": "ya.magz",
+  "contact_email": "ya.magazine@gmail.com",
+  "contact_phonenumber": "+905531775123",
+  "contact_address": "Bursa, Turkey"
+}

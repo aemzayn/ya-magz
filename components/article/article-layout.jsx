@@ -1,10 +1,8 @@
 import { Flex } from '@chakra-ui/react'
-import Meta from './meta'
 
-export default function Layout({ children, title = 'Ya! Magazine' }) {
+export default function ArticleLayout({ children }) {
   return (
     <Flex w='100%' direction='column'>
-      <Meta title={title} />
       <Flex
         as='article'
         direction='column'

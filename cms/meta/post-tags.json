@@ -1,0 +1,24 @@
+{
+  "tags": [
+    {
+      "slug": "general",
+      "name": "General"
+    },
+    {
+      "slug": "news",
+      "name": "News"
+    },
+    {
+      "slug": "tutorial",
+      "name": "Tutorial"
+    },
+    {
+      "slug": "tips",
+      "name": "Tips n Tricks"
+    },
+    {
+      "slug": "career",
+      "name": "Career"
+    }
+  ]
+}
