@@ -1,8 +1,6 @@
 {
-  "instagram_account": "ya.magz",
+  "base_url": "https://ya-magazine.netlify.app/",
   "site_title": "Ya! Magazine",
-  "twitter_account": "@ya.magz",
-  "base_url": "https://ya-magazine.vercel.app/",
   "site_keywords": [
     {
       "keyword": "Ya! Magazine"
@@ -15,7 +13,10 @@
     }
   ],
   "site_description": "Website Education and Entertainment",
+  "posts_per_page": 9,
+  "twitter_account": "@ya.magz",
   "facebook_account": "Ya Magazine",
+  "instagram_account": "ya.magz",
   "contact_address": "Bursa, Turkey",
   "contact_phonenumber": "+905531775123",
   "contact_email": "ya.magazine@gmail.com"
