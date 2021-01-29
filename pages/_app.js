@@ -3,6 +3,7 @@ import '../scss/styles.scss'
 
 import Router from 'next/router'
 import NProgress from 'nprogress'
+import * as gtag from '@/lib/gtag'
 import '@/scss/nprogress.css'
 
 NProgress.configure({ showSpinner: false })
@@ -11,7 +12,7 @@ Router.onRouteChangeStart = () => {
 }
 Router.onRouteChangeComplete = url => {
   NProgress.done()
-  // gtag.pageview(url)
+  gtag.pageview(url)
 }
 Router.onRouteChangeError = () => {
   NProgress.done()

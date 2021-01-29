@@ -18,32 +18,37 @@ import { getAuthor } from '@/lib/authors'
 import { getTag } from '@/lib/postTags'
 import { Flex } from '@chakra-ui/react'
 import ArticleDate from '@/components/article/article-date'
+import ArticleShare from '@/components/article/article-share'
+import config from '@/cms/site-settings.json'
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
   const { title, slug, date, tags, author, featuredimage, body } = article
   const keywords = tags.map(it => getTag(it).name)
   const authorName = getAuthor(author).name
+  const url = `/posts/${slug}`
+  const fullUrl = config.base_url.slice(0, -2) + url
+
   return (
     <Layout>
       <BasicMeta
-        url={`/posts/${slug}`}
+        url={url}
         title={title}
         keywords={keywords}
         // description={description}
       />
       <TwitterCardMeta
-        url={`/posts/${slug}`}
+        url={url}
         title={title}
         // description={description}
       />
       <OpenGraphMeta
-        url={`/posts/${slug}`}
+        url={url}
         title={title}
         // description={description}
       />
       <JsonLdMeta
-        url={`/posts/${slug}`}
+        url={url}
         title={title}
         keywords={keywords}
         date={date}
@@ -60,6 +65,7 @@ export default function Article({ article, source }) {
         <ArticleCategory tags={tags.map(it => getTag(it))} />
         <ArticleCoverImage featuredImage={featuredimage} />
         <ArticleBody body={content} />
+        <ArticleShare url={fullUrl} />
       </ArticleLayout>
     </Layout>
   )
@@ -72,9 +78,6 @@ export async function getStaticProps({ params }) {
       yaml: s => yaml.load(s, { schema: yaml.JSON_SCHEMA }),
     },
   })
-
-  // TODO map tags
-
   const mdxSource = await renderToString(content, {
     scope: {},
   })

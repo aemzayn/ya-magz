@@ -96,7 +96,12 @@ collections:
                   - { label: Instagram, name: instagram, widget: string }
                   - { label: Twitter, name: twitter, widget: string }
                   - { label: Email, name: email, widget: string }
-                  - { label: Website, hint: 'Personal Website etc', name: website, widget: string }
+                  - {
+                      label: Website,
+                      hint: 'Personal Website etc',
+                      name: website,
+                      widget: string,
+                    }
 
   - name: 'posts'
     label: 'Blog Posts'
@@ -159,38 +164,38 @@ collections:
         name: 'body'
         widget: 'markdown'
 
-- name: 'gallery'
-  label: 'Gallery Indorsagraphy'
-  delete: false
-  editor:
-    preview: false
-  files:
-    - name: 'gallery'
-      label: 'Gallery'
-      file: 'cms/meta/gallery.json'
-      description: 'Photos from Indorsagraphy'
-      fields:
-        - name: photos
-          label: Photos
-          label_singular: 'Photo'
-          widget: list
-          fields:
-            - label: 'Slug'
-              name: 'slug'
-              widget: 'string'
-              hint: 'The part of a URL identifies the photos name'
-            - label: 'Owner'
-              name: 'owner'
-              widget: 'string'
-              hint: 'Name of the photographer'
-            - label: 'Photo'
-              name: 'photo'
-              widget: 'image'
-              allow_multiple: false
-            - label: 'Description'
-              name: 'description'
-              widget: 'string'
-              hint: 'Description of the photo'
+  - name: 'posts'
+    label: 'Gallery Indorsagraphy'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'gallery'
+        label: 'Gallery'
+        file: 'cms/meta/gallery.json'
+        description: 'Photos from Indorsagraphy'
+        fields:
+          - name: photos
+            label: Photos
+            label_singular: 'Photo'
+            widget: list
+            fields:
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the photos name'
+              - label: 'Owner'
+                name: 'owner'
+                widget: 'string'
+                hint: 'Name of the photographer'
+              - label: 'Photo'
+                name: 'photo'
+                widget: 'image'
+                allow_multiple: false
+              - label: 'Description'
+                name: 'description'
+                widget: 'string'
+                hint: 'Description of the photo'
 
   - name: 'settings'
     label: 'Settings'
