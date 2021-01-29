@@ -6,61 +6,6 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
-  - name: 'settings'
-    label: 'Settings'
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: 'site'
-        label: 'Site Settings'
-        file: 'cms/site-settings.json'
-        description: 'General site settings'
-        fields:
-          - label: 'URL'
-            name: 'base_url'
-            widget: 'string'
-            hint: 'Do not enter the trailing slash of the URL'
-          - label: 'Site title'
-            name: 'site_title'
-            widget: 'string'
-          - label: 'Site description'
-            name: 'site_description'
-            widget: 'string'
-          - label: 'Site keywords'
-            name: 'site_keywords'
-            widget: 'list'
-            summary: '{{fields.keyword.keyword}}'
-            field:
-              label: Keyword
-              name: keyword
-              widget: 'string'
-          - label: 'Posts per page'
-            name: 'posts_per_page'
-            widget: 'number'
-            value_type: 'int'
-            min: 1
-            max: 30
-            default: 9
-          - label: 'Twitter account'
-            name: 'twitter_account'
-            widget: 'string'
-          - label: 'Facebook account'
-            name: 'facebook_account'
-            widget: 'string'
-          - label: 'Instagram account'
-            name: 'instagram_account'
-            widget: 'string'
-          - label: 'Contact Email'
-            name: 'contact_email'
-            widget: 'string'
-          - label: 'Contact Phonenumber'
-            name: 'contact_phonenumber'
-            widget: 'string'
-          - label: 'Contact Address'
-            name: 'contact_address'
-            widget: 'string'
-
   - name: 'meta'
     label: 'Tags'
     delete: false
@@ -106,6 +51,7 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'Tag name for displaying on the site'
+
   - name: 'team_members'
     label: 'Team Members'
     delete: false
@@ -150,7 +96,7 @@ collections:
                   - { label: Instagram, name: instagram, widget: string }
                   - { label: Twitter, name: twitter, widget: string }
                   - { label: Email, name: email, widget: string }
-                  - { label: Wesbite, name: website, widget: string }
+                  - { label: Website, hint: 'Personal Website etc', name: website, widget: string }
 
   - name: 'posts'
     label: 'Blog Posts'
@@ -212,3 +158,91 @@ collections:
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
+
+- name: 'gallery'
+  label: 'Gallery Indorsagraphy'
+  delete: false
+  editor:
+    preview: false
+  files:
+    - name: 'gallery'
+      label: 'Gallery'
+      file: 'cms/meta/gallery.json'
+      description: 'Photos from Indorsagraphy'
+      fields:
+        - name: photos
+          label: Photos
+          label_singular: 'Photo'
+          widget: list
+          fields:
+            - label: 'Slug'
+              name: 'slug'
+              widget: 'string'
+              hint: 'The part of a URL identifies the photos name'
+            - label: 'Owner'
+              name: 'owner'
+              widget: 'string'
+              hint: 'Name of the photographer'
+            - label: 'Photo'
+              name: 'photo'
+              widget: 'image'
+              allow_multiple: false
+            - label: 'Description'
+              name: 'description'
+              widget: 'string'
+              hint: 'Description of the photo'
+
+  - name: 'settings'
+    label: 'Settings'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'site'
+        label: 'Site Settings'
+        file: 'cms/site-settings.json'
+        description: 'General site settings'
+        fields:
+          - label: 'URL'
+            name: 'base_url'
+            widget: 'string'
+            hint: 'Do not enter the trailing slash of the URL'
+          - label: 'Site title'
+            name: 'site_title'
+            widget: 'string'
+          - label: 'Site description'
+            name: 'site_description'
+            widget: 'string'
+          - label: 'Site keywords'
+            name: 'site_keywords'
+            widget: 'list'
+            summary: '{{fields.keyword.keyword}}'
+            field:
+              label: Keyword
+              name: keyword
+              widget: 'string'
+          - label: 'Posts per page'
+            name: 'posts_per_page'
+            widget: 'number'
+            value_type: 'int'
+            min: 1
+            max: 30
+            default: 9
+          - label: 'Twitter account'
+            name: 'twitter_account'
+            widget: 'string'
+          - label: 'Facebook account'
+            name: 'facebook_account'
+            widget: 'string'
+          - label: 'Instagram account'
+            name: 'instagram_account'
+            widget: 'string'
+          - label: 'Contact Email'
+            name: 'contact_email'
+            widget: 'string'
+          - label: 'Contact Phonenumber'
+            name: 'contact_phonenumber'
+            widget: 'string'
+          - label: 'Contact Address'
+            name: 'contact_address'
+            widget: 'string'

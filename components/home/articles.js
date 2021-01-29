@@ -12,7 +12,7 @@ const Articles = ({ articles }) => {
       w='100%'
       p='8'
     >
-      <Flex direction={{ base: 'column', lg: 'row' }} w='100%' flexWrap='wrap'>
+      <Flex direction={{ base: 'column', md: 'row' }} w='100%' flexWrap='wrap'>
         {articles.map(article => (
           <Article key={article.slug} article={article} />
         ))}

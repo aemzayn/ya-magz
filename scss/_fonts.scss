@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,900;1,500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 @font-face {
   font-family: 'Product Sans';
   src: url('../assets/ProductSans-Regular.ttf'),
@@ -10,3 +12,4 @@
 
 $montserrat: 'Montserrat', sans-serif;
 $product-sans: 'Product Sans', 'Open Sans', sans-serif;
+$inter: 'Inter', sans-serif;

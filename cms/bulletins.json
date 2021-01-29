@@ -1,0 +1,102 @@
+{
+  "bulletins": [
+    {
+      "edition": 1,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/1.jpg"
+    },
+    {
+      "edition": 2,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/2.jpg"
+    },
+    {
+      "edition": 3,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/3.jpg"
+    },
+    {
+      "edition": 4,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/4.jpg"
+    },
+    {
+      "edition": 5,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/5.jpg"
+    },
+    {
+      "edition": 6,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/6.jpg"
+    },
+    {
+      "edition": 7,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/7.jpg"
+    },
+    {
+      "edition": 8,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/8.jpg"
+    },
+    {
+      "edition": 9,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/9.jpg"
+    },
+    {
+      "edition": 10,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/10.jpeg"
+    },
+    {
+      "edition": 11,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/11.jpg"
+    },
+    {
+      "edition": 12,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/12.jpg"
+    },
+    {
+      "edition": 13,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/13.jpg"
+    },
+    {
+      "edition": 14,
+      "title": "Reborn",
+      "link": "",
+      "releaseDate": "Maret 2019",
+      "cover": "/images/bulletins/14.jpg"
+    }
+  ]
+}

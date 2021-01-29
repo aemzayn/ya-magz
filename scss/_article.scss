@@ -1,0 +1,15 @@
+.article {
+  &-title {
+    font-family: $product-sans;
+  }
+  &-link {
+    svg {
+      transition: margin 200ms ease-in-out;
+    }
+    &:hover {
+      svg {
+        margin-left: 3px;
+      }
+    }
+  }
+}

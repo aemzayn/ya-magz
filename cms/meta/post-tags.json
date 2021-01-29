@@ -19,6 +19,26 @@
     {
       "slug": "career",
       "name": "Career"
+    },
+    {
+      "slug": "plesiran",
+      "name": "Plesiran"
+    },
+    {
+      "slug": "kolom",
+      "name": "Kolom"
+    },
+    {
+      "slug": "tokoh",
+      "name": "Tokoh"
+    },
+    {
+      "slug": "opini",
+      "name": "Opini"
+    },
+    {
+      "slug": "sains",
+      "name": "Pojok Sains"
     }
   ]
 }

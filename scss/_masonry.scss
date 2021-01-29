@@ -1,0 +1,15 @@
+.masonry {
+  column-count: 4;
+  column-gap: 10px;
+  padding: 10px;
+
+  // Large
+  @media (max-width: 62em) {
+    column-count: 3;
+  }
+
+  // Medium
+  @media (max-width: 48em) {
+    column-count: 2;
+  }
+}

@@ -2,10 +2,34 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Box, Flex, Text, Button } from '@chakra-ui/react'
 import { SmallCloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { useRouter } from 'next/router'
 
-const Header = props => {
+const Header = () => {
   const [show, setShow] = useState(false)
   const toggleMenu = () => setShow(show => !show)
+
+  const routes = [
+    {
+      name: 'Home',
+      to: '/',
+    },
+    {
+      name: 'Read',
+      to: '/read',
+    },
+    {
+      name: 'Articles',
+      to: '/articles',
+    },
+    {
+      name: 'Indorsagraphy',
+      to: '/indorsagraphy',
+    },
+    {
+      name: 'Collaboration',
+      to: '/collaboration',
+    },
+  ]
 
   return (
     <Flex
@@ -19,11 +43,10 @@ const Header = props => {
       px='10'
       bg='white'
       color='black'
-      className='navbar'
+      className='header'
       borderBottomWidth='1px'
       borderBottomColor='gray.200'
       borderBottomStyle='solid'
-      {...props}
     >
       <Logo />
 
@@ -41,19 +64,15 @@ const Header = props => {
           direction={['column', 'row', 'row', 'row']}
           pt={[4, 4, 0, 0]}
         >
-          <MenuItem to='/'>Home</MenuItem>
-          <MenuItem to='/read'>Read</MenuItem>
-          <MenuItem to='/articles'>Blog</MenuItem>
-          <MenuItem to='/collaboration' isLast>
-            <Button
-              variant='outline'
-              fontWeight='normal'
-              borderRadius='false'
-              colorScheme='black'
+          {routes.map((r, i) => (
+            <MenuItem
+              key={i}
+              to={r.to}
+              isLast={i === routes.length - 1 ? true : false}
             >
-              Collaborate
-            </Button>
-          </MenuItem>
+              {r.name}
+            </MenuItem>
+          ))}
         </Flex>
       </Box>
     </Flex>
@@ -72,19 +91,21 @@ const Logo = () => (
 )
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
+  const router = useRouter()
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
       mr={{ base: 0, sm: isLast ? 0 : 8 }}
       display='block'
-      color='gray.500'
+      color={router.pathname === to ? 'black' : 'gray.500'}
+      cursor='pointer'
       _hover={{
         color: 'black',
       }}
       {...rest}
     >
       <Link href={to}>
-        <a>{children}</a>
+        <Text as='a'>{children}</Text>
       </Link>
     </Text>
   )

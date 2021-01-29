@@ -1,4 +1,3 @@
-import ArticleList from '@/components/article/article-list'
 import BasicMeta from '@/components/article/meta/basicMeta'
 import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
 import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
@@ -6,6 +5,7 @@ import Layout from '@/components/sections/layout'
 import { countPosts, listPosts } from '@/lib/posts'
 import { listTags } from '@/lib/postTags'
 import config from '@/cms/site-settings.json'
+import ArticleList from '@/components/article/article-list'
 
 export default function Page({ articles, tags, pagination, page }) {
   const url = `/articles/page/${page}`
