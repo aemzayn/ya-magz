@@ -1,4 +1,4 @@
-import { Hero } from '@/components/home'
+import Hero from '@/components/home/hero'
 import { getHeroArticle, getHomeArticles } from '@/lib/posts'
 import BasicMeta from '@/components/article/meta/basicMeta'
 import OpenGraphMeta from '@/components/article/meta/openGraphMeta'

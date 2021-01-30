@@ -20,7 +20,12 @@ export default function ArticlesByCategory({ articles }) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <ArticleList articles={articles} title='Category:' subtitle={category} />
+      <ArticleList
+        articles={articles}
+        title='Category:'
+        subtitle={category}
+        nav
+      />
     </Layout>
   )
 }

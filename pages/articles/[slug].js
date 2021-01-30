@@ -23,7 +23,15 @@ import config from '@/cms/site-settings.json'
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
-  const { title, slug, date, tags, author, featuredimage, body } = article
+  const {
+    title,
+    slug,
+    date,
+    tags,
+    author,
+    featuredimage,
+    featuredimageurl,
+  } = article
   const keywords = tags.map(it => getTag(it).name)
   const authorName = getAuthor(author).name
   const url = `/posts/${slug}`
@@ -63,7 +71,7 @@ export default function Article({ article, source }) {
         </Flex>
         <ArticleTitle title={title} />
         <ArticleCategory tags={tags.map(it => getTag(it))} />
-        <ArticleCoverImage featuredImage={featuredimage} />
+        <ArticleCoverImage featuredImage={featuredimage || featuredimageurl} />
         <ArticleBody body={content} />
         <ArticleShare url={fullUrl} />
       </ArticleLayout>

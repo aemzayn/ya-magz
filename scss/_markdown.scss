@@ -6,9 +6,14 @@
   time {
     color: #9b9b9b;
   }
+
   p {
     line-height: 1.5rem;
     margin: 1.5rem 0 0 0;
+  }
+
+  p,
+  li {
     font-family: $inter;
   }
 

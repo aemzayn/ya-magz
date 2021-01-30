@@ -18,6 +18,7 @@ export default function ArticlesPage({ articles, pagination }) {
         title={'All Articles'}
         articles={articles}
         pagination={pagination}
+        nav
       />
     </Layout>
   )

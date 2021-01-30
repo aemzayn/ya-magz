@@ -27,7 +27,7 @@ export default function Hero({ article }) {
         <HeroExcerpt excerpt={article?.excerpt} />
         <HeroCTA url={article?.slug} />
       </Flex>
-      <HeroImage url={article?.featuredimage} />
+      <HeroImage url={article?.featuredimage || article?.featuredimageurl} />
     </HeroLayout>
   )
 }

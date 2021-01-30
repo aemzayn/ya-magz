@@ -51,7 +51,6 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'Tag name for displaying on the site'
-
   - name: 'team_members'
     label: 'Team Members'
     delete: false
@@ -91,7 +90,6 @@ collections:
               - label: 'Social Media'
                 name: 'social_media'
                 widget: 'list'
-                summary: { { field. } }
                 fields:
                   - { label: Instagram, name: instagram, widget: string }
                   - { label: Twitter, name: twitter, widget: string }
@@ -102,9 +100,8 @@ collections:
                       name: website,
                       widget: string,
                     }
-
-  - name: 'posts'
-    label: 'Blog Posts'
+  - name: 'articles'
+    label: 'Articles'
     folder: '/data/posts'
     extension: 'mdx'
     format: 'frontmatter'
@@ -128,6 +125,11 @@ collections:
       - label: 'Featured Image'
         name: 'featuredimage'
         widget: 'image'
+        hint: 'Upload an image'
+      - label: 'Featured Image URL'
+        name: 'featuredimageurl'
+        widget: 'image'
+        hint: 'Link to the image online'
       - label: 'Publish Date'
         name: 'date'
         widget: 'datetime'
@@ -163,8 +165,7 @@ collections:
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
-
-  - name: 'posts'
+  - name: 'indorsagraphy'
     label: 'Gallery Indorsagraphy'
     delete: false
     editor:

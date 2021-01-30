@@ -4,6 +4,7 @@ import ArticleCard from '@/components/home/article-card'
 import Pagination from './pagination'
 import Link from 'next/link'
 import { isValidMotionProp, motion } from 'framer-motion'
+import ArticleCategoryNav from './article-category-nav'
 
 export default function ArticleList({
   articles = [],
@@ -12,6 +13,7 @@ export default function ArticleList({
   subtitle = '',
   moreBtn = false,
   moreBtnHref = '/',
+  nav,
 }) {
   const MotionBox = motion.custom(
     forwardRef((props, ref) => {
@@ -53,6 +55,9 @@ export default function ArticleList({
           </Heading>
         )}
       </Flex>
+
+      {nav && <ArticleCategoryNav />}
+
       <Flex direction={{ base: 'column', md: 'row' }} w='100%' flexWrap='wrap'>
         {articles.map((ar, i) => (
           <ArticleCard key={i} article={ar} />

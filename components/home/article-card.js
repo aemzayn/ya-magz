@@ -4,6 +4,8 @@ import Link from 'next/link'
 import React from 'react'
 
 const Article = ({ article }) => {
+  const { title, slug, excerpt, featuredimage, featuredimageurl } = article
+
   return (
     <Box
       w={{ base: '100%', md: '50%', lg: '33.3%' }}
@@ -19,13 +21,13 @@ const Article = ({ article }) => {
         <Skeleton
           height='100%'
           width='100%'
-          isLoaded={article.featuredimage ? true : false}
+          isLoaded={featuredimage || featuredimageurl ? true : false}
         >
           <Image
             h='100%'
             w='100%'
             objectFit='cover'
-            src={article.featuredimage}
+            src={featuredimage || featuredimageurl}
           />
         </Skeleton>
       </Box>
@@ -43,7 +45,7 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          {article?.title}
+          {title}
         </Heading>
         <Text
           color='gray.500'
@@ -51,10 +53,10 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          {article?.excerpt}
+          {excerpt}
         </Text>
         <Text color='blue.400' className='article-link'>
-          <Link href={`/articles/${article.slug}`}>
+          <Link href={`/articles/${slug}`}>
             <a>
               read more
               <ChevronRightIcon />
