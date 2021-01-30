@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GA_TRACKING_ID } from '@/lib/gtag.js'
+import { Fragment } from 'react'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
