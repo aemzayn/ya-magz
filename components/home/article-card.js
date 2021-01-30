@@ -9,8 +9,13 @@ const Article = ({ article }) => {
       w={{ base: '100%', md: '50%', lg: '33.3%' }}
       px={{ base: 0, md: '1rem' }}
       className='article'
+      mb={{ base: 8, md: 4 }}
     >
-      <Box w='100%' h='50%'>
+      <Box
+        w='100%'
+        h={{ base: '15rem', md: '20rem', lg: '22rem' }}
+        maxH={{ base: '30rem', lg: '35rem' }}
+      >
         <Skeleton
           height='100%'
           width='100%'
@@ -24,7 +29,12 @@ const Article = ({ article }) => {
           />
         </Skeleton>
       </Box>
-      <VStack spacing='4' w='100%' py='4' alignItems='flex-start'>
+      <VStack
+        spacing={{ base: 3, md: 4 }}
+        w='100%'
+        mt='4'
+        alignItems='flex-start'
+      >
         <Heading
           className='article-title'
           as='h5'
