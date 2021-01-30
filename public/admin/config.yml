@@ -128,7 +128,7 @@ collections:
         hint: 'Upload an image'
       - label: 'Featured Image URL'
         name: 'featuredimageurl'
-        widget: 'image'
+        widget: 'string'
         hint: 'Link to the image online'
       - label: 'Publish Date'
         name: 'date'
