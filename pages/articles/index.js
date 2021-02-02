@@ -5,6 +5,7 @@ import BasicMeta from '@/components/article/meta/basicMeta'
 import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
 import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
 import ArticleList from '@/components/article/article-list'
+import Meta from '@/components/article/meta/meta'
 
 export default function ArticlesPage({ articles, pagination }) {
   const url = '/articles'
