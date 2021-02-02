@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Meta from '@/components/article/meta/meta'
 import Layout from '@/components/sections/layout'
-import Nav from '@/components/read/nav'
+import GridNav from '@/components/read/grid-nav'
 import Grid from '@/components/read/grid'
 import { magazines } from '@/cms/magazines.json'
 import { bulletins } from '@/cms/bulletins.json'
-import GridContainer from '@/components/read/grid-container'
+import GridLayout from '@/components/read/grid-layout'
 
 export default function Read() {
   const router = useRouter()
@@ -22,16 +22,20 @@ export default function Read() {
 
   return (
     <Layout>
-      <Meta title='Read' url='/read' />
-      <GridContainer>
-        <Nav
+      <Meta
+        title='Read'
+        url='/read'
+        description='Magazines and Bulletins published by Ya! Magazine.'
+      />
+      <GridLayout>
+        <GridNav
           bulletins={bulletins}
           magazines={magazines}
           show={show}
           setShow={setShow}
         />
         <Grid items={show} />
-      </GridContainer>
+      </GridLayout>
     </Layout>
   )
 }

@@ -1,38 +1,43 @@
 import { listTags } from '@/lib/postTags'
-import { Button, Flex, HStack, Text } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const ArticleCategoryNav = () => {
   const router = useRouter()
   const { slug } = router.query
+  const tags = listTags()
   return (
-    <HStack d='flex' mb='8'>
-      {listTags().map((tag, i) => (
-        <Link key={i} href={`/category/${tag.slug}`}>
-          <Text
-            as='a'
-            position='relative'
-            borderRadius='false'
-            fontWeight='normal'
-            cursor='pointer'
-            color={tag.slug === slug ? 'black' : 'gray.500'}
-            _after={{
-              display: tag.slug === slug ? 'block' : 'none',
-              content: "''",
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              bottom: '-2px',
-              bg: 'black',
-              height: '1.5px',
-            }}
-          >
-            {tag.name}
-          </Text>
-        </Link>
+    <Flex
+      w='100%'
+      d='flex'
+      mt='4'
+      mb='8'
+      borderBottomWidth='1px'
+      borderBottomColor='gray.200'
+      borderBottomStyle='solid'
+      d='flex'
+      justifyContent='center'
+      overflowX='auto'
+      flexWrap='wrap'
+    >
+      {tags.map((tag, i) => (
+        <Button
+          key={i}
+          borderRadius='false'
+          outline='false'
+          colorScheme='black'
+          cursor='pointer'
+          color={tag.slug === slug ? 'black' : 'gray.400'}
+          bg={tag.slug === slug ? 'gray.200' : 'none'}
+          fontWeight='normal'
+        >
+          <Link key={i} href={`/category/${tag.slug}`}>
+            <a>{tag.name}</a>
+          </Link>
+        </Button>
       ))}
-    </HStack>
+    </Flex>
   )
 }
 

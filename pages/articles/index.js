@@ -11,6 +11,12 @@ export default function ArticlesPage({ articles, pagination }) {
   const title = 'Articles'
   return (
     <Layout>
+      <Meta
+        url={url}
+        title={title}
+        keywords={['article', 'ya magazine', 'ya emagazine']}
+        description={'All articles from Ya! Magazine'}
+      />
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />

@@ -11,7 +11,7 @@ const Article = ({ article }) => {
       w={{ base: '100%', md: '50%', lg: '33.3%' }}
       px={{ base: 0, md: '1rem' }}
       className='article'
-      mb={{ base: 8, md: 4 }}
+      mb={{ base: 10, md: 8 }}
     >
       <Box
         w='100%'
@@ -28,11 +28,12 @@ const Article = ({ article }) => {
             w='100%'
             objectFit='cover'
             src={featuredimage || featuredimageurl}
+            loading='lazy'
           />
         </Skeleton>
       </Box>
       <VStack
-        spacing={{ base: 3, md: 4 }}
+        spacing={{ base: 2, md: 3 }}
         w='100%'
         mt='4'
         alignItems='flex-start'
@@ -45,7 +46,9 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          {title}
+          <Link href={`/articles/${slug}`}>
+            <a>{title}</a>
+          </Link>
         </Heading>
         <Text
           color='gray.500'

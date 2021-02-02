@@ -4,10 +4,6 @@ import ArticleCategory from '@/components/article/article-category'
 import ArticleCoverImage from '@/components/article/article-cover-image'
 import ArticleLayout from '@/components/article/article-layout'
 import ArticleTitle from '@/components/article/article-title'
-import BasicMeta from '@/components/article/meta/basicMeta'
-import JsonLdMeta from '@/components/article/meta/jsonLdMeta'
-import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
-import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
 import Layout from '@/components/sections/layout'
 import { getPostContent, listPosts } from '@/lib/posts'
 import matter from 'gray-matter'
@@ -20,12 +16,14 @@ import { Flex } from '@chakra-ui/react'
 import ArticleDate from '@/components/article/article-date'
 import ArticleShare from '@/components/article/article-share'
 import config from '@/cms/site-settings.json'
+import Meta from '@/components/article/meta/meta'
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
   const {
     title,
     slug,
+    excerpt,
     date,
     tags,
     author,
@@ -39,29 +37,14 @@ export default function Article({ article, source }) {
 
   return (
     <Layout>
-      <BasicMeta
+      <Meta
         url={url}
         title={title}
         keywords={keywords}
-        // description={description}
-      />
-      <TwitterCardMeta
-        url={url}
-        title={title}
-        // description={description}
-      />
-      <OpenGraphMeta
-        url={url}
-        title={title}
-        // description={description}
-      />
-      <JsonLdMeta
-        url={url}
-        title={title}
-        keywords={keywords}
+        description={excerpt}
         date={date}
         author={authorName}
-        // description={description}
+        image={featuredimage || featuredimageurl}
       />
 
       <ArticleLayout>

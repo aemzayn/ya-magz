@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Button, Flex, Heading } from '@chakra-ui/react'
+import { Button, Flex, Heading, Stack } from '@chakra-ui/react'
 import ArticleCard from '@/components/home/article-card'
 import Pagination from './pagination'
 import Link from 'next/link'
@@ -36,7 +36,6 @@ export default function ArticleList({
         flexDir={{ base: 'column', sm: 'row' }}
         alignItems={{ base: 'center', xl: 'flex-end' }}
         textAlign='center'
-        mb='8'
       >
         {title && (
           <Heading
@@ -58,7 +57,7 @@ export default function ArticleList({
 
       {nav && <ArticleCategoryNav />}
 
-      <Flex direction={{ base: 'column', md: 'row' }} w='100%' flexWrap='wrap'>
+      <Flex d='flex' direction={{ base: 'column', md: 'row' }} flexWrap='wrap'>
         {articles.map((ar, i) => (
           <ArticleCard key={i} article={ar} />
         ))}
