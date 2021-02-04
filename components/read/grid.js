@@ -1,10 +1,12 @@
 import { Grid as ChakraGrid } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import GridItem from './grid-item'
 
 const Grid = ({ items }) => {
+  const router = useRouter()
   const redirect = url => {
     if (url) {
-      window.location.href = url
+      router.push(`/redirect?url=${url}`)
     }
   }
 

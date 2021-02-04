@@ -4922,6 +4922,11 @@ next@10.0.3:
   optionalDependencies:
     sharp "0.26.2"
 
+nextjs-redirect@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/nextjs-redirect/-/nextjs-redirect-5.0.0.tgz#30a05fb189a5d1fcd5d15e46fbeee7e611579fc6"
+  integrity sha512-/AImO+Qe/BJBkqYv894wH1Gw0TWHhBQ8cXVcSc6QeGsyGDD8zWLaqzHwyRmDPXmI+Q75LoeBtUMtbx8M3rNe1A==
+
 node-abi@^2.7.0:
   version "2.19.3"
   resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.19.3.tgz#252f5dcab12dad1b5503b2d27eddd4733930282d"
