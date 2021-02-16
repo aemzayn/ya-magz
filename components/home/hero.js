@@ -26,7 +26,10 @@ export default function Hero({ article }) {
         />
         <HeroTitle title={article?.title} />
         <HeroExcerpt excerpt={article?.excerpt} />
-        <PrimaryButton href={article?.slug} rightIcon={<ArrowForwardIcon />}>
+        <PrimaryButton
+          href={`/articles/${article?.slug}`}
+          rightIcon={<ArrowForwardIcon />}
+        >
           Read Now
         </PrimaryButton>
       </Flex>
