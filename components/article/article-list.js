@@ -1,10 +1,8 @@
-import { forwardRef } from 'react'
-import { Button, Flex, Heading, Stack } from '@chakra-ui/react'
 import ArticleCard from '@/components/home/article-card'
-import Pagination from './pagination'
-import Link from 'next/link'
-import { isValidMotionProp, motion } from 'framer-motion'
+import { Flex, Heading } from '@chakra-ui/react'
 import ArticleCategoryNav from './article-category-nav'
+import PrimaryButton from './primary-button'
+import Pagination from './pagination'
 
 export default function ArticleList({
   articles = [],
@@ -15,17 +13,8 @@ export default function ArticleList({
   moreBtnHref = '/',
   nav,
 }) {
-  const MotionBox = motion.custom(
-    forwardRef((props, ref) => {
-      const chakraProps = Object.fromEntries(
-        Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-      )
-      return <Flex ref={ref} {...chakraProps} />
-    })
-  )
-
   return (
-    <MotionBox
+    <Flex
       direction='column'
       alignItems='center'
       justifyContent='center'
@@ -57,7 +46,12 @@ export default function ArticleList({
 
       {nav && <ArticleCategoryNav />}
 
-      <Flex d='flex' direction={{ base: 'column', md: 'row' }} flexWrap='wrap'>
+      <Flex
+        w='100%'
+        d='flex'
+        direction={{ base: 'column', md: 'row' }}
+        flexWrap='wrap'
+      >
         {articles.map((ar, i) => (
           <ArticleCard key={i} article={ar} />
         ))}
@@ -75,25 +69,8 @@ export default function ArticleList({
       )}
 
       {moreBtn && (
-        <Button
-          py={{ base: '5', md: '7' }}
-          px={{ base: '10', md: '12' }}
-          lineHeight='1'
-          size='lg'
-          bg='teal.400'
-          color='white'
-          borderRadius='50px'
-          fontWeight='normal'
-          borderRadius='false'
-          _hover={{
-            bg: 'teal.500',
-          }}
-        >
-          <Link href={moreBtnHref}>
-            <a>More Articles</a>
-          </Link>
-        </Button>
+        <PrimaryButton href={moreBtnHref}>More Articles</PrimaryButton>
       )}
-    </MotionBox>
+    </Flex>
   )
 }

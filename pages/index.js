@@ -5,6 +5,7 @@ import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
 import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
 import Layout from '@/components/sections/layout'
 import ArticleList from '@/components/article/article-list'
+import HomeTeam from '@/components/home/home-team'
 
 export default function Home({ homeArticles, heroArticle }) {
   return (
@@ -20,6 +21,7 @@ export default function Home({ homeArticles, heroArticle }) {
         moreBtnHref={'/articles'}
       />
       {/* <Newsletter /> */}
+      <HomeTeam />
     </Layout>
   )
 }

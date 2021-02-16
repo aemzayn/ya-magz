@@ -1,5 +1,6 @@
-import { ThemeProvider, theme, CSSReset } from '@chakra-ui/react'
+import { ThemeProvider, CSSReset } from '@chakra-ui/react'
 import '../scss/styles.scss'
+import theme from '../theme'
 
 import Router from 'next/router'
 import NProgress from 'nprogress'

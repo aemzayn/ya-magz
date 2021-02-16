@@ -1,10 +1,11 @@
 import { Flex } from '@chakra-ui/react'
 import HeroTitle from './hero-title'
-import HeroCTA from './hero-cta'
 import HeroImage from './hero-image'
 import HeroLayout from './hero-layout'
 import HeroExcerpt from './hero-excerpt'
 import HeroAuthorCategory from './hero-author-category'
+import PrimaryButton from '../article/primary-button'
+import { ArrowForwardIcon } from '@chakra-ui/icons'
 
 export default function Hero({ article }) {
   return (
@@ -25,7 +26,9 @@ export default function Hero({ article }) {
         />
         <HeroTitle title={article?.title} />
         <HeroExcerpt excerpt={article?.excerpt} />
-        <HeroCTA url={article?.slug} />
+        <PrimaryButton href={article?.slug} rightIcon={<ArrowForwardIcon />}>
+          Read Now
+        </PrimaryButton>
       </Flex>
       <HeroImage url={article?.featuredimage || article?.featuredimageurl} />
     </HeroLayout>

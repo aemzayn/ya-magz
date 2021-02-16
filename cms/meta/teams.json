@@ -1,0 +1,36 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Manager"
+    },
+    {
+      "id": 2,
+      "name": "Editor"
+    },
+    {
+      "id": 3,
+      "name": "Editorial Board Member"
+    },
+    {
+      "id": 4,
+      "name": "Marketing"
+    },
+    {
+      "id": 5,
+      "name": "Reportage"
+    },
+    {
+      "id": 6,
+      "name": "Social Media Team"
+    },
+    {
+      "id": 7,
+      "name": "Supervisor & TRD"
+    },
+    {
+      "id": 7,
+      "name": "Website Team"
+    }
+  ]
+}

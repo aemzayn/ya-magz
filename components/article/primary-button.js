@@ -1,9 +1,9 @@
 import { Button } from '@chakra-ui/react'
 import Link from 'next/link'
 
-export default function HomeButton() {
+export default function PrimaryButton({ children, href = '/', rightIcon }) {
   return (
-    <Link href='/'>
+    <Link href={href}>
       <Button
         py={{ base: '5', md: '7' }}
         px={{ base: '10', md: '12' }}
@@ -17,8 +17,9 @@ export default function HomeButton() {
         _hover={{
           bg: 'teal.500',
         }}
+        rightIcon={rightIcon && rightIcon}
       >
-        Go to articles page
+        {children.trim()}
       </Button>
     </Link>
   )

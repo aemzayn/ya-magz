@@ -51,6 +51,24 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'Tag name for displaying on the site'
+      - name: 'teams'
+        label: 'Teams'
+        file: 'cms/meta/teams.json'
+        description: 'List of Teams division in Ya!'
+        fields:
+          - name: tags
+            label: Tags
+            label_singular: 'Tag'
+            widget: list
+            fields:
+              - label: 'Id'
+                name: 'id'
+                widget: 'number'
+                hint: 'Team id'
+              - label: 'Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'Name of the team'
   - name: 'team_members'
     label: 'Team Members'
     delete: false
@@ -67,32 +85,35 @@ collections:
             label_singular: 'Member'
             widget: list
             fields:
-              - label: 'Slug'
-                name: 'slug'
-                widget: 'string'
-                hint: 'The part of a URL identifies the team members'
               - label: 'Name'
                 name: 'name'
                 widget: 'string'
                 hint: 'Full name'
-              - label: 'Avatar'
-                name: 'avatar'
-                widget: 'image'
-                allow_multiple: false
-              - label: 'Id'
-                name: 'id'
+              - label: 'Profile Photo'
+                name: 'photo'
                 widget: 'string'
-                hint: 'Unique Id'
-              - label: 'Role'
-                name: 'role'
+                hint: 'Link to the photo'
+              - label: 'Team'
+                name: 'team'
                 widget: 'string'
-                hint: 'His/her role in the team'
+                hint: 'Part of which team'
+              - label: Team
+                name: 'team'
+                widget: relation
+                collection: 'meta'
+                file: 'teams'
+                searchFields:
+                  - 'teams.*.name'
+                displayFields:
+                  - 'teams.*.name'
+                valueField: 'teams.*.name'
               - label: 'Social Media'
                 name: 'social_media'
                 widget: 'list'
                 fields:
                   - { label: Instagram, name: instagram, widget: string }
                   - { label: Twitter, name: twitter, widget: string }
+                   - { label: Facebook, name: facebook, widget: string }
                   - { label: Email, name: email, widget: string }
                   - {
                       label: Website,

@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { Box, Button, Center, Image, Skeleton } from '@chakra-ui/react'
+import { Box, Button, Center, Image } from '@chakra-ui/react'
 
 const GridItem = ({ item, redirect }) => {
   return (

@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { HamburgerIcon, SmallCloseIcon } from '@chakra-ui/icons'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import Link from 'next/link'
-import { Box, Flex, Text, Button } from '@chakra-ui/react'
-import { SmallCloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const Header = () => {
   const [show, setShow] = useState(false)

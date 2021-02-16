@@ -1,3 +1,10 @@
+import renderToString from 'next-mdx-remote/render-to-string'
+import yaml from 'js-yaml'
+import hydrate from 'next-mdx-remote/hydrate'
+import matter from 'gray-matter'
+import config from '@/cms/site-settings.json'
+
+// Components
 import ArticleAuthor from '@/components/article/article-author'
 import ArticleBody from '@/components/article/article-body'
 import ArticleCategory from '@/components/article/article-category'
@@ -5,18 +12,17 @@ import ArticleCoverImage from '@/components/article/article-cover-image'
 import ArticleLayout from '@/components/article/article-layout'
 import ArticleTitle from '@/components/article/article-title'
 import Layout from '@/components/sections/layout'
-import { getPostContent, listPosts } from '@/lib/posts'
-import matter from 'gray-matter'
-import renderToString from 'next-mdx-remote/render-to-string'
-import yaml from 'js-yaml'
-import hydrate from 'next-mdx-remote/hydrate'
-import { getAuthor } from '@/lib/authors'
-import { getTag } from '@/lib/postTags'
-import { Flex } from '@chakra-ui/react'
 import ArticleDate from '@/components/article/article-date'
 import ArticleShare from '@/components/article/article-share'
-import config from '@/cms/site-settings.json'
 import Meta from '@/components/article/meta/meta'
+
+// Chakra Components
+import { Flex } from '@chakra-ui/react'
+
+// Libs
+import { getPostContent, listPosts } from '@/lib/posts'
+import { getAuthor } from '@/lib/authors'
+import { getTag } from '@/lib/postTags'
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})

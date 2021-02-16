@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
     const { isProduction } = this.props
 
     return (
-      <Html lang='en'>
+      <Html lang='id'>
         <Head>
           <link rel='shortcut icon' href='/favicon.png' type='image/x-icon' />
           <link rel='icon' href='/favicon.png' type='image/x-icon' />
