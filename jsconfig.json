@@ -6,7 +6,6 @@
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
       "@/scss/*": ["scss/*"],
-      "@/context/*": ["context/*"],
       "@/cms/*": ["cms/*"]
     }
   },

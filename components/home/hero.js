@@ -27,7 +27,7 @@ export default function Hero({ article }) {
         <HeroTitle title={article?.title} />
         <HeroExcerpt excerpt={article?.excerpt} />
         <PrimaryButton
-          href={`/articles/${article?.slug}`}
+          href={`/read/${article?.slug}`}
           rightIcon={<ArrowForwardIcon />}
         >
           Read Now

@@ -9,7 +9,12 @@ export default function NotFound() {
       <Head>
         <title>Not Found</title>
       </Head>
-      <VStack justifyContent='center' spacing={2} minH='75vh'>
+      <VStack
+        justifyContent='center'
+        textAlign='center'
+        spacing={2}
+        minH='75vh'
+      >
         <Heading
           fontWeight='normal'
           size='2xl'
@@ -27,7 +32,7 @@ export default function NotFound() {
           color='gray.500'
           fontFamily='Product Sans'
         >
-          The things you are looking for is not available.
+          The page you are looking for is not available.
         </Heading>
       </VStack>
     </Layout>

@@ -8,7 +8,7 @@ import { magazines } from '@/cms/magazines.json'
 import { bulletins } from '@/cms/bulletins.json'
 import GridLayout from '@/components/read/grid-layout'
 
-export default function Read() {
+export default function Magazine() {
   const router = useRouter()
   const [show, setShow] = useState(magazines)
 

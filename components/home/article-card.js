@@ -46,7 +46,7 @@ const Article = ({ article }) => {
           maxW='90%'
           mr='auto'
         >
-          <Link href={`/articles/${slug}`}>
+          <Link href={`/read/${slug}`}>
             <a>{title}</a>
           </Link>
         </Heading>
@@ -59,7 +59,7 @@ const Article = ({ article }) => {
           {excerpt}
         </Text>
         <Text color='blue.400' className='article-link'>
-          <Link href={`/articles/${slug}`}>
+          <Link href={`/read/${slug}`}>
             <a>
               read more
               <ChevronRightIcon />

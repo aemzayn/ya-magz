@@ -83,9 +83,7 @@ const Layout = ({ children }) => {
         <meta name='theme-color' content='#ffffff' />
         <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
       </Head>
-      <nav>
-        <Header />
-      </nav>
+      <Header />
       <main>{children}</main>
       <Footer />
     </div>

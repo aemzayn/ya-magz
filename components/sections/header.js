@@ -18,17 +18,17 @@ const Header = () => {
       to: '/read',
     },
     {
-      name: 'Articles',
-      to: '/articles',
+      name: 'Magazine',
+      to: '/magazine',
     },
     {
-      name: 'Indorsagraphy',
-      to: '/indorsagraphy',
+      name: 'Gallery',
+      to: '/gallery',
     },
-    {
-      name: 'Collaboration',
-      to: '/collaboration',
-    },
+    // {
+    //   name: 'Collaboration',
+    //   to: '/collaboration',
+    // },
   ]
 
   return (

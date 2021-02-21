@@ -7,6 +7,7 @@ export default function ArticleCoverImage({ featuredImage }) {
         <Image
           w='100%'
           h='100%'
+          maxH='900px'
           objectFit='cover'
           objectPosition='bottom'
           src={featuredImage}

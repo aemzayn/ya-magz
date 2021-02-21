@@ -1,6 +1,8 @@
+$mainColor: #bee3f8;
+
 .markdown {
   *:not(code) {
-    font-family: $product-sans;
+    font-family: 'Inter', sans-serif;
   }
 
   time {
@@ -18,7 +20,7 @@
   }
 
   a {
-    color: blue;
+    color: $mainColor;
     text-decoration: underline;
   }
 
@@ -117,18 +119,18 @@
   }
 
   blockquote {
-    margin: 0 1rem;
-  }
-
-  blockquote::before {
-    position: absolute;
-    font-size: 6em;
-    font-family: roboto, serif;
-    line-height: 1.5rem;
-    margin-top: 0.1em;
-    margin-left: -0.2em;
-    z-index: -1;
-    color: #ededed;
+    padding-left: 1rem;
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0.25rem;
+      background-color: $mainColor;
+    }
   }
 
   table {
