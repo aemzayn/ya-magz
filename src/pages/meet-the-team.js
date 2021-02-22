@@ -19,12 +19,22 @@ export default function MeetTheTeam() {
         keywords={keywords}
       />
       <Layout>
-        <Box px='8' pt='2' my='5vh' pos='relative'>
-          <Heading as='h2' size='2xl' textAlign='center'>
+        <Box px='8' pt='2' my={{ base: 5 }} pos='relative'>
+          <Heading
+            as='h2'
+            fontWeight='normal'
+            textTransform='uppercase'
+            size='2xl'
+            textAlign='center'
+          >
             Meet the Team
           </Heading>
           <Grid
-            templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+            templateColumns={{
+              base: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+              lg: 'repeat(6, 1fr)',
+            }}
             gap={{ base: 2 }}
           >
             {teams.map((m, i) => (

@@ -3,9 +3,9 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/scss/*": ["scss/*"],
+      "@/components/*": ["src/components/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/styles/*": ["styles/*"],
       "@/cms/*": ["cms/*"]
     }
   },

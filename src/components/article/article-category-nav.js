@@ -5,7 +5,11 @@ import { useRouter } from 'next/router'
 
 const ArticleCategoryNav = () => {
   const router = useRouter()
-  const { slug } = router.query
+  const {
+    pathname,
+    query: { slug },
+    push,
+  } = router
   const tags = listTags()
   return (
     <Flex
@@ -21,6 +25,19 @@ const ArticleCategoryNav = () => {
       overflowX='auto'
       flexWrap='wrap'
     >
+      <Button
+        borderRadius='false'
+        outline='false'
+        colorScheme='black'
+        cursor='pointer'
+        color={pathname === '/read' ? 'black' : 'gray.400'}
+        bg={pathname === '/read' ? 'gray.200' : 'none'}
+        fontWeight='normal'
+      >
+        <Link href={`/read`}>
+          <a>All</a>
+        </Link>
+      </Button>
       {tags.map((tag, i) => (
         <Button
           key={i}
@@ -31,10 +48,9 @@ const ArticleCategoryNav = () => {
           color={tag.slug === slug ? 'black' : 'gray.400'}
           bg={tag.slug === slug ? 'gray.200' : 'none'}
           fontWeight='normal'
+          onClick={() => push(`/category/${tag.slug}`)}
         >
-          <Link key={i} href={`/category/${tag.slug}`}>
-            <a>{tag.name}</a>
-          </Link>
+          {tag.name}
         </Button>
       ))}
     </Flex>

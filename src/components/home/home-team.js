@@ -1,4 +1,10 @@
-import { Box, Center, Grid, Heading } from '@chakra-ui/react'
+import {
+  Box,
+  Center,
+  Grid,
+  Heading,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 import Person from '../team/person'
 import { team_members } from '@/cms/meta/team_members.json'
 import PrimaryButton from '../article/primary-button'
@@ -11,14 +17,25 @@ const MAIN_TEAM = [
 ]
 
 export default function HomeTeam() {
+  const titleSize = useBreakpointValue({ base: 'md' })
   return (
     <Box px='8' py='10' my='5vh' pos='relative'>
-      <Heading as='h2' size='2xl' textAlign='center'>
+      <Heading
+        as='h2'
+        fontWeight='normal'
+        textTransform='uppercase'
+        size={titleSize}
+        textAlign='center'
+        color='teal.700'
+      >
         Meet the Team
       </Heading>
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+        templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
         gap={{ base: 2 }}
+        width={{ base: '100%', md: '85%', lg: '80%' }}
+        mx='auto'
+        py={{ base: 5 }}
       >
         {MAIN_TEAM.map((m, i) => (
           <Person person={m} key={i} />
@@ -35,7 +52,6 @@ export default function HomeTeam() {
         bottom='0'
         bgColor='teal.50'
         zIndex='-1'
-        style={{ clipPath: 'polygon(0 5%, 100% 0, 100% 95%, 0 100%)' }}
       />
     </Box>
   )

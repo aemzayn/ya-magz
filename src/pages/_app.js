@@ -1,11 +1,11 @@
 import { ThemeProvider, CSSReset } from '@chakra-ui/react'
-import '../scss/styles.scss'
-import theme from '../theme'
+import theme from '../../theme'
+import '@/styles/styles.scss'
+import '@/styles/nprogress.css'
 
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import * as gtag from '@/lib/gtag'
-import '@/scss/nprogress.css'
 
 NProgress.configure({ showSpinner: false })
 Router.onRouteChangeStart = () => {

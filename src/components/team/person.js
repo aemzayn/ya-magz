@@ -1,8 +1,6 @@
-import getSocmed from '@/lib/socialMedia'
 import {
   AspectRatio,
   Box,
-  Flex,
   Heading,
   Image,
   Text,
@@ -10,7 +8,8 @@ import {
 } from '@chakra-ui/react'
 
 export default function Person({ person, showSocmed }) {
-  const nameSize = useBreakpointValue({ base: 'lg', md: 'sm' })
+  const nameSize = useBreakpointValue({ base: 'sm', md: 'sm' })
+  const roleTitleSize = useBreakpointValue({ base: '0.8rem' })
   return (
     <Box py={{ base: 2 }}>
       <AspectRatio ratio={2 / 2}>
@@ -18,12 +17,14 @@ export default function Person({ person, showSocmed }) {
           <Image
             loading='lazy'
             m='auto'
+            boxShadow='xs'
             borderRadius='full'
             w={{ base: '80%' }}
             h={{ base: '80%' }}
             objectFit='cover'
             src={person?.photo}
             alt={`${person?.name} from ${person?.team}`}
+            userSelect='none'
           ></Image>
         ) : (
           <Box
@@ -40,12 +41,12 @@ export default function Person({ person, showSocmed }) {
           fontWeight='normal'
           as='h3'
           size={nameSize}
-          maxW={{ base: '90%' }}
+          maxW={{ base: '100%', lg: '90%' }}
           mx='auto'
         >
           {person?.name}
         </Heading>
-        <Text fontSize={{ base: '1.2rem', md: '1rem' }} color='gray.500'>
+        <Text fontSize={roleTitleSize} color='gray.500'>
           {person?.team}
         </Text>
       </Box>

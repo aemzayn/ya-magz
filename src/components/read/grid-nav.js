@@ -30,8 +30,14 @@ const GridNav = ({ show, setShow, bulletins, magazines }) => {
       borderBottomStyle='solid'
     >
       <Box mb={{ base: 4, md: 0 }}>
-        <Heading className='page-title' as='h1' size='xl'>
-          Read
+        <Heading
+          className='page-title'
+          fontWeight='normal'
+          textTransform='uppercase'
+          as='h1'
+          size='xl'
+        >
+          Magazines and Bulletins
         </Heading>
       </Box>
       <Flex>

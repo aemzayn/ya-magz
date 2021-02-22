@@ -54,7 +54,12 @@ export default function Article({ article, source }) {
       />
 
       <ArticleLayout>
-        <Flex mb='4' color='gray.400' justifyContent='space-between'>
+        <Flex
+          flexDir={{ base: 'column', md: 'row' }}
+          mb='4'
+          color='gray.400'
+          justifyContent='space-between'
+        >
           <ArticleAuthor slug={author} name={getAuthor(author).name} />
           <ArticleDate date={date} />
         </Flex>

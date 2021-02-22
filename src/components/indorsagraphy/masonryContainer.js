@@ -3,6 +3,7 @@ import {
   Flex,
   Heading,
   Text,
+  Tooltip,
   useBreakpointValue,
   VStack,
 } from '@chakra-ui/react'
@@ -22,26 +23,34 @@ const MasonryContainer = ({ images }) => {
           display='block'
           textAlign='center'
           userSelect='none'
+          fontWeight='normal'
+          textTransform='uppercase'
         >
           Gallery
         </Heading>
         <Heading
           as='h2'
           size={subtitleSize}
-          color='gray.700'
+          color='gray.500'
           fontWeight='normal'
           d='flex'
         >
           In collaboration with
-          <Text
-            as='a'
-            href='https://www.instagram.com/indorsagraphy/'
-            target='_blank'
-            rel='author'
-            ml={{ base: 1 }}
+          <Tooltip
+            label='visit instagram'
+            aria-label='Visit Indorsagraphy Instagram'
+            hasArrow
           >
-            @Indorsagraphy
-          </Text>
+            <Text
+              as='a'
+              href='https://www.instagram.com/indorsagraphy/'
+              target='_blank'
+              rel='author'
+              ml={{ base: 1 }}
+            >
+              @Indorsagraphy
+            </Text>
+          </Tooltip>
         </Heading>
       </VStack>
       <div className='masonry'>

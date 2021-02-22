@@ -33,12 +33,19 @@ export default function ArticleList({
             size='2xl'
             display='block'
             mr={subtitle ? 2 : 0}
+            fontWeight='normal'
+            textTransform='uppercase'
           >
             {title}
           </Heading>
         )}
         {subtitle && (
-          <Heading className='page-title' size='2xl' display='block'>
+          <Heading
+            className='page-title'
+            size='2xl'
+            display='block'
+            textTransform='uppercase'
+          >
             {subtitle}
           </Heading>
         )}
