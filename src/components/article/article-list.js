@@ -3,6 +3,8 @@ import { Flex, Heading } from '@chakra-ui/react'
 import ArticleCategoryNav from './article-category-nav'
 import PrimaryButton from './primary-button'
 import Pagination from './pagination'
+import PageLayout from '../page-layout'
+import { posts_per_page } from '@/cms/site-settings.json'
 
 export default function ArticleList({
   articles = [],
@@ -14,13 +16,7 @@ export default function ArticleList({
   nav,
 }) {
   return (
-    <Flex
-      direction='column'
-      alignItems='center'
-      justifyContent='center'
-      w='100%'
-      p='8'
-    >
+    <PageLayout>
       <Flex
         flexDir={{ base: 'column', sm: 'row' }}
         alignItems={{ base: 'center', xl: 'flex-end' }}
@@ -64,7 +60,7 @@ export default function ArticleList({
         ))}
       </Flex>
 
-      {pagination && (
+      {pagination && articles.length > posts_per_page && (
         <Pagination
           current={pagination.current}
           pages={pagination.pages}
@@ -76,8 +72,10 @@ export default function ArticleList({
       )}
 
       {moreBtn && (
-        <PrimaryButton href={moreBtnHref}>More Articles</PrimaryButton>
+        <PrimaryButton bgColor='gray.800' href={moreBtnHref}>
+          Show More
+        </PrimaryButton>
       )}
-    </Flex>
+    </PageLayout>
   )
 }

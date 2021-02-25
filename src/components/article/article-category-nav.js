@@ -8,7 +8,6 @@ const ArticleCategoryNav = () => {
   const {
     pathname,
     query: { slug },
-    push,
   } = router
   const tags = listTags()
   return (
@@ -25,33 +24,35 @@ const ArticleCategoryNav = () => {
       overflowX='auto'
       flexWrap='wrap'
     >
-      <Button
-        borderRadius='false'
-        outline='false'
-        colorScheme='black'
-        cursor='pointer'
-        color={pathname === '/read' ? 'black' : 'gray.400'}
-        bg={pathname === '/read' ? 'gray.200' : 'none'}
-        fontWeight='normal'
-      >
-        <Link href={`/read`}>
-          <a>All</a>
-        </Link>
-      </Button>
-      {tags.map((tag, i) => (
+      <Link href={`/read`}>
         <Button
-          key={i}
+          as='a'
           borderRadius='false'
           outline='false'
           colorScheme='black'
           cursor='pointer'
-          color={tag.slug === slug ? 'black' : 'gray.400'}
-          bg={tag.slug === slug ? 'gray.200' : 'none'}
+          color={pathname === '/read' ? 'black' : 'gray.400'}
+          bg={pathname === '/read' ? 'gray.200' : 'none'}
           fontWeight='normal'
-          onClick={() => push(`/category/${tag.slug}`)}
         >
-          {tag.name}
+          All
         </Button>
+      </Link>
+      {tags.map((tag, i) => (
+        <Link key={i} href={`/category/${tag.slug}`}>
+          <Button
+            as='a'
+            borderRadius='false'
+            outline='false'
+            colorScheme='black'
+            cursor='pointer'
+            color={tag.slug === slug ? 'black' : 'gray.400'}
+            bg={tag.slug === slug ? 'gray.200' : 'none'}
+            fontWeight='normal'
+          >
+            {tag.name}
+          </Button>
+        </Link>
       ))}
     </Flex>
   )

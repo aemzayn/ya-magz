@@ -6,6 +6,8 @@ import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
 import Layout from '@/components/sections/layout'
 import ArticleList from '@/components/article/article-list'
 import HomeTeam from '@/components/home/home-team'
+import YaPodcast from '@/components/home/ya-podcast'
+import HomeMood from '@/components/home/home-mood'
 
 export default function Home({ homeArticles, heroArticle }) {
   return (
@@ -18,9 +20,11 @@ export default function Home({ homeArticles, heroArticle }) {
       <ArticleList
         articles={homeArticles}
         moreBtn={true}
-        moreBtnHref={'/articles'}
+        moreBtnHref={'/read'}
       />
       {/* <Newsletter /> */}
+      <YaPodcast />
+      <HomeMood />
       <HomeTeam />
     </Layout>
   )

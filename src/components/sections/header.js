@@ -1,5 +1,5 @@
 import { HamburgerIcon, SmallCloseIcon } from '@chakra-ui/icons'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, chakra, Flex, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -93,21 +93,21 @@ const Logo = () => (
 const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
   const router = useRouter()
   return (
-    <Text
-      mb={{ base: isLast ? 0 : 8, sm: 0 }}
-      mr={{ base: 0, sm: isLast ? 0 : 8 }}
-      display='block'
-      color={router.pathname === to ? 'black' : 'gray.500'}
-      cursor='pointer'
-      _hover={{
-        color: 'black',
-      }}
-      {...rest}
-    >
-      <Link href={to}>
-        <Text as='a'>{children}</Text>
-      </Link>
-    </Text>
+    <Link href={to}>
+      <chakra.a
+        display='block'
+        color={router.pathname === to ? 'black' : 'gray.500'}
+        cursor='pointer'
+        _hover={{
+          color: 'black',
+        }}
+        {...rest}
+        mb={{ base: isLast ? 0 : 8, sm: 0 }}
+        mr={{ base: 0, sm: isLast ? 0 : 8 }}
+      >
+        {children}
+      </chakra.a>
+    </Link>
   )
 }
 

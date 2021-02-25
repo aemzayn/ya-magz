@@ -17,17 +17,10 @@ const MAIN_TEAM = [
 ]
 
 export default function HomeTeam() {
-  const titleSize = useBreakpointValue({ base: 'md' })
+  const titleSize = useBreakpointValue({ base: 'lg' })
   return (
     <Box px='8' py='10' my='5vh' pos='relative'>
-      <Heading
-        as='h2'
-        fontWeight='normal'
-        textTransform='uppercase'
-        size={titleSize}
-        textAlign='center'
-        color='teal.700'
-      >
+      <Heading as='h2' size={titleSize} textAlign='center'>
         Meet the Team
       </Heading>
       <Grid

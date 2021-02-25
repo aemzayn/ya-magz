@@ -10,4 +10,8 @@ export default extendTheme({
     body,
     mono,
   },
+  colors: {
+    brand: {},
+  },
+  sizes: {},
 })
