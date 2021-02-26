@@ -1,7 +1,7 @@
 import Meta from '@/components/article/meta/meta'
 import MasonryContainer from '@/components/indorsagraphy/masonryContainer'
 import Layout from '@/components/sections/layout'
-import { gallery as images } from '@/cms/meta/gallery.json'
+import { gallery as images } from '@/cms/gallery.json'
 
 export default function Gallery() {
   return (

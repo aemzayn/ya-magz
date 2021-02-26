@@ -6,7 +6,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import Person from '../team/person'
-import { team_members } from '@/cms/meta/team_members.json'
+import { team_members } from '@/cms/team_members.json'
 import PrimaryButton from '../article/primary-button'
 
 const MAIN_TEAM = [

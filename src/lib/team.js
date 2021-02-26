@@ -1,5 +1,5 @@
-import { team_members as members } from '@/cms/meta/team_members.json'
-import { teams } from '@/cms/meta/teams.json'
+import { team_members as members } from '@/cms/team_members.json'
+import { teams } from '@/cms/teams.json'
 
 export function generateTeam() {
   let result = {}

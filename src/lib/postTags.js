@@ -1,4 +1,4 @@
-import tags from '@/cms/meta/post-tags.json'
+import tags from '@/cms/post-tags.json'
 
 const tagMap = generateTagMap()
 
