@@ -67,7 +67,7 @@ function YaPodcast() {
             h='100%'
             w='100%'
             objectFit='cover'
-            src='/images/ya-pod.jpg'
+            src='https://res.cloudinary.com/yacloud/image/upload/v1614332851/ya-pod_gi1tmm.jpg'
             loading='lazy'
             boxShadow='xl'
           />

@@ -113,7 +113,7 @@ collections:
                 fields:
                   - { label: Instagram, name: instagram, widget: string }
                   - { label: Twitter, name: twitter, widget: string }
-                   - { label: Facebook, name: facebook, widget: string }
+                  - { label: Facebook, name: facebook, widget: string }
                   - { label: Email, name: email, widget: string }
                   - {
                       label: Website,

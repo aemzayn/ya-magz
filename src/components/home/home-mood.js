@@ -72,7 +72,7 @@ function HomeMood() {
             h='100%'
             w='100%'
             objectFit='cover'
-            src='/images/mood-1.jpg'
+            src='https://res.cloudinary.com/yacloud/image/upload/v1614332851/mood-1_wjumv8.jpg'
             loading='lazy'
             boxShadow='xl'
           />

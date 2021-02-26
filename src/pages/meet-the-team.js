@@ -9,6 +9,7 @@ export default function MeetTheTeam() {
   const title = 'Meet the team'
   const description = 'Our wonderful team member'
   const keywords = ['teams', 'members']
+  console.table(teams)
 
   return (
     <>
@@ -42,7 +43,6 @@ export default function MeetTheTeam() {
             ))}
           </Grid>
         </Box>
-        )
       </Layout>
     </>
   )
