@@ -1,5 +1,5 @@
 import Meta from '@/components/article/meta/meta'
-import MasonryContainer from '@/components/indorsagraphy/masonryContainer'
+import GalleryContainer from '@/components/indorsagraphy/gallery-container'
 import Layout from '@/components/sections/layout'
 import { gallery as images } from '@/cms/gallery.json'
 
@@ -18,7 +18,7 @@ export default function Gallery() {
           'ppi bursa',
         ]}
       />
-      <MasonryContainer images={images} />
+      <GalleryContainer images={images} />
     </Layout>
   )
 }

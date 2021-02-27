@@ -21,8 +21,11 @@ const JsonLdMeta = ({
           mainEntityOfPage: config.base_url + url,
           headline: title,
           keywords: keywords ? keywords.join(',') : undefined,
-          // datePublished: formatISO(date),
-          author: author,
+          datePublished: date,
+          author: {
+            '@type': 'Person',
+            name: author,
+          },
           image: image,
           description: description,
         })}

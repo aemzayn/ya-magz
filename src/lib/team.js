@@ -16,5 +16,6 @@ export function generateTeam() {
 }
 
 export function listMembers() {
+  const members = teams.flatMap(team => team.members)
   return members
 }

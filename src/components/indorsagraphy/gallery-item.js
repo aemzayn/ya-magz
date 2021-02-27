@@ -14,7 +14,7 @@ const {
   Skeleton,
 } = require('@chakra-ui/react')
 
-const MasonryItem = ({ image }) => {
+const GalleryItem = ({ image }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
@@ -69,4 +69,4 @@ const MasonryItem = ({ image }) => {
   )
 }
 
-export default MasonryItem
+export default GalleryItem

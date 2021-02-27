@@ -1,15 +1,14 @@
 import {
   Box,
-  Flex,
   Heading,
   Text,
   Tooltip,
   useBreakpointValue,
   VStack,
 } from '@chakra-ui/react'
-import MasonryItem from './masonryItem'
+import GalleryItem from './gallery-item'
 
-const MasonryContainer = ({ images }) => {
+const GalleryContainer = ({ images }) => {
   const titleSize = useBreakpointValue({ base: '2xl' })
   const subtitleSize = useBreakpointValue({ base: 'md' })
   return (
@@ -23,8 +22,8 @@ const MasonryContainer = ({ images }) => {
           display='block'
           textAlign='center'
           userSelect='none'
-          fontWeight='normal'
-          textTransform='uppercase'
+          // fontWeight='normal'
+          // textTransform='uppercase'
         >
           Gallery
         </Heading>
@@ -37,7 +36,7 @@ const MasonryContainer = ({ images }) => {
         >
           In collaboration with
           <Tooltip
-            label='visit instagram'
+            label='@indorsagraphy on IG'
             aria-label='Visit Indorsagraphy Instagram'
             hasArrow
           >
@@ -55,7 +54,7 @@ const MasonryContainer = ({ images }) => {
       </VStack>
       <div className='masonry'>
         {images.length > 0 ? (
-          images.map((im, i) => <MasonryItem image={im} key={i} />)
+          images.map((im, i) => <GalleryItem image={im} key={i} />)
         ) : (
           <>
             <Box
@@ -113,4 +112,4 @@ const MasonryContainer = ({ images }) => {
   )
 }
 
-export default MasonryContainer
+export default GalleryContainer

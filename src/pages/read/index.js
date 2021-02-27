@@ -22,7 +22,7 @@ export default function ArticlesPage({ articles, pagination }) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <ArticleList
-        title={'ARTICLES'}
+        title={'Articles'}
         articles={articles}
         pagination={pagination}
         nav
