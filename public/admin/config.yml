@@ -102,14 +102,14 @@ collections:
                         widget: 'list'
                         summary: '{{fields.platorm}}'
                         fields:
-                          - label: 'platform',
-                            name: 'platform',
-                            widget: 'string',
-                            hint: 'ex: Instagram',
-                          - label: 'identifier',
-                            name: 'identifier',
-                            widget: 'string',
-                            hint: 'ex: @johndoe',
+                          - label: 'platform'
+                            name: 'platform'
+                            widget: 'string'
+                            hint: 'ex: Instagram'
+                          - label: 'identifier'
+                            name: 'identifier'
+                            widget: 'string'
+                            hint: 'ex: @johndoe'
   - name: 'articles'
     label: 'Articles'
     folder: '/posts'
