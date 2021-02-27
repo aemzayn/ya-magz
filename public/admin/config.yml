@@ -6,8 +6,8 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
-  - name: 'articlemeta'
-    label: 'Article Meta'
+  - name: 'Authors'
+    label: 'authors'
     delete: false
     editor:
       preview: false
@@ -15,7 +15,7 @@ collections:
       - name: 'authors'
         label: 'Authors'
         file: 'cms/authors.json'
-        description: 'Author descriptions'
+        description: 'List of Authors'
         fields:
           - name: authors
             label: Authors
@@ -30,10 +30,17 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'First and Last'
+
+  - name: 'Article categories'
+    label: 'categories'
+    delete: false
+    editor:
+      preview: false
+    files:
       - name: 'tags'
         label: 'Tags'
         file: 'cms/tags.json'
-        description: 'List of tags'
+        description: 'List of Article Categories'
         fields:
           - name: tags
             label: Tags
@@ -64,6 +71,7 @@ collections:
             label: Teams
             label_singular: 'Team'
             widget: list
+            summary: '{{name}}'
             fields:
               - label: 'Id'
                 name: 'id'
@@ -97,7 +105,7 @@ collections:
                       - label: 'platform'
                         name: 'platform'
                         widget: 'string'
-                        hint: 'ex: Instagram'
+                        hint: 'ex: instagram with lower case'
                       - label: 'identifier'
                         name: 'identifier'
                         widget: 'string'
@@ -142,7 +150,7 @@ collections:
       - label: 'Author'
         name: 'author'
         widget: 'relation'
-        collection: 'articlemeta'
+        collection: 'authors'
         file: 'authors'
         searchFields:
           - 'authors.*.name'
@@ -158,8 +166,8 @@ collections:
           label: 'Tag'
           name: 'tag'
           widget: 'relation'
-          collection: 'articlemeta'
-          file: 'post-tags'
+          collection: 'categories'
+          file: 'tags'
           search_fields:
             - 'tags.*.name'
           display_fields:
@@ -168,6 +176,7 @@ collections:
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
+
   - name: 'indorsagraphy'
     label: 'Gallery Indorsagraphy'
     delete: false
