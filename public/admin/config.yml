@@ -33,25 +33,25 @@ collections:
               - label: 'Introduction'
                 name: 'introduction'
                 widget: 'text'
-          - name: 'tags'
-            label: 'Tags'
+      - name: 'tags'
+        label: 'Tags'
+        label_singular: 'Tag'
+        file: 'cms/tags.json'
+        description: 'List of tags'
+        fields:
+          - name: tags
+            label: Tags
             label_singular: 'Tag'
-            file: 'cms/tags.json'
-            description: 'List of tags'
+            widget: list
             fields:
-              - name: tags
-                label: Tags
-                label_singular: 'Tag'
-                widget: list
-                fields:
-                  - label: 'Slug'
-                    name: 'slug'
-                    widget: 'string'
-                    hint: 'The part of a URL identifies the tag'
-                  - label: 'Display Name'
-                    name: 'name'
-                    widget: 'string'
-                    hint: 'Tag name for displaying on the site'
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the tag'
+              - label: 'Display Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'Tag name for displaying on the site'
   - name: 'team_members'
     label: 'Team Members'
     delete: false
@@ -60,7 +60,7 @@ collections:
     files:
       - name: 'team_members'
         label: 'Team members'
-        file: 'cms/team_members.json'
+        file: 'cms/teams.json'
         description: 'List of Ya! Magazine Team Members'
         fields:
           - name: 'teams'

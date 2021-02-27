@@ -1,4 +1,6 @@
-import { GooglePodcastIcon, SpotifyIcon } from '@/assets/icons'
+import ApplePodcastBadge from '@/assets/icons/apple-podcast-badge'
+import GooglePodcastBadge from '@/assets/icons/google-podcast-badge'
+import SpotifyBadge from '@/assets/icons/spotify-badge'
 import {
   AspectRatio,
   Badge,
@@ -9,13 +11,14 @@ import {
   useBreakpointValue,
   VStack,
 } from '@chakra-ui/react'
-import { useAnimation, isValidMotionProp, motion } from 'framer-motion'
+import { isValidMotionProp, motion, useAnimation } from 'framer-motion'
+import { useRouter } from 'next/router'
 import { forwardRef, useEffect } from 'react'
-import PodcastButton from '../buttons/podcast-button'
-import PageLayout from '../page-layout'
 import { useInView } from 'react-intersection-observer'
+import PageLayout from '../page-layout'
 
 function YaPodcast() {
+  const router = useRouter()
   const animation = useAnimation()
   const titleSize = useBreakpointValue({ base: 'lg', md: 'lg' })
   const iconSize = useBreakpointValue({ base: '1.5rem', md: '1rem' })
@@ -40,6 +43,16 @@ function YaPodcast() {
       animation.start('visible')
     }
   }, [animation, inView])
+
+  const badgeStyle = {
+    cursor: 'pointer',
+    height: useBreakpointValue({ base: 'full' }),
+    maxWidth: useBreakpointValue({ base: 'unset', md: '100px', xxl: '150px' }),
+    _notLast: {
+      mr: useBreakpointValue({ base: 0, md: 2 }),
+      mb: useBreakpointValue({ base: 2, md: 0 }),
+    },
+  }
 
   return (
     <PageLayout id='home-podcast'>
@@ -99,55 +112,33 @@ function YaPodcast() {
           </Text>
           <Flex
             flexDir={{ base: 'column', md: 'row' }}
-            textAlign='center'
             w={{ base: '100%', md: 'unset' }}
-            align={{ base: 'center', md: 'flex-start' }}
+            align={{ base: 'center', md: 'center' }}
           >
-            <PodcastButton
-              href='https://open.spotify.com/show/7mpdCpFNVp9U4BvUXYEoPz'
-              leftIcon={
-                <SpotifyIcon
-                  w={iconSize}
-                  h={iconSize}
-                  boxShadow='md'
-                  borderRadius='full'
-                />
+            <SpotifyBadge
+              {...badgeStyle}
+              onClick={() =>
+                router.push(
+                  '/redirect?url=https://open.spotify.com/show/7mpdCpFNVp9U4BvUXYEoPz'
+                )
               }
-            >
-              Spotify
-            </PodcastButton>
-            <PodcastButton
-              bgColor='#943BCB'
-              href='https://podcasts.apple.com/tr/podcast/ya-pod/id1499375022'
-              leftIcon={
-                <Image
-                  w={{ base: '1.5rem' }}
-                  // h={iconSize}
-                  src='https://syntax.fm/static/icons/itunes.jpg'
-                  alt='Apple Podcast Logo'
-                  borderRadius='full'
-                  borderRadius='full'
-                  boxShadow='md'
-                />
+            />
+            <ApplePodcastBadge
+              {...badgeStyle}
+              onClick={() =>
+                router.push(
+                  '/redirect?url=https://podcasts.apple.com/tr/podcast/ya-pod/id1499375022'
+                )
               }
-            >
-              Apple Podcast
-            </PodcastButton>
-            <PodcastButton
-              href='https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xM2RjZGIwYy9wb2RjYXN0L3Jzcw%3D%3D'
-              bgColor='#F9A825'
-              leftIcon={
-                <GooglePodcastIcon
-                  w={iconSize}
-                  h={iconSize}
-                  borderRadius='full'
-                  boxShadow='md'
-                  bgColor='white'
-                />
+            />
+            <GooglePodcastBadge
+              {...badgeStyle}
+              onClick={() =>
+                router.push(
+                  '/redirect?url=https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xM2RjZGIwYy9wb2RjYXN0L3Jzcw%3D%3D'
+                )
               }
-            >
-              Google Podcast
-            </PodcastButton>
+            />
           </Flex>
         </VStack>
       </Flex>

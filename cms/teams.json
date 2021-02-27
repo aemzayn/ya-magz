@@ -51,7 +51,7 @@
         {
           "name": "Tri Ahmad Djabalul Lael",
           "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675371/Team%20Photos/tri-ahmet_yezfvn.jpg",
-          "role": "Social Media Team",
+          "role": "Social Media Manager",
           "social_media": [
             {
               "platform": "instagram",
@@ -79,7 +79,7 @@
         {
           "name": "Alfianita Azizaturrohmah",
           "photo": "",
-          "team": "Editor",
+          "role": "Editor",
           "social_media": [
             {
               "platform": "instagram",

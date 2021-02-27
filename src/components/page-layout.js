@@ -9,7 +9,8 @@ function PageLayout({ children, ...rest }) {
       alignItems='center'
       justifyContent='center'
       w='100%'
-      p='8'
+      p={8}
+      py={10}
       {...rest}
     >
       {children}

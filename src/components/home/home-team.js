@@ -6,31 +6,27 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import Person from '../team/person'
-import { team_members } from '@/cms/team_members.json'
 import PrimaryButton from '../article/primary-button'
-
-const MAIN_TEAM = [
-  team_members[14],
-  team_members[1],
-  team_members[26],
-  team_members[11],
-]
+import { getManagerialDivTeam } from '@/lib/team'
 
 export default function HomeTeam() {
   const titleSize = useBreakpointValue({ base: 'lg' })
+  const teams = getManagerialDivTeam()
   return (
-    <Box px='8' py='10' my='5vh' pos='relative'>
+    <Box px='8' py='10' mt='5vh' pos='relative'>
       <Heading as='h2' size={titleSize} textAlign='center'>
         Meet the Team
       </Heading>
       <Grid
-        templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
+        templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }}
         gap={{ base: 2 }}
-        width={{ base: '100%', md: '85%', lg: '80%' }}
+        width={{ base: '100%', md: '65%', lg: '50%' }}
         mx='auto'
+        align='center'
         py={{ base: 5 }}
+        overflowX='hidden'
       >
-        {MAIN_TEAM.map((m, i) => (
+        {teams.map((m, i) => (
           <Person person={m} key={i} />
         ))}
       </Grid>

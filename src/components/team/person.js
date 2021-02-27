@@ -15,10 +15,41 @@ import {
   Tooltip,
   useBreakpointValue,
 } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 
 export default function Person({ person, showSocmed }) {
   const nameSize = useBreakpointValue({ base: 'sm', md: 'sm' })
   const roleTitleSize = useBreakpointValue({ base: '0.8rem' })
+  const router = useRouter()
+
+  const handleClick = (platform, identifier) => {
+    if (!platform || !identifier) return
+    try {
+      const url = convertToUrl(platform, identifier)
+      router.push(`/redirect?url=${url}`)
+    } catch (error) {
+      return
+    }
+  }
+
+  const convertToUrl = (platform, identifier) => {
+    switch (platform.trim()) {
+      case 'instagram':
+        return `http://instagram.com/${identifier}`
+      case 'facebook':
+        return `https://www.facebook.com/search/top?q=${identifier
+          .split(' ')
+          .join('%20')}`
+      case 'twitter':
+        return `http://twitter.com/${identifier}`
+      case 'mail':
+        return `mailto:${identifier}`
+      default:
+        throw new Error(
+          `Error @ redirectSocmed, platform: ${platform}, identifier: ${identifier}`
+        )
+    }
+  }
 
   return (
     <Box py={{ base: 2 }} pb={{ base: 4 }}>
@@ -74,13 +105,9 @@ export default function Person({ person, showSocmed }) {
               key={identifier}
               hasArrow
             >
-              <chakra.a
-                href={redirectSocmed(platform, identifier)}
-                aria-label='Link to member social media'
-                rel='noopener'
-              >
+              <chakra.span onClick={() => handleClick(platform, identifier)}>
                 <SocmedIcon w='1.125rem' h='1.125rem' platform={platform} />
-              </chakra.a>
+              </chakra.span>
             </Tooltip>
           ))}
         </HStack>
@@ -101,24 +128,5 @@ const SocmedIcon = ({ platform, ...rest }) => {
       return <MailIcon {...rest} />
     default:
       throw new Error(`${platform} is a false argument`)
-  }
-}
-
-const redirectSocmed = (platform, identifier) => {
-  switch (platform.trim()) {
-    case 'instagram':
-      return `http://instagram.com/${identifier}`
-    case 'facebook':
-      return `https://www.facebook.com/search/top?q=${identifier
-        .split(' ')
-        .join('%20')}`
-    case 'twitter':
-      return `http://twitter.com/${identifier}`
-    case 'mail':
-      return `mailto:${identifier}`
-    default:
-      throw new Error(
-        `Error @ redirectSocmed, platform: ${platform}, identifier: ${identifier}`
-      )
   }
 }

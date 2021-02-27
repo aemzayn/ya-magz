@@ -11,7 +11,15 @@ export default extendTheme({
     mono,
   },
   colors: {
-    brand: {},
+    brand: {
+      main: theme.colors.teal[400],
+    },
   },
-  sizes: {},
+  breakpoints: {
+    sm: '30em',
+    md: '48em',
+    lg: '62em',
+    xl: '80em',
+    xxl: '96em',
+  },
 })

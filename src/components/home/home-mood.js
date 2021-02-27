@@ -1,4 +1,4 @@
-import { SpotifyIcon } from '@/assets/icons'
+import SpotifyBadge from '@/assets/icons/spotify-badge'
 import {
   AspectRatio,
   Badge,
@@ -9,17 +9,17 @@ import {
   useBreakpointValue,
   VStack,
 } from '@chakra-ui/react'
-import { useAnimation, isValidMotionProp, motion } from 'framer-motion'
+import { isValidMotionProp, motion, useAnimation } from 'framer-motion'
+import { useRouter } from 'next/router'
 import { forwardRef, useEffect } from 'react'
-import PodcastButton from '../buttons/podcast-button'
-import PageLayout from '../page-layout'
 import { useInView } from 'react-intersection-observer'
+import PageLayout from '../page-layout'
 
 function HomeMood() {
+  const router = useRouter()
   const animation = useAnimation()
 
   const titleSize = useBreakpointValue({ base: 'lg', md: 'lg' })
-  const iconSize = useBreakpointValue({ base: '1.5rem', md: '1rem' })
   const imageOpacity = useBreakpointValue({ base: 1, md: 0 })
   const ChakraImage = motion.custom(
     forwardRef((props, ref) => {
@@ -41,6 +41,16 @@ function HomeMood() {
       animation.start('visible')
     }
   }, [animation, inView])
+
+  const badgeStyle = {
+    cursor: 'pointer',
+    height: useBreakpointValue({ base: 'full' }),
+    maxWidth: useBreakpointValue({ base: 'unset', md: '100px', xxl: '150px' }),
+    _notLast: {
+      mr: useBreakpointValue({ base: 0, md: 2 }),
+      mb: useBreakpointValue({ base: 2, md: 0 }),
+    },
+  }
 
   return (
     <PageLayout id='home-podcast'>
@@ -107,19 +117,14 @@ function HomeMood() {
             w={{ base: '100%', md: 'unset' }}
             align={{ base: 'center', md: 'flex-start' }}
           >
-            <PodcastButton
-              href='https://open.spotify.com/playlist/3avCRGTIVyw3AL5rSnbWwW?si=fD5vhCYvS4CdA83z0t3Cnw'
-              leftIcon={
-                <SpotifyIcon
-                  w={iconSize}
-                  h={iconSize}
-                  boxShadow='md'
-                  borderRadius='full'
-                />
+            <SpotifyBadge
+              {...badgeStyle}
+              onClick={() =>
+                router.push(
+                  '/redirect?url=https://open.spotify.com/playlist/3avCRGTIVyw3AL5rSnbWwW?si=fD5vhCYvS4CdA83z0t3Cnw'
+                )
               }
-            >
-              Spotify
-            </PodcastButton>
+            />
           </Flex>
         </VStack>
       </Flex>
