@@ -1,7 +1,7 @@
 import { chakra } from '@chakra-ui/react'
 import React from 'react'
 
-export const SpotifyIcon = props => (
+const SpotifyIcon = props => (
   <chakra.svg
     enableBackground='new 0 0 24 24'
     height='512'
@@ -21,7 +21,7 @@ export const SpotifyIcon = props => (
   </chakra.svg>
 )
 
-export const InstagramIcon = props => (
+const InstagramIcon = props => (
   <chakra.svg
     xmlns='http://www.w3.org/2000/svg'
     width='24'
@@ -44,7 +44,7 @@ export const InstagramIcon = props => (
   </chakra.svg>
 )
 
-export const MailIcon = props => (
+const MailIcon = props => (
   <chakra.svg
     xmlns='http://www.w3.org/2000/svg'
     width='24'
@@ -66,7 +66,7 @@ export const MailIcon = props => (
   </chakra.svg>
 )
 
-export const FacebookIcon = props => (
+const FacebookIcon = props => (
   <chakra.svg
     xmlns='http://www.w3.org/2000/svg'
     width='24'
@@ -87,7 +87,7 @@ export const FacebookIcon = props => (
   </chakra.svg>
 )
 
-export const TwitterIcon = props => (
+const TwitterIcon = props => (
   <chakra.svg
     xmlns='http://www.w3.org/2000/svg'
     width='24'
@@ -108,7 +108,7 @@ export const TwitterIcon = props => (
   </chakra.svg>
 )
 
-export const GooglePodcastIcon = props => (
+const GooglePodcastIcon = props => (
   <chakra.svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 48 48'
@@ -155,7 +155,7 @@ export const GooglePodcastIcon = props => (
   </chakra.svg>
 )
 
-export const CopyrightIcon = props => (
+const CopyrightIcon = props => (
   <chakra.svg
     xmlns='http://www.w3.org/2000/svg'
     enableBackground='new 0 0 24 24'
@@ -176,3 +176,13 @@ export const CopyrightIcon = props => (
     </g>
   </chakra.svg>
 )
+
+export {
+  SpotifyIcon,
+  InstagramIcon,
+  MailIcon,
+  FacebookIcon,
+  TwitterIcon,
+  GooglePodcastIcon,
+  CopyrightIcon,
+}

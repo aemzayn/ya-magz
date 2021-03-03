@@ -19,6 +19,10 @@
     {
       "slug": "sains",
       "name": "Pojok Sains"
+    },
+    {
+      "slug": "lifehack",
+      "name": "Life Hack"
     }
   ]
 }

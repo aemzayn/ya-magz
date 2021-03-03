@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 
-function PageLayout({ children, ...rest }) {
+export function PageLayout({ children, ...rest }) {
   return (
     <Box
       as='section'

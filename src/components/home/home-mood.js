@@ -15,7 +15,7 @@ import { forwardRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import PageLayout from '../page-layout'
 
-function HomeMood() {
+export default function HomeMood() {
   const router = useRouter()
   const animation = useAnimation()
 
@@ -131,5 +131,3 @@ function HomeMood() {
     </PageLayout>
   )
 }
-
-export default HomeMood

@@ -17,7 +17,7 @@ import { forwardRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import PageLayout from '../page-layout'
 
-function YaPodcast() {
+export default function YaPodcast() {
   const router = useRouter()
   const animation = useAnimation()
   const titleSize = useBreakpointValue({ base: 'lg', md: 'lg' })
@@ -145,5 +145,3 @@ function YaPodcast() {
     </PageLayout>
   )
 }
-
-export default YaPodcast

@@ -1,7 +1,7 @@
 import React from 'react'
 import { chakra } from '@chakra-ui/react'
 
-const ApplePodcastBadge = props => {
+export default function ApplePodcastBadge(props) {
   return (
     <chakra.svg
       version='1.1'
@@ -267,5 +267,3 @@ const ApplePodcastBadge = props => {
     </chakra.svg>
   )
 }
-
-export default ApplePodcastBadge

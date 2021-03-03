@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
-export default function Person({ person, showSocmed }) {
+export const Person = ({ person, showSocmed }) => {
   const nameSize = useBreakpointValue({ base: 'sm', md: 'sm' })
   const roleTitleSize = useBreakpointValue({ base: '0.8rem' })
   const router = useRouter()
@@ -115,6 +115,8 @@ export default function Person({ person, showSocmed }) {
     </Box>
   )
 }
+
+export default Person
 
 const SocmedIcon = ({ platform, ...rest }) => {
   switch (platform.trim().toLowerCase()) {

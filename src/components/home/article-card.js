@@ -58,7 +58,11 @@ const Article = ({ article }) => {
         >
           {excerpt}
         </Text>
-        <Text color='blue.400' className='article-link'>
+        <Text
+          color='blue.400'
+          className='article-link'
+          // fontFamily=''
+        >
           <Link href={`/read/${slug}`}>
             <a>
               read more

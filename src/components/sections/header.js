@@ -47,6 +47,17 @@ const Header = () => {
       borderBottomWidth='1px'
       borderBottomColor='gray.200'
       borderBottomStyle='solid'
+      pos='relative'
+      _after={{
+        pos: 'absolute',
+        content: '""',
+        display: 'block',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        borderBottom: '1px solid',
+        borderBottomColor: 'gray.50',
+      }}
     >
       <Logo />
 
@@ -82,9 +93,24 @@ const Header = () => {
 const Logo = () => (
   <Link href='/'>
     <a>
-      <Flex direction='column' className='logo' color='black'>
-        <Text>Ya!</Text>
-        <Text>Magz</Text>
+      <Flex
+        direction='column'
+        color='black'
+        fontFamily='montserrat'
+        fontSize='1.25rem'
+      >
+        <Text
+          m={0}
+          lineHeight={1}
+          pos='relative'
+          fontWeight='500'
+          fontStyle='italic'
+        >
+          Ya!
+        </Text>
+        <Text m={0} lineHeight={1} pos='relative' fontWeight='900'>
+          Magz
+        </Text>
       </Flex>
     </a>
   </Link>

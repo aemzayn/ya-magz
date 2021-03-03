@@ -16,7 +16,7 @@ export default function ArticleList({
   nav,
 }) {
   return (
-    <PageLayout>
+    <PageLayout py={{ base: 8, md: 10 }}>
       <Flex
         flexDir={{ base: 'column', sm: 'row' }}
         alignItems={{ base: 'center', xl: 'flex-end' }}
@@ -47,6 +47,7 @@ export default function ArticleList({
         d='flex'
         direction={{ base: 'column', md: 'row' }}
         flexWrap='wrap'
+        mt={nav ? 0 : 8}
       >
         {articles.map((ar, i) => (
           <ArticleCard key={i} article={ar} />

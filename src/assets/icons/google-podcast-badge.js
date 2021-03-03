@@ -1,7 +1,7 @@
 import { chakra } from '@chakra-ui/react'
 import React from 'react'
 
-const GooglePodcastBadge = props => {
+export const GooglePodcastBadge = props => {
   return (
     <chakra.svg
       width='150px'
