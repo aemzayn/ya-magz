@@ -6,8 +6,8 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
-  - name: 'Authors'
-    label: 'authors'
+  - name: 'meta'
+    label: 'Meta'
     delete: false
     editor:
       preview: false
@@ -15,7 +15,7 @@ collections:
       - name: 'authors'
         label: 'Authors'
         file: 'cms/authors.json'
-        description: 'List of Authors'
+        description: 'Author descriptions'
         fields:
           - name: authors
             label: Authors
@@ -30,17 +30,10 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'First and Last'
-
-  - name: 'Article categories'
-    label: 'categories'
-    delete: false
-    editor:
-      preview: false
-    files:
       - name: 'tags'
         label: 'Tags'
         file: 'cms/tags.json'
-        description: 'List of Article Categories'
+        description: 'List of tags'
         fields:
           - name: tags
             label: Tags
@@ -71,7 +64,6 @@ collections:
             label: Teams
             label_singular: 'Team'
             widget: list
-            summary: '{{name}}'
             fields:
               - label: 'Id'
                 name: 'id'
@@ -84,32 +76,43 @@ collections:
               - name: 'members'
                 label: 'Members'
                 widget: 'list'
+                summary: '{{fields.name}}'
                 fields:
-                  - label: 'Name'
-                    name: 'name'
-                    widget: 'string'
-                    hint: 'Full name'
-                  - label: 'Profile Photo'
-                    name: 'photo'
-                    widget: 'string'
-                    hint: 'Link to the photo'
-                  - label: 'Role'
-                    name: 'role'
-                    hint: 'Role ex: CEO'
-                    widget: 'string'
+                  - {
+                      label: 'Name',
+                      name: 'name',
+                      widget: 'string',
+                      hint: 'Full name',
+                    }
+                  - {
+                      label: 'Profile Photo',
+                      name: 'photo',
+                      widget: 'string',
+                      hint: 'Link to the photo',
+                    }
+                  - {
+                      label: 'Role',
+                      name: 'role',
+                      hint: 'Role ex: CEO',
+                      widget: 'string',
+                    }
                   - label: 'Social Media'
                     name: 'social_media'
                     widget: 'list'
                     summary: '{{fields.platorm}}'
                     fields:
-                      - label: 'platform'
-                        name: 'platform'
-                        widget: 'string'
-                        hint: 'ex: instagram with lower case'
-                      - label: 'identifier'
-                        name: 'identifier'
-                        widget: 'string'
-                        hint: 'ex: @johndoe'
+                      - {
+                          label: 'platform',
+                          name: 'platform',
+                          widget: 'string',
+                          hint: 'ex: instagram with lower case',
+                        }
+                      - {
+                          label: 'identifier',
+                          name: 'identifier',
+                          widget: 'string',
+                          hint: 'ex: @johndoe',
+                        }
 
   - name: 'articles'
     label: 'Articles'
