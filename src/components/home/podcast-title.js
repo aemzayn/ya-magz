@@ -1,14 +1,25 @@
-import { Box, Heading } from '@chakra-ui/react'
-import { isValidMotionProp, motion } from 'framer-motion'
-import { forwardRef } from 'react'
+import { Box, Heading } from '@chakra-ui/layout'
+import { useBreakpointValue } from '@chakra-ui/media-query'
+import { isValidMotionProp, motion, useAnimation } from 'framer-motion'
+import { forwardRef, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 
-export default function HeroTitle({ title }) {
+export default function PodcastTitle({ title, ...rest }) {
+  const titleSize = useBreakpointValue({ base: 'lg', md: 'lg' })
+  const animation = useAnimation()
   const Container = motion.custom(
     forwardRef((props, ref) => {
       const chakraProps = Object.fromEntries(
         Object.entries(props).filter(([key]) => !isValidMotionProp(key))
       )
-      return <Box ref={ref} {...chakraProps} />
+      return (
+        <Box
+          mt={{ base: 0, md: 2 }}
+          size={titleSize}
+          ref={ref}
+          {...chakraProps}
+        />
+      )
     })
   )
 
@@ -17,27 +28,26 @@ export default function HeroTitle({ title }) {
       const chakraProps = Object.fromEntries(
         Object.entries(props).filter(([key]) => !isValidMotionProp(key))
       )
-      return (
-        <Heading
-          size={'2xl'}
-          transform='translateY(-200px)'
-          fontWeight='bold'
-          color='primary.800'
-          textAlign='center'
-          className='hero-title'
-          lineHeight='1.2'
-          maxW='80%'
-          ref={ref}
-          {...chakraProps}
-        />
-      )
+      return <Heading as='h1' ref={ref} {...chakraProps} {...rest} />
     })
   )
+
+  const [featured, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '-200px',
+  })
+
+  useEffect(() => {
+    if (inView) {
+      animation.start('visible')
+    }
+  }, [animation, inView])
 
   return (
     <Container
       d='flex'
       overflowY='hidden'
+      ref={featured}
       variants={{
         hidden: {
           y: 0,
@@ -54,7 +64,7 @@ export default function HeroTitle({ title }) {
       initial='hidden'
       animate='visible'
     >
-      {title.split('').map((char, i) => (
+      {title?.split((char, i) => (
         <TitleChar
           key={i}
           variants={{

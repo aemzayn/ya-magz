@@ -17,4 +17,11 @@ export default extendTheme({
     xl: '80em',
     xxl: '96em',
   },
+  styles: {
+    global: {
+      'html, body': {
+        overflowX: 'hidden',
+      },
+    },
+  },
 })
