@@ -29,6 +29,7 @@ export default function Hero({ article }) {
         <PrimaryButton
           href={`/read/${article?.slug}`}
           rightIcon={<ArrowForwardIcon />}
+          bgColor='blue.400'
         >
           Read Now
         </PrimaryButton>

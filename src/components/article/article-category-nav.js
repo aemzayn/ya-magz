@@ -16,13 +16,20 @@ const ArticleCategoryNav = () => {
       d='flex'
       mt='4'
       mb='8'
-      borderBottomWidth='1px'
-      borderBottomColor='gray.200'
-      borderBottomStyle='solid'
-      d='flex'
       justifyContent='center'
       overflowX='auto'
       flexWrap='wrap'
+      pos='relative'
+      _after={{
+        content: '""',
+        display: 'block',
+        pos: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: '1px',
+        backgroundColor: 'gray.200',
+      }}
     >
       <Link href={`/read`}>
         <Button
