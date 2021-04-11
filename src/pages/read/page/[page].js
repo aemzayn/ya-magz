@@ -15,7 +15,12 @@ export default function Page({ articles, tags, pagination, page }) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <ArticleList articles={articles} tags={tags} pagination={pagination} />
+      <ArticleList
+        nav
+        title={'Articles'}
+        articles={articles}
+        pagination={pagination}
+      />
     </Layout>
   )
 }

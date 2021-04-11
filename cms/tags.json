@@ -23,6 +23,14 @@
     {
       "slug": "lifehack",
       "name": "Life Hack"
+    },
+    {
+      "slug": "religion",
+      "name": "Religion"
+    },
+    {
+      "slug": "lifestyle",
+      "name": "Lifestyle"
     }
   ]
 }

@@ -2,6 +2,7 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 import yaml from 'js-yaml'
+import config from '@/cms/site-settings.json'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -50,9 +51,11 @@ function scanDirectory() {
 }
 
 export function getHomeArticles() {
-  return scanDirectory()
-    .filter(it => !it.featuredpost)
-    .slice(0, 8)
+  const allPosts = scanDirectory()
+  const heroPost = allPosts.find(post => post.featuredpost)
+  return allPosts
+    .filter(it => it.slug !== heroPost.slug)
+    .slice(0, config.posts_per_page)
 }
 
 export function getHeroArticle() {

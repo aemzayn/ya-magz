@@ -38,8 +38,8 @@ const ArticleCategoryNav = () => {
           outline='false'
           colorScheme='black'
           cursor='pointer'
-          color={pathname === '/read' ? 'black' : 'gray.400'}
-          bg={pathname === '/read' ? 'gray.200' : 'none'}
+          color={pathname.indexOf('/read') !== -1 ? 'black' : 'gray.400'}
+          bg={pathname.indexOf('/read') !== -1 ? 'gray.200' : 'none'}
           fontWeight='normal'
         >
           All

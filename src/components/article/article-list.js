@@ -4,7 +4,6 @@ import ArticleCategoryNav from './article-category-nav'
 import PrimaryButton from './primary-button'
 import Pagination from './pagination'
 import PageLayout from '../page-layout'
-import { posts_per_page } from '@/cms/site-settings.json'
 
 export default function ArticleList({
   articles = [],
@@ -54,13 +53,13 @@ export default function ArticleList({
         ))}
       </Flex>
 
-      {pagination && articles.length > posts_per_page && (
+      {pagination && (
         <Pagination
           current={pagination.current}
           pages={pagination.pages}
           link={{
-            href: page => (page === 1 ? '/articles' : '/articles/page/[page]'),
-            as: page => (page === 1 ? null : '/articles/page/' + page),
+            href: page => (page === 1 ? '/read' : '/read/page/[page]'),
+            as: page => (page === 1 ? null : '/read/page/' + page),
           }}
         />
       )}
