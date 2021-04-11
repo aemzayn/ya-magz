@@ -10,7 +10,6 @@ function HeroLayout({ children }) {
       m='0 auto'
     >
       <Flex
-        // align='center'
         justify={{ base: 'flex-end', xl: 'space-between' }}
         direction={{ base: 'column-reverse', xl: 'row' }}
         wrap='no-wrap'

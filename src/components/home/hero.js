@@ -8,11 +8,12 @@ import PrimaryButton from '../article/primary-button'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 
 export default function Hero({ article }) {
+  const url = article?.featuredimage || article?.featuredimageurl
   return (
     <HeroLayout>
       <Flex
         as='main'
-        w={{ base: '100vw', xl: '66vw' }}
+        w={{ base: '100vw', xl: url ? '66vw' : '100vw' }}
         d='flex'
         flexDir='column'
         alignItems='center'
@@ -34,7 +35,9 @@ export default function Hero({ article }) {
           Read Now
         </PrimaryButton>
       </Flex>
-      <HeroImage url={article?.featuredimage || article?.featuredimageurl} />
+      {url && (
+        <HeroImage url={article?.featuredimage || article?.featuredimageurl} />
+      )}
     </HeroLayout>
   )
 }
