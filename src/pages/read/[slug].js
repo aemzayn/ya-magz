@@ -38,8 +38,8 @@ export default function Article({ article, source }) {
   } = article
   const keywords = tags.map(it => getTag(it).name)
   const authorName = getAuthor(author).name
-  const url = `/posts/${slug}`
-  const fullUrl = config.base_url.slice(0, -2) + url
+  const url = `/read/${slug}`
+  const fullUrl = config.base_url + url
 
   return (
     <Layout>
