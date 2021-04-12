@@ -9,7 +9,7 @@ export default function ArticleLayout({ children }) {
         maxW='800px'
         mx='auto'
         py={{ base: 10, lg: 20 }}
-        px={{ base: 8, lg: 0 }}
+        px={{ base: 4, lg: 0 }}
       >
         {children}
       </Flex>

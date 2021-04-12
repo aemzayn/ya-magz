@@ -1,10 +1,31 @@
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Box, Heading, Image, Skeleton, Text, VStack } from '@chakra-ui/react'
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
+import { ChevronRightIcon } from '@chakra-ui/icons'
+import {
+  Box,
+  Heading,
+  HStack,
+  Image,
+  Skeleton,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from '@chakra-ui/react'
+import { getAuthor } from '@/lib/authors'
+import { getTag } from '@/lib/postTags'
 
 const Article = ({ article }) => {
-  const { title, slug, excerpt, featuredimage, featuredimageurl } = article
+  const {
+    title,
+    slug,
+    excerpt,
+    featuredimage,
+    featuredimageurl,
+    author,
+    tags,
+  } = article
+
+  const titleSize = useBreakpointValue({ base: '24px', md: '25px' })
 
   return (
     <Box
@@ -41,7 +62,7 @@ const Article = ({ article }) => {
         <Heading
           className='article-title'
           as='h5'
-          size='md'
+          fontSize={titleSize}
           fontWeight='medium'
           maxW='90%'
           mr='auto'
@@ -50,19 +71,26 @@ const Article = ({ article }) => {
             <a>{title}</a>
           </Link>
         </Heading>
+        <HStack
+          spacing={1}
+          textTransform='uppercase'
+          color='gray.500'
+          fontSize='xs'
+          letterSpacing='1px'
+        >
+          <Text>{author && getAuthor(author).name}</Text>
+          <span> - </span>
+          <Text>{tags && getTag(tags[0]).name}</Text>
+        </HStack>
         <Text
           color='gray.500'
-          fontSize={{ base: '0.8rem', lg: '1rem' }}
+          fontSize={{ base: '1rem', lg: '1rem' }}
           maxW='90%'
           mr='auto'
         >
           {excerpt}
         </Text>
-        <Text
-          color='blue.400'
-          className='article-link'
-          // fontFamily=''
-        >
+        <Text color='blue.400' className='article-link'>
           <Link href={`/read/${slug}`}>
             <a>
               read more

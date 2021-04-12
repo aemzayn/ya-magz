@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { forwardRef } from 'react'
 
 export default function HeroAuthorCategory({ author, category }) {
-  // const authorcategory = `${author} -  `
   const Container = motion.custom(
     forwardRef((props, ref) => {
       const chakraProps = Object.fromEntries(

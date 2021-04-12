@@ -10,8 +10,8 @@ function generateTagMap() {
   return result
 }
 
-export function getTag(slug) {
-  return tagMap[slug]
+export function getTag(tag) {
+  return tagMap[tag]
 }
 
 export function listTags() {

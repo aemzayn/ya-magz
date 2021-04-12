@@ -15,7 +15,7 @@ export default function ArticleList({
   nav,
 }) {
   return (
-    <PageLayout py={{ base: 8, md: 10 }}>
+    <PageLayout py={{ base: 8, md: 10 }} px={{ base: 4 }}>
       <Flex
         flexDir={{ base: 'column', sm: 'row' }}
         alignItems={{ base: 'center', xl: 'flex-end' }}

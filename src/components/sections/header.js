@@ -1,3 +1,4 @@
+import { CloseIcon, MenuIcon } from '@/assets/icons'
 import { HamburgerIcon, SmallCloseIcon } from '@chakra-ui/icons'
 import { Box, chakra, Flex, Text } from '@chakra-ui/react'
 import { AnimatePresence, isValidMotionProp, motion } from 'framer-motion'
@@ -125,7 +126,7 @@ export default function Header() {
       w='100%'
       mx='auto'
       py={{ base: 6, lg: 8 }}
-      px='10'
+      px={{ base: 6, md: 10 }}
       bg='white'
       color='black'
       className='header'
@@ -147,7 +148,7 @@ export default function Header() {
       <Logo />
 
       <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
-        {show ? <SmallCloseIcon /> : <HamburgerIcon />}
+        {show ? <CloseIcon /> : <MenuIcon />}
       </Box>
 
       <Box

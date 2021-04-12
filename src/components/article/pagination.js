@@ -30,6 +30,7 @@ export default function Pagination({ current, pages, link }) {
                   _hover={{
                     bgColor: it.page === current ? 'gray.200' : 'gray.200',
                   }}
+                  borderRadius='none'
                 >
                   {it.page}
                 </Button>
