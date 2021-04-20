@@ -15,7 +15,6 @@ export default function HeroTitle({ title, isMobile }) {
           textAlign='center'
           align='center'
           justifyContent='center'
-          px={{ base: 5, md: 0 }}
           ref={ref}
           {...chakraProps}
         />
@@ -31,7 +30,6 @@ export default function HeroTitle({ title, isMobile }) {
       return (
         <Heading
           size={'2xl'}
-          // transform={`translateY(${isMobile ? '0px' : '-200px'})`}
           transform={{ base: 'none', md: 'translateY(-200px)' }}
           fontWeight='bold'
           color='primary.800'
@@ -66,29 +64,33 @@ export default function HeroTitle({ title, isMobile }) {
       initial={isMobile ? 'visible' : 'hidden'}
       animate='visible'
     >
-      {title.split('').map((char, i) => (
-        <TitleChar
-          key={i}
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 200,
-            },
-            visible: i => ({
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 1,
-                ease: [0.6, 0.05, -0.01, 0.9],
-                delay: i * 0.02,
+      {!isMobile ? (
+        title.split('').map((char, i) => (
+          <TitleChar
+            key={i}
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 200,
               },
-            }),
-          }}
-          custom={i}
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </TitleChar>
-      ))}
+              visible: i => ({
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 1,
+                  ease: [0.6, 0.05, -0.01, 0.9],
+                  delay: i * 0.02,
+                },
+              }),
+            }}
+            custom={i}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </TitleChar>
+        ))
+      ) : (
+        <TitleChar>{title}</TitleChar>
+      )}
     </Container>
   )
 }
