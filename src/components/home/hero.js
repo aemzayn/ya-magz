@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, useMediaQuery } from '@chakra-ui/react'
 import HeroTitle from './hero-title'
 import HeroImage from './hero-image'
 import HeroLayout from './hero-layout'
@@ -9,6 +9,8 @@ import { ArrowForwardIcon } from '@chakra-ui/icons'
 
 export default function Hero({ article }) {
   const url = article?.featuredimage || article?.featuredimageurl
+  const [isMobile] = useMediaQuery('(max-width: 760px)')
+
   return (
     <HeroLayout>
       <Flex
@@ -24,9 +26,10 @@ export default function Hero({ article }) {
         <HeroAuthorCategory
           author={article?.author}
           category={article?.tags[0]}
+          isMobile={isMobile}
         />
-        <HeroTitle title={article?.title} />
-        <HeroExcerpt excerpt={article?.excerpt} />
+        <HeroTitle title={article?.title} isMobile={isMobile} />
+        <HeroExcerpt excerpt={article?.excerpt} isMobile={isMobile} />
         <PrimaryButton
           href={`/read/${article?.slug}`}
           rightIcon={<ArrowForwardIcon />}

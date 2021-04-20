@@ -5,10 +5,6 @@
       "name": "Plesiran"
     },
     {
-      "slug": "kolom",
-      "name": "Kolom"
-    },
-    {
       "slug": "tokoh",
       "name": "Tokoh"
     },
@@ -21,16 +17,16 @@
       "name": "Knowledge Center"
     },
     {
-      "slug": "lifehack",
-      "name": "Life Hack"
-    },
-    {
       "slug": "religion",
       "name": "Religion"
     },
     {
       "slug": "lifestyle",
       "name": "Lifestyle"
+    },
+    {
+      "slug": "news",
+      "name": "News"
     }
   ]
 }

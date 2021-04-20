@@ -25,7 +25,7 @@ const Article = ({ article }) => {
     tags,
   } = article
 
-  const titleSize = useBreakpointValue({ base: '24px', md: '25px' })
+  const titleSize = 'xl'
 
   return (
     <Box
@@ -71,9 +71,9 @@ const Article = ({ article }) => {
             <a>{title}</a>
           </Link>
         </Heading>
-        <HStack
+        {/* <HStack
           spacing={1}
-          textTransform='uppercase'
+          // textTransform='uppercase'
           color='gray.500'
           fontSize='xs'
           letterSpacing='1px'
@@ -81,7 +81,7 @@ const Article = ({ article }) => {
           <Text>{author && getAuthor(author).name}</Text>
           <span> - </span>
           <Text>{tags && getTag(tags[0]).name}</Text>
-        </HStack>
+        </HStack> */}
         <Text
           color='gray.500'
           fontSize={{ base: '1rem', lg: '1rem' }}

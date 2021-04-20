@@ -2,13 +2,24 @@ import { Box, Heading } from '@chakra-ui/react'
 import { isValidMotionProp, motion } from 'framer-motion'
 import { forwardRef } from 'react'
 
-export default function HeroTitle({ title }) {
+export default function HeroTitle({ title, isMobile }) {
   const Container = motion.custom(
     forwardRef((props, ref) => {
       const chakraProps = Object.fromEntries(
         Object.entries(props).filter(([key]) => !isValidMotionProp(key))
       )
-      return <Box ref={ref} {...chakraProps} />
+      return (
+        <Box
+          d='flex'
+          flexWrap='wrap'
+          textAlign='center'
+          align='center'
+          justifyContent='center'
+          px={{ base: 5, md: 0 }}
+          ref={ref}
+          {...chakraProps}
+        />
+      )
     })
   )
 
@@ -20,7 +31,8 @@ export default function HeroTitle({ title }) {
       return (
         <Heading
           size={'2xl'}
-          transform='translateY(-200px)'
+          // transform={`translateY(${isMobile ? '0px' : '-200px'})`}
+          transform={{ base: 'none', md: 'translateY(-200px)' }}
           fontWeight='bold'
           color='primary.800'
           textAlign='center'
@@ -51,7 +63,7 @@ export default function HeroTitle({ title }) {
           },
         },
       }}
-      initial='hidden'
+      initial={isMobile ? 'visible' : 'hidden'}
       animate='visible'
     >
       {title.split('').map((char, i) => (

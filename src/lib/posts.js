@@ -40,13 +40,15 @@ function scanDirectory() {
       return matterData
     })
   // Sort posts by date
-  postCache = allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  postCache = allPostsData
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+    .filter(p => p.author !== 'annfir') // TODO: Remove this filter after featured image found
   return postCache
 }
 
