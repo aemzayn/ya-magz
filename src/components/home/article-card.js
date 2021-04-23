@@ -1,18 +1,29 @@
-import React from 'react'
 import Link from 'next/link'
+import { getAuthor } from '@/lib/authors'
+import { getTag } from '@/lib/postTags'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
   Box,
+  chakra,
   Heading,
   HStack,
   Image,
   Skeleton,
   Text,
-  useBreakpointValue,
   VStack,
 } from '@chakra-ui/react'
-import { getAuthor } from '@/lib/authors'
-import { getTag } from '@/lib/postTags'
+
+const Item = ({ children }) => (
+  <chakra.span
+    fontWeight='normal'
+    textTransform='uppercase'
+    fontSize='0.75rem'
+    color='gray.600'
+    margin='0'
+  >
+    {children}
+  </chakra.span>
+)
 
 const Article = ({ article }) => {
   const {
@@ -54,11 +65,16 @@ const Article = ({ article }) => {
         </Skeleton>
       </Box>
       <VStack
-        spacing={{ base: 2, md: 3 }}
+        spacing={{ base: 2, md: 2 }}
         w='100%'
         mt='4'
         alignItems='flex-start'
       >
+        <HStack spacing={1}>
+          {tags && <Item>{getTag(tags[0]).name}</Item>}
+          <Item>·</Item>
+          {author && <Item>{getAuthor(author).name}</Item>}
+        </HStack>
         <Heading
           className='article-title'
           as='h5'
@@ -71,17 +87,6 @@ const Article = ({ article }) => {
             <a>{title}</a>
           </Link>
         </Heading>
-        {/* <HStack
-          spacing={1}
-          // textTransform='uppercase'
-          color='gray.500'
-          fontSize='xs'
-          letterSpacing='1px'
-        >
-          <Text>{author && getAuthor(author).name}</Text>
-          <span> - </span>
-          <Text>{tags && getTag(tags[0]).name}</Text>
-        </HStack> */}
         <Text
           color='gray.500'
           fontSize={{ base: '1rem', lg: '1rem' }}

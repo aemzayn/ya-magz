@@ -52,7 +52,7 @@ export default function HeroAuthorCategory({ author, category, isMobile }) {
     },
     {
       id: 'separator',
-      sep: '-',
+      sep: '·',
     },
     {
       id: 'author',
@@ -101,7 +101,7 @@ export default function HeroAuthorCategory({ author, category, isMobile }) {
             >
               {car === ' ' ? '\u00A0' : car}
             </MotionText>
-          )) ?? '-'}
+          )) ?? it?.sep}
         </Container>
       ))}
     </Text>
