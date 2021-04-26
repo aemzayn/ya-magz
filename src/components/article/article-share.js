@@ -9,7 +9,6 @@ import {
 } from 'react-share'
 
 const ArticleShare = ({ url }) => {
-  console.log(url)
   return (
     <Flex flexDir='column' mt='10' alignItems='center'>
       <HStack d='flex' ml='2' mt='1'>

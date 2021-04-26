@@ -65,7 +65,10 @@ export default function Article({ article, source }) {
         </Flex>
         <ArticleTitle title={title} />
         <ArticleCategory tags={tags.map(it => getTag(it))} />
-        <ArticleCoverImage featuredImage={featuredimage || featuredimageurl} />
+        <ArticleCoverImage
+          featuredImage={featuredimage || featuredimageurl}
+          alt={title}
+        />
         <ArticleBody body={content} />
         <ArticleShare url={fullUrl} />
       </ArticleLayout>

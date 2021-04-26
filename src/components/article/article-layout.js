@@ -6,9 +6,9 @@ export default function ArticleLayout({ children }) {
       <Flex
         as='article'
         direction='column'
-        maxW='800px'
+        maxW='750px'
         mx='auto'
-        py={{ base: 10, lg: 20 }}
+        py={10}
         px={{ base: 4, lg: 0 }}
       >
         {children}
