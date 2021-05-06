@@ -27,6 +27,10 @@
     {
       "slug": "news",
       "name": "News"
+    },
+    {
+      "slug": "art",
+      "name": "Art"
     }
   ]
 }

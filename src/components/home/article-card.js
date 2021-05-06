@@ -37,6 +37,7 @@ const Article = ({ article }) => {
   } = article
 
   const titleSize = 'xl'
+  const image = featuredimage || featuredimageurl
 
   return (
     <Box
@@ -45,25 +46,27 @@ const Article = ({ article }) => {
       className='article'
       mb={{ base: 10, md: 8 }}
     >
-      <Box
-        w='100%'
-        h={{ base: '15rem', md: '20rem', lg: '22rem' }}
-        maxH={{ base: '30rem', lg: '35rem' }}
-      >
-        <Skeleton
-          height='100%'
-          width='100%'
-          isLoaded={featuredimage || featuredimageurl ? true : false}
+      {image && (
+        <Box
+          w='100%'
+          h={{ base: '15rem', md: '20rem', lg: '22rem' }}
+          maxH={{ base: '30rem', lg: '35rem' }}
         >
-          <Image
-            h='100%'
-            w='100%'
-            objectFit='cover'
-            src={featuredimage || featuredimageurl}
-            loading='lazy'
-          />
-        </Skeleton>
-      </Box>
+          <Skeleton
+            height='100%'
+            width='100%'
+            isLoaded={featuredimage || featuredimageurl ? true : false}
+          >
+            <Image
+              h='100%'
+              w='100%'
+              objectFit='cover'
+              src={featuredimage || featuredimageurl}
+              loading='lazy'
+            />
+          </Skeleton>
+        </Box>
+      )}
       <VStack
         spacing={{ base: 2, md: 2 }}
         w='100%'
@@ -71,7 +74,7 @@ const Article = ({ article }) => {
         alignItems='flex-start'
       >
         <HStack spacing={1}>
-          {tags && <Item>{getTag(tags[0]).name}</Item>}
+          {tags && <Item>{getTag(tags).name}</Item>}
           <Item>·</Item>
           {author && <Item>{getAuthor(author).name}</Item>}
         </HStack>
@@ -82,6 +85,9 @@ const Article = ({ article }) => {
           fontWeight='medium'
           maxW='90%'
           mr='auto'
+          _hover={{
+            color: 'gray.500',
+          }}
         >
           <Link href={`/read/${slug}`}>
             <a>{title}</a>

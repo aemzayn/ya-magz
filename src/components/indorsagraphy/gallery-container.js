@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Heading,
   Text,
   Tooltip,
@@ -12,7 +13,7 @@ const GalleryContainer = ({ images }) => {
   const titleSize = useBreakpointValue({ base: '2xl' })
   const subtitleSize = useBreakpointValue({ base: 'md' })
   return (
-    <Box as='main' minH='100vh'>
+    <Box as='main' minH='70vh'>
       <VStack textAlign='center' justifyContent='center' py={{ base: 6 }}>
         <Heading
           as='h1'
@@ -22,8 +23,6 @@ const GalleryContainer = ({ images }) => {
           display='block'
           textAlign='center'
           userSelect='none'
-          // fontWeight='normal'
-          // textTransform='uppercase'
         >
           Gallery
         </Heading>
@@ -52,62 +51,17 @@ const GalleryContainer = ({ images }) => {
           </Tooltip>
         </Heading>
       </VStack>
-      <div className='masonry'>
-        {images.length > 0 ? (
-          images.map((im, i) => <GalleryItem image={im} key={i} />)
-        ) : (
-          <>
-            <Box
-              d='inline-block'
-              width='100%'
-              height='250px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='600px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='400px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='250px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='500px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='400px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='620px'
-              bgColor='gray.200'
-            />
-            <Box
-              d='inline-block'
-              width='100%'
-              height='300px'
-              bgColor='gray.200'
-            />
-          </>
-        )}
-      </div>
+      {images.length > 0 ? (
+        <div className='masonry'>
+          {images.map((im, i) => (
+            <GalleryItem image={im} key={i} />
+          ))}
+        </div>
+      ) : (
+        <Center w='100%' minH='20vh'>
+          <Heading>Coming soon</Heading>
+        </Center>
+      )}
     </Box>
   )
 }

@@ -161,21 +161,15 @@ collections:
           - 'authors.*.name'
         valueField: 'authors.*.slug'
       - label: 'Tags'
-        label_singular: 'Tag'
         name: 'tags'
-        widget: list
-        summary: '{{fields.tag}}'
-        field:
-          label: 'Tag'
-          name: 'tag'
-          widget: 'relation'
-          collection: 'categories'
-          file: 'tags'
-          search_fields:
-            - 'tags.*.name'
-          display_fields:
-            - 'tags.*.name'
-          value_field: 'tags.*.slug'
+        widget: 'relation'
+        collection: 'tags'
+        file: 'tags'
+        searchFields:
+          - 'tags.*.name'
+        displayFields:
+          - 'tags.*.name'
+        valueField: 'tags.*.slug'
       - label: 'Body'
         name: 'body'
         widget: 'markdown'

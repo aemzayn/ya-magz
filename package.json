@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "eslint": "^7.20.0",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint-plugin-react": "^7.22.0",
+    "ssri": "^8.0.1"
   }
 }

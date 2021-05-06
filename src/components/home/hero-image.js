@@ -31,7 +31,7 @@ export default function HeroImage({ url }) {
           height='100%'
           width='100%'
           objectFit='cover'
-          objectPosition={{ base: 'center 80%', md: 'center 75%' }}
+          objectPosition={{ base: 'center 40%', md: 'center 75%' }}
         />
       </Skeleton>
     </MotionBox>

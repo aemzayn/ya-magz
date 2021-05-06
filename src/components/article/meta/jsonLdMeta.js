@@ -20,7 +20,9 @@ const JsonLdMeta = ({
           '@type': 'BlogPosting',
           mainEntityOfPage: config.base_url + url,
           headline: title,
-          keywords: keywords ? keywords.join(',') : undefined,
+          keywords: Array.isArray(keywords)
+            ? keywords.join(',')
+            : keywords ?? undefined,
           datePublished: date,
           author: {
             '@type': 'Person',

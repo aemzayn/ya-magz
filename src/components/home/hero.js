@@ -25,7 +25,7 @@ export default function Hero({ article }) {
       >
         <HeroAuthorCategory
           author={article?.author}
-          category={article?.tags[0]}
+          category={article?.tags}
           isMobile={isMobile}
         />
         <HeroTitle title={article?.title} isMobile={isMobile} />

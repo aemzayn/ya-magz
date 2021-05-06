@@ -36,7 +36,7 @@ export default function Article({ article, source }) {
     featuredimage,
     featuredimageurl,
   } = article
-  const keywords = tags.map(it => getTag(it).name)
+  const keywords = getTag(tags)
   const authorName = getAuthor(author).name
   const url = `/read/${slug}`
   const fullUrl = config.base_url + url
@@ -64,7 +64,7 @@ export default function Article({ article, source }) {
           <ArticleDate date={date} />
         </Flex>
         <ArticleTitle title={title} />
-        <ArticleCategory tags={tags.map(it => getTag(it))} />
+        <ArticleCategory tags={getTag(tags)} />
         <ArticleCoverImage
           featuredImage={featuredimage || featuredimageurl}
           alt={title}

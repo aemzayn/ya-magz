@@ -1,9 +1,10 @@
 import ArticleCard from '@/components/home/article-card'
-import { Flex, Heading } from '@chakra-ui/react'
+import { Flex, Heading, Grid, chakra, Center } from '@chakra-ui/react'
 import ArticleCategoryNav from './article-category-nav'
 import PrimaryButton from './primary-button'
 import Pagination from './pagination'
 import PageLayout from '../page-layout'
+import ShortArticleCard from './short-article-card'
 
 export default function ArticleList({
   articles = [],
@@ -13,7 +14,9 @@ export default function ArticleList({
   moreBtn = false,
   moreBtnHref = '/',
   nav,
+  url,
 }) {
+  const isArtCategory = url === 'art'
   return (
     <PageLayout py={{ base: 8, md: 10 }} px={{ base: 4 }}>
       <Flex
@@ -41,17 +44,36 @@ export default function ArticleList({
 
       {nav && <ArticleCategoryNav />}
 
-      <Flex
-        w='100%'
-        d='flex'
-        direction={{ base: 'column', md: 'row' }}
-        flexWrap='wrap'
-        mt={nav ? 0 : 8}
-      >
-        {articles.map((ar, i) => (
-          <ArticleCard key={i} article={ar} />
-        ))}
-      </Flex>
+      <chakra.div as='main' minH='40vh'>
+        {articles.length === 0 && (
+          <Center minH='10vh'>
+            <Heading textAlign='center'>No articles with this category</Heading>
+          </Center>
+        )}
+        {isArtCategory ? (
+          <Grid
+            w='full'
+            templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
+            gap={{ base: 2, md: 4 }}
+          >
+            {articles.map((ar, i) => (
+              <ShortArticleCard key={i} article={ar} />
+            ))}
+          </Grid>
+        ) : (
+          <Flex
+            w='100%'
+            d='flex'
+            direction={{ base: 'column', md: 'row' }}
+            flexWrap='wrap'
+            mt={nav ? 0 : 8}
+          >
+            {articles.map((ar, i) => (
+              <ArticleCard key={i} article={ar} />
+            ))}
+          </Flex>
+        )}
+      </chakra.div>
 
       {pagination && (
         <Pagination

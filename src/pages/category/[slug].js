@@ -25,6 +25,7 @@ export default function ArticlesByCategory({ articles }) {
         title='Category:'
         subtitle={category}
         nav
+        url={slug}
       />
     </Layout>
   )

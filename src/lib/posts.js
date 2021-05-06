@@ -48,7 +48,7 @@ function scanDirectory() {
         return -1
       }
     })
-    .filter(p => p.author !== 'annfir') // TODO: Remove this filter after featured image found
+    .filter(p => p.slug !== 'prusa-dari-bursa-untuk-bangsa') // TODO: Remove this filter after featured image found
   return postCache
 }
 
@@ -56,12 +56,12 @@ export function getHomeArticles() {
   const allPosts = scanDirectory()
   const heroPost = allPosts.find(post => post.featuredpost)
   return allPosts
-    .filter(it => it.slug !== heroPost.slug)
+    .filter(it => it.slug !== heroPost.slug && it.tags !== 'art')
     .slice(0, config.posts_per_page)
 }
 
 export function getHeroArticle() {
-  return scanDirectory().filter(it => it.featuredpost)[0]
+  return scanDirectory().find(it => it.featuredpost)
 }
 
 export function countPosts(tag) {
@@ -72,8 +72,18 @@ export function countPosts(tag) {
 
 export function listPosts(page, limit, tag) {
   return scanDirectory()
-    .filter(it => !tag || (it.tags && it.tags.includes(tag)))
+    .filter(it => !tag || (it.tags && it.tags === tag))
     .slice((page - 1) * limit, page * limit)
+}
+
+export function listArticlesWithoutTag(page, limit, tag) {
+  return scanDirectory()
+    .filter(({ tags }) => tags !== tag)
+    .slice((page - 1) * limit, page * limit)
+}
+
+export function countArticlesWithoutTag(tag) {
+  return scanDirectory().filter(({ tags }) => tags !== tag).length
 }
 
 export function getPostByAuthor(page, limit, author) {
