@@ -21,7 +21,7 @@ export default function Hero({ article }) {
         alignItems='center'
         justifyContent='center'
         pl={{ base: '0', xl: '8' }}
-        py={{ base: '2rem', lg: '10rem', xl: 0 }}
+        py={{ base: '4rem', lg: '5rem', xl: 0 }}
       >
         <HeroAuthorCategory
           author={article?.author}

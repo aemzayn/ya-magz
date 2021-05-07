@@ -10,7 +10,6 @@ export default function ArticleCategory({ tags }) {
         mr='2'
         py='0.5'
         px='2'
-        fontWeight='250'
         borderRadius='2px'
         backgroundColor='blue.100'
         transition='background-color 200ms ease-in-out'

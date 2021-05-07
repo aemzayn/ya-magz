@@ -4,7 +4,13 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <Box w='100%' bgColor='#F9F9F9'>
+    <Box
+      w='100%'
+      bgColor='white'
+      borderTopWidth='1px'
+      borderTopColor='gray.200'
+      borderTopStyle='solid'
+    >
       <Flex p={8} justifyContent='space-between'>
         <Text as='h1' d='flex' align='center' justifyContent='center'>
           <CopyrightIcon w='1rem' h='1rem' my='auto' mr='1' />

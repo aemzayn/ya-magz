@@ -39,7 +39,7 @@ export default function HomeTeam() {
         left='0'
         right='0'
         bottom='0'
-        bgColor='teal.50'
+        bgColor='gray.50'
         zIndex='-1'
       />
     </Box>

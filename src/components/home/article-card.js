@@ -5,6 +5,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
   Box,
   chakra,
+  Flex,
   Heading,
   HStack,
   Image,
@@ -17,9 +18,12 @@ const Item = ({ children }) => (
   <chakra.span
     fontWeight='normal'
     textTransform='uppercase'
-    fontSize='0.75rem'
+    fontSize={{ base: '0.6rem', lg: '0.75rem' }}
     color='gray.600'
     margin='0'
+    _notLast={{
+      marginRight: 1,
+    }}
   >
     {children}
   </chakra.span>
@@ -41,15 +45,15 @@ const Article = ({ article }) => {
 
   return (
     <Box
-      w={{ base: '100%', md: '50%', lg: '33.3%' }}
-      px={{ base: 0, md: '1rem' }}
+      w={{ base: '100%', md: '33%', lg: '33.3%' }}
+      px={{ base: 0, md: '0.5rem', xl: '1rem' }}
       className='article'
-      mb={{ base: 10, md: 8 }}
+      mb={{ base: 10, md: 8, lg: 20 }}
     >
       {image && (
         <Box
           w='100%'
-          h={{ base: '15rem', md: '20rem', lg: '22rem' }}
+          h={{ base: '15rem', lg: '22rem' }}
           maxH={{ base: '30rem', lg: '35rem' }}
         >
           <Skeleton
@@ -68,16 +72,16 @@ const Article = ({ article }) => {
         </Box>
       )}
       <VStack
-        spacing={{ base: 2, md: 2 }}
+        spacing={{ base: 2, lg: 3 }}
         w='100%'
         mt='4'
         alignItems='flex-start'
       >
-        <HStack spacing={1}>
+        <Flex as='span' flexWrap='wrap'>
           {tags && <Item>{getTag(tags).name}</Item>}
           <Item>·</Item>
           {author && <Item>{getAuthor(author).name}</Item>}
-        </HStack>
+        </Flex>
         <Heading
           className='article-title'
           as='h5'
@@ -95,13 +99,16 @@ const Article = ({ article }) => {
         </Heading>
         <Text
           color='gray.500'
-          fontSize={{ base: '1rem', lg: '1rem' }}
-          maxW='90%'
+          fontSize={{ base: '0.8rem', lg: '1rem' }}
           mr='auto'
         >
           {excerpt}
         </Text>
-        <Text color='blue.400' className='article-link'>
+        <Text
+          color='blue.400'
+          className='article-link'
+          fontSize={{ base: '0.8rem', lg: '1rem' }}
+        >
           <Link href={`/read/${slug}`}>
             <a>
               read more

@@ -1,34 +1,51 @@
-import { Flex, HStack, Tooltip } from '@chakra-ui/react'
+import { FacebookIcon, TwitterIcon, WhatsappIcon } from '@/assets/icons'
 import {
-  FacebookIcon,
+  Center,
+  Flex,
+  HStack,
+  Tooltip,
+  useBreakpointValue,
+} from '@chakra-ui/react'
+import {
+  // FacebookIcon,
   FacebookShareButton,
-  TwitterIcon,
+  // TwitterIcon,
   TwitterShareButton,
-  WhatsappIcon,
+  // WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share'
 
 const ArticleShare = ({ url }) => {
   const iconStyle = {
     borderRadius: '10px',
-    style: { height: 40, width: 40 },
+    w: useBreakpointValue({ base: '25px' }),
+    h: useBreakpointValue({ base: '25px' }),
   }
+
   return (
     <Flex flexDir='column' mt='10' alignItems='center'>
-      <HStack d='flex' ml='2' mt='1'>
-        <Tooltip hasArrow label='Share to FB'>
-          <FacebookShareButton url={url}>
-            <FacebookIcon {...iconStyle} />
-          </FacebookShareButton>
-        </Tooltip>
+      <HStack d='flex' ml='2' mt='1' spacing={{ base: 4, md: 4 }}>
         <Tooltip hasArrow label='Share to Twitter'>
           <TwitterShareButton url={url}>
-            <TwitterIcon {...iconStyle} />
+            <Center {...iconStyle}>
+              <TwitterIcon />
+            </Center>
           </TwitterShareButton>
+        </Tooltip>
+        <Tooltip hasArrow label='Share to FB'>
+          <FacebookShareButton url={url}>
+            <Center {...iconStyle}>
+              <FacebookIcon />
+            </Center>
+          </FacebookShareButton>
         </Tooltip>
         <Tooltip hasArrow label='Share to WhatsApp'>
           <WhatsappShareButton url={url}>
-            <WhatsappIcon {...iconStyle} />
+            <Center {...iconStyle}>
+              <Center w={iconStyle.w} h={iconStyle.h}>
+                <WhatsappIcon />
+              </Center>
+            </Center>
           </WhatsappShareButton>
         </Tooltip>
       </HStack>

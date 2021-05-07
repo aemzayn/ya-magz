@@ -11,11 +11,11 @@ export default extendTheme({
     },
   },
   breakpoints: {
-    sm: '30em',
-    md: '48em',
-    lg: '62em',
-    xl: '80em',
-    xxl: '96em',
+    sm: '30em', // small phone
+    md: '48em', // ipad
+    lg: '62em', // ipad pro
+    xl: '80em', // laptop
+    xxl: '96em', // pc
   },
   styles: {
     global: {

@@ -12,8 +12,6 @@ export const SpotifyBadge = props => {
       xmlnsXlink='http://www.w3.org/1999/xlink'
       {...props}
     >
-      <title>spotify-podcast-badge-blk-grn-165x40</title>
-      <desc>Created with Sketch.</desc>
       <g
         id='spotify-podcast-badge-blk-grn-165x40'
         stroke='none'

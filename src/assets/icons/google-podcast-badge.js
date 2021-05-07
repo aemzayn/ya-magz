@@ -12,8 +12,6 @@ export const GooglePodcastBadge = props => {
       xmlnsXlink='http://www.w3.org/1999/xlink'
       {...props}
     >
-      <title>EN_Google_Podcasts_Badge</title>
-      <desc>Created with Sketch.</desc>
       <g
         id='EN_Google_Podcasts_Badge'
         stroke='none'

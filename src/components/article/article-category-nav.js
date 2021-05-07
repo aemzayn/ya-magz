@@ -1,5 +1,6 @@
 import { listTags } from '@/lib/postTags'
 import { Button, Flex } from '@chakra-ui/react'
+import { m } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -10,6 +11,33 @@ const ArticleCategoryNav = () => {
     query: { slug },
   } = router
   const tags = listTags()
+  const buttonStyle = {
+    as: 'a',
+    borderRadius: false,
+    outline: false,
+    colorScheme: 'black',
+    cursor: 'pointer',
+    fontWeight: 'normal',
+    position: 'relative',
+    _after: {
+      content: '""',
+      pos: 'absolute',
+      display: 'block',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      height: 0,
+      bgColor: 'gray.100',
+      zIndex: -1,
+      transition: 'all 100ms ease-in-out',
+    },
+    _hover: {
+      _after: {
+        height: 'full',
+      },
+    },
+  }
+
   return (
     <Flex
       w='100%'
@@ -33,14 +61,9 @@ const ArticleCategoryNav = () => {
     >
       <Link href={`/read`}>
         <Button
-          as='a'
-          borderRadius='false'
-          outline='false'
-          colorScheme='black'
-          cursor='pointer'
           color={pathname.indexOf('/read') !== -1 ? 'black' : 'gray.400'}
           bg={pathname.indexOf('/read') !== -1 ? 'gray.200' : 'none'}
-          fontWeight='normal'
+          {...buttonStyle}
         >
           All
         </Button>
@@ -48,14 +71,9 @@ const ArticleCategoryNav = () => {
       {tags.map((tag, i) => (
         <Link key={i} href={`/category/${tag.slug}`}>
           <Button
-            as='a'
-            borderRadius='false'
-            outline='false'
-            colorScheme='black'
-            cursor='pointer'
             color={tag.slug === slug ? 'black' : 'gray.400'}
             bg={tag.slug === slug ? 'gray.200' : 'none'}
-            fontWeight='normal'
+            {...buttonStyle}
           >
             {tag.name}
           </Button>

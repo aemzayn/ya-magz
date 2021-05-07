@@ -1,8 +1,8 @@
+import { useRouter } from 'next/router'
 import { getAuthor } from '@/lib/authors'
 import { getTag } from '@/lib/postTags'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
-  Box,
   VStack,
   Text,
   HStack,
@@ -25,6 +25,7 @@ const Item = ({ children }) => (
 )
 
 export default function ShortArticleCard({ article }) {
+  const { push } = useRouter()
   const { title, slug, author, tags } = article
   const titleSize = 'xl'
   return (
@@ -33,6 +34,11 @@ export default function ShortArticleCard({ article }) {
       py={{ base: 4 }}
       border='1px solid'
       borderColor='gray.200'
+      cursor='pointer'
+      _hover={{
+        bgColor: 'gray.50',
+      }}
+      onClick={() => push(`/read/${slug}`)}
     >
       <VStack spacing={{ base: 2, md: 2 }} w='100%' alignItems='flex-start'>
         <HStack spacing={1}>
@@ -47,21 +53,12 @@ export default function ShortArticleCard({ article }) {
           fontWeight='medium'
           maxW='90%'
           mr='auto'
-          _hover={{
-            color: 'gray.500',
-          }}
         >
-          <Link href={`/read/${slug}`}>
-            <a>{title}</a>
-          </Link>
+          {title}
         </Heading>
         <Text color='blue.400' className='article-link'>
-          <Link href={`/read/${slug}`}>
-            <a>
-              read more
-              <ChevronRightIcon />
-            </a>
-          </Link>
+          read more
+          <ChevronRightIcon />
         </Text>
       </VStack>
     </GridItem>
