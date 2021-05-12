@@ -47,7 +47,7 @@ export default function HeroTitle({ title, isMobile }) {
     <HStack
       d='flex'
       flexWrap='wrap'
-      maxW={{ base: '90%', md: '80%' }}
+      maxW={{ base: '90%', md: '80%', xl: '55%' }}
       mt={{ base: 3, md: 0 }}
       justify='center'
     >

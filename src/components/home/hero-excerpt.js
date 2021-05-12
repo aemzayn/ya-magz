@@ -9,7 +9,7 @@ const HeroExcerpt = ({ excerpt, isMobile }) => {
       )
       return (
         <Text
-          maxW={{ base: '80%', lg: '50%' }}
+          maxW={{ base: '80%', lg: '52%' }}
           textAlign='center'
           mb='6'
           mt='4'

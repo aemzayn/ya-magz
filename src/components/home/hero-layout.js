@@ -13,7 +13,7 @@ function HeroLayout({ children }) {
         justify={{ base: 'flex-end', xl: 'space-between' }}
         direction={{ base: 'column-reverse', xl: 'row' }}
         wrap='no-wrap'
-        minH='70vh'
+        minH='78vh'
         bg='#F9F9F9'
         mb={16}
       >
