@@ -7,6 +7,7 @@ export default function ArticleLayout({ children }) {
         as='article'
         direction='column'
         maxW='750px'
+        w='full'
         mx='auto'
         py={10}
         px={{ base: 4, lg: 0 }}

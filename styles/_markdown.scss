@@ -6,6 +6,10 @@ $mainColor: #38b2ac;
     font-family: 'Product Sans', sans-serif;
   }
 
+  div.end-p {
+    margin-bottom: 1rem;
+  }
+
   time {
     color: #9b9b9b;
   }
@@ -179,7 +183,7 @@ $mainColor: #38b2ac;
   }
 
   img {
-    max-height: 500px;
+    // max-height: 500px;
     margin: 1rem auto;
     @media (max-width: 760px) {
       width: 100%;
