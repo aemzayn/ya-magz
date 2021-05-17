@@ -18,18 +18,11 @@ export default function Home({ articles, heroArticle, artArticles }) {
       <TwitterCardMeta url={'/'} />
 
       <Hero article={heroArticle} />
-      <ArticleList
+      {/* <ArticleList
         articles={articles?.slice(0, Math.round(articles.length / 2))}
-      />
+      /> */}
       {/* <HomeCarouselCard articles={artArticles} /> */}
-      <ArticleList
-        articles={articles?.slice(
-          Math.round(articles.length / 2),
-          articles.length
-        )}
-        moreBtn={true}
-        moreBtnHref={'/read'}
-      />
+      <ArticleList articles={articles} moreBtn={true} moreBtnHref={'/read'} />
       {/* <Newsletter /> */}
       <YaPodcast />
       <HomeMood />
