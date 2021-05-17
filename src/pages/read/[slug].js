@@ -68,6 +68,7 @@ export default function Article({ article, source }) {
         <ArticleCoverImage
           featuredImage={featuredimage || featuredimageurl}
           alt={title}
+          imgsource={article?.imgsource}
         />
         <ArticleBody body={content} />
         <ArticleShare url={fullUrl} />

@@ -54,10 +54,14 @@ function scanDirectory() {
 
 export function getHomeArticles() {
   const allPosts = scanDirectory()
-  const heroPost = allPosts.find(post => post.featuredpost)
-  return allPosts
-    .filter(it => it.slug !== heroPost.slug && it.tags !== 'art')
+  const heroArticle = allPosts.find(post => post.featuredpost)
+  const articles = allPosts
+    .filter(it => it.slug !== heroArticle.slug && it.tags !== 'art')
+    .slice(0, config.posts_per_page * 2)
+  const artArticles = allPosts
+    .filter(it => it.tags === 'art')
     .slice(0, config.posts_per_page)
+  return { heroArticle, articles, artArticles }
 }
 
 export function getHeroArticle() {
@@ -70,10 +74,16 @@ export function countPosts(tag) {
   ).length
 }
 
-export function listPosts(page, limit, tag) {
+export function listPosts(page = 0, limit = config.posts_per_page, tag) {
   return scanDirectory()
     .filter(it => !tag || (it.tags && it.tags === tag))
     .slice((page - 1) * limit, page * limit)
+}
+
+export function getArtPosts() {
+  return scanDirectory()
+    .filter(it => it.tags === 'art')
+    .slice(0, 6)
 }
 
 export function listArticlesWithoutTag(page, limit, tag) {

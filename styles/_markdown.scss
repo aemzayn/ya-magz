@@ -40,26 +40,19 @@ $mainColor: #38b2ac;
   }
 
   h1 {
-    font-size: 3.75rem;
+    font-size: 2rem;
     line-height: 1;
-    @media (min-width: 48em) {
-      font-size: 4.5rem;
-    }
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 1.75rem;
     line-height: 1;
-    @media (min-width: 48em) {
-      font-size: 3.75rem;
-    }
   }
 
   h3 {
-    font-size: 2.25rem;
+    font-size: 1.5rem;
     line-height: 1.2;
     @media (min-width: 48em) {
-      font-size: 3rem;
       line-height: 1;
     }
   }
@@ -112,6 +105,17 @@ $mainColor: #38b2ac;
     background-color: transparent;
     font-size: 100%;
     padding: 0;
+  }
+
+  .footnotes {
+    margin-top: 1rem;
+    hr {
+      border-color: #e2e8f0;
+    }
+  }
+
+  sup a {
+    font-size: 0.9rem;
   }
 
   code {

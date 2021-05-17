@@ -1,8 +1,8 @@
-import { Box, Image, Skeleton } from '@chakra-ui/react'
+import { Box, Image, Text } from '@chakra-ui/react'
 
-export default function ArticleCoverImage({ featuredImage, alt }) {
+export default function ArticleCoverImage({ featuredImage, alt, imgsource }) {
   return featuredImage ? (
-    <Box w='100%' my={5}>
+    <Box w='100%' mt={5} mb={imgsource ? 2 : 5} pos='relative'>
       <Image
         w='100%'
         maxH='700px'
@@ -11,6 +11,11 @@ export default function ArticleCoverImage({ featuredImage, alt }) {
         src={featuredImage ?? ''}
         alt={alt ?? 'cover'}
       />
+      {imgsource && (
+        <Text textAlign='center' mt={1} color='gray.600'>
+          {imgsource}
+        </Text>
+      )}
     </Box>
   ) : null
 }

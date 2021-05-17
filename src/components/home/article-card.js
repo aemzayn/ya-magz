@@ -7,7 +7,6 @@ import {
   chakra,
   Flex,
   Heading,
-  HStack,
   Image,
   Skeleton,
   Text,

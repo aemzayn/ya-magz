@@ -1,36 +1,40 @@
 {
   "tags": [
     {
-      "slug": "plesiran",
-      "name": "Plesiran"
+      "slug": "art",
+      "name": "Art"
     },
     {
-      "slug": "tokoh",
-      "name": "Tokoh"
-    },
-    {
-      "slug": "opini",
-      "name": "Opini"
+      "slug": "bukuku-bukumu",
+      "name": "Bukuku Bukumu"
     },
     {
       "slug": "knowledge",
       "name": "Knowledge Center"
     },
     {
-      "slug": "religion",
-      "name": "Religion"
+      "slug": "lifehacks",
+      "name": "Lifehacks"
     },
     {
       "slug": "lifestyle",
       "name": "Lifestyle"
     },
     {
-      "slug": "news",
-      "name": "News"
+      "slug": "opini",
+      "name": "Opini"
     },
     {
-      "slug": "art",
-      "name": "Art"
+      "slug": "plesiran",
+      "name": "Plesiran"
+    },
+    {
+      "slug": "religion",
+      "name": "Religion"
+    },
+    {
+      "slug": "tokoh",
+      "name": "Tokoh"
     }
   ]
 }
