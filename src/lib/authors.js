@@ -15,5 +15,5 @@ export function getAuthor(slug) {
 }
 
 export function listAuthor() {
-  return authors.authors
+  return authors.authors.sort((a, b) => a.name.localeCompare(b.name))
 }
