@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 
-const GridLayout = ({ children }) => {
+const MagazinePageLayout = ({ children }) => {
   return (
     <Flex py={{ base: 4, md: 6, lg: 8 }} flexDir='column' minHeight='100vh'>
       {children}
@@ -8,4 +8,4 @@ const GridLayout = ({ children }) => {
   )
 }
 
-export default GridLayout
+export default MagazinePageLayout

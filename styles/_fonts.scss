@@ -1,24 +1,30 @@
 @font-face {
   font-family: 'Product Sans';
-  src: url('/fonts/ProductSans-Bold.ttf');
-  font-weight: bold;
+  src: url('/fonts/product-sans/ProductSans-Black.ttf');
+  font-weight: 900;
 }
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('/fonts/ProductSans-Medium.ttf');
+  src: url('/fonts/product-sans/ProductSans-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('/fonts/product-sans/ProductSans-Medium.ttf');
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('/fonts/ProductSans-Regular.ttf');
+  src: url('/fonts/product-sans/ProductSans-Regular.ttf');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('/fonts/ProductSans-Thin.ttf');
+  src: url('/fonts/product-sans/ProductSans-Thin.ttf');
   font-weight: 300;
 }
 

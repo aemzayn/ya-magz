@@ -3,6 +3,7 @@ import yaml from 'js-yaml'
 import hydrate from 'next-mdx-remote/hydrate'
 import matter from 'gray-matter'
 import config from '@/cms/site-settings.json'
+import readingTime from 'reading-time'
 
 // Components
 import ArticleAuthor from '@/components/article/article-author'
@@ -12,12 +13,12 @@ import ArticleCoverImage from '@/components/article/article-cover-image'
 import ArticleLayout from '@/components/article/article-layout'
 import ArticleTitle from '@/components/article/article-title'
 import Layout from '@/components/sections/layout'
-import ArticleDate from '@/components/article/article-date'
 import ArticleShare from '@/components/article/article-share'
 import Meta from '@/components/article/meta/meta'
 
-// Chakra Components
-import { Flex } from '@chakra-ui/react'
+// Library Components
+import { Avatar, chakra, Icon, Stack } from '@chakra-ui/react'
+import { FiUser } from 'react-icons/fi'
 
 // Libs
 import { getPostContent, listPosts } from '@/lib/posts'
@@ -40,6 +41,7 @@ export default function Article({ article, source }) {
   const authorName = getAuthor(author).name
   const url = `/read/${slug}`
   const fullUrl = config.base_url + url
+  const readTime = readingTime(source.renderedOutput)
 
   return (
     <Layout>
@@ -54,17 +56,25 @@ export default function Article({ article, source }) {
       />
 
       <ArticleLayout>
-        <Flex
-          flexDir={{ base: 'column', md: 'row' }}
-          mb='4'
-          color='gray.400'
-          justifyContent='space-between'
-        >
-          <ArticleAuthor slug={author} name={getAuthor(author).name} />
-          <ArticleDate date={date} />
-        </Flex>
-        <ArticleTitle title={title} />
         <ArticleCategory tags={getTag(tags)} />
+        <ArticleTitle title={title} />
+        <Stack
+          direction='row'
+          flexWrap='wrap'
+          spacing={{ base: 1, md: 2 }}
+          my='4'
+          color='gray.400'
+        >
+          <Avatar size='xs' bgColor='gray.200' icon={<Icon as={FiUser} />} />
+          <ArticleAuthor slug={author} name={getAuthor(author).name} />
+          <chakra.span color='gray.500'>
+            {new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(
+              new Date(date)
+            )}
+          </chakra.span>
+          <chakra.span color='gray.500'>·</chakra.span>
+          <chakra.span color='gray.500'>{readTime?.text}</chakra.span>
+        </Stack>
         <ArticleCoverImage
           featuredImage={featuredimage || featuredimageurl}
           alt={title}

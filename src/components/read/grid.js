@@ -1,8 +1,8 @@
 import { Grid as ChakraGrid } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import GridItem from './grid-item'
+import MagazineItem from './grid-item'
 
-const Grid = ({ items }) => {
+const MagazineGrid = ({ items }) => {
   const router = useRouter()
   const redirect = url => {
     if (url) {
@@ -22,10 +22,10 @@ const Grid = ({ items }) => {
       gap={{ base: 2, xl: 4 }}
     >
       {items?.map(item => (
-        <GridItem item={item} key={item.edition} redirect={redirect} />
+        <MagazineItem item={item} key={item.edition} redirect={redirect} />
       ))}
     </ChakraGrid>
   )
 }
 
-export default Grid
+export default MagazineGrid

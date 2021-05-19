@@ -3,7 +3,7 @@ $mainColor: #38b2ac;
 .markdown {
   color: #2d3748;
   *:not(code) {
-    font-family: 'Product Sans', sans-serif;
+    font-family: $productSans !important;
   }
 
   div.end-p {
@@ -15,7 +15,8 @@ $mainColor: #38b2ac;
   }
 
   p {
-    line-height: 1.7rem;
+    font-size: 17px;
+    line-height: 1.8rem;
     margin: 1.5rem 0 0 0;
   }
 

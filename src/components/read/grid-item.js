@@ -1,7 +1,7 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Box, Button, Center, Image } from '@chakra-ui/react'
 
-const GridItem = ({ item, redirect }) => {
+const MagazineItem = ({ item, redirect }) => {
   return (
     <Box
       boxShadow={item.cover ? 'xl' : 'none'}
@@ -39,4 +39,4 @@ const GridItem = ({ item, redirect }) => {
   )
 }
 
-export default GridItem
+export default MagazineItem

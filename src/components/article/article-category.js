@@ -3,7 +3,7 @@ import { Flex, Text } from '@chakra-ui/react'
 
 export default function ArticleCategory({ tags }) {
   return (
-    <Flex color='gray.400' d='flex' alignItems='center' my='5'>
+    <Flex color='gray.400' d='flex' alignItems='center' mb={{ base: 3 }}>
       <Text mr='2'>Category: </Text>
       <Text
         color='blue.800'

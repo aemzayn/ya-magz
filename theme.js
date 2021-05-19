@@ -7,7 +7,8 @@ export default extendTheme({
   },
   colors: {
     brand: {
-      main: theme.colors.teal[400],
+      main: theme.colors.orange[400],
+      light: theme.colors.orange[200],
     },
   },
   breakpoints: {

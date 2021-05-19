@@ -1,6 +1,6 @@
-import { Box, Button, Divider, Flex, Heading } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading } from '@chakra-ui/react'
 
-const GridNav = ({ show, setShow, bulletins, magazines }) => {
+const MagazineNav = ({ show, setShow, bulletins, magazines }) => {
   const routes = [
     {
       id: 1,
@@ -24,10 +24,19 @@ const GridNav = ({ show, setShow, bulletins, magazines }) => {
       alignItems={{ base: 'flex-start', md: 'flex-end' }}
       justifyContent='space-between'
       mx={{ base: 4, md: 8 }}
-      mb='4'
-      borderBottomWidth='1px'
-      borderBottomColor='gray.200'
-      borderBottomStyle='solid'
+      mb={{ base: 4, md: 6 }}
+      pos='relative'
+      _after={{
+        content: '""',
+        d: 'block',
+        pos: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        h: '1px',
+        bgColor: 'gray.200',
+        zIndex: -1,
+      }}
     >
       <Box mb={{ base: 4, md: 0 }}>
         <Heading className='page-title' as='h1' size='xl'>
@@ -43,7 +52,7 @@ const GridNav = ({ show, setShow, bulletins, magazines }) => {
   )
 }
 
-export default GridNav
+export default MagazineNav
 
 const NavItem = ({ item, show, setShow }) => (
   <Button
@@ -53,10 +62,27 @@ const NavItem = ({ item, show, setShow }) => (
     bg={show === item.file ? 'gray.200' : 'none'}
     fontSize={{ base: 'lg', xl: '2xl' }}
     color={show === item.file ? 'black' : 'gray.400'}
-    fontWeight='normal'
+    // fontWeight=''
     borderRadius='false'
     cursor='pointer'
     onClick={() => setShow(item.file)}
+    _after={{
+      content: '""',
+      pos: 'absolute',
+      display: 'block',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      height: 0,
+      bgColor: 'gray.100',
+      zIndex: -1,
+      transition: 'all 100ms ease-in-out',
+    }}
+    _hover={{
+      _after: {
+        height: 'full',
+      },
+    }}
   >
     {item.name}
   </Button>

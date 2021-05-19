@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Meta from '@/components/article/meta/meta'
 import Layout from '@/components/sections/layout'
-import GridNav from '@/components/read/grid-nav'
-import Grid from '@/components/read/grid'
+import MagazineNav from '@/components/read/grid-nav'
+import MagazineGrid from '@/components/read/grid'
 import { magazines } from '@/cms/magazines.json'
 import { bulletins } from '@/cms/bulletins.json'
-import GridLayout from '@/components/read/grid-layout'
+import MagazinePageLayout from '@/components/read/grid-layout'
 
 export default function Magazine() {
   const router = useRouter()
@@ -23,19 +23,26 @@ export default function Magazine() {
   return (
     <Layout>
       <Meta
-        title='Read'
-        url='/read'
+        title='Magazines'
+        url='/magazine'
+        keywords={[
+          'Ya! Magazine',
+          'Magazines',
+          'Bulletins',
+          'Magazine from Ya! Magazine',
+          'Edutainment Magazine',
+        ]}
         description='Magazines and Bulletins published by Ya! Magazine.'
       />
-      <GridLayout>
-        <GridNav
+      <MagazinePageLayout>
+        <MagazineNav
           bulletins={bulletins}
           magazines={magazines}
           show={show}
           setShow={setShow}
         />
-        <Grid items={show} />
-      </GridLayout>
+        <MagazineGrid items={show} />
+      </MagazinePageLayout>
     </Layout>
   )
 }

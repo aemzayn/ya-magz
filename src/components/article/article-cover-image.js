@@ -2,7 +2,7 @@ import { Box, Image, Text } from '@chakra-ui/react'
 
 export default function ArticleCoverImage({ featuredImage, alt, imgsource }) {
   return featuredImage ? (
-    <Box w='100%' mt={5} mb={imgsource ? 2 : 5} pos='relative'>
+    <Box w='100%' mt={4} mb={imgsource ? 2 : 5} pos='relative'>
       <Image
         w='100%'
         maxH='700px'

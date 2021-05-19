@@ -1,5 +1,12 @@
 import ArticleCard from '@/components/home/article-card'
-import { Flex, Heading, Grid, chakra, Center } from '@chakra-ui/react'
+import {
+  Flex,
+  Heading,
+  Grid,
+  chakra,
+  Center,
+  SimpleGrid,
+} from '@chakra-ui/react'
 import ArticleCategoryNav from './article-category-nav'
 import PrimaryButton from './primary-button'
 import Pagination from './pagination'
@@ -23,6 +30,7 @@ export default function ArticleList({
         flexDir={{ base: 'column', sm: 'row' }}
         alignItems={{ base: 'center', xl: 'flex-end' }}
         textAlign='center'
+        mb={{ base: 1 }}
       >
         {title && (
           <Heading
@@ -51,27 +59,22 @@ export default function ArticleList({
           </Center>
         )}
         {isArtCategory ? (
-          <Grid
+          <SimpleGrid
             w='full'
+            columns={{ base: 1, md: 3 }}
             templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
-            gap={{ base: 2, md: 4 }}
+            spacing={{ base: 2, md: 4 }}
           >
             {articles.map((ar, i) => (
               <ShortArticleCard key={i} article={ar} />
             ))}
-          </Grid>
+          </SimpleGrid>
         ) : (
-          <Flex
-            w='100%'
-            d='flex'
-            direction={{ base: 'column', md: 'row' }}
-            flexWrap='wrap'
-            mt={nav ? 0 : 8}
-          >
+          <SimpleGrid w='100%' columns={{ base: 1, md: 3 }} mt={nav ? 0 : 8}>
             {articles.map((ar, i) => (
               <ArticleCard key={i} article={ar} />
             ))}
-          </Flex>
+          </SimpleGrid>
         )}
       </chakra.div>
 

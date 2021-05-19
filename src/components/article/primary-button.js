@@ -15,7 +15,7 @@ export default function PrimaryButton({
         px={{ base: '10', md: '12' }}
         lineHeight='1'
         size='lg'
-        bg='teal.400'
+        bg='brand.main'
         color='white'
         borderRadius='50px'
         fontWeight='normal'

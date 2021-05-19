@@ -4,8 +4,12 @@ import { Text } from '@chakra-ui/react'
 export default function ArticleAuthor({ name, slug }) {
   return (
     <Text d='flex'>
-      Author:
-      <Text ml='3px' color='gray.500' _hover={{ color: 'gray.600' }}>
+      <Text
+        ml='3px'
+        color='blue.400'
+        transitionDuration='150ms'
+        _hover={{ color: 'blue.600' }}
+      >
         <Link href='/author/[slug]' as={`/author/${slug}`}>
           <a>{name}</a>
         </Link>
