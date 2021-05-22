@@ -53,15 +53,43 @@ function scanDirectory() {
 }
 
 export function getHomeArticles() {
+  let nslice = 2
   const allPosts = scanDirectory()
   const heroArticle = allPosts.find(post => post.featuredpost)
+  const featuredArticle = allPosts.filter(post => post.featuredpost).slice(1, 3)
   const articles = allPosts
-    .filter(it => it.slug !== heroArticle.slug && it.tags !== 'art')
-    .slice(0, config.posts_per_page * 2)
+    .filter(
+      it =>
+        it.slug !== heroArticle.slug &&
+        it.slug !== featuredArticle[0].slug &&
+        it.slug !== featuredArticle[1].slug &&
+        it.tags !== 'art'
+    )
+    .slice(0, config.posts_per_page * nslice)
   const artArticles = allPosts
     .filter(it => it.tags === 'art')
     .slice(0, config.posts_per_page)
-  return { heroArticle, articles, artArticles }
+
+  // const articleTypes = {
+  //   featured: 0,
+  //   all: 0,
+  //   art: 0,
+  // }
+
+  // for (let i = 0; i < allPosts.length; i++) {
+  //   if (allPosts[i].featuredpost) {
+  //     articleTypes.featured = articleTypes.featured + 1
+  //   }
+  //   if (allPosts[i].tags === 'art') {
+  //     articleTypes.art = articleTypes.art + 1
+  //   }
+  //   articleTypes.all = articleTypes.all + 1
+  // }
+
+  // const nonArtAndFeaturedArticle = articleTypes.all - articleTypes.art - 3
+  // if (config.posts_per_page * 3 >= nonArtAndFeaturedArticle) nslice = 3
+
+  return { heroArticle, featuredArticle, articles, artArticles }
 }
 
 export function getHeroArticle() {

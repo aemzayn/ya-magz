@@ -55,7 +55,7 @@ export default function YaPodcast() {
   }
 
   return (
-    <PageLayout id='home-podcast'>
+    <PageLayout my={5} id='home-podcast'>
       <Flex flexDir={{ base: 'column', md: 'row' }} justify='center' w='100%'>
         <AspectRatio
           ratio={2 / 2}

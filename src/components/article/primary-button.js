@@ -11,8 +11,8 @@ export default function PrimaryButton({
     <Link href={href}>
       <Button
         as='a'
-        py={{ base: '5', md: '7' }}
-        px={{ base: '10', md: '12' }}
+        py={{ base: '5', md: 7 }}
+        px={{ base: '10', md: 20 }}
         lineHeight='1'
         size='lg'
         bg='brand.main'
@@ -21,6 +21,9 @@ export default function PrimaryButton({
         fontWeight='normal'
         borderRadius='false'
         _hover={{
+          opacity: 0.9,
+        }}
+        _active={{
           opacity: 0.8,
         }}
         rightIcon={rightIcon && rightIcon}

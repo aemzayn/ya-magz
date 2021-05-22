@@ -1,7 +1,6 @@
 import { CloseIcon, MenuIcon } from '@/assets/icons'
-import { HamburgerIcon, SmallCloseIcon } from '@chakra-ui/icons'
 import { Box, chakra, Flex, Text } from '@chakra-ui/react'
-import { AnimatePresence, isValidMotionProp, motion } from 'framer-motion'
+import { isValidMotionProp, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { forwardRef, useState } from 'react'
@@ -144,6 +143,7 @@ export default function Header() {
         borderBottom: '1px solid',
         borderBottomColor: 'gray.50',
       }}
+      id='header-nav'
     >
       <Logo />
 

@@ -53,7 +53,7 @@ export default function HomeMood() {
   }
 
   return (
-    <PageLayout id='home-podcast'>
+    <PageLayout my={5} id='home-podcast'>
       <Flex
         flexDir={{ base: 'column', md: 'row-reverse' }}
         justify='center'

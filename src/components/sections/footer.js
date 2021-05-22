@@ -1,7 +1,7 @@
-import { CopyrightIcon } from '@/assets/icons'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, HStack, Icon, IconButton, Text } from '@chakra-ui/react'
 import React from 'react'
-
+import { FiInstagram } from 'react-icons/fi'
+import { MdCopyright } from 'react-icons/md'
 const Footer = () => {
   return (
     <Box
@@ -11,23 +11,28 @@ const Footer = () => {
       borderTopColor='gray.200'
       borderTopStyle='solid'
     >
-      <Flex p={8} justifyContent='space-between'>
-        <Text as='h1' d='flex' align='center' justifyContent='center'>
-          <CopyrightIcon w='1rem' h='1rem' my='auto' mr='1' />
-          Ya! Magazine {new Date().getFullYear()}
-        </Text>
-        <Text as='h1' textAlign='right' color='gray.500'>
-          IG:{' '}
-          <Text
-            as='a'
-            cursor='pointer'
-            color='black'
-            href='https://www.instagram.com/ya.magz'
-            target='_blank'
-          >
-            @ya.magz
+      <Flex py={8} px={{ base: 8, md: 20 }} justifyContent='space-between'>
+        <HStack
+          spacing={1}
+          align='center'
+          justifyContent='center'
+          color='gray.600'
+        >
+          <Icon aria-label='copyright icon' as={MdCopyright} />
+          <Text>
+            Ya! Magazine {new Date().getFullYear()}. All rights reserved.
           </Text>
-        </Text>
+        </HStack>
+        <IconButton
+          aria-label='Ya! Magz Instagram'
+          as='a'
+          bgColor='white'
+          cursor='pointer'
+          href='https://www.instagram.com/ya.magz'
+          target='_blank'
+          borderRadius='false'
+          icon={<Icon size='md' color='black' as={FiInstagram} />}
+        />
       </Flex>
     </Box>
   )

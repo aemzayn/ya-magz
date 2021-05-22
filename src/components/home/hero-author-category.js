@@ -1,10 +1,11 @@
 import { getAuthor } from '@/lib/authors'
 import { getTag } from '@/lib/postTags'
-import { chakra, Text } from '@chakra-ui/react'
+import { chakra, Text, useMediaQuery } from '@chakra-ui/react'
 import { isValidMotionProp, motion } from 'framer-motion'
 import { forwardRef } from 'react'
 
-export default function HeroAuthorCategory({ author, category, isMobile }) {
+export default function HeroAuthorCategory({ author, category, ...rest }) {
+  const [isMobile] = useMediaQuery('(max-width: 760px)')
   const transition = i => ({
     duration: 1,
     ease: [0.6, 0.02, -0.2, 0.9],
@@ -48,7 +49,7 @@ export default function HeroAuthorCategory({ author, category, isMobile }) {
   const items = [
     {
       id: 'category',
-      name: category && getTag(category)?.name,
+      name: (category && getTag(category)?.name) || category,
     },
     {
       id: 'separator',
@@ -56,12 +57,12 @@ export default function HeroAuthorCategory({ author, category, isMobile }) {
     },
     {
       id: 'author',
-      name: author && getAuthor(author)?.name,
+      name: (author && getAuthor(author)?.name) || author,
     },
   ]
 
   return (
-    <Text mb='1.2' color='gray.500'>
+    <Text mb='1.2' color='gray.500' {...rest}>
       {items.map(it => (
         <Container
           key={it.id}

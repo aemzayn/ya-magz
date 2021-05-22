@@ -1,8 +1,10 @@
-import { Box, chakra, Heading, HStack } from '@chakra-ui/react'
+import { Box, Heading, HStack, useMediaQuery } from '@chakra-ui/react'
 import { isValidMotionProp, motion } from 'framer-motion'
 import { forwardRef } from 'react'
 
-export default function HeroTitle({ title, isMobile }) {
+export default function HeroTitle({ title, container, stack, heading }) {
+  const [isMobile] = useMediaQuery('(max-width: 760px)')
+
   const Container = motion.custom(
     forwardRef((props, ref) => {
       const chakraProps = Object.fromEntries(
@@ -15,8 +17,10 @@ export default function HeroTitle({ title, isMobile }) {
           textAlign='center'
           align='center'
           justifyContent='center'
+          userSelect='none'
           ref={ref}
           {...chakraProps}
+          {...container}
         />
       )
     })
@@ -38,6 +42,7 @@ export default function HeroTitle({ title, isMobile }) {
           lineHeight='1.2'
           ref={ref}
           {...chakraProps}
+          {...heading}
         />
       )
     })
@@ -50,6 +55,7 @@ export default function HeroTitle({ title, isMobile }) {
       maxW={{ base: '90%', md: '80%', xl: '55%' }}
       mt={{ base: 3, md: 0 }}
       justify='center'
+      {...stack}
     >
       {!isMobile ? (
         title.split(' ').map((word, wordId) => (
@@ -103,30 +109,4 @@ export default function HeroTitle({ title, isMobile }) {
       )}
     </HStack>
   )
-}
-
-{
-  /* title.split('').map((char, i) => (
-          <TitleChar
-            key={i}
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: 200,
-              },
-              visible: i => ({
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 1,
-                  ease: [0.6, 0.05, -0.01, 0.9],
-                  delay: i * 0.02,
-                },
-              }),
-            }}
-            custom={i}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </TitleChar>
-        )) */
 }

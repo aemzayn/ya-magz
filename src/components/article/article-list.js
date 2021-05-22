@@ -70,7 +70,11 @@ export default function ArticleList({
             ))}
           </SimpleGrid>
         ) : (
-          <SimpleGrid w='100%' columns={{ base: 1, md: 3 }} mt={nav ? 0 : 8}>
+          <SimpleGrid
+            w='100%'
+            columns={{ base: 1, md: 2, lg: 3 }}
+            mt={nav ? 0 : 8}
+          >
             {articles.map((ar, i) => (
               <ArticleCard key={i} article={ar} />
             ))}
