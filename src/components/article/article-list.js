@@ -58,7 +58,16 @@ export default function ArticleList({
             <Heading textAlign='center'>No articles with this category</Heading>
           </Center>
         )}
-        {isArtCategory ? (
+        <SimpleGrid
+          w='100%'
+          columns={{ base: 1, md: 2, lg: 3 }}
+          mt={nav ? 0 : 8}
+        >
+          {articles.map((ar, i) => (
+            <ArticleCard key={i} article={ar} />
+          ))}
+        </SimpleGrid>
+        {/* {isArtCategory ? (
           <SimpleGrid
             w='full'
             columns={{ base: 1, md: 3 }}
@@ -79,7 +88,7 @@ export default function ArticleList({
               <ArticleCard key={i} article={ar} />
             ))}
           </SimpleGrid>
-        )}
+        )} */}
       </chakra.div>
 
       {pagination && (

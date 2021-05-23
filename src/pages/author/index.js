@@ -59,7 +59,7 @@ export default function Author({ authors }) {
           mb={{ base: 2, md: 4, xl: 8 }}
           w='full'
           flexDir={{ base: 'column', md: 'row' }}
-          aligItems='center'
+          alignItems='center'
           justifyContent={{ base: 'space-between' }}
           pos='relative'
         >
@@ -82,14 +82,13 @@ export default function Author({ authors }) {
                 maxLength={15}
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                variant='flushed'
-                borderRadius='none'
+                borderRadius='0'
                 borderColor='gray.300'
                 px={{ base: 2 }}
                 focusBorderColor='brand.main'
                 placeholder='Search author'
                 _placeholder={{
-                  color: 'gray.400',
+                  color: 'gray.300',
                 }}
                 _focus={{
                   pr: 2,

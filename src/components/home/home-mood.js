@@ -33,7 +33,7 @@ export default function HomeMood() {
 
   const [featured, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-200px',
+    rootMargin: '-300px',
   })
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function HomeMood() {
               visible: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 1.5, ease: [0.6, 0.05, -0.01, 0.9] },
+                transition: { duration: 1, ease: [0.6, 0.05, -0.01, 0.9] },
               },
               hidden: { opacity: 0, y: 20 },
             }}

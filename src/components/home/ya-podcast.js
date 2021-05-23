@@ -35,7 +35,7 @@ export default function YaPodcast() {
 
   const [featured, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-200px',
+    rootMargin: '-300px',
   })
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function YaPodcast() {
                 opacity: 1,
                 y: 0,
                 transition: {
-                  duration: 1.5,
+                  duration: 1,
                   ease: [0.6, 0.05, -0.01, 0.9],
                 },
               },

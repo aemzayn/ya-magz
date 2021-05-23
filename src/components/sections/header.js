@@ -1,35 +1,12 @@
-import { CloseIcon, MenuIcon } from '@/assets/icons'
-import { Box, chakra, Flex, Text } from '@chakra-ui/react'
-import { isValidMotionProp, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { forwardRef, useState } from 'react'
 
-const Logo = () => (
-  <Link href='/'>
-    <a>
-      <Flex
-        direction='column'
-        color='black'
-        fontFamily='montserrat'
-        fontSize='1.25rem'
-      >
-        <Text
-          m={0}
-          lineHeight={1}
-          pos='relative'
-          fontWeight='500'
-          fontStyle='italic'
-        >
-          Ya!
-        </Text>
-        <Text m={0} lineHeight={1} pos='relative' fontWeight='900'>
-          Magz
-        </Text>
-      </Flex>
-    </a>
-  </Link>
-)
+import Logo from './Logo'
+import { CloseIcon, MenuIcon } from '@/assets/icons'
+
+import { Box, chakra, Flex } from '@chakra-ui/react'
+import { isValidMotionProp, motion } from 'framer-motion'
+import { forwardRef, useState } from 'react'
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
   const router = useRouter()

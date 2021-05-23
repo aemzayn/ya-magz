@@ -69,7 +69,34 @@ const Article = ({ article }) => {
             />
           </Skeleton>
         ) : (
-          <Box height='100%' width='100%' bgColor='blue.100' />
+          <Box
+            height='100%'
+            pos='relative'
+            width='100%'
+            bgColor='gray.50'
+            overflow='hidden'
+            _before={{
+              content: '"abc"',
+              fontWeight: 'bold',
+              color: 'gray.100',
+              pos: 'absolute',
+              fontFamily: 'serif',
+              bottom: 0,
+              left: 0,
+              fontSize: '10rem',
+            }}
+          >
+            <Box
+              w='full'
+              h='full'
+              bgColor='gray.100'
+              zIndex='2'
+              sx={{
+                clipPath: 'polygon(0 0, 100% 0, 50% 35%)',
+              }}
+              pos='relative'
+            />
+          </Box>
         )}
       </Box>
       <VStack

@@ -32,7 +32,7 @@ export default function ArticlesPage({ articles, pagination }) {
 }
 
 export async function getStaticProps() {
-  const posts = listArticlesWithoutTag(1, config.posts_per_page, 'art')
+  const posts = listArticlesWithoutTag(1, config.posts_per_page)
   const pagination = {
     current: 1,
     pages: Math.ceil(countArticlesWithoutTag('art') / config.posts_per_page),
