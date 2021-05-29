@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ya-magazine.com
+
+# Sitemaps
+Sitemap: https://ya-magazine.com/sitemap.xml
