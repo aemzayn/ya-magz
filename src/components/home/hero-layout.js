@@ -1,24 +1,9 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react"
 
 function HeroLayout({ children }) {
   return (
-    <Flex
-      className='hero'
-      direction='column'
-      align='center'
-      w='100%'
-      m='0 auto'
-    >
-      <Flex
-        justify={{ base: 'flex-end', xl: 'space-between' }}
-        direction={{ base: 'column-reverse', xl: 'row' }}
-        wrap='no-wrap'
-        minH='78vh'
-        bg='#F9F9F9'
-        mb={16}
-      >
-        {children}
-      </Flex>
+    <Flex justifyContent="space-between" w="full" minH="78vh">
+      {children}
     </Flex>
   )
 }

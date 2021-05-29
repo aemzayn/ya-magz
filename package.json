@@ -15,6 +15,7 @@
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
     "@next/mdx": "^10.0.5",
+    "boring-avatars": "^1.5.3",
     "date-fns": "^2.16.1",
     "framer-motion": "^3.1.1",
     "gray-matter": "^4.0.2",

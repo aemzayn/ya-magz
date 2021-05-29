@@ -1,11 +1,11 @@
-import { Flex } from '@chakra-ui/react'
-import HeroTitle from './hero-title'
-import HeroImage from './hero-image'
-import HeroLayout from './hero-layout'
-import HeroExcerpt from './hero-excerpt'
-import HeroAuthorCategory from './hero-author-category'
-import PrimaryButton from '../article/primary-button'
-import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { Flex } from "@chakra-ui/react"
+import HeroTitle from "./hero-title"
+import HeroImage from "./hero-image"
+import HeroLayout from "./hero-layout"
+import HeroExcerpt from "./hero-excerpt"
+import HeroAuthorCategory from "./hero-author-category"
+import PrimaryButton from "../article/primary-button"
+import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 export default function Hero({ article }) {
   const url = article?.featuredimage || article?.featuredimageurl
@@ -13,14 +13,14 @@ export default function Hero({ article }) {
   return (
     <HeroLayout>
       <Flex
-        as='main'
-        w={{ base: '100vw', xl: url ? '66vw' : '100vw' }}
-        d='flex'
-        flexDir='column'
-        alignItems='center'
-        justifyContent='center'
-        pl={{ base: '0', xl: '8' }}
-        py={{ base: '2.5rem', lg: '5rem', xl: 0 }}
+        as="main"
+        minW={{ base: "full", xl: "66%" }}
+        d="flex"
+        flexDir="column"
+        alignItems="center"
+        justifyContent="center"
+        pl={{ base: "0", xl: "8" }}
+        py={{ base: "2.5rem", lg: "5rem", xl: 0 }}
       >
         <HeroAuthorCategory author={article?.author} category={article?.tags} />
         <HeroTitle title={article?.title} />
@@ -28,14 +28,12 @@ export default function Hero({ article }) {
         <PrimaryButton
           href={`/read/${article?.slug}`}
           rightIcon={<ArrowForwardIcon />}
-          bgColor='brand.main'
+          bgColor="brand.main"
         >
           Read Now
         </PrimaryButton>
       </Flex>
-      {url && (
-        <HeroImage url={article?.featuredimage || article?.featuredimageurl} />
-      )}
+      <HeroImage url={url} />
     </HeroLayout>
   )
 }
