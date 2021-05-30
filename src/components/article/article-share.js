@@ -1,55 +1,50 @@
-import { FacebookIcon, TwitterIcon, WhatsappIcon } from '@/assets/icons'
+import { HStack, Icon, Tooltip, VStack } from "@chakra-ui/react"
 import {
-  Center,
-  Flex,
-  HStack,
-  Tooltip,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+  RiFacebookBoxFill,
+  RiTelegramFill,
+  RiTwitterFill,
+  RiWhatsappFill,
+  RiLineFill,
+} from "react-icons/ri"
 import {
-  // FacebookIcon,
   FacebookShareButton,
-  // TwitterIcon,
+  TelegramShareButton,
   TwitterShareButton,
-  // WhatsappIcon,
   WhatsappShareButton,
-} from 'react-share'
+  LineShareButton,
+} from "react-share"
 
 const ArticleShare = ({ url }) => {
-  const iconStyle = {
-    borderRadius: '10px',
-    w: useBreakpointValue({ base: '25px' }),
-    h: useBreakpointValue({ base: '25px' }),
-  }
-
   return (
-    <Flex flexDir='column' mt='10' alignItems='center'>
-      <HStack d='flex' ml='2' mt='1' spacing={{ base: 4, md: 4 }}>
-        <Tooltip hasArrow label='Share to Twitter'>
+    <VStack flexDir="column" mt="10" alignItems="center">
+      <HStack d="flex" ml="2" mt="1" spacing={{ base: 4, md: 6 }}>
+        <Tooltip hasArrow label="Share to Twitter">
           <TwitterShareButton url={url}>
-            <Center {...iconStyle}>
-              <TwitterIcon />
-            </Center>
+            <Icon boxSize={{ base: 6 }} as={RiTwitterFill} />
           </TwitterShareButton>
         </Tooltip>
-        <Tooltip hasArrow label='Share to FB'>
+        <Tooltip hasArrow label="Share to FB">
           <FacebookShareButton url={url}>
-            <Center {...iconStyle}>
-              <FacebookIcon />
-            </Center>
+            <Icon boxSize={{ base: 6 }} as={RiFacebookBoxFill} />
           </FacebookShareButton>
         </Tooltip>
-        <Tooltip hasArrow label='Share to WhatsApp'>
+        <Tooltip hasArrow label="Share to WhatsApp">
           <WhatsappShareButton url={url}>
-            <Center {...iconStyle}>
-              <Center w={iconStyle.w} h={iconStyle.h}>
-                <WhatsappIcon />
-              </Center>
-            </Center>
+            <Icon boxSize={{ base: 6 }} as={RiWhatsappFill} />
           </WhatsappShareButton>
         </Tooltip>
+        <Tooltip hasArrow label="Share to Telegram">
+          <TelegramShareButton url={url}>
+            <Icon boxSize={{ base: 6 }} as={RiTelegramFill} />
+          </TelegramShareButton>
+        </Tooltip>
+        <Tooltip hasArrow label="Share to Line">
+          <LineShareButton url={url}>
+            <Icon boxSize={{ base: 6 }} as={RiLineFill} />
+          </LineShareButton>
+        </Tooltip>
       </HStack>
-    </Flex>
+    </VStack>
   )
 }
 

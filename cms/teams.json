@@ -325,7 +325,12 @@
           "name": "Syafiq Ammar Muhadzdzib",
           "photo": "",
           "role": "Social Media Team",
-          "social_media": []
+          "social_media": [
+            {
+              "platform": "instagram",
+              "identifier": "samardzib7"
+            }
+          ]
         },
         {
           "name": "Tamima Alifya Haruny",
@@ -412,7 +417,7 @@
         {
           "name": "Ahmad Muslih Zain",
           "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675363/Team%20Photos/ahmad-muslih_n5qoct.jpg",
-          "role": "Website Team",
+          "role": "Website Manager",
           "social_media": [
             {
               "platform": "instagram",

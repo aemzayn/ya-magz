@@ -1,12 +1,7 @@
 import {
-  FacebookIcon,
-  InstagramIcon,
-  MailIcon,
-  TwitterIcon,
-} from "@/assets/icons"
-import {
   AspectRatio,
   Box,
+  Center,
   chakra,
   Heading,
   HStack,
@@ -15,15 +10,16 @@ import {
   Tooltip,
   useBreakpointValue,
   VStack,
+  Icon,
 } from "@chakra-ui/react"
 import { useRouter } from "next/router"
-import Avatar from "boring-avatars"
+import BoringAvatar from "boring-avatars"
+import { FiFacebook, FiInstagram, FiMail, FiTwitter } from "react-icons/fi"
 
 export const Person = ({ person, showSocmed }) => {
   const nameSize = useBreakpointValue({ base: "sm", md: "sm" })
   const roleTitleSize = useBreakpointValue({ base: "0.8rem" })
   const router = useRouter()
-  const BoringAvatar = chakra(Avatar)
 
   const handleClick = (platform, identifier) => {
     if (!platform || !identifier) return
@@ -55,7 +51,7 @@ export const Person = ({ person, showSocmed }) => {
   }
 
   return (
-    <VStack py={{ base: 2 }} pb={{ base: 4 }}>
+    <VStack py={{ base: 2 }} pb={{ base: 4 }} spacing={{ base: 0 }}>
       <AspectRatio w="80%" ratio={2 / 2}>
         {person && person.photo ? (
           <Image
@@ -71,14 +67,14 @@ export const Person = ({ person, showSocmed }) => {
             userSelect="none"
           ></Image>
         ) : (
-          <BoringAvatar
-            size={10}
-            w="full"
-            h="full"
-            name={person.name}
-            variant="beam"
-            colors={["#AFC7B9", "#FFE1C9", "#FAC7B4", "#FCA89D", "#998B82"]}
-          />
+          <Center margin="auto" w={{ base: "80%" }} h={{ base: "80%" }}>
+            <BoringAvatar
+              size="100%"
+              name={person.name}
+              variant="beam"
+              colors={["#AFC7B9", "#FFE1C9", "#FAC7B4", "#FCA89D", "#998B82"]}
+            />
+          </Center>
         )}
       </AspectRatio>
       <Box pt={{ base: 1 }} pb={{ base: 2 }} textAlign="center">
@@ -125,13 +121,13 @@ export default Person
 const SocmedIcon = ({ platform, ...rest }) => {
   switch (platform.trim().toLowerCase()) {
     case "instagram":
-      return <InstagramIcon {...rest} />
+      return <Icon as={FiInstagram} {...rest} />
     case "twitter":
-      return <TwitterIcon {...rest} />
+      return <Icon as={FiTwitter} {...rest} />
     case "facebook":
-      return <FacebookIcon {...rest} />
+      return <Icon as={FiFacebook} {...rest} />
     case "mail":
-      return <MailIcon {...rest} />
+      return <Icon as={FiMail} {...rest} />
     default:
       throw new Error(`${platform} is a false argument`)
   }
