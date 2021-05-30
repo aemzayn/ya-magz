@@ -1,9 +1,16 @@
-import { Box, Heading, HStack, useMediaQuery } from '@chakra-ui/react'
-import { isValidMotionProp, motion } from 'framer-motion'
-import { forwardRef } from 'react'
+import {
+  Box,
+  Heading,
+  HStack,
+  useBreakpointValue,
+  useMediaQuery,
+} from "@chakra-ui/react"
+import { isValidMotionProp, motion } from "framer-motion"
+import { forwardRef } from "react"
 
 export default function HeroTitle({ title, container, stack, heading }) {
-  const [isMobile] = useMediaQuery('(max-width: 760px)')
+  const [isMobile] = useMediaQuery("(max-width: 760px)")
+  const titleSize = useBreakpointValue({ base: "xl", md: "2xl" })
 
   const Container = motion.custom(
     forwardRef((props, ref) => {
@@ -12,12 +19,12 @@ export default function HeroTitle({ title, container, stack, heading }) {
       )
       return (
         <Box
-          d='flex'
-          flexWrap='wrap'
-          textAlign='center'
-          align='center'
-          justifyContent='center'
-          userSelect='none'
+          d="flex"
+          flexWrap="wrap"
+          textAlign="center"
+          align="center"
+          justifyContent="center"
+          userSelect="none"
           ref={ref}
           {...chakraProps}
           {...container}
@@ -33,13 +40,13 @@ export default function HeroTitle({ title, container, stack, heading }) {
       )
       return (
         <Heading
-          size={'2xl'}
-          transform={{ base: 'none', md: 'translateY(-200px)' }}
-          fontWeight='bold'
-          color='primary.800'
-          textAlign='center'
-          className='hero-title'
-          lineHeight='1.2'
+          size={titleSize}
+          transform={{ base: "none", md: "translateY(-200px)" }}
+          fontWeight="bold"
+          color="primary.800"
+          textAlign="center"
+          className="hero-title"
+          lineHeight="1.2"
           ref={ref}
           {...chakraProps}
           {...heading}
@@ -50,19 +57,19 @@ export default function HeroTitle({ title, container, stack, heading }) {
 
   return (
     <HStack
-      d='flex'
-      flexWrap='wrap'
-      maxW={{ base: '90%', md: '80%', xl: '55%' }}
+      d="flex"
+      flexWrap="wrap"
+      maxW={{ base: "90%", md: "80%", xl: "55%" }}
       mt={{ base: 3, md: 0 }}
-      justify='center'
+      justify="center"
       {...stack}
     >
       {!isMobile ? (
-        title.split(' ').map((word, wordId) => (
+        title.split(" ").map((word, wordId) => (
           <Container
             key={wordId}
-            d='flex'
-            overflowY='hidden'
+            d="flex"
+            overflowY="hidden"
             variants={{
               hidden: {
                 y: 0,
@@ -76,10 +83,10 @@ export default function HeroTitle({ title, container, stack, heading }) {
                 },
               },
             }}
-            initial={isMobile ? 'visible' : 'hidden'}
-            animate='visible'
+            initial={isMobile ? "visible" : "hidden"}
+            animate="visible"
           >
-            {word.split('').map((char, charId) => (
+            {word.split("").map((char, charId) => (
               <TitleChar
                 key={charId}
                 variants={{
@@ -99,7 +106,7 @@ export default function HeroTitle({ title, container, stack, heading }) {
                 }}
                 custom={charId}
               >
-                {char === ' ' ? '\u00A0' : char}
+                {char === " " ? "\u00A0" : char}
               </TitleChar>
             ))}
           </Container>

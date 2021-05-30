@@ -1,11 +1,16 @@
-import { getAuthor } from '@/lib/authors'
-import { getTag } from '@/lib/postTags'
-import { chakra, Text, useMediaQuery } from '@chakra-ui/react'
-import { isValidMotionProp, motion } from 'framer-motion'
-import { forwardRef } from 'react'
+import { getAuthor } from "@/lib/authors"
+import { getTag } from "@/lib/postTags"
+import { chakra, Text, useMediaQuery } from "@chakra-ui/react"
+import { isValidMotionProp, motion } from "framer-motion"
+import { forwardRef } from "react"
 
-export default function HeroAuthorCategory({ author, category, ...rest }) {
-  const [isMobile] = useMediaQuery('(max-width: 760px)')
+export default function HeroAuthorCategory({
+  author,
+  category,
+  textSize,
+  ...rest
+}) {
+  const [isMobile] = useMediaQuery("(max-width: 760px)")
   const transition = i => ({
     duration: 1,
     ease: [0.6, 0.02, -0.2, 0.9],
@@ -19,10 +24,11 @@ export default function HeroAuthorCategory({ author, category, ...rest }) {
       )
       return (
         <chakra.span
-          _hover={{ color: 'black' }}
+          _hover={{ color: "black" }}
           px={{ base: 1 }}
-          d='inline-flex'
-          overflowY='hidden'
+          d="inline-flex"
+          overflowY="hidden"
+          fontSize={textSize}
           ref={ref}
           {...chakraProps}
         />
@@ -37,8 +43,8 @@ export default function HeroAuthorCategory({ author, category, ...rest }) {
       )
       return (
         <chakra.span
-          cursor='pointer'
-          transform={{ base: 'none', md: 'translateY(-200px)' }}
+          cursor="pointer"
+          transform={{ base: "none", md: "translateY(-200px)" }}
           ref={ref}
           {...chakraProps}
         />
@@ -48,21 +54,21 @@ export default function HeroAuthorCategory({ author, category, ...rest }) {
 
   const items = [
     {
-      id: 'category',
+      id: "category",
       name: (category && getTag(category)?.name) || category,
     },
     {
-      id: 'separator',
-      sep: '·',
+      id: "separator",
+      sep: "·",
     },
     {
-      id: 'author',
+      id: "author",
       name: (author && getAuthor(author)?.name) || author,
     },
   ]
 
   return (
-    <Text mb='1.2' color='gray.500' {...rest}>
+    <Text mb="1.2" color="gray.500" {...rest}>
       {items.map(it => (
         <Container
           key={it.id}
@@ -79,10 +85,10 @@ export default function HeroAuthorCategory({ author, category, ...rest }) {
               },
             },
           }}
-          initial={isMobile ? 'visible' : 'hidden'}
-          animate='visible'
+          initial={isMobile ? "visible" : "hidden"}
+          animate="visible"
         >
-          {it?.name?.split('').map((car, i) => (
+          {it?.name?.split("").map((car, i) => (
             <MotionText
               variants={{
                 hidden: {
@@ -97,10 +103,10 @@ export default function HeroAuthorCategory({ author, category, ...rest }) {
               }}
               key={i}
               custom={i}
-              initial={isMobile ? 'visible' : 'hidden'}
-              animate='visible'
+              initial={isMobile ? "visible" : "hidden"}
+              animate="visible"
             >
-              {car === ' ' ? '\u00A0' : car}
+              {car === " " ? "\u00A0" : car}
             </MotionText>
           )) ?? it?.sep}
         </Container>

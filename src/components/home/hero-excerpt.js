@@ -1,8 +1,8 @@
-import { forwardRef, Text, useMediaQuery } from '@chakra-ui/react'
-import { isValidMotionProp, motion } from 'framer-motion'
+import { forwardRef, Text, useMediaQuery } from "@chakra-ui/react"
+import { isValidMotionProp, motion } from "framer-motion"
 
-const HeroExcerpt = ({ excerpt, ...rest }) => {
-  const [isMobile] = useMediaQuery('(max-width: 760px)')
+const HeroExcerpt = ({ excerpt, textSize, ...rest }) => {
+  const [isMobile] = useMediaQuery("(max-width: 760px)")
   const MotionText = motion.custom(
     forwardRef((props, ref) => {
       const chakraProps = Object.fromEntries(
@@ -10,12 +10,13 @@ const HeroExcerpt = ({ excerpt, ...rest }) => {
       )
       return (
         <Text
-          maxW={{ base: '80%', lg: '52%' }}
-          textAlign='center'
-          my='4'
-          mb='6'
-          color='gray.500'
-          overflowY='hidden'
+          maxW={{ base: "80%", lg: "75%", xl: "52%" }}
+          fontSize={textSize}
+          textAlign="center"
+          my="4"
+          mb="6"
+          color="gray.500"
+          overflowY="hidden"
           ref={ref}
           opacity={0}
           {...chakraProps}
@@ -42,9 +43,8 @@ const HeroExcerpt = ({ excerpt, ...rest }) => {
           },
         },
       }}
-      initial={isMobile ? 'visible' : 'hidden'}
-      // initial='visible'
-      animate='visible'
+      initial={isMobile ? "visible" : "hidden"}
+      animate="visible"
     >
       {excerpt}
     </MotionText>
