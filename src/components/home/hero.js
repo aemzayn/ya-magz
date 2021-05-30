@@ -1,4 +1,4 @@
-import { Flex, useBreakpointValue, VStack } from "@chakra-ui/react"
+import { useBreakpointValue, VStack } from "@chakra-ui/react"
 import HeroTitle from "./hero-title"
 import HeroImage from "./hero-image"
 import HeroLayout from "./hero-layout"
@@ -16,7 +16,7 @@ export default function Hero({ article }) {
       <VStack
         spacing={{ base: 2, md: 4 }}
         as="main"
-        minW={{ base: "full", lg: "40%", xl: "66%" }}
+        w={{ base: "full", lg: "60%", xl: "66%" }}
         flex={{ base: 1, lg: "unset" }}
         pl={{ base: "0", xl: "8" }}
         py={{ base: "8", lg: "5rem", xl: 0 }}

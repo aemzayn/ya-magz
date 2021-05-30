@@ -54,16 +54,16 @@ export default function HeroAuthorCategory({
 
   const items = [
     {
-      id: "category",
-      name: (category && getTag(category)?.name) || category,
+      id: "author",
+      name: (author && getAuthor(author)?.name) || author,
     },
     {
       id: "separator",
       sep: "·",
     },
     {
-      id: "author",
-      name: (author && getAuthor(author)?.name) || author,
+      id: "category",
+      name: (category && getTag(category)?.name) || category,
     },
   ]
 

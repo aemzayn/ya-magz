@@ -1,27 +1,27 @@
-import { extendTheme, theme } from '@chakra-ui/react'
+import { extendTheme, theme } from "@chakra-ui/react"
 
 export default extendTheme({
   fonts: {
-    heading: 'Product Sans',
-    body: 'Product Sans',
+    heading: "Product Sans",
+    body: "Product Sans",
   },
   colors: {
     brand: {
-      main: theme.colors.orange[400],
-      light: theme.colors.orange[200],
+      main: theme.colors.black,
+      light: theme.colors.black,
     },
   },
   breakpoints: {
-    sm: '30em', // small phone
-    md: '48em', // ipad
-    lg: '62em', // ipad pro
-    xl: '80em', // laptop
-    xxl: '96em', // pc
+    sm: "30em", // small phone
+    md: "48em", // ipad
+    lg: "62em", // ipad pro
+    xl: "80em", // laptop
+    xxl: "96em", // pc
   },
   styles: {
     global: {
-      'html, body': {
-        overflowX: 'hidden',
+      "html, body": {
+        overflowX: "hidden",
       },
     },
   },

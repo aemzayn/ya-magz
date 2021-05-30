@@ -28,6 +28,7 @@ $mainColor: #38b2ac;
   a {
     color: $mainColor;
     text-decoration: underline;
+    cursor: pointer;
   }
 
   h1,
@@ -120,7 +121,7 @@ $mainColor: #38b2ac;
   }
 
   code {
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: "Ubuntu Mono", monospace;
     font-size: 85%;
     padding: 0.2em 0.4em;
     margin: 0;
@@ -132,7 +133,7 @@ $mainColor: #38b2ac;
     padding-left: 1rem;
     position: relative;
     &::before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: 0;
@@ -184,7 +185,7 @@ $mainColor: #38b2ac;
   }
 
   kbd {
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: "Ubuntu Mono", monospace;
   }
 
   img {

@@ -9,6 +9,7 @@ function HeroLayout({ children }) {
       minH={{ base: "78vh", md: "80vh", lg: "78vh" }}
       pos="relative"
       bgColor="gray.50"
+      overflowX="auto"
     >
       {children}
     </Flex>

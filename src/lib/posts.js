@@ -1,10 +1,10 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import path from 'path'
-import yaml from 'js-yaml'
-import config from '@/cms/site-settings.json'
+import fs from "fs"
+import matter from "gray-matter"
+import path from "path"
+import yaml from "js-yaml"
+import config from "@/cms/site-settings.json"
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const postsDirectory = path.join(process.cwd(), "posts")
 
 let postCache = []
 
@@ -15,11 +15,11 @@ function scanDirectory() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames
-    .filter(it => it.endsWith('.mdx'))
+    .filter(it => it.endsWith(".mdx"))
     .map(fileName => {
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName)
-      const fileContents = fs.readFileSync(fullPath, 'utf8')
+      const fileContents = fs.readFileSync(fullPath, "utf8")
 
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents, {
@@ -28,12 +28,12 @@ function scanDirectory() {
         },
       })
       const matterData = matterResult.data
-      const slug = fileName.replace(/\.mdx$/, '')
+      const slug = fileName.replace(/\.mdx$/, "")
 
       // Validate slug string
       if (matterData.slug !== slug) {
         throw new Error(
-          'slug field not match with the path of its content source'
+          "slug field not match with the path of its content source"
         )
       }
 
@@ -48,7 +48,7 @@ function scanDirectory() {
         return -1
       }
     })
-    .filter(p => p.slug !== 'prusa-dari-bursa-untuk-bangsa') // TODO: Remove this filter after featured image found
+    .filter(p => p.slug !== "prusa-dari-bursa-untuk-bangsa") // TODO: Remove this filter after featured image found
   return postCache
 }
 
@@ -63,31 +63,12 @@ export function getHomeArticles() {
         it.slug !== heroArticle.slug &&
         it.slug !== featuredArticle[0].slug &&
         it.slug !== featuredArticle[1].slug &&
-        it.tags !== 'art'
+        it.tags !== "art"
     )
     .slice(0, config.posts_per_page * nslice)
   const artArticles = allPosts
-    .filter(it => it.tags === 'art')
+    .filter(it => it.tags === "art")
     .slice(0, config.posts_per_page)
-
-  // const articleTypes = {
-  //   featured: 0,
-  //   all: 0,
-  //   art: 0,
-  // }
-
-  // for (let i = 0; i < allPosts.length; i++) {
-  //   if (allPosts[i].featuredpost) {
-  //     articleTypes.featured = articleTypes.featured + 1
-  //   }
-  //   if (allPosts[i].tags === 'art') {
-  //     articleTypes.art = articleTypes.art + 1
-  //   }
-  //   articleTypes.all = articleTypes.all + 1
-  // }
-
-  // const nonArtAndFeaturedArticle = articleTypes.all - articleTypes.art - 3
-  // if (config.posts_per_page * 3 >= nonArtAndFeaturedArticle) nslice = 3
 
   return { heroArticle, featuredArticle, articles, artArticles }
 }
@@ -110,7 +91,7 @@ export function listPosts(page = 0, limit = config.posts_per_page, tag) {
 
 export function getArtPosts() {
   return scanDirectory()
-    .filter(it => it.tags === 'art')
+    .filter(it => it.tags === "art")
     .slice(0, 6)
 }
 
@@ -136,6 +117,6 @@ export function countPostByAuthor(author) {
 
 export function getPostContent(slug) {
   const fullPath = path.join(postsDirectory, `${slug}.mdx`)
-  const content = fs.readFileSync(fullPath, 'utf8')
+  const content = fs.readFileSync(fullPath, "utf8")
   return content
 }
