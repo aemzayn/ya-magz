@@ -24,7 +24,6 @@ export default function HeroAuthorCategory({
       )
       return (
         <chakra.span
-          _hover={{ color: "black" }}
           px={{ base: 1 }}
           d="inline-flex"
           overflowY="hidden"
