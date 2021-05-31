@@ -1,4 +1,4 @@
-import authors from '@/cms/authors.json'
+import authors from "../../cms/authors.yml"
 
 const authorMap = generateAuthorMap()
 

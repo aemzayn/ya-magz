@@ -1,4 +1,4 @@
-import tags from '@/cms/tags.json'
+import tags from "@/cms/tags.yml"
 
 const tagMap = generateTagMap()
 

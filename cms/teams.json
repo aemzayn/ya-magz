@@ -16,20 +16,20 @@
           ]
         },
         {
-          "name": "Ahsanah Nur Amalia Amar",
-          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675375/Team%20Photos/ahsana-nur_oqi9lw.jpg",
-          "role": "Deputy Chief Editor",
+          "name": "Gitsa Adha Rahmatanisa",
+          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675375/Team%20Photos/gitsa_fkpkz3.jpg",
+          "role": "Secretary",
           "social_media": [
             {
               "platform": "instagram",
-              "identifier": "ahsanaanr"
+              "identifier": "giitsadha"
             }
           ]
         },
         {
           "name": "Samirah Taufik Hidayat",
           "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675353/Team%20Photos/samirah_avm0np.jpg",
-          "role": "Financial And Secretary",
+          "role": "Financial",
           "social_media": [
             {
               "platform": "instagram",
@@ -38,13 +38,13 @@
           ]
         },
         {
-          "name": "Gitsa Adha Rahmatanisa",
-          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675375/Team%20Photos/gitsa_fkpkz3.jpg",
-          "role": "Secretary",
+          "name": "Ahsanah Nur Amalia Amar",
+          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675375/Team%20Photos/ahsana-nur_oqi9lw.jpg",
+          "role": "Deputy Chief Editor",
           "social_media": [
             {
               "platform": "instagram",
-              "identifier": "giitsadha"
+              "identifier": "ahsanaanr"
             }
           ]
         },
@@ -160,13 +160,24 @@
           ]
         },
         {
-          "name": "Dammy Assyahid Ahmad",
-          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675354/Team%20Photos/dammy_miwvtq.jpg",
+          "name": "Bayu Adji Nugraha",
+          "photo": "",
           "role": "Editorial Board Member",
           "social_media": [
             {
               "platform": "instagram",
-              "identifier": "dammysob"
+              "identifier": "bayu.adjn"
+            }
+          ]
+        },
+        {
+          "name": "Boyke Alif Burhanuddin",
+          "photo": "",
+          "role": "Editorial Board Member",
+          "social_media": [
+            {
+              "platform": "instagram",
+              "identifier": "boyke_alif"
             }
           ]
         },
@@ -180,17 +191,6 @@
               "identifier": "jovitayosandra"
             }
           ]
-        },
-        {
-          "name": "Muhammad Hisyam Azhari",
-          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675375/Team%20Photos/hisyam_nwiwnm.jpg",
-          "role": "Editorial Board Member",
-          "social_media": [
-            {
-              "platform": "instagram",
-              "identifier": "_azhari10"
-            }
-          ]
         }
       ]
     },
@@ -198,6 +198,21 @@
       "id": 4,
       "name": "Marketing",
       "members": [
+        {
+          "name": "Mukhlis Ramadhan",
+          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675356/Team%20Photos/mukhlis_ejk0tu.jpg",
+          "role": "Marketing Manager",
+          "social_media": [
+            {
+              "platform": "instagram",
+              "identifier": "mukhliisramadhan"
+            },
+            {
+              "platform": "twitter",
+              "identifier": "moechil68"
+            }
+          ]
+        },
         {
           "name": "Akbar Maulana",
           "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675353/Team%20Photos/akbar_de98fu.jpg",
@@ -220,21 +235,7 @@
             }
           ]
         },
-        {
-          "name": "Mukhlis Ramadhan",
-          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675356/Team%20Photos/mukhlis_ejk0tu.jpg",
-          "role": "Marketing",
-          "social_media": [
-            {
-              "platform": "instagram",
-              "identifier": "mukhliisramadhan"
-            },
-            {
-              "platform": "twitter",
-              "identifier": "moechil68"
-            }
-          ]
-        },
+
         {
           "name": "Naufal Abdurrahman",
           "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675363/Team%20Photos/bang-naufal_bucapa.jpg",
@@ -280,6 +281,23 @@
       "id": 6,
       "name": "Social Media Team",
       "members": [
+        {
+          "name": "Ahmad Kharisma Luhur",
+          "photo": "",
+          "role": "Social Media Team",
+          "social_media": [
+            {
+              "platform": "instagram",
+              "identifier": "khariskharisma"
+            }
+          ]
+        },
+        {
+          "name": "Muhammad Al Athariq Warman",
+          "photo": "",
+          "role": "Social Media Team",
+          "social_media": []
+        },
         {
           "name": "Muhammad Harits Aqila Fredyan",
           "photo": "",
@@ -422,17 +440,6 @@
             {
               "platform": "instagram",
               "identifier": "aemzayn"
-            }
-          ]
-        },
-        {
-          "name": "Muhammad Nabil Suryansyah",
-          "photo": "https://res.cloudinary.com/yacloud/image/upload/v1612675355/Team%20Photos/nabil_j09t9m.jpg",
-          "role": "Website Team",
-          "social_media": [
-            {
-              "platform": "instagram",
-              "identifier": "nabil_suryansyah"
             }
           ]
         },

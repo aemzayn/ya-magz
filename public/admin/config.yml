@@ -6,261 +6,196 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
-  - name: 'meta'
-    label: 'Meta'
+  - name: "meta"
+    label: "Meta"
     delete: false
     editor:
       preview: false
     files:
-      - name: 'authors'
-        label: 'Authors'
-        file: 'cms/authors.json'
-        description: 'Author descriptions'
+      - name: "authors"
+        label: "Authors"
+        file: "cms/authors.yml"
+        description: "List of Ya! Magz writers"
         fields:
           - name: authors
             label: Authors
-            label_singular: 'Author'
+            label_singular: "Author"
             widget: list
             fields:
-              - label: 'Slug'
-                name: 'slug'
-                widget: 'string'
-                hint: 'The part of a URL identifies the author'
-              - label: 'Name'
-                name: 'name'
-                widget: 'string'
-                hint: 'First and Last'
-      - name: 'tags'
-        label: 'Tags'
-        file: 'cms/tags.json'
-        description: 'List of tags'
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the author"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "First and Last"
+      - name: "tags"
+        label: "Tags"
+        file: "cms/tags.json"
+        description: "List of tags"
         fields:
           - name: tags
             label: Tags
-            label_singular: 'Tag'
+            label_singular: "Tag"
             widget: list
             fields:
-              - label: 'Slug'
-                name: 'slug'
-                widget: 'string'
-                hint: 'The part of a URL identifies the tag'
-              - label: 'Display Name'
-                name: 'name'
-                widget: 'string'
-                hint: 'Tag name for displaying on the site'
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the tag"
+              - label: "Display Name"
+                name: "name"
+                widget: "string"
+                hint: "Tag name for displaying on the site"
 
-  - name: 'team_members'
-    label: 'Team Members'
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: 'teams'
-        label: 'Teams'
-        file: 'cms/teams.json'
-        description: 'List of Ya! Magazine Team Members'
-        fields:
-          - name: teams
-            label: Teams
-            label_singular: 'Team'
-            widget: list
-            fields:
-              - label: 'Id'
-                name: 'id'
-                widget: 'number'
-                hint: 'Team id'
-              - label: 'Name'
-                name: 'name'
-                widget: 'string'
-                hint: 'Name of the division. ex: Website'
-              - name: 'members'
-                label: 'Members'
-                widget: 'list'
-                summary: '{{fields.name}}'
-                fields:
-                  - {
-                      label: 'Name',
-                      name: 'name',
-                      widget: 'string',
-                      hint: 'Full name',
-                    }
-                  - {
-                      label: 'Profile Photo',
-                      name: 'photo',
-                      widget: 'string',
-                      hint: 'Link to the photo',
-                    }
-                  - {
-                      label: 'Role',
-                      name: 'role',
-                      hint: 'Role ex: CEO',
-                      widget: 'string',
-                    }
-                  - label: 'Social Media'
-                    name: 'social_media'
-                    widget: 'list'
-                    summary: '{{fields.platorm}}'
-                    fields:
-                      - {
-                          label: 'platform',
-                          name: 'platform',
-                          widget: 'string',
-                          hint: 'ex: instagram with lower case',
-                        }
-                      - {
-                          label: 'identifier',
-                          name: 'identifier',
-                          widget: 'string',
-                          hint: 'ex: @johndoe',
-                        }
-
-  - name: 'articles'
-    label: 'Articles'
-    folder: '/posts'
-    extension: 'mdx'
-    format: 'frontmatter'
+  - name: "articles"
+    label: "Articles"
+    folder: "/posts"
+    extension: "mdx"
+    format: "frontmatter"
     create: true
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     identifier_field: slug
-    summary: '{{title}}'
+    summary: "{{title}}"
     fields:
-      - label: 'Slug'
-        name: 'slug'
-        widget: 'string'
-      - label: 'Title'
-        name: 'title'
-        widget: 'string'
-      - label: 'Excerpt'
-        name: 'excerpt'
-        widget: 'string'
-      - label: 'Featured Post'
-        name: 'featuredpost'
-        widget: 'boolean'
-      - label: 'Featured Image'
-        name: 'featuredimage'
-        widget: 'image'
-        hint: 'Upload an image'
-      - label: 'Featured Image URL'
-        name: 'featuredimageurl'
-        widget: 'string'
-        hint: 'Link to the image online'
-      - label: 'Photo source'
-        name: 'imgsource'
-        widget: 'string'
-      - label: 'Publish Date'
-        name: 'date'
-        widget: 'datetime'
-        format: 'YYYY-MM-DD'
-        date_format: 'YYYY-MM-DD'
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "string"
+      - label: "Featured Post"
+        name: "featuredpost"
+        widget: "boolean"
+      - label: "Featured Image"
+        name: "featuredimage"
+        widget: "image"
+        hint: "Upload an image"
+      - label: "Featured Image URL"
+        name: "featuredimageurl"
+        widget: "string"
+        hint: "Link to the image online"
+      - label: "Photo source"
+        name: "imgsource"
+        widget: "string"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
         time_format: false
-      - label: 'Author'
-        name: 'author'
-        widget: 'relation'
-        collection: 'authors'
-        file: 'authors'
+      - label: "Author"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        file: "authors"
         searchFields:
-          - 'authors.*.name'
+          - "authors.*.name"
         displayFields:
-          - 'authors.*.name'
-        valueField: 'authors.*.slug'
-      - label: 'Tags'
-        name: 'tags'
-        widget: 'relation'
-        collection: 'tags'
-        file: 'tags'
+          - "authors.*.name"
+        valueField: "authors.*.slug"
+      - label: "Tags"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"
+        file: "tags"
         searchFields:
-          - 'tags.*.name'
+          - "tags.*.name"
         displayFields:
-          - 'tags.*.name'
-        valueField: 'tags.*.slug'
-      - label: 'Body'
-        name: 'body'
-        widget: 'markdown'
+          - "tags.*.name"
+        valueField: "tags.*.slug"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
 
-  - name: 'indorsagraphy'
-    label: 'Gallery Indorsagraphy'
+  - name: "indorsagraphy"
+    label: "Gallery Indorsagraphy"
     delete: false
     editor:
       preview: false
     files:
-      - name: 'gallery'
-        label: 'Gallery'
-        file: 'cms/gallery.json'
-        description: 'Photos from Indorsagraphy'
+      - name: "gallery"
+        label: "Gallery"
+        file: "cms/gallery.json"
+        description: "Photos from Indorsagraphy"
         fields:
           - name: photos
             label: Photos
-            label_singular: 'Photo'
+            label_singular: "Photo"
             widget: list
             fields:
-              - label: 'Slug'
-                name: 'slug'
-                widget: 'string'
-                hint: 'The part of a URL identifies the photos name'
-              - label: 'Owner'
-                name: 'owner'
-                widget: 'string'
-                hint: 'Name of the photographer'
-              - label: 'Photo'
-                name: 'photo'
-                widget: 'image'
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the photos name"
+              - label: "Owner"
+                name: "owner"
+                widget: "string"
+                hint: "Name of the photographer"
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
                 allow_multiple: false
-              - label: 'Description'
-                name: 'description'
-                widget: 'string'
-                hint: 'Description of the photo'
+              - label: "Description"
+                name: "description"
+                widget: "string"
+                hint: "Description of the photo"
 
-  - name: 'settings'
-    label: 'Settings'
+  - name: "settings"
+    label: "Settings"
     delete: false
     editor:
       preview: false
     files:
-      - name: 'site'
-        label: 'Site Settings'
-        file: 'cms/site-settings.json'
-        description: 'General site settings'
+      - name: "site"
+        label: "Site Settings"
+        file: "cms/site-settings.json"
+        description: "General site settings"
         fields:
-          - label: 'URL'
-            name: 'base_url'
-            widget: 'string'
-            hint: 'Do not enter the trailing slash of the URL'
-          - label: 'Site title'
-            name: 'site_title'
-            widget: 'string'
-          - label: 'Site description'
-            name: 'site_description'
-            widget: 'string'
-          - label: 'Site keywords'
-            name: 'site_keywords'
-            widget: 'list'
-            summary: '{{fields.keyword.keyword}}'
+          - label: "URL"
+            name: "base_url"
+            widget: "string"
+            hint: "Do not enter the trailing slash of the URL"
+          - label: "Site title"
+            name: "site_title"
+            widget: "string"
+          - label: "Site description"
+            name: "site_description"
+            widget: "string"
+          - label: "Site keywords"
+            name: "site_keywords"
+            widget: "list"
+            summary: "{{fields.keyword.keyword}}"
             field:
               label: Keyword
               name: keyword
-              widget: 'string'
-          - label: 'Posts per page'
-            name: 'posts_per_page'
-            widget: 'number'
-            value_type: 'int'
+              widget: "string"
+          - label: "Posts per page"
+            name: "posts_per_page"
+            widget: "number"
+            value_type: "int"
             min: 1
             max: 30
             default: 9
-          - label: 'Twitter account'
-            name: 'twitter_account'
-            widget: 'string'
-          - label: 'Facebook account'
-            name: 'facebook_account'
-            widget: 'string'
-          - label: 'Instagram account'
-            name: 'instagram_account'
-            widget: 'string'
-          - label: 'Contact Email'
-            name: 'contact_email'
-            widget: 'string'
-          - label: 'Contact Phonenumber'
-            name: 'contact_phonenumber'
-            widget: 'string'
-          - label: 'Contact Address'
-            name: 'contact_address'
-            widget: 'string'
+          - label: "Twitter account"
+            name: "twitter_account"
+            widget: "string"
+          - label: "Facebook account"
+            name: "facebook_account"
+            widget: "string"
+          - label: "Instagram account"
+            name: "instagram_account"
+            widget: "string"
+          - label: "Contact Email"
+            name: "contact_email"
+            widget: "string"
+          - label: "Contact Phonenumber"
+            name: "contact_phonenumber"
+            widget: "string"
+          - label: "Contact Address"
+            name: "contact_address"
+            widget: "string"

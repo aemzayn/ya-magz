@@ -43,6 +43,7 @@
   "devDependencies": {
     "eslint": "^7.20.0",
     "eslint-plugin-react": "^7.22.0",
-    "ssri": "^8.0.1"
+    "ssri": "^8.0.1",
+    "yaml-loader": "^0.6.0"
   }
 }
