@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Center,
-  chakra,
   Flex,
   Heading,
   HStack,
@@ -14,6 +13,7 @@ import {
   useBreakpointValue,
   useToast,
   VStack,
+  Link as ChakraLink,
 } from "@chakra-ui/react"
 import Link from "next/link"
 import React from "react"
@@ -25,14 +25,15 @@ import routes from "../../../routes"
 function FooterLink({ children, path }) {
   return (
     <Link href={path}>
-      <chakra.a
+      <Text
+        as="a"
         cursor="pointer"
         fontSize={{ base: "sm", lg: "md" }}
         color="gray.500"
         _hover={{ color: "black" }}
       >
         {children}
-      </chakra.a>
+      </Text>
     </Link>
   )
 }
@@ -140,30 +141,32 @@ export default function Footer() {
             <Center p={{ base: 2 }} bgColor="brand.main" color="white">
               <Icon as={FiLink} size="md" aria-label="External links" />
             </Center>
-            <chakra.a
-              aria-label="Ya! Magazine Instagram"
-              cursor="pointer"
-              rel="external"
+            <ChakraLink
               href="https://www.instagram.com/ya.magz/"
+              aria-label="Ya! Magazine Instagram"
+              isExternal
+              rel="external"
+              cursor="pointer"
               _hover={{
                 textDecoration: "underline",
                 color: "black",
               }}
             >
               IG
-            </chakra.a>
-            <chakra.a
+            </ChakraLink>
+            <ChakraLink
+              href="https://ppibursablog.wordpress.com/"
               aria-label="PPI Bursa Website"
               cursor="pointer"
               rel="external"
-              href="https://ppibursablog.wordpress.com/"
+              isExternal
               _hover={{
                 textDecoration: "underline",
                 color: "black",
               }}
             >
               PPI BURSA
-            </chakra.a>
+            </ChakraLink>
           </HStack>
         </VStack>
 

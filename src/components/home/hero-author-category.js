@@ -23,7 +23,8 @@ export default function HeroAuthorCategory({
         Object.entries(props).filter(([key]) => !isValidMotionProp(key))
       )
       return (
-        <chakra.span
+        <Text
+          as="span"
           px={{ base: 1 }}
           d="inline-flex"
           overflowY="hidden"
@@ -41,7 +42,8 @@ export default function HeroAuthorCategory({
         Object.entries(props).filter(([key]) => !isValidMotionProp(key))
       )
       return (
-        <chakra.span
+        <Text
+          as="span"
           cursor="pointer"
           transform={{ base: "none", md: "translateY(-200px)" }}
           ref={ref}

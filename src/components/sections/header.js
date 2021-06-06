@@ -1,30 +1,28 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useState } from "react"
+import { useRouter } from "next/router"
+import Link from "next/link"
+import Logo from "./Logo"
+import { CloseIcon, MenuIcon } from "@/assets/icons"
+import { Box, Flex, Text } from "@chakra-ui/react"
 
-import Logo from './Logo'
-import { CloseIcon, MenuIcon } from '@/assets/icons'
-
-import { Box, chakra, Flex } from '@chakra-ui/react'
-import { isValidMotionProp, motion } from 'framer-motion'
-import { forwardRef, useState } from 'react'
-
-const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
+const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   const router = useRouter()
   return (
     <Link href={to}>
-      <chakra.a
-        display='block'
-        color={router.pathname === to ? 'black' : 'gray.500'}
-        cursor='pointer'
+      <Text
+        display="block"
+        color={router.pathname === to ? "black" : "gray.500"}
+        cursor="pointer"
         _hover={{
-          color: 'black',
+          color: "black",
         }}
+        fontFamily="body"
         {...rest}
         mb={{ base: isLast ? 0 : 8, sm: 0 }}
         mr={{ base: 0, sm: isLast ? 0 : 8 }}
       >
         {children}
-      </chakra.a>
+      </Text>
     </Link>
   )
 }
@@ -35,108 +33,67 @@ export default function Header() {
 
   const routes = [
     {
-      name: 'Home',
-      to: '/',
+      name: "Home",
+      to: "/",
     },
     {
-      name: 'Read',
-      to: '/read',
+      name: "Read",
+      to: "/read",
     },
     {
-      name: 'Magazine',
-      to: '/magazine',
+      name: "Magazine",
+      to: "/magazine",
     },
     {
-      name: 'Gallery',
-      to: '/gallery',
+      name: "Gallery",
+      to: "/gallery",
     },
-    // {
-    //   name: 'Collaboration',
-    //   to: '/collaboration',
-    // },
   ]
-
-  const NavList = motion.custom(
-    forwardRef((props, ref) => {
-      const chakraProps = Object.fromEntries(
-        // do not pass framer props to DOM element
-        Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-      )
-      return (
-        <Box
-          ref={ref}
-          {...chakraProps}
-          // display={{ base: show ? 'block' : 'none', md: 'block' }}
-          display={{ base: 'block', md: 'block' }}
-          transition='all 200ms ease-in-out'
-          transform={`translateY(${show ? 0 : '-300px'})`}
-          flexBasis={{ base: '100%', md: 'auto' }}
-        >
-          <Flex
-            align='center'
-            justify={['center', 'space-between', 'flex-end', 'flex-end']}
-            direction={['column', 'row', 'row', 'row']}
-            pt={[4, 4, 0, 0]}
-          >
-            {routes.map((r, i) => (
-              <MenuItem
-                key={i}
-                to={r.to}
-                isLast={i === routes.length - 1 ? true : false}
-              >
-                {r.name}
-              </MenuItem>
-            ))}
-          </Flex>
-        </Box>
-      )
-    })
-  )
 
   return (
     <Flex
-      as='nav'
-      align='center'
-      justify='space-between'
-      wrap='wrap'
-      w='100%'
-      mx='auto'
+      as="nav"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      w="100%"
+      mx="auto"
       py={{ base: 6, lg: 8 }}
       px={{ base: 6, md: 10 }}
-      bg='white'
-      color='black'
-      className='header'
-      borderBottomWidth='1px'
-      borderBottomColor='gray.200'
-      borderBottomStyle='solid'
-      pos='relative'
+      bg="white"
+      color="black"
+      className="header"
+      borderBottomWidth="1px"
+      borderBottomColor="gray.200"
+      borderBottomStyle="solid"
+      pos="relative"
       _after={{
-        pos: 'absolute',
+        pos: "absolute",
         content: '""',
-        display: 'block',
+        display: "block",
         bottom: 0,
         left: 0,
         right: 0,
-        borderBottom: '1px solid',
-        borderBottomColor: 'gray.50',
+        borderBottom: "1px solid",
+        borderBottomColor: "gray.50",
       }}
-      id='header-nav'
+      id="header-nav"
     >
       <Logo />
 
-      <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
+      <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
         {show ? <CloseIcon /> : <MenuIcon />}
       </Box>
 
       <Box
-        display={{ base: show ? 'block' : 'none', md: 'block' }}
-        transition='all 200ms ease-in-out'
-        flexBasis={{ base: '100%', md: 'auto' }}
+        display={{ base: show ? "block" : "none", md: "block" }}
+        transition="all 200ms ease-in-out"
+        flexBasis={{ base: "100%", md: "auto" }}
       >
         <Flex
-          align='center'
-          justify={['center', 'space-between', 'flex-end', 'flex-end']}
-          direction={['column', 'row', 'row', 'row']}
+          align="center"
+          justify={["center", "space-between", "flex-end", "flex-end"]}
+          direction={["column", "row", "row", "row"]}
           py={[4, 4, 0, 0]}
         >
           {routes.map((r, i) => (

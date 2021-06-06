@@ -2,7 +2,6 @@ import {
   AspectRatio,
   Box,
   Center,
-  chakra,
   Heading,
   HStack,
   Image,
@@ -105,9 +104,9 @@ export const Person = ({ person, showSocmed }) => {
               key={identifier}
               hasArrow
             >
-              <chakra.span onClick={() => handleClick(platform, identifier)}>
+              <Text as="span" onClick={() => handleClick(platform, identifier)}>
                 <SocmedIcon w="1.125rem" h="1.125rem" platform={platform} />
-              </chakra.span>
+              </Text>
             </Tooltip>
           ))}
         </HStack>

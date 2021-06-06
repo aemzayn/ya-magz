@@ -17,7 +17,7 @@ import ArticleShare from "@/components/article/article-share"
 import Meta from "@/components/article/meta/meta"
 
 // Library Components
-import { Avatar, chakra, Icon, Stack } from "@chakra-ui/react"
+import { Avatar, chakra, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
@@ -77,13 +77,17 @@ export default function Article({ article, source }) {
                 icon={<Icon as={FiUser} />}
               />
               <ArticleAuthor slug={author} name={getAuthor(author).name} />
-              <chakra.span color="gray.500">
+              <Text as="span" color="gray.500">
                 {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
                   new Date(date)
                 )}
-              </chakra.span>
-              <chakra.span color="gray.500">·</chakra.span>
-              <chakra.span color="gray.500">{readTime?.text}</chakra.span>
+              </Text>
+              <Text as="span" color="gray.500">
+                ·
+              </Text>
+              <Text as="span" color="gray.500">
+                {readTime?.text}
+              </Text>
             </Stack>
             <ArticleCoverImage
               featuredImage={featuredimage || featuredimageurl}

@@ -25,4 +25,11 @@ export default extendTheme({
       },
     },
   },
+  components: {
+    Text: {
+      baseStyle: {
+        fontFamily: theme.fonts.body,
+      },
+    },
+  },
 })
