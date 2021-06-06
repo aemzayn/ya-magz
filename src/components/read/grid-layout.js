@@ -1,8 +1,13 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react"
 
 const MagazinePageLayout = ({ children }) => {
   return (
-    <Flex py={{ base: 4, md: 6, lg: 8 }} flexDir='column' minHeight='100vh'>
+    <Flex
+      as="main"
+      py={{ base: 4, md: 6, lg: 8 }}
+      flexDir="column"
+      minHeight="100vh"
+    >
       {children}
     </Flex>
   )

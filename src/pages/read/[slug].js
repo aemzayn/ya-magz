@@ -1,29 +1,29 @@
-import renderToString from 'next-mdx-remote/render-to-string'
-import yaml from 'js-yaml'
-import hydrate from 'next-mdx-remote/hydrate'
-import matter from 'gray-matter'
-import config from '@/cms/site-settings.json'
-import readingTime from 'reading-time'
+import renderToString from "next-mdx-remote/render-to-string"
+import yaml from "js-yaml"
+import hydrate from "next-mdx-remote/hydrate"
+import matter from "gray-matter"
+import config from "@/cms/site-settings.json"
+import readingTime from "reading-time"
 
 // Components
-import ArticleAuthor from '@/components/article/article-author'
-import ArticleBody from '@/components/article/article-body'
-import ArticleCategory from '@/components/article/article-category'
-import ArticleCoverImage from '@/components/article/article-cover-image'
-import ArticleLayout from '@/components/article/article-layout'
-import ArticleTitle from '@/components/article/article-title'
-import Layout from '@/components/sections/layout'
-import ArticleShare from '@/components/article/article-share'
-import Meta from '@/components/article/meta/meta'
+import ArticleAuthor from "@/components/article/article-author"
+import ArticleBody from "@/components/article/article-body"
+import ArticleCategory from "@/components/article/article-category"
+import ArticleCoverImage from "@/components/article/article-cover-image"
+import ArticleLayout from "@/components/article/article-layout"
+import ArticleTitle from "@/components/article/article-title"
+import Layout from "@/components/sections/layout"
+import ArticleShare from "@/components/article/article-share"
+import Meta from "@/components/article/meta/meta"
 
 // Library Components
-import { Avatar, chakra, Icon, Stack } from '@chakra-ui/react'
-import { FiUser } from 'react-icons/fi'
+import { Avatar, chakra, Icon, Stack } from "@chakra-ui/react"
+import { FiUser } from "react-icons/fi"
 
 // Libs
-import { getPostContent, listPosts } from '@/lib/posts'
-import { getAuthor } from '@/lib/authors'
-import { getTag } from '@/lib/postTags'
+import { getPostContent, listPosts } from "@/lib/posts"
+import { getAuthor } from "@/lib/authors"
+import { getTag } from "@/lib/postTags"
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
@@ -42,6 +42,7 @@ export default function Article({ article, source }) {
   const url = `/read/${slug}`
   const fullUrl = config.base_url + url
   const readTime = readingTime(source.renderedOutput)
+  const datePublised = new Date(date)
 
   return (
     <Layout>
@@ -56,32 +57,43 @@ export default function Article({ article, source }) {
       />
 
       <ArticleLayout>
-        <ArticleCategory tags={getTag(tags)} />
-        <ArticleTitle title={title} />
-        <Stack
-          direction='row'
-          flexWrap='wrap'
-          spacing={{ base: 1, md: 2 }}
-          my='4'
-          color='gray.400'
-        >
-          <Avatar size='xs' bgColor='gray.200' icon={<Icon as={FiUser} />} />
-          <ArticleAuthor slug={author} name={getAuthor(author).name} />
-          <chakra.span color='gray.500'>
-            {new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(
-              new Date(date)
-            )}
-          </chakra.span>
-          <chakra.span color='gray.500'>·</chakra.span>
-          <chakra.span color='gray.500'>{readTime?.text}</chakra.span>
-        </Stack>
-        <ArticleCoverImage
-          featuredImage={featuredimage || featuredimageurl}
-          alt={title}
-          imgsource={article?.imgsource}
-        />
-        <ArticleBody body={content} />
-        <ArticleShare url={fullUrl} />
+        <meta itemProp="datePublished" content={datePublised} />
+        <meta itemProp="image" content={featuredimage || featuredimageurl} />
+        <meta itemProp="publisher" content="Ya! Magazine" />
+        <section itemProp="articleBody">
+          <header>
+            <ArticleCategory tags={getTag(tags)} />
+            <ArticleTitle slug={slug} title={title} />
+            <Stack
+              direction="row"
+              flexWrap="wrap"
+              spacing={{ base: 1, md: 2 }}
+              my="4"
+              color="gray.400"
+            >
+              <Avatar
+                size="xs"
+                bgColor="gray.200"
+                icon={<Icon as={FiUser} />}
+              />
+              <ArticleAuthor slug={author} name={getAuthor(author).name} />
+              <chakra.span color="gray.500">
+                {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
+                  new Date(date)
+                )}
+              </chakra.span>
+              <chakra.span color="gray.500">·</chakra.span>
+              <chakra.span color="gray.500">{readTime?.text}</chakra.span>
+            </Stack>
+            <ArticleCoverImage
+              featuredImage={featuredimage || featuredimageurl}
+              alt={title}
+              imgsource={article?.imgsource}
+            />
+          </header>
+          <ArticleBody body={content} />
+          <ArticleShare url={fullUrl} />
+        </section>
       </ArticleLayout>
     </Layout>
   )

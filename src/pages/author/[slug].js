@@ -1,17 +1,17 @@
-import { useRouter } from 'next/router'
-import Layout from '@/components/sections/layout'
-import { getAuthor, listAuthor } from '@/lib/authors'
-import { getPostByAuthor } from '@/lib/posts'
-import config from '@/cms/site-settings.json'
-import BasicMeta from '@/components/article/meta/basicMeta'
-import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
-import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
-import ArticleList from '@/components/article/article-list'
+import { useRouter } from "next/router"
+import Layout from "@/components/sections/layout"
+import { getAuthor, listAuthor } from "@/lib/authors"
+import { getPostByAuthor } from "@/lib/posts"
+import config from "@/cms/site-settings.json"
+import BasicMeta from "@/components/article/meta/basicMeta"
+import OpenGraphMeta from "@/components/article/meta/openGraphMeta"
+import TwitterCardMeta from "@/components/article/meta/twitterCardMeta"
+import ArticleList from "@/components/article/article-list"
 
 export default function ArticlesByAuthor({ articles }) {
   const router = useRouter()
   const { slug } = router.query
-  const author = getAuthor(slug).name || ''
+  const author = getAuthor(slug).name || ""
   const url = `/author/${author}`
   const title = `Articles by ${author}`
 
@@ -20,7 +20,16 @@ export default function ArticlesByAuthor({ articles }) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <ArticleList title='Articles by' subtitle={author} articles={articles} />
+      <main role="main">
+        <article itemScope itemType="http://schema.org/Author">
+          <ArticleList
+            title="Articles by"
+            subtitle={author}
+            articles={articles}
+            type="author"
+          />
+        </article>
+      </main>
     </Layout>
   )
 }
