@@ -1,34 +1,45 @@
 @font-face {
-  font-family: 'Product Sans';
-  src: url('/fonts/product-sans/ProductSans-Black.ttf');
+  font-family: "Product Sans";
+  src: url("/fonts/product-sans/ProductSans-Black.ttf");
   font-weight: 900;
 }
 
 @font-face {
-  font-family: 'Product Sans';
-  src: url('/fonts/product-sans/ProductSans-Bold.ttf');
+  font-family: "Product Sans";
+  src: url("/fonts/product-sans/ProductSans-Bold.ttf");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Product Sans';
-  src: url('/fonts/product-sans/ProductSans-Medium.ttf');
+  font-family: "Product Sans";
+  src: url("/fonts/product-sans/ProductSans-Medium.ttf");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Product Sans';
-  src: url('/fonts/product-sans/ProductSans-Regular.ttf');
+  font-family: "Product Sans";
+  src: url("/fonts/product-sans/ProductSans-Regular.ttf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Product Sans';
-  src: url('/fonts/product-sans/ProductSans-Thin.ttf');
+  font-family: "Product Sans";
+  src: url("/fonts/product-sans/ProductSans-Thin.ttf");
   font-weight: 300;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap');
+$productSans: "Product Sans", "Open Sans", sans-serif;
 
-$montserrat: 'Montserrat', sans-serif;
-$productSans: 'Product Sans', 'Open Sans', sans-serif;
+p,
+a,
+span,
+input,
+input::placeholder,
+li {
+  font-family: $productSans !important;
+}
+
+.logo * {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+}
