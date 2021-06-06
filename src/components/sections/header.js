@@ -3,27 +3,30 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import Logo from "./Logo"
 import { CloseIcon, MenuIcon } from "@/assets/icons"
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, ListItem, Text, UnorderedList } from "@chakra-ui/react"
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   const router = useRouter()
   return (
-    <Link href={to}>
-      <Text
-        display="block"
-        color={router.pathname === to ? "black" : "gray.500"}
-        cursor="pointer"
-        _hover={{
-          color: "black",
-        }}
-        fontFamily="body"
-        {...rest}
-        mb={{ base: isLast ? 0 : 8, sm: 0 }}
-        mr={{ base: 0, sm: isLast ? 0 : 8 }}
-      >
-        {children}
-      </Text>
-    </Link>
+    <ListItem listStyleType="none">
+      <Link href={to}>
+        <Text
+          as="a"
+          display="block"
+          color={router.pathname === to ? "black" : "gray.500"}
+          cursor="pointer"
+          _hover={{
+            color: "black",
+          }}
+          fontFamily="body"
+          {...rest}
+          mb={{ base: isLast ? 0 : 8, sm: 0 }}
+          mr={{ base: 0, sm: isLast ? 0 : 8 }}
+        >
+          {children}
+        </Text>
+      </Link>
+    </ListItem>
   )
 }
 
@@ -90,7 +93,8 @@ export default function Header() {
         transition="all 200ms ease-in-out"
         flexBasis={{ base: "100%", md: "auto" }}
       >
-        <Flex
+        <UnorderedList
+          d="flex"
           align="center"
           justify={["center", "space-between", "flex-end", "flex-end"]}
           direction={["column", "row", "row", "row"]}
@@ -105,7 +109,7 @@ export default function Header() {
               {r.name}
             </MenuItem>
           ))}
-        </Flex>
+        </UnorderedList>
       </Box>
     </Flex>
   )
