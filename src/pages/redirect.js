@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router'
-import isUrl from '@/lib/isUrl'
-import NotFound from './404'
-import redirect from 'nextjs-redirect'
+import Head from "next/head"
+import { useRouter } from "next/router"
+import isUrl from "@/lib/isUrl"
+import NotFound from "./404"
+import redirect from "nextjs-redirect"
 
 export default function Redirect() {
   const router = useRouter()
@@ -16,6 +17,9 @@ export default function Redirect() {
 
   return (
     <Redirect>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <main>Redirecting...</main>
     </Redirect>
   )
