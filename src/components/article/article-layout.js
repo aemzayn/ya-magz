@@ -6,7 +6,7 @@ export default function ArticleLayout({ children }) {
       <Flex
         as="article"
         itemScope
-        itemType="http://schema.org/Article"
+        itemType="https://schema.org/Article"
         direction="column"
         maxW="750px"
         w="full"

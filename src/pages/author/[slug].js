@@ -21,7 +21,7 @@ export default function ArticlesByAuthor({ articles }) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <main role="main">
-        <article itemScope itemType="http://schema.org/Author">
+        <article itemScope itemType="https://schema.org/Author">
           <ArticleList
             title="Articles by"
             subtitle={author}

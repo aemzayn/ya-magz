@@ -33,13 +33,13 @@ export const Person = ({ person, showSocmed }) => {
   const convertToUrl = (platform, identifier) => {
     switch (platform.trim()) {
       case "instagram":
-        return `http://instagram.com/${identifier}`
+        return `https://instagram.com/${identifier}`
       case "facebook":
         return `https://www.facebook.com/search/top?q=${identifier
           .split(" ")
           .join("%20")}`
       case "twitter":
-        return `http://twitter.com/${identifier}`
+        return `https://twitter.com/${identifier}`
       case "mail":
         return `mailto:${identifier}`
       default:
