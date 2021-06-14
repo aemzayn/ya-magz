@@ -9,6 +9,7 @@ import * as gtag from "@/lib/gtag"
 
 import "@fontsource/montserrat/500-italic.css"
 import "@fontsource/montserrat/900.css"
+import Container from "@/components/container"
 
 NProgress.configure({ showSpinner: false })
 Router.onRouteChangeStart = () => {
@@ -26,7 +27,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <CSSReset />
-      <Component {...pageProps} />
+      <Container>
+        <Component {...pageProps} />
+      </Container>
     </ThemeProvider>
   )
 }

@@ -22,6 +22,7 @@ export default extendTheme({
     global: {
       "html, body": {
         overflowX: "hidden",
+        backgroundColor: "white",
       },
     },
   },
