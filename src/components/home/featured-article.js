@@ -20,13 +20,7 @@ export default function FeaturedArticle({
   const titleContainerWidth = useBreakpointValue({ base: "90%", md: "85%" })
   const textSize = useBreakpointValue({ base: "sm", lg: "md" })
   return (
-    <PageLayout
-      as="article"
-      py={{ base: 0 }}
-      my={10}
-      px={{ base: 4, md: 10, xl: 20 }}
-      h={{ base: "unset", lg: "80vh" }}
-    >
+    <PageLayout as="article" my={10} px={{ base: 4, md: 10, xl: 20 }}>
       <Flex
         h="full"
         w="full"
@@ -43,6 +37,7 @@ export default function FeaturedArticle({
           h={{ base: "25vh", md: "31rem", lg: "full" }}
           maxH={{ base: "unset", md: "30vh", lg: "unset" }}
           overflowY="hidden"
+          h="full"
         >
           <Skeleton w="full" h="full" isLoaded={image ? true : false}>
             <ChakraImage
@@ -58,10 +53,10 @@ export default function FeaturedArticle({
         </Box>
         <VStack
           spacing={{ base: 4, md: 2, lg: 4 }}
-          justify="center"
+          my="auto"
           w={{ base: "full", lg: "50%" }}
           h={{ base: "50%", md: "unset", lg: "full" }}
-          py={{ base: 8, md: 10, lg: 0 }}
+          py={{ base: 8, md: 10 }}
         >
           <HeroAuthorCategory
             author={article?.author}
