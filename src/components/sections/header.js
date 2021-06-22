@@ -2,8 +2,15 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Logo from "./Logo"
-import { CloseIcon, MenuIcon } from "@/assets/icons"
-import { Box, Flex, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import {
+  Box,
+  Flex,
+  ListItem,
+  Text,
+  UnorderedList,
+  Icon,
+} from "@chakra-ui/react"
+import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   const router = useRouter()
@@ -85,7 +92,11 @@ export default function Header() {
       <Logo />
 
       <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
-        {show ? <CloseIcon /> : <MenuIcon />}
+        {show ? (
+          <Icon boxSize="1.5em" as={CloseIcon} />
+        ) : (
+          <Icon boxSize="1.5em" as={MenuIcon} />
+        )}
       </Box>
 
       <Box
@@ -97,7 +108,7 @@ export default function Header() {
           d="flex"
           align="center"
           justify={["center", "space-between", "flex-end", "flex-end"]}
-          direction={["column", "row", "row", "row"]}
+          flexDir={["column", "row", "row", "row"]}
           py={[4, 4, 0, 0]}
         >
           {routes.map((r, i) => (
