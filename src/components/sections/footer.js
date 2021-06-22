@@ -139,7 +139,7 @@ export default function Footer() {
           </HStack>
           <HStack color="gray.700" spacing={{ base: 2, md: 3 }}>
             <Center p={{ base: 2 }} bgColor="brand.main" color="white">
-              <Icon as={FiLink} size="md" aria-label="External links" />
+              <Icon as={FiLink} boxSize="1em" aria-label="External links" />
             </Center>
             <ChakraLink
               href="https://www.instagram.com/ya.magz/"
