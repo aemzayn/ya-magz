@@ -107,7 +107,7 @@ export default function Header() {
               {r.name}
             </MenuItem>
           ))}
-          <Button
+          {/* <Button
             size={authButtonSize}
             colorScheme="gray"
             borderRadius={false}
@@ -117,7 +117,7 @@ export default function Header() {
             }}
           >
             {session ? "Logout" : "Login"}
-          </Button>
+          </Button> */}
         </UnorderedList>
       </Box>
     </Flex>

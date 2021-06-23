@@ -97,7 +97,7 @@ export default function Article({ article, source }) {
             />
           </header>
           <ArticleBody body={content} />
-          <Comment />
+          {/* <Comment /> */}
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>
