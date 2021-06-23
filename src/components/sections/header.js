@@ -31,8 +31,8 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
           }}
           fontFamily="body"
           {...rest}
-          mb={{ base: isLast ? 0 : 8, sm: 0 }}
-          mr={{ base: 0, sm: 8 }}
+          mb={{ base: isLast ? 0 : 8, md: 0 }}
+          mr={{ base: 0, md: isLast ? 0 : 8 }}
         >
           {children}
         </Text>
@@ -44,7 +44,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 export default function Header() {
   const [show, setShow] = useState(false)
   const toggleMenu = () => setShow(show => !show)
-  const [session] = useSession()
+  // const [session] = useSession()
   const authButtonSize = useBreakpointValue({ base: "md", md: "sm" })
 
   return (

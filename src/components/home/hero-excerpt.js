@@ -11,7 +11,7 @@ const HeroExcerpt = ({ excerpt, textSize, ...rest }) => {
       fontSize={textSize}
       textAlign="center"
       my="4"
-      mb="6"
+      pb={6}
       color="gray.500"
       overflowY="hidden"
       variants={{
@@ -31,6 +31,7 @@ const HeroExcerpt = ({ excerpt, textSize, ...rest }) => {
       }}
       initial={isMobile ? "visible" : "hidden"}
       animate="visible"
+      {...rest}
     >
       {excerpt}
     </MotionText>
