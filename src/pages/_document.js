@@ -1,11 +1,11 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from '@/lib/gtag.js'
-import { Fragment } from 'react'
+import Document, { Html, Head, Main, NextScript } from "next/document"
+import { GA_TRACKING_ID } from "@/lib/gtag.js"
+import { Fragment } from "react"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
-    const isProduction = process.env.NODE_ENV === 'production'
+    const isProduction = process.env.NODE_ENV === "production"
 
     return {
       ...initialProps,
@@ -17,10 +17,15 @@ export default class MyDocument extends Document {
     const { isProduction } = this.props
 
     return (
-      <Html lang='id'>
+      <Html lang="id">
         <Head>
-          <link rel='shortcut icon' href='/favicon.png' type='image/x-icon' />
-          <link rel='icon' href='/favicon.png' type='image/x-icon' />
+          <link
+            rel="shortcut icon"
+            href="/meta/favicon.ico"
+            type="image/x-icon"
+          />
+          <link rel="icon" href="/meta/favicon.ico" type="image/x-icon" />
+          <link rel="apple-touch-icon" href="/meta/apple-touch-icon.png" />
           {/* We only want to add the scripts if in production */}
           {isProduction && GA_TRACKING_ID && (
             <Fragment>

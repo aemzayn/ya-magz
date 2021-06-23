@@ -1,15 +1,15 @@
-import BasicMeta from '@/components/article/meta/basicMeta'
-import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
-import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
-import Layout from '@/components/sections/layout'
-import { countPosts, listPosts } from '@/lib/posts'
-import { listTags } from '@/lib/postTags'
-import config from '@/cms/site-settings.json'
-import ArticleList from '@/components/article/article-list'
+import BasicMeta from "@/components/meta/basicMeta"
+import OpenGraphMeta from "@/components/meta/openGraphMeta"
+import TwitterCardMeta from "@/components/meta/twitterCardMeta"
+import Layout from "@/components/sections/layout"
+import { countPosts, listPosts } from "@/lib/posts"
+import { listTags } from "@/lib/postTags"
+import config from "@/cms/site-settings.json"
+import ArticleList from "@/components/article/article-list"
 
 export default function Page({ articles, tags, pagination, page }) {
   const url = `/articles/page/${page}`
-  const title = 'All posts'
+  const title = "All posts"
   return (
     <Layout>
       <BasicMeta url={url} title={title} />
@@ -17,7 +17,7 @@ export default function Page({ articles, tags, pagination, page }) {
       <TwitterCardMeta url={url} title={title} />
       <ArticleList
         nav
-        title={'Articles'}
+        title={"Articles"}
         articles={articles}
         pagination={pagination}
       />

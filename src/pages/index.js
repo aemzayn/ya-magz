@@ -1,5 +1,5 @@
 import ArticleList from "@/components/article/article-list"
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta/meta"
 import FeaturedArticle from "@/components/home/featured-article"
 import Hero from "@/components/home/hero"
 import HomeMood from "@/components/home/home-mood"

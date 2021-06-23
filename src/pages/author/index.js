@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta/meta"
 import PageLayout from "@/components/page-layout"
 import Layout from "@/components/sections/layout"
 import { listAuthor } from "@/lib/authors.js"

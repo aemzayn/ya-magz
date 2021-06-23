@@ -3,9 +3,9 @@ import Layout from "@/components/sections/layout"
 import { getAuthor, listAuthor } from "@/lib/authors"
 import { getPostByAuthor } from "@/lib/posts"
 import config from "@/cms/site-settings.json"
-import BasicMeta from "@/components/article/meta/basicMeta"
-import OpenGraphMeta from "@/components/article/meta/openGraphMeta"
-import TwitterCardMeta from "@/components/article/meta/twitterCardMeta"
+import BasicMeta from "@/components/meta/basicMeta"
+import OpenGraphMeta from "@/components/meta/openGraphMeta"
+import TwitterCardMeta from "@/components/meta/twitterCardMeta"
 import ArticleList from "@/components/article/article-list"
 
 export default function ArticlesByAuthor({ articles }) {
