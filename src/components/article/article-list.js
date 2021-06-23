@@ -15,6 +15,9 @@ export default function ArticleList({
   nav,
   type,
 }) {
+  const itemProp = () => {
+    return itemProp === "author" ? "author" : "article-list"
+  }
   return (
     <PageLayout py={{ base: 8, md: 10 }} px={{ base: 4 }}>
       <Flex
@@ -37,7 +40,7 @@ export default function ArticleList({
         {subtitle && (
           <Heading
             className="page-title"
-            itemProp={type === "author" && "name"}
+            itemProp={itemProp}
             id={type === "author" && subtitle}
             size="2xl"
             display="block"

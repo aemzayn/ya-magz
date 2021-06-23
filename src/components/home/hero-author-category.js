@@ -1,8 +1,7 @@
 import { getAuthor } from "@/lib/authors"
 import { getTag } from "@/lib/postTags"
-import { chakra, Text, useMediaQuery } from "@chakra-ui/react"
-import { isValidMotionProp, motion } from "framer-motion"
-import { forwardRef } from "react"
+import { Text, useMediaQuery } from "@chakra-ui/react"
+import { motion } from "framer-motion"
 
 export default function HeroAuthorCategory({
   author,
@@ -17,41 +16,8 @@ export default function HeroAuthorCategory({
     delay: i * 0.015,
   })
 
-  const Container = motion.custom(
-    forwardRef((props, ref) => {
-      const chakraProps = Object.fromEntries(
-        Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-      )
-      return (
-        <Text
-          as="span"
-          px={{ base: 1 }}
-          d="inline-flex"
-          overflowY="hidden"
-          fontSize={textSize}
-          ref={ref}
-          {...chakraProps}
-        />
-      )
-    })
-  )
-
-  const MotionText = motion.custom(
-    forwardRef((props, ref) => {
-      const chakraProps = Object.fromEntries(
-        Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-      )
-      return (
-        <Text
-          as="span"
-          cursor="pointer"
-          transform={{ base: "none", md: "translateY(-200px)" }}
-          ref={ref}
-          {...chakraProps}
-        />
-      )
-    })
-  )
+  const TextContainer = motion(Text)
+  const MotionText = motion(Text)
 
   const items = [
     {
@@ -71,7 +37,12 @@ export default function HeroAuthorCategory({
   return (
     <Text mb="1.2" color="gray.500" {...rest}>
       {items.map(it => (
-        <Container
+        <TextContainer
+          as="span"
+          px={{ base: 1 }}
+          d="inline-flex"
+          overflowY="hidden"
+          fontSize={textSize}
           key={it.id}
           variants={{
             hidden: {
@@ -91,6 +62,9 @@ export default function HeroAuthorCategory({
         >
           {it?.name?.split("").map((car, i) => (
             <MotionText
+              as="span"
+              cursor="pointer"
+              transform={{ base: "none", md: "translateY(-200px)" }}
               variants={{
                 hidden: {
                   opacity: 0,
@@ -110,7 +84,7 @@ export default function HeroAuthorCategory({
               {car === " " ? "\u00A0" : car}
             </MotionText>
           )) ?? it?.sep}
-        </Container>
+        </TextContainer>
       ))}
     </Text>
   )

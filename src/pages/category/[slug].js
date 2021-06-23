@@ -1,17 +1,17 @@
-import { useRouter } from 'next/router'
-import { listPosts } from '@/lib/posts'
-import config from '@/cms/site-settings.json'
-import Layout from '@/components/sections/layout'
-import { getTag, listTags } from '@/lib/postTags'
-import BasicMeta from '@/components/article/meta/basicMeta'
-import OpenGraphMeta from '@/components/article/meta/openGraphMeta'
-import TwitterCardMeta from '@/components/article/meta/twitterCardMeta'
-import ArticleList from '@/components/article/article-list'
+import { useRouter } from "next/router"
+import { listPosts } from "@/lib/posts"
+import config from "@/cms/site-settings.json"
+import Layout from "@/components/sections/layout"
+import { getTag, listTags } from "@/lib/postTags"
+import BasicMeta from "@/components/meta/basicMeta"
+import OpenGraphMeta from "@/components/meta/openGraphMeta"
+import TwitterCardMeta from "@/components/meta/twitterCardMeta"
+import ArticleList from "@/components/article/article-list"
 
 export default function ArticlesByCategory({ articles }) {
   const router = useRouter()
   const { slug } = router.query
-  const category = getTag(slug).name || ''
+  const category = getTag(slug).name || ""
   const url = `/category/${category}`
   const title = category
 
@@ -22,7 +22,7 @@ export default function ArticlesByCategory({ articles }) {
       <TwitterCardMeta url={url} title={title} />
       <ArticleList
         articles={articles}
-        title='Category:'
+        title="Category:"
         subtitle={category}
         nav
         url={slug}

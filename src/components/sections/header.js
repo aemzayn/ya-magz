@@ -9,8 +9,12 @@ import {
   Text,
   UnorderedList,
   Icon,
+  Button,
+  useBreakpointValue,
 } from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
+import { NAV_LINKS } from "../../constanst/routes"
+import { signIn, signOut, useSession } from "next-auth/client"
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   const router = useRouter()
@@ -28,7 +32,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
           fontFamily="body"
           {...rest}
           mb={{ base: isLast ? 0 : 8, sm: 0 }}
-          mr={{ base: 0, sm: isLast ? 0 : 8 }}
+          mr={{ base: 0, sm: 8 }}
         >
           {children}
         </Text>
@@ -40,25 +44,8 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 export default function Header() {
   const [show, setShow] = useState(false)
   const toggleMenu = () => setShow(show => !show)
-
-  const routes = [
-    {
-      name: "Home",
-      to: "/",
-    },
-    {
-      name: "Read",
-      to: "/read",
-    },
-    {
-      name: "Magazine",
-      to: "/magazine",
-    },
-    {
-      name: "Gallery",
-      to: "/gallery",
-    },
-  ]
+  const [session] = useSession()
+  const authButtonSize = useBreakpointValue({ base: "md", md: "sm" })
 
   return (
     <Flex
@@ -106,20 +93,31 @@ export default function Header() {
       >
         <UnorderedList
           d="flex"
-          align="center"
+          alignItems="center"
           justify={["center", "space-between", "flex-end", "flex-end"]}
           flexDir={["column", "row", "row", "row"]}
           py={[4, 4, 0, 0]}
         >
-          {routes.map((r, i) => (
+          {NAV_LINKS.map((r, i) => (
             <MenuItem
               key={i}
               to={r.to}
-              isLast={i === routes.length - 1 ? true : false}
+              isLast={i === NAV_LINKS.length - 1 ? true : false}
             >
               {r.name}
             </MenuItem>
           ))}
+          <Button
+            size={authButtonSize}
+            colorScheme="gray"
+            borderRadius={false}
+            mt={{ base: 6, md: 0 }}
+            onClick={() => {
+              session ? signOut() : signIn()
+            }}
+          >
+            {session ? "Logout" : "Login"}
+          </Button>
         </UnorderedList>
       </Box>
     </Flex>

@@ -1,4 +1,4 @@
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta/meta"
 import Layout from "@/components/sections/layout"
 import Person from "@/components/team/person"
 import { Box, Grid, Heading, SimpleGrid } from "@chakra-ui/react"
@@ -10,7 +10,6 @@ export default function MeetTheTeam() {
   const description = "Our wonderful team member"
   const keywords = ["teams", "members"]
   const members = listMembers()
-  console.log(members.length)
 
   return (
     <>

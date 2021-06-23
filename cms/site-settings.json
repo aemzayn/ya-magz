@@ -19,5 +19,7 @@
   "contact_address": "Bursa, Turkey",
   "contact_phonenumber": "+905050280533",
   "contact_email": "ya.magazine@gmail.com",
-  "posts_per_page": 9
+  "posts_per_page": 9,
+  "podcast_cover_url": "https://res.cloudinary.com/yacloud/image/upload/v1614332851/ya-pod_gi1tmm.jpg",
+  "mood_cover_url": "https://res.cloudinary.com/yacloud/image/upload/v1614332851/mood-1_wjumv8.jpg"
 }

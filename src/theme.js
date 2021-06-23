@@ -2,8 +2,8 @@ import { extendTheme, theme } from "@chakra-ui/react"
 
 export default extendTheme({
   fonts: {
-    heading: "Product Sans",
-    body: "Product Sans",
+    heading: "'Product Sans', sans-serif",
+    body: "'Product Sans', sans-serif",
   },
   colors: {
     brand: {

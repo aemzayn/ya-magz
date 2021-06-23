@@ -1,4 +1,4 @@
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta/meta"
 import PageLayout from "@/components/page-layout"
 import Layout from "@/components/sections/layout"
 import { Box, Flex, Heading, VStack, Text } from "@chakra-ui/layout"
@@ -20,23 +20,7 @@ function AboutParagraph({ text, reverse }) {
   const fontSize = useBreakpointValue({ base: "lg", md: "xl" })
   const opacity = useBreakpointValue({ base: 1, md: 0 })
   const animation = useAnimation()
-  const ChakraFlex = motion.custom(
-    forwardRef((props, ref) => {
-      const chakraProps = Object.fromEntries(
-        Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-      )
-      return (
-        <Flex
-          ref={ref}
-          flexDir={!reverse ? "row" : "row-reverse"}
-          lineHeight="tall"
-          fontSize={fontSize}
-          pb={{ base: 4, md: 6 }}
-          {...chakraProps}
-        />
-      )
-    })
-  )
+  const MotionParagraph = motion(Flex)
 
   const [featured, inView] = useInView({
     triggerOnce: true,
@@ -50,7 +34,11 @@ function AboutParagraph({ text, reverse }) {
   }, [animation, inView])
 
   return (
-    <ChakraFlex
+    <MotionParagraph
+      flexDir={!reverse ? "row" : "row-reverse"}
+      lineHeight="tall"
+      fontSize={fontSize}
+      pb={{ base: 4, md: 6 }}
       ref={featured}
       animate={animation}
       initial="hidden"
@@ -69,7 +57,7 @@ function AboutParagraph({ text, reverse }) {
     >
       <Text>{text}</Text>
       <Box />
-    </ChakraFlex>
+    </MotionParagraph>
   )
 }
 

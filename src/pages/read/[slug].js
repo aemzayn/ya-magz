@@ -14,16 +14,17 @@ import ArticleLayout from "@/components/article/article-layout"
 import ArticleTitle from "@/components/article/article-title"
 import Layout from "@/components/sections/layout"
 import ArticleShare from "@/components/article/article-share"
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta/meta"
 
 // Library Components
-import { Avatar, chakra, Icon, Stack, Text } from "@chakra-ui/react"
+import { Avatar, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
 import { getPostContent, listPosts } from "@/lib/posts"
 import { getAuthor } from "@/lib/authors"
 import { getTag } from "@/lib/postTags"
+import Comment from "@/components/article/comment/comment"
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
@@ -96,6 +97,7 @@ export default function Article({ article, source }) {
             />
           </header>
           <ArticleBody body={content} />
+          <Comment />
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>

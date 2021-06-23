@@ -1,3 +1,4 @@
+import { Provider } from "next-auth/client"
 import { ThemeProvider, CSSReset } from "@chakra-ui/react"
 import theme from "../theme"
 import "@/styles/styles.scss"
@@ -25,12 +26,14 @@ Router.onRouteChangeError = () => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <CSSReset />
-      <Container>
-        <Component {...pageProps} />
-      </Container>
-    </ThemeProvider>
+    <Provider session={pageProps.session}>
+      <ThemeProvider theme={theme}>
+        <CSSReset />
+        <Container>
+          <Component {...pageProps} />
+        </Container>
+      </ThemeProvider>
+    </Provider>
   )
 }
 
