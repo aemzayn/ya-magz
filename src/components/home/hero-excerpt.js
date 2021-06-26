@@ -12,7 +12,7 @@ const HeroExcerpt = ({ excerpt, textSize, ...rest }) => {
       textAlign="center"
       my="4"
       pb={6}
-      color="gray.500"
+      color="gray.600"
       overflowY="hidden"
       variants={{
         hidden: {

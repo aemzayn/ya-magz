@@ -78,15 +78,15 @@ export default function Article({ article, source }) {
                 icon={<Icon as={FiUser} />}
               />
               <ArticleAuthor slug={author} name={getAuthor(author).name} />
-              <Text as="span" color="gray.500">
+              <Text as="span" color="gray.600">
                 {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
                   new Date(date)
                 )}
               </Text>
-              <Text as="span" color="gray.500">
+              <Text as="span" color="gray.600">
                 ·
               </Text>
-              <Text as="span" color="gray.500">
+              <Text as="span" color="gray.600">
                 {readTime?.text}
               </Text>
             </Stack>

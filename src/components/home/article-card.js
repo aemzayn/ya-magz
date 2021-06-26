@@ -17,8 +17,7 @@ const Item = ({ children }) => (
   <Text
     as="span"
     fontWeight="normal"
-    textTransform="uppercase"
-    fontSize={{ base: "0.6rem", lg: "0.75rem" }}
+    fontSize={{ base: "0.7rem", lg: "0.85rem" }}
     color="gray.600"
     margin="0"
     _notLast={{
@@ -67,6 +66,7 @@ const Article = ({ article }) => {
               objectFit="cover"
               src={featuredimage || featuredimageurl}
               loading="lazy"
+              alt={title}
             />
           </Skeleton>
         ) : (
@@ -114,13 +114,13 @@ const Article = ({ article }) => {
         </Flex>
         <Heading
           className="article-title"
-          as="h5"
+          as="h2"
           fontSize={titleSize}
           fontWeight="medium"
           maxW="90%"
           mr="auto"
           _hover={{
-            color: "gray.500",
+            color: "gray.600",
           }}
         >
           <Link href={`/read/${slug}`}>
@@ -129,7 +129,7 @@ const Article = ({ article }) => {
         </Heading>
         {excerpt ? (
           <Text
-            color="gray.500"
+            color="gray.600"
             fontSize={{ base: "0.8rem", lg: "1rem" }}
             mr="auto"
             d="block"
@@ -150,13 +150,14 @@ const Article = ({ article }) => {
           </chakra.div>
         )}
         <Text
-          color="blue.400"
+          color="blue.700"
           className="article-link"
           fontSize={{ base: "0.8rem", lg: "1rem" }}
+          textDecor="underline"
         >
           <Link href={`/read/${slug}`}>
             <a>
-              read more
+              continue reading
               <ChevronRightIcon />
             </a>
           </Link>

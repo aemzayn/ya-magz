@@ -47,6 +47,7 @@ export default function YaPodcast() {
             src={config.podcast_cover_url}
             loading="lazy"
             boxShadow="xl"
+            alt="Ya! Podcast cover"
           />
         </AspectRatio>
         <VStack
@@ -68,7 +69,7 @@ export default function YaPodcast() {
               Ya!Pod
             </Heading>
           </Flex>
-          <Text color="gray.500" fontSize={{ base: "0.8rem", lg: "1rem" }}>
+          <Text color="gray.600" fontSize={{ base: "0.8rem", lg: "1rem" }}>
             Ya!Pod is here! Masih belum dengerin episode Ya!Pod bareng
             @sahrultdg, @mdavine05_, dan @khalismrsyd? Yuk langsung aja klik
             link di bio kita buat streaming episode-episode Ya!Pod. Don’t

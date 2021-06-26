@@ -1,11 +1,9 @@
-module.exports = {
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    // if (!isServer) {
-    //   config.node = {
-    //     fs: "empty",
-    //   }
-    // }
+const withPWA = require("next-pwa")
+
+const workboxConfig = require("./wb.config")
+
+module.exports = withPWA({
+  webpack: config => {
     config.module.rules.push(
       ...[
         {
@@ -23,4 +21,12 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-}
+  images: {
+    deviceSizes: [420, 768, 1024, 1200],
+    iconSizes: [],
+    domains: [],
+    path: "/_next/image",
+    loader: "default",
+  },
+  pwa: workboxConfig,
+})

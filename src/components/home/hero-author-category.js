@@ -35,7 +35,7 @@ export default function HeroAuthorCategory({
   ]
 
   return (
-    <Text mb="1.2" color="gray.500" {...rest}>
+    <Text mb="1.2" color="gray.600" {...rest}>
       {items.map(it => (
         <TextContainer
           as="span"

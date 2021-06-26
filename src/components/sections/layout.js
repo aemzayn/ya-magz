@@ -13,6 +13,31 @@ const Layout = ({ children }) => {
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/product-sans/ProductSans-Regular.ttf"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/product-sans/ProductSans-Thin.ttf"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/product-sans/ProductSans-Medium.ttf"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/product-sans/ProductSans-Bold.ttf"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/product-sans/ProductSans-Black.ttf"
+        />
       </Head>
       <Header />
       {children}

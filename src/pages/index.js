@@ -15,11 +15,11 @@ export default function Home({ articles, heroArticle, featuredArticle }) {
       <main>
         <Hero article={heroArticle} />
         <ArticleList articles={articles.slice(0, 6)} />
-        <FeaturedArticle article={featuredArticle[0]} colorScheme="orange" />
+        <FeaturedArticle article={featuredArticle[0]} btnColor="orange.600" />
         <ArticleList articles={articles.slice(6, 12)} />
         <FeaturedArticle
           article={featuredArticle[1]}
-          colorScheme="blue"
+          btnColor="blue.600"
           reverse
         />
         <ArticleList

@@ -1,4 +1,4 @@
-import { Box, Image as ChakraImage } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 
 export default function HeroImage({ url }) {
   return (
@@ -16,14 +16,6 @@ export default function HeroImage({ url }) {
         bgSize="contain"
         bgRepeat="repeat-x"
       />
-      {/* <ChakraImage
-        src={url}
-        w={{ base: "full", lg: "full" }}
-        height={{ base: "full" }}
-        width="full"
-        objectFit="contain"
-        objectPosition={{ base: "center", md: "bottom", lg: "center" }}
-      /> */}
     </Box>
   )
 }

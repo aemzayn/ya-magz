@@ -81,7 +81,7 @@ export default function ArticleList({
       )}
 
       {moreBtn && (
-        <PrimaryButton bgColor="gray.800" href={moreBtnHref}>
+        <PrimaryButton bgColor="gray.800" color="white" href={moreBtnHref}>
           Show More
         </PrimaryButton>
       )}

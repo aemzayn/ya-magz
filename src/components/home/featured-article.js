@@ -10,10 +10,10 @@ import HeroTitle from "./hero-title"
 
 export default function FeaturedArticle({
   article,
-  btnColor,
   reverse,
   imgPos = "center",
   colorScheme,
+  btnColor,
 }) {
   const image = article?.featuredimage || article?.featuredimageurl
   const titleSize = useBreakpointValue({ base: "lg", md: "xl" })
@@ -48,6 +48,7 @@ export default function FeaturedArticle({
               objectFit="cover"
               objectPosition={imgPos}
               loading="lazy"
+              alt={article?.title}
             />
           </Skeleton>
         </Box>
@@ -71,15 +72,18 @@ export default function FeaturedArticle({
           <HeroExcerpt
             excerpt={article?.excerpt}
             maxW={{ base: "80%", lg: "78%" }}
-            color={{ base: "gray.500" }}
+            color={{ base: "gray.600" }}
             fontSize={textSize}
             marginBottom={{ base: 2, md: 4 }}
           />
           <PrimaryButton
             href={`/read/${article?.slug}`}
-            bgColor={btnColor ? btnColor : "theme.main"}
-            colorScheme={colorScheme}
+            colorScheme="blue"
             fontSize={textSize}
+            // btnColor="blue.200"
+            bgColor={btnColor}
+            color="white"
+            // bgColor="white"
           >
             Read Now
           </PrimaryButton>

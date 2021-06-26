@@ -19,7 +19,7 @@ const DeleteComment = ({ deleteComment }) => {
           size="sm"
           variant="ghost"
           icon={<Icon as={HiDotsVertical} />}
-          color="gray.500"
+          color="gray.600"
           _hover={{ color: "black" }}
         />
       </PopoverTrigger>

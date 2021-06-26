@@ -24,7 +24,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
         <Text
           as="a"
           display="block"
-          color={router.pathname === to ? "black" : "gray.500"}
+          color={router.pathname === to ? "black" : "gray.600"}
           cursor="pointer"
           _hover={{
             color: "black",

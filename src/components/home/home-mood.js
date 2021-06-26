@@ -48,6 +48,7 @@ export default function HomeMood() {
             src={config.mood_cover_url}
             loading="lazy"
             boxShadow="xl"
+            alt="Mood cover"
           />
         </AspectRatio>
 
@@ -70,7 +71,7 @@ export default function HomeMood() {
               Vol .04: Gifted
             </Heading>
           </Flex>
-          <Text color="gray.500" fontSize={{ base: "0.8rem", lg: "1rem" }}>
+          <Text color="gray.600" fontSize={{ base: "0.8rem", lg: "1rem" }}>
             Saat musisi Indonesia mampu membuktikan kepada dunia bahwa musik
             Indonesia juga bisa ikut bertanding dikancah internasional
           </Text>

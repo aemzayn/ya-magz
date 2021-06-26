@@ -112,7 +112,7 @@ export default function Author({ authors }) {
                   cursor="pointer"
                   as="a"
                   key={id}
-                  _hover={{ color: "gray.500" }}
+                  _hover={{ color: "gray.600" }}
                 >
                   {author.name}
                 </Text>

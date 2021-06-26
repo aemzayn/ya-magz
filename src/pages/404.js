@@ -1,7 +1,7 @@
-import Layout from '@/components/sections/layout'
-import { InfoIcon } from '@chakra-ui/icons'
-import { Heading, VStack } from '@chakra-ui/react'
-import Head from 'next/head'
+import Layout from "@/components/sections/layout"
+import { InfoIcon } from "@chakra-ui/icons"
+import { Heading, VStack } from "@chakra-ui/react"
+import Head from "next/head"
 
 export default function NotFound() {
   return (
@@ -10,27 +10,27 @@ export default function NotFound() {
         <title>Not Found</title>
       </Head>
       <VStack
-        justifyContent='center'
-        textAlign='center'
+        justifyContent="center"
+        textAlign="center"
         spacing={2}
-        minH='75vh'
+        minH="75vh"
       >
         <Heading
-          fontWeight='normal'
-          size='2xl'
-          mb='4'
-          as='h1'
-          fontFamily='Product Sans'
-          fontWeight='bold'
+          fontWeight="normal"
+          size="2xl"
+          mb="4"
+          as="h1"
+          fontFamily="Product Sans"
+          fontWeight="bold"
         >
           404 Not Found 😭
         </Heading>
         <Heading
-          fontWeight='normal'
-          size='xl'
-          as='h2'
-          color='gray.500'
-          fontFamily='Product Sans'
+          fontWeight="normal"
+          size="xl"
+          as="h2"
+          color="gray.600"
+          fontFamily="Product Sans"
         >
           The page you are looking for is not available.
         </Heading>

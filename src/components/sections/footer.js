@@ -19,8 +19,8 @@ import Link from "next/link"
 import React from "react"
 import { FiLink } from "react-icons/fi"
 import { MdCopyright } from "react-icons/md"
+import { FOOTER_ROUTES } from "src/constanst/routes"
 import Logo from "./Logo"
-import routes from "../../../routes"
 
 function FooterLink({ children, path }) {
   return (
@@ -29,8 +29,9 @@ function FooterLink({ children, path }) {
         as="a"
         cursor="pointer"
         fontSize={{ base: "sm", lg: "md" }}
-        color="gray.500"
+        color="gray.600"
         _hover={{ color: "black" }}
+        rel="noopener"
       >
         {children}
       </Text>
@@ -85,7 +86,7 @@ function FooterForm({ handleSubmit }) {
 }
 
 export default function Footer() {
-  let footerRoutes = routes.filter(r => r.path !== "/")
+  let footerRoutes = FOOTER_ROUTES.filter(r => r.path !== "/")
   const toast = useToast()
   function handleSubmit(e) {
     e.preventDefault()
@@ -145,20 +146,20 @@ export default function Footer() {
               href="https://www.instagram.com/ya.magz/"
               aria-label="Ya! Magazine Instagram"
               isExternal
-              rel="external"
+              rel="noopener"
               cursor="pointer"
               _hover={{
                 textDecoration: "underline",
                 color: "black",
               }}
             >
-              IG
+              INSTAGRAM
             </ChakraLink>
             <ChakraLink
               href="https://ppibursablog.wordpress.com/"
               aria-label="PPI Bursa Website"
               cursor="pointer"
-              rel="external"
+              rel="noopener"
               isExternal
               _hover={{
                 textDecoration: "underline",

@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 
-export default function HeroTitle({ title, container, stack, heading }) {
+export default function HeroTitle({ title, stack }) {
   const [isMobile] = useMediaQuery("(max-width: 760px)")
   const titleSize = useBreakpointValue({ base: "xl", md: "2xl" })
 
@@ -54,6 +54,7 @@ export default function HeroTitle({ title, container, stack, heading }) {
           >
             {word.split("").map((char, charId) => (
               <TitleChar
+                as="h1"
                 key={charId}
                 size={titleSize}
                 transform={{ base: "none", md: "translateY(-200px)" }}

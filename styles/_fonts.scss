@@ -2,30 +2,35 @@
   font-family: "Product Sans";
   src: url("/fonts/product-sans/ProductSans-Black.ttf");
   font-weight: 900;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Product Sans";
   src: url("/fonts/product-sans/ProductSans-Bold.ttf");
   font-weight: 700;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Product Sans";
   src: url("/fonts/product-sans/ProductSans-Medium.ttf");
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Product Sans";
   src: url("/fonts/product-sans/ProductSans-Regular.ttf");
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Product Sans";
   src: url("/fonts/product-sans/ProductSans-Thin.ttf");
   font-weight: 300;
+  font-display: swap;
 }
 
 $productSans: "Product Sans", "Open Sans", sans-serif;

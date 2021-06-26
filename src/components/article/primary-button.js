@@ -5,7 +5,6 @@ export default function PrimaryButton({
   children,
   href = "/",
   rightIcon,
-  colorScheme,
   ...rest
 }) {
   return (
@@ -16,8 +15,6 @@ export default function PrimaryButton({
         px={{ base: "10", md: 20 }}
         lineHeight="1"
         size="lg"
-        colorScheme={colorScheme ?? "brand.main"}
-        color="white"
         borderRadius="50px"
         fontWeight="normal"
         borderRadius="false"
