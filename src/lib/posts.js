@@ -40,20 +40,17 @@ function scanDirectory() {
       return matterData
     })
   // Sort posts by date
-  postCache = allPostsData
-    .sort((a, b) => {
-      if (a.date < b.date) {
-        return 1
-      } else {
-        return -1
-      }
-    })
-    .filter(p => p.slug !== "prusa-dari-bursa-untuk-bangsa") // TODO: Remove this filter after featured image found
+  postCache = allPostsData.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1
+    } else {
+      return -1
+    }
+  })
   return postCache
 }
 
 export function getHomeArticles() {
-  let nslice = 2
   const allPosts = scanDirectory()
   const heroArticle = allPosts.find(post => post.featuredpost)
   const featuredArticle = allPosts.filter(post => post.featuredpost).slice(1, 3)
@@ -65,7 +62,7 @@ export function getHomeArticles() {
         it.slug !== featuredArticle[1].slug &&
         it.tags !== "art"
     )
-    .slice(0, config.posts_per_page * nslice)
+    .slice(0, config.posts_per_page * 2)
   const artArticles = allPosts
     .filter(it => it.tags === "art")
     .slice(0, config.posts_per_page)
