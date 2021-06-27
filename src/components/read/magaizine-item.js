@@ -1,8 +1,10 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons"
-import { Box, Button, Center, Image } from "@chakra-ui/react"
 import { useState } from "react"
+import { useRouter } from "next/router"
+import { Box, Button, Center, Image } from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
-const MagazineItem = ({ item, redirect }) => {
+const MagazineItem = ({ item }) => {
+  const router = useRouter()
   const [hover, setHover] = useState(false)
   return (
     <Box
@@ -11,13 +13,13 @@ const MagazineItem = ({ item, redirect }) => {
       className="grid-item"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      overflow="hidden"
     >
       <Image
         src={item.cover}
         w="100%"
         objectFit="cover"
         objectPosition="center"
-        _hover={{ zoom: "110%" }}
       />
 
       <Center
@@ -32,7 +34,7 @@ const MagazineItem = ({ item, redirect }) => {
         <Button
           borderRadius="false"
           fontWeight="normal"
-          onClick={() => redirect(item.link)}
+          onClick={() => router.push(`/redirect?url=${item.link}`)}
         >
           Read <ExternalLinkIcon ml="2" />
         </Button>

@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Box,
+  Heading,
+} from "@chakra-ui/react"
+
 import Meta from "@/components/meta/meta"
 import Layout from "@/components/layout/layout"
-import MagazineNav from "@/components/read/grid-nav"
-import MagazineGrid from "@/components/read/grid"
-import { magazines } from "@/cms/magazines.json"
-import { bulletins } from "@/cms/bulletins.json"
+import MagazineGrid from "@/components/read/magazine-grid"
 import MagazinePageLayout from "@/components/read/grid-layout"
 
+import magazines from "@/cms/magazines.json"
+import bulletins from "@/cms/bulletins.json"
+
 export default function Magazine() {
-  const router = useRouter()
-  const [show, setShow] = useState(magazines)
-
-  useEffect(() => {
-    if (router.query.s === "bulletins") {
-      setShow(bulletins)
-    } else {
-      setShow(magazines)
-    }
-  }, [router.query.s])
-
   return (
     <Layout>
       <Meta
@@ -35,13 +32,44 @@ export default function Magazine() {
         description="Magazines and Bulletins published by Ya! Magazine."
       />
       <MagazinePageLayout>
-        <MagazineNav
-          bulletins={bulletins}
-          magazines={magazines}
-          show={show}
-          setShow={setShow}
-        />
-        <MagazineGrid items={show} />
+        <Tabs variant="enclosed" colorScheme="blue" isLazy isFitted>
+          <TabList
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            borderBottomColor="gray.200"
+            flexDir={{ base: "column", md: "row" }}
+          >
+            <Box display="flex" alignItems="center" mb={{ base: 4, md: 0 }}>
+              <Heading
+                pos="relative"
+                top={-1}
+                className="page-title"
+                as="h1"
+                size="xl"
+              >
+                Magazines and Bulletins
+              </Heading>
+            </Box>
+            <Box display="flex" w={{ base: "full", md: "unset" }}>
+              <Tab _hover={{ bgColor: "blue.50" }} pb={3} borderRadius={0}>
+                Magazines
+              </Tab>
+              <Tab _hover={{ bgColor: "blue.50" }} pb={3} borderRadius={0}>
+                Bulletins
+              </Tab>
+            </Box>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel p={0}>
+              <MagazineGrid items={magazines.magazines} />
+            </TabPanel>
+            <TabPanel>
+              <MagazineGrid items={bulletins.bulletins} />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </MagazinePageLayout>
     </Layout>
   )

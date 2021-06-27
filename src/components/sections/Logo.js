@@ -3,13 +3,14 @@ import NextLink from "next/link"
 
 export default function Logo(props) {
   return (
-    <Link as={NextLink} href="/">
-      <Link>
+    <NextLink href="/">
+      <a>
         <Flex
           direction="column"
           color="black"
           fontSize="1.25rem"
           className="logo"
+          _hover={{ color: "blue.900" }}
           {...props}
         >
           <Text
@@ -25,7 +26,7 @@ export default function Logo(props) {
             Magz
           </Text>
         </Flex>
-      </Link>
-    </Link>
+      </a>
+    </NextLink>
   )
 }
