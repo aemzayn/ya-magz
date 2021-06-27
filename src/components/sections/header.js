@@ -1,51 +1,38 @@
-import { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
 import Logo from "./Logo"
-import {
-  Box,
-  Flex,
-  ListItem,
-  Text,
-  UnorderedList,
-  Icon,
-  Button,
-  useBreakpointValue,
-} from "@chakra-ui/react"
+import { Box, Flex, UnorderedList, Icon, useDisclosure } from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
 import { NAV_LINKS } from "../../constanst/routes"
-import { signIn, signOut, useSession } from "next-auth/client"
+import MobileNavbar from "./mobile-navbar"
+import NavItem from "./nav-item"
 
-const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
-  const router = useRouter()
+const DesktopNavbar = () => {
   return (
-    <ListItem listStyleType="none">
-      <Link href={to}>
-        <Text
-          as="a"
-          display="block"
-          color={router.pathname === to ? "black" : "gray.600"}
-          cursor="pointer"
-          _hover={{
-            color: "black",
-          }}
-          fontFamily="body"
-          {...rest}
-          mb={{ base: isLast ? 0 : 8, md: 0 }}
-          mr={{ base: 0, md: isLast ? 0 : 8 }}
-        >
-          {children}
-        </Text>
-      </Link>
-    </ListItem>
+    <Box
+      display={{ base: "none", md: "block" }}
+      transition="all 200ms ease-in-out"
+      flexBasis={{ base: "100%", md: "auto" }}
+    >
+      <UnorderedList
+        d="flex"
+        alignItems="center"
+        justify={{ md: "space-between", lg: "flex-end" }}
+      >
+        {NAV_LINKS.map((r, i) => (
+          <NavItem
+            key={i}
+            to={r.to}
+            isLast={i === NAV_LINKS.length - 1 ? true : false}
+          >
+            {r.name}
+          </NavItem>
+        ))}
+      </UnorderedList>
+    </Box>
   )
 }
 
 export default function Header() {
-  const [show, setShow] = useState(false)
-  const toggleMenu = () => setShow(show => !show)
-  // const [session] = useSession()
-  const authButtonSize = useBreakpointValue({ base: "md", md: "sm" })
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Flex
@@ -78,48 +65,18 @@ export default function Header() {
     >
       <Logo />
 
-      <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
-        {show ? (
-          <Icon boxSize="1.5em" as={CloseIcon} />
-        ) : (
-          <Icon boxSize="1.5em" as={MenuIcon} />
-        )}
+      {/* Hamburger menu */}
+      <Box
+        cursor="pointer"
+        display={{ base: "block", md: "none" }}
+        onClick={onOpen}
+      >
+        <Icon boxSize="1.5em" as={isOpen ? CloseIcon : MenuIcon} />
       </Box>
 
-      <Box
-        display={{ base: show ? "block" : "none", md: "block" }}
-        transition="all 200ms ease-in-out"
-        flexBasis={{ base: "100%", md: "auto" }}
-      >
-        <UnorderedList
-          d="flex"
-          alignItems="center"
-          justify={["center", "space-between", "flex-end", "flex-end"]}
-          flexDir={["column", "row", "row", "row"]}
-          py={[4, 4, 0, 0]}
-        >
-          {NAV_LINKS.map((r, i) => (
-            <MenuItem
-              key={i}
-              to={r.to}
-              isLast={i === NAV_LINKS.length - 1 ? true : false}
-            >
-              {r.name}
-            </MenuItem>
-          ))}
-          {/* <Button
-            size={authButtonSize}
-            colorScheme="gray"
-            borderRadius={false}
-            mt={{ base: 6, md: 0 }}
-            onClick={() => {
-              session ? signOut() : signIn()
-            }}
-          >
-            {session ? "Logout" : "Login"}
-          </Button> */}
-        </UnorderedList>
-      </Box>
+      <DesktopNavbar />
+
+      <MobileNavbar isOpen={isOpen} onClose={onClose} />
     </Flex>
   )
 }

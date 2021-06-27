@@ -9,6 +9,7 @@ export default extendTheme({
     brand: {
       main: theme.colors.black,
       light: theme.colors.black,
+      gray: "#57576B",
     },
   },
   breakpoints: {

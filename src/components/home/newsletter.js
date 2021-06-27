@@ -12,7 +12,7 @@ const Newsletter = () => {
       alignItems={{ base: "flex", lg: "center" }}
       textAlign="center"
     >
-      <Text textTransform="uppercase" color="gray.600" letterSpacing="1px">
+      <Text textTransform="uppercase" color="brand.gray" letterSpacing="1px">
         Newsletter
       </Text>
       <Heading color="black">Get Notified for Upcoming Articles</Heading>
@@ -35,7 +35,7 @@ const Newsletter = () => {
           fontWeight="normal"
           size="lg"
           _hover={{
-            bgColor: "gray.600",
+            bgColor: "brand.gray",
           }}
           onClick={() =>
             toast({

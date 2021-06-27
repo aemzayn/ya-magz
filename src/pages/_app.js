@@ -10,7 +10,7 @@ import * as gtag from "@/lib/gtag"
 
 import "@fontsource/montserrat/500-italic.css"
 import "@fontsource/montserrat/900.css"
-import Container from "@/components/container"
+import Container from "@/components/layout/container"
 
 NProgress.configure({ showSpinner: false })
 Router.onRouteChangeStart = () => {

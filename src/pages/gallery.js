@@ -1,6 +1,6 @@
 import Meta from "@/components/meta/meta"
 import GalleryContainer from "@/components/indorsagraphy/gallery-container"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import gallery from "@/cms/gallery.json"
 
 export default function Gallery() {

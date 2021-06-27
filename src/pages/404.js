@@ -1,5 +1,4 @@
-import Layout from "@/components/sections/layout"
-import { InfoIcon } from "@chakra-ui/icons"
+import Layout from "@/components/layout/layout"
 import { Heading, VStack } from "@chakra-ui/react"
 import Head from "next/head"
 
@@ -29,7 +28,7 @@ export default function NotFound() {
           fontWeight="normal"
           size="xl"
           as="h2"
-          color="gray.600"
+          color="brand.gray"
           fontFamily="Product Sans"
         >
           The page you are looking for is not available.

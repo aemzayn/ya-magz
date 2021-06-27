@@ -18,7 +18,7 @@ const Item = ({ children }) => (
     as="span"
     fontWeight="normal"
     fontSize={{ base: "0.7rem", lg: "0.85rem" }}
-    color="gray.600"
+    color="brand.gray"
     margin="0"
     _notLast={{
       marginRight: 1,
@@ -120,7 +120,7 @@ const Article = ({ article }) => {
           maxW="90%"
           mr="auto"
           _hover={{
-            color: "gray.600",
+            color: "brand.gray",
           }}
         >
           <Link href={`/read/${slug}`}>
@@ -129,7 +129,7 @@ const Article = ({ article }) => {
         </Heading>
         {excerpt ? (
           <Text
-            color="gray.600"
+            color="brand.gray"
             fontSize={{ base: "0.8rem", lg: "1rem" }}
             mr="auto"
             d="block"

@@ -30,7 +30,7 @@ const GalleryContainer = ({ images }) => {
         <Heading
           as="h2"
           size={subtitleSize}
-          color="gray.600"
+          color="brand.gray"
           fontWeight="normal"
           d="flex"
         >

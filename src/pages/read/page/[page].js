@@ -1,7 +1,7 @@
 import BasicMeta from "@/components/meta/basicMeta"
 import OpenGraphMeta from "@/components/meta/openGraphMeta"
 import TwitterCardMeta from "@/components/meta/twitterCardMeta"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import { countPosts, listPosts } from "@/lib/posts"
 import { listTags } from "@/lib/postTags"
 import config from "@/cms/site-settings.json"

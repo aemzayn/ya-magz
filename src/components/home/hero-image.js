@@ -1,21 +1,13 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Image } from "@chakra-ui/react"
 
-export default function HeroImage({ url }) {
+export default function HeroImage({ url, alt }) {
   return (
     <Box
-      w={{ base: "unset", lg: "40%", xl: "33%" }}
-      h={{ base: "30vh", md: "30vh", lg: "78vh" }}
-      bgColor="black"
+      gridArea="image"
+      h={{ base: "30vh", lg: "78vh" }}
+      bgColor="hsl(255,6%,0%)"
     >
-      <Box
-        bgImage={`url(${url})`}
-        bgColor="black"
-        width="full"
-        height="full"
-        bgPos="center"
-        bgSize="contain"
-        bgRepeat="repeat-x"
-      />
+      <Image src={url} alt={alt} w="full" h="full" objectFit="contain" />
     </Box>
   )
 }

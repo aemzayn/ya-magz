@@ -8,7 +8,8 @@
       "@/animations/*": ["src/components/animations/*"],
       "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["styles/*"],
-      "@/cms/*": ["cms/*"]
+      "@/cms/*": ["cms/*"],
+      "@/constants/*": ["src/constants/*"]
     }
   },
   "exclude": ["node_modules"]

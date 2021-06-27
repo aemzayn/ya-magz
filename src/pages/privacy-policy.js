@@ -1,4 +1,4 @@
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import ArticleLayout from "@/components/article/article-layout"
 import Meta from "@/components/article/meta/meta"
 

@@ -1,11 +1,12 @@
-import Meta from "@/components/meta/meta"
-import PageLayout from "@/components/page-layout"
-import Layout from "@/components/sections/layout"
+import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import { Box, Flex, Heading, VStack, Text } from "@chakra-ui/layout"
 import { useBreakpointValue } from "@chakra-ui/media-query"
-import { isValidMotionProp, motion, useAnimation } from "framer-motion"
-import { forwardRef, useEffect } from "react"
-import { useInView } from "react-intersection-observer"
+import { motion, useAnimation } from "framer-motion"
+
+import Meta from "@/components/meta/meta"
+import PageLayout from "@/components/layout/page-layout"
+import Layout from "@/components/layout/layout"
 
 const content = [
   "It was all started 3 years ago, when the spring on March 2017 is coming. Where all the flowers are started to bloom, especially lale. Lale is famous with Tulip as its name. Though, lale is the sign of the beauty in the wild, it also the symbol of the life which run by all human that facing hardness and challenges but still standing tall on their ground. This flower brings the founders of YA! like Muafi bey who was experiencing journalism in a new manner when he studied in Egypt, and turned to Turkey to establish YA!. He taught us and he made it all the way here and now. With you standing together in Bursa, Turkey.",

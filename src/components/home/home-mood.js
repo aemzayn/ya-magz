@@ -9,7 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react"
 import { useRouter } from "next/router"
-import PageLayout from "../page-layout"
+import PageLayout from "../layout/page-layout"
 import config from "@/cms/site-settings.json"
 import SpotifyBadge from "@/assets/icons/spotify-badge"
 
@@ -71,7 +71,7 @@ export default function HomeMood() {
               Vol .04: Gifted
             </Heading>
           </Flex>
-          <Text color="gray.600" fontSize={{ base: "0.8rem", lg: "1rem" }}>
+          <Text color="brand.gray" fontSize={{ base: "0.8rem", lg: "1rem" }}>
             Saat musisi Indonesia mampu membuktikan kepada dunia bahwa musik
             Indonesia juga bisa ikut bertanding dikancah internasional
           </Text>

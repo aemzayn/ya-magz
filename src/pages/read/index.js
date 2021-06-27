@@ -1,6 +1,6 @@
 import { countArticlesWithoutTag, listArticlesWithoutTag } from "@/lib/posts"
 import config from "@/cms/site-settings.json"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import BasicMeta from "@/components/meta/basicMeta"
 import OpenGraphMeta from "@/components/meta/openGraphMeta"
 import TwitterCardMeta from "@/components/meta/twitterCardMeta"

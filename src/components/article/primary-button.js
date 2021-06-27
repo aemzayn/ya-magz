@@ -11,8 +11,8 @@ export default function PrimaryButton({
     <Link href={href}>
       <Button
         as="a"
-        py={{ base: "5", md: 7 }}
-        px={{ base: "10", md: 20 }}
+        py={{ base: 5, md: 6, lg: 7 }}
+        px={{ base: 10, md: 14, lg: 20 }}
         lineHeight="1"
         size="lg"
         borderRadius="50px"

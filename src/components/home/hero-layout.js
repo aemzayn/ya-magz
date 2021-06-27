@@ -1,18 +1,22 @@
-import { Flex } from "@chakra-ui/react"
+import { Grid, useBreakpointValue } from "@chakra-ui/react"
 
 function HeroLayout({ children }) {
+  const gridTemplateAreas = useBreakpointValue({
+    base: "'image' 'main'",
+    md: "'main image'",
+  })
   return (
-    <Flex
-      flexDirection={{ base: "column-reverse", lg: "row" }}
-      justifyContent="space-between"
-      w="full"
-      minH={{ base: "78vh", md: "80vh", lg: "78vh" }}
+    <Grid
+      templateColumns={{ base: "1fr", md: "7fr 3fr", lg: "6fr 4fr" }}
+      gap={0}
+      maxH={{ base: "78vh", md: "80vh", lg: "78vh" }}
       pos="relative"
-      bgColor="gray.50"
-      overflowX="auto"
+      sx={{
+        gridTemplateAreas: gridTemplateAreas,
+      }}
     >
       {children}
-    </Flex>
+    </Grid>
   )
 }
 

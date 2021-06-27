@@ -3,7 +3,7 @@ import { Flex, Heading, chakra, Center, SimpleGrid } from "@chakra-ui/react"
 import ArticleCategoryNav from "./article-category-nav"
 import PrimaryButton from "./primary-button"
 import Pagination from "./pagination"
-import PageLayout from "../page-layout"
+import PageLayout from "../layout/page-layout"
 
 export default function ArticleList({
   articles = [],

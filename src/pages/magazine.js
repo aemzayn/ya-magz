@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Meta from "@/components/meta/meta"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import MagazineNav from "@/components/read/grid-nav"
 import MagazineGrid from "@/components/read/grid"
 import { magazines } from "@/cms/magazines.json"

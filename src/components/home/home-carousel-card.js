@@ -7,7 +7,7 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react"
-import PageLayout from "../page-layout"
+import PageLayout from "../layout/page-layout"
 import { getTag } from "@/lib/postTags"
 import { getAuthor } from "@/lib/authors"
 
@@ -17,7 +17,7 @@ const Item = ({ children }) => (
     fontWeight="normal"
     textTransform="uppercase"
     fontSize={{ base: "0.8rem", lg: "0.75rem" }}
-    color="gray.600"
+    color="brand.gray"
     margin="0"
     _notLast={{
       marginRight: 1,

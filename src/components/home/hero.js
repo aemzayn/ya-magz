@@ -1,4 +1,4 @@
-import { useBreakpointValue, VStack } from "@chakra-ui/react"
+import { GridItem, useBreakpointValue, VStack } from "@chakra-ui/react"
 import HeroTitle from "./hero-title"
 import HeroImage from "./hero-image"
 import HeroLayout from "./hero-layout"
@@ -9,17 +9,19 @@ import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 export default function Hero({ article }) {
   const url = article?.featuredimage || article?.featuredimageurl
-  const textSize = useBreakpointValue({ base: "sm", md: "md" })
+  const textSize = useBreakpointValue({ base: "sm", lg: "md" })
 
   return (
     <HeroLayout>
       <VStack
+        as={GridItem}
+        gridArea="main"
         spacing={{ base: 2, md: 4 }}
         as="main"
-        w={{ base: "full", lg: "60%", xl: "66%" }}
+        // w={{ base: "full", lg: "60%", xl: "66%" }}
         flex={{ base: 1, lg: "unset" }}
         pl={{ base: "0", xl: "8" }}
-        py={{ base: "8", lg: "5rem", xl: 0 }}
+        py={{ base: "8", md: 0, lg: "5rem", xl: 20 }}
         bgColor="gray.50"
         justifyContent="center"
       >
@@ -35,11 +37,12 @@ export default function Hero({ article }) {
           rightIcon={<ArrowForwardIcon />}
           bgColor="brand.main"
           color="white"
+          fontSize={textSize}
         >
           Read Now
         </PrimaryButton>
       </VStack>
-      <HeroImage url={url} />
+      <HeroImage alt={article?.title} url={url} />
     </HeroLayout>
   )
 }

@@ -8,7 +8,7 @@ export default function ArticleDesc() {
       mb="14"
       fontStyle="italic"
       fontSize="xl"
-      color="gray.600"
+      color="brand.gray"
       pl="4"
       borderLeftWidth="5px"
       borderLeftStyle="solid"

@@ -29,7 +29,7 @@ function FooterLink({ children, path }) {
         as="a"
         cursor="pointer"
         fontSize={{ base: "sm", lg: "md" }}
-        color="gray.600"
+        color="brand.gray"
         _hover={{ color: "black" }}
         rel="noopener"
       >
@@ -128,7 +128,7 @@ export default function Footer() {
           <HStack
             spacing={1}
             align={{ base: "center" }}
-            color="gray.600"
+            color="brand.gray"
             order={{ base: 1, md: 0 }}
             fontSize={{ base: "sm", lg: "md" }}
             wordBreak="break-word"

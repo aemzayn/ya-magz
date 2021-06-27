@@ -12,7 +12,7 @@ import ArticleCategory from "@/components/article/article-category"
 import ArticleCoverImage from "@/components/article/article-cover-image"
 import ArticleLayout from "@/components/article/article-layout"
 import ArticleTitle from "@/components/article/article-title"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import ArticleShare from "@/components/article/article-share"
 import Meta from "@/components/meta/meta"
 
@@ -78,15 +78,15 @@ export default function Article({ article, source }) {
                 icon={<Icon as={FiUser} />}
               />
               <ArticleAuthor slug={author} name={getAuthor(author).name} />
-              <Text as="span" color="gray.600">
+              <Text as="span" color="brand.gray">
                 {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
                   new Date(date)
                 )}
               </Text>
-              <Text as="span" color="gray.600">
+              <Text as="span" color="brand.gray">
                 ·
               </Text>
-              <Text as="span" color="gray.600">
+              <Text as="span" color="brand.gray">
                 {readTime?.text}
               </Text>
             </Stack>

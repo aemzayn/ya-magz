@@ -86,7 +86,7 @@ export const Person = ({ person, showSocmed }) => {
         >
           {person?.name}
         </Heading>
-        <Text fontSize={roleTitleSize} color="gray.600">
+        <Text fontSize={roleTitleSize} color="brand.gray">
           {person?.role}
         </Text>
       </Box>

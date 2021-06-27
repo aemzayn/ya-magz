@@ -1,5 +1,5 @@
 import Meta from "@/components/meta/meta"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import Person from "@/components/team/person"
 import { Box, Grid, Heading, SimpleGrid } from "@chakra-ui/react"
 import { listMembers } from "@/lib/team"

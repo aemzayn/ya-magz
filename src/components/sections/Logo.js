@@ -1,10 +1,10 @@
-import { Flex, Text } from "@chakra-ui/layout"
-import Link from "next/link"
+import { Flex, Text, Link } from "@chakra-ui/layout"
+import NextLink from "next/link"
 
 export default function Logo(props) {
   return (
-    <Link href="/">
-      <a>
+    <Link as={NextLink} href="/">
+      <Link>
         <Flex
           direction="column"
           color="black"
@@ -25,7 +25,7 @@ export default function Logo(props) {
             Magz
           </Text>
         </Flex>
-      </a>
+      </Link>
     </Link>
   )
 }

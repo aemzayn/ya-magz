@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import Layout from "@/components/sections/layout"
+import Layout from "@/components/layout/layout"
 import { getAuthor, listAuthor } from "@/lib/authors"
 import { getPostByAuthor } from "@/lib/posts"
 import config from "@/cms/site-settings.json"

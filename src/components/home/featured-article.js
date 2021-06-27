@@ -3,7 +3,7 @@ import { Box, Flex, VStack } from "@chakra-ui/layout"
 import { useBreakpointValue } from "@chakra-ui/media-query"
 import { Skeleton } from "@chakra-ui/skeleton"
 import PrimaryButton from "../article/primary-button"
-import PageLayout from "../page-layout"
+import PageLayout from "../layout/page-layout"
 import HeroAuthorCategory from "./hero-author-category"
 import HeroExcerpt from "./hero-excerpt"
 import HeroTitle from "./hero-title"
@@ -72,7 +72,7 @@ export default function FeaturedArticle({
           <HeroExcerpt
             excerpt={article?.excerpt}
             maxW={{ base: "80%", lg: "78%" }}
-            color={{ base: "gray.600" }}
+            color={{ base: "brand.gray" }}
             fontSize={textSize}
             marginBottom={{ base: 2, md: 4 }}
           />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Meta from "@/components/meta/meta"
-import PageLayout from "@/components/page-layout"
-import Layout from "@/components/sections/layout"
+import PageLayout from "@/components/layout/page-layout"
+import Layout from "@/components/layout/layout"
 import { listAuthor } from "@/lib/authors.js"
 import {
   Icon,
@@ -112,7 +112,7 @@ export default function Author({ authors }) {
                   cursor="pointer"
                   as="a"
                   key={id}
-                  _hover={{ color: "gray.600" }}
+                  _hover={{ color: "brand.gray" }}
                 >
                   {author.name}
                 </Text>
