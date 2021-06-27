@@ -1,19 +1,17 @@
 import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverBody,
-  PopoverArrow,
   IconButton,
   Icon,
-  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react"
 import { HiDotsVertical, HiOutlineTrash } from "react-icons/hi"
 
 const DeleteComment = ({ deleteComment }) => {
   return (
-    <Popover placement="bottom-end" matchWidth>
-      <PopoverTrigger>
+    <Menu placement="bottom-end">
+      <MenuButton>
         <IconButton
           aria-label="Delete comment"
           size="sm"
@@ -22,24 +20,19 @@ const DeleteComment = ({ deleteComment }) => {
           color="brand.gray"
           _hover={{ color: "black" }}
         />
-      </PopoverTrigger>
-      <PopoverContent
-        borderRadius={false}
-        borderColor="gray.400"
-        w="min-content"
-      >
-        <PopoverArrow />
-        <PopoverBody px={0}>
-          <Button
-            onClick={deleteComment}
-            borderRadius={false}
-            leftIcon={<Icon as={HiOutlineTrash} />}
-          >
-            Delete
-          </Button>
-        </PopoverBody>
-      </PopoverContent>
-    </Popover>
+      </MenuButton>
+      <MenuList borderRadius={false} borderColor="gray.200">
+        <MenuItem
+          minH="48px"
+          _hover={{ color: "red.500", bgColor: "red.50" }}
+          onClick={deleteComment}
+        >
+          <span>
+            Delete <Icon ml={1} as={HiOutlineTrash} />
+          </span>
+        </MenuItem>
+      </MenuList>
+    </Menu>
   )
 }
 

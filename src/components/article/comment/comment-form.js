@@ -27,7 +27,6 @@ const CommentForm = ({ user, addComment, toggleForm }) => {
           borderRadius={false}
           value={input}
           onChange={e => setInput(e.target.value)}
-          ma
         />
         <HStack justifyContent="flex-end">
           <Button borderRadius={false} onClick={toggleForm} colorScheme="red">

@@ -27,7 +27,7 @@ export default function HeroTitle({ title, stack }) {
         d="flex"
         overflowY="hidden"
       >
-        <TitleChar>{title}</TitleChar>
+        {title}
       </Heading>
     </HStack>
   )

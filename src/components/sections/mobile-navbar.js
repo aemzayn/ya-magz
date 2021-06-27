@@ -12,12 +12,11 @@ import {
 import { HiX as CloseIcon } from "react-icons/hi"
 
 import { NAV_LINKS } from "src/constanst/routes"
-import Logo from "./Logo"
 import NavItem from "./nav-item"
 
 const MobileNavbar = ({ isOpen, onClose }) => {
   return (
-    <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+    <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader
@@ -26,7 +25,6 @@ const MobileNavbar = ({ isOpen, onClose }) => {
           borderBottomColor="gray.200"
         >
           <Flex justifyContent="space-between" alignItems="center">
-            {isOpen && <Logo />}
             <Box
               cursor="pointer"
               display={{ base: "block", md: "none" }}

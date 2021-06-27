@@ -25,6 +25,7 @@ import { getPostContent, listPosts } from "@/lib/posts"
 import { getAuthor } from "@/lib/authors"
 import { getTag } from "@/lib/postTags"
 import Comment from "@/components/article/comment/comment"
+import { useState } from "react"
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
@@ -38,6 +39,8 @@ export default function Article({ article, source }) {
     featuredimage,
     featuredimageurl,
   } = article
+  const [comments, setComments] = useState()
+
   const keywords = getTag(tags)
   const authorName = getAuthor(author).name
   const url = `/read/${slug}`
@@ -97,7 +100,7 @@ export default function Article({ article, source }) {
             />
           </header>
           <ArticleBody body={content} />
-          {/* <Comment /> */}
+          <Comment />
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>

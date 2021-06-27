@@ -21,7 +21,7 @@ export default function Hero({ article }) {
         // w={{ base: "full", lg: "60%", xl: "66%" }}
         flex={{ base: 1, lg: "unset" }}
         pl={{ base: "0", xl: "8" }}
-        py={{ base: "8", md: 0, lg: "5rem", xl: 20 }}
+        py={{ base: "8", lg: 10, xl: 20 }}
         bgColor="gray.50"
         justifyContent="center"
       >

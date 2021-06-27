@@ -19,11 +19,7 @@ const CommentBubble = ({ user, comment, isAuthenticated, deleteComment }) => {
     <VStack align="flex-start" spacing={1} w="full">
       <HStack w="full" justifyContent="space-between">
         <HStack w="full">
-          <Avatar
-            src={comment.avatar ?? null}
-            name={!comment?.avatar && comment.name}
-            size="sm"
-          />
+          <Avatar src={comment?.avatar} name={comment.name} size="sm" />
           <Heading
             as="h3"
             textOverflow="ellipsis"

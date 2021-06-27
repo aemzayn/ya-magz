@@ -1,9 +1,12 @@
-import Logo from "./Logo"
+import { useMediaQuery } from "@chakra-ui/react"
 import { Box, Flex, UnorderedList, Icon, useDisclosure } from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
-import { NAV_LINKS } from "../../constanst/routes"
+
+import Logo from "./Logo"
 import MobileNavbar from "./mobile-navbar"
 import NavItem from "./nav-item"
+import { NAV_LINKS } from "src/constanst/routes"
+import MobileAuthButton from "../auth/mobile-auth-button"
 
 const DesktopNavbar = () => {
   return (
@@ -18,11 +21,7 @@ const DesktopNavbar = () => {
         justify={{ md: "space-between", lg: "flex-end" }}
       >
         {NAV_LINKS.map((r, i) => (
-          <NavItem
-            key={i}
-            to={r.to}
-            isLast={i === NAV_LINKS.length - 1 ? true : false}
-          >
+          <NavItem key={i} to={r.to}>
             {r.name}
           </NavItem>
         ))}
@@ -33,16 +32,17 @@ const DesktopNavbar = () => {
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isMobile] = useMediaQuery("(max-width: 47em)")
 
   return (
     <Flex
       as="nav"
-      align="center"
+      alignItems="center"
       justify="space-between"
       wrap="wrap"
       w="100%"
       mx="auto"
-      py={{ base: 6, lg: 8 }}
+      py={{ base: 4, lg: 8 }}
       px={{ base: 6, md: 10 }}
       bg="white"
       color="black"
@@ -63,8 +63,6 @@ export default function Header() {
       }}
       id="header-nav"
     >
-      <Logo />
-
       {/* Hamburger menu */}
       <Box
         cursor="pointer"
@@ -74,9 +72,13 @@ export default function Header() {
         <Icon boxSize="1.5em" as={isOpen ? CloseIcon : MenuIcon} />
       </Box>
 
+      <MobileNavbar isOpen={isOpen} onClose={onClose} />
+
+      <Logo />
+
       <DesktopNavbar />
 
-      <MobileNavbar isOpen={isOpen} onClose={onClose} />
+      <MobileAuthButton />
     </Flex>
   )
 }

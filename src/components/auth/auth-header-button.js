@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react"
+import { Button, useBreakpointValue } from "@chakra-ui/react"
 import { useSession, signIn, signOut } from "next-auth/client"
 
 const AuthHeaderButton = () => {

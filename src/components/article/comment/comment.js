@@ -6,7 +6,7 @@ import CommentBubble from "./comment-bubble"
 import { IS_DEV } from "src/constanst/development"
 import { formatDistance, subDays } from "date-fns"
 
-const Comment = () => {
+const Comment = ({}) => {
   const [session] = useSession()
   const IS_AUTH = IS_DEV || !!session
   const [showForm, setShowForm] = useState(false)
@@ -25,14 +25,17 @@ const Comment = () => {
   }
 
   function addComment(comment) {
+    if (!session) return
+
     let newComment = {
       id: comment.length + 1,
       name: session?.user?.name ?? "Bob",
       email: session?.user?.email ?? "bob@bob.com",
-      avatar: session?.user?.avatar,
+      avatar: session?.user?.image,
       commented_at: getDistanceDate(TODAY),
       comment,
     }
+
     setComments(coms => [...coms, newComment])
     setShowForm(false)
   }
@@ -47,8 +50,9 @@ const Comment = () => {
       spacing={{ base: 6 }}
       mt={6}
       py={{ base: 6 }}
+      w="full"
     >
-      <Divider variant="dashed" color="gray.400" />
+      <Divider color="gray.300" />
       <Heading size="md">
         Recent comments (<span>{comments.length}</span>)
       </Heading>
@@ -60,14 +64,14 @@ const Comment = () => {
             addComment={addComment}
           />
         ) : (
-          <Button onClick={toggleForm} variant="link">
+          <Button onClick={toggleForm} variant="link" fontWeight="normal">
             Add comment
           </Button>
         )
       ) : (
         <Text>Login to leave a comment</Text>
       )}
-      <VStack spacing={6}>
+      <VStack spacing={6} w="full">
         {comments.map((c, idx) => (
           <CommentBubble
             deleteComment={deleteComment}
