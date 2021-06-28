@@ -1,7 +1,6 @@
-import { jsonLdScriptProps } from 'react-schemaorg'
-import config from '@/cms/site-settings.json'
-import { formatISO } from 'date-fns'
-import Head from 'next/head'
+import { jsonLdScriptProps } from "react-schemaorg"
+import config from "@/cms/site-settings.json"
+import Head from "next/head"
 
 const JsonLdMeta = ({
   url,
@@ -16,16 +15,16 @@ const JsonLdMeta = ({
     <Head>
       <script
         {...jsonLdScriptProps({
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
           mainEntityOfPage: config.base_url + url,
           headline: title,
           keywords: Array.isArray(keywords)
-            ? keywords.join(',')
+            ? keywords.join(",")
             : keywords ?? undefined,
           datePublished: date,
           author: {
-            '@type': 'Person',
+            "@type": "Person",
             name: author,
           },
           image: image,

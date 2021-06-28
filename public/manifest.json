@@ -2,7 +2,7 @@
   "name": "Ya! Magazine",
   "short_name": "Ya! Magz",
   "description": "Ya! Magazine is a Media News company. We share stories at the intersection of entertainment, education and lifestyle.",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
@@ -19,5 +19,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "orientation": "portrait"
 }

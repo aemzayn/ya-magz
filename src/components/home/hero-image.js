@@ -7,7 +7,14 @@ export default function HeroImage({ url, alt }) {
       h={{ base: "30vh", md: "40vh", lg: "78vh" }}
       bgColor="hsl(255,6%,0%)"
     >
-      <Image src={url} alt={alt} w="full" h="full" objectFit="contain" />
+      <Image
+        loading="lazy"
+        src={url}
+        alt={alt}
+        w="full"
+        h="full"
+        objectFit="contain"
+      />
     </Box>
   )
 }
