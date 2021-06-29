@@ -1,24 +1,23 @@
-import { useRouter } from "next/router"
+import ApplePodcastBadge from "@/assets/icons/apple-podcast-badge"
+import GooglePodcastBadge from "@/assets/icons/google-podcast-badge"
+import SpotifyBadge from "@/assets/icons/spotify-badge"
+import config from "@/cms/site-settings.json"
 import {
   AspectRatio,
   Badge,
   Flex,
   Heading,
+  Skeleton,
   Text,
   useBreakpointValue,
   VStack,
-  Image,
 } from "@chakra-ui/react"
-import config from "@/cms/site-settings.json"
-
-import ApplePodcastBadge from "@/assets/icons/apple-podcast-badge"
-import GooglePodcastBadge from "@/assets/icons/google-podcast-badge"
-import SpotifyBadge from "@/assets/icons/spotify-badge"
+import Image from "next/image"
+import { useRouter } from "next/router"
 import RenderInView from "../render-inview"
 
 export default function YaPodcast() {
   const router = useRouter()
-  const titleSize = useBreakpointValue({ base: "lg", md: "lg" })
 
   const badgeStyle = {
     cursor: "pointer",
@@ -32,32 +31,34 @@ export default function YaPodcast() {
 
   return (
     <RenderInView>
-      {({ ref, inView }) => (
+      {({ ref, inView, loaded, setIsLoaded }) => (
         <Flex
           ref={ref}
           flexDir={{ base: "column", md: "row" }}
           justify="center"
           w="100%"
+          my={{ base: 6, md: 10 }}
         >
-          {inView && (
-            <AspectRatio
-              ratio={2 / 2}
-              w="100%"
-              maxW={{ base: null, md: "14rem", lg: "18rem" }}
-              mb={{ base: 4, md: 0 }}
-              mr={{ base: 0, md: 5, lg: 6, xl: 8 }}
-            >
-              <Image
-                h="100%"
-                w="100%"
-                objectFit="cover"
-                src={config.podcast_cover_url}
-                loading="lazy"
-                boxShadow="xl"
-                alt="Ya! Podcast cover"
-              />
-            </AspectRatio>
-          )}
+          <AspectRatio
+            ratio={2 / 2}
+            w="100%"
+            maxW={{ base: null, md: "14rem", lg: "18rem" }}
+            mb={{ base: 4, md: 0 }}
+            mr={{ base: 0, md: 5, lg: 6, xl: 8 }}
+          >
+            <Skeleton height="100%" width="100%" isLoaded={loaded}>
+              {inView && (
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  src={config.podcast_cover_url}
+                  alt="Mood cover"
+                  quality={50}
+                  onLoad={setIsLoaded}
+                />
+              )}
+            </Skeleton>
+          </AspectRatio>
           <VStack
             align="flex-start"
             justify={{ base: "flex-start", md: "center" }}
@@ -73,8 +74,8 @@ export default function YaPodcast() {
               <Badge h="fit-content" fontWeight="normal" colorScheme="purple">
                 Podcast
               </Badge>
-              <Heading mt={{ base: 0, md: 2 }} as="h1" size={titleSize}>
-                Ya!Pod
+              <Heading mt={{ base: 0, md: 2 }} as="h2" size="lg">
+                Ya! Podcast
               </Heading>
             </Flex>
             <Text color="brand.gray" fontSize={{ base: "0.8rem", lg: "1rem" }}>

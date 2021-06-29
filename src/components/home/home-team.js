@@ -1,23 +1,16 @@
-import {
-  Box,
-  Grid,
-  Heading,
-  useBreakpointValue,
-  VStack,
-} from "@chakra-ui/react"
-import Person from "../team/person"
-import PrimaryButton from "../article/primary-button"
 import { getManagerialDivTeam } from "@/lib/team"
+import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
+import PrimaryButton from "../article/primary-button"
 import RenderInView from "../render-inview"
+import Person from "../team/person"
 
 export default function HomeTeam() {
-  const titleSize = useBreakpointValue({ base: "lg" })
   const teams = getManagerialDivTeam()
   return (
     <RenderInView>
       {({ ref, inView }) => (
         <VStack ref={ref} px="8" py="10" mt="5vh" pos="relative">
-          <Heading as="h2" size={titleSize} textAlign="center">
+          <Heading as="h2" size="lg" textAlign="center">
             Meet the Team
           </Heading>
           {inView && (

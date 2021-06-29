@@ -1,21 +1,29 @@
-import { Box, Image, Text } from "@chakra-ui/react"
+import { Box, Text, Flex } from "@chakra-ui/react"
+import Image from "next/image"
 
 export default function ArticleCoverImage({ featuredImage, alt, imgsource }) {
   return featuredImage ? (
-    <Box w="100%" mt={4} mb={imgsource ? 2 : 5} pos="relative">
-      <Image
-        w="100%"
-        maxH="700px"
-        objectFit="contain"
-        objectPosition="center"
-        src={featuredImage ?? ""}
-        alt={alt ?? "cover"}
-      />
+    <Flex
+      flexDirection="column"
+      width="100%"
+      marginY={imgsource ? 2 : 5}
+      position="relative"
+    >
+      <Box width="full" height="500px">
+        <Image
+          // width={1000}
+          // height={1000}
+          layout="fill"
+          objectFit="contain"
+          src={featuredImage}
+          alt={alt}
+        />
+      </Box>
       {imgsource && (
-        <Text textAlign="center" mt={1} color="brand.gray">
+        <Text textAlign="center" marginTop={10} color="brand.gray">
           {imgsource}
         </Text>
       )}
-    </Box>
+    </Flex>
   ) : null
 }

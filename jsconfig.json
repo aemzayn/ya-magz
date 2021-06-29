@@ -9,7 +9,8 @@
       "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["styles/*"],
       "@/cms/*": ["cms/*"],
-      "@/constants/*": ["src/constants/*"]
+      "@/constants/*": ["src/constants/*"],
+      "@/public/*": ["public/*"]
     }
   },
   "exclude": ["node_modules"]

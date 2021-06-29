@@ -1,21 +1,20 @@
+import Image from "next/image"
 import {
   AspectRatio,
   Badge,
   Flex,
   Heading,
-  Image,
+  Skeleton,
   Text,
   useBreakpointValue,
   VStack,
 } from "@chakra-ui/react"
 import { useRouter } from "next/router"
-import config from "@/cms/site-settings.json"
 import SpotifyBadge from "@/assets/icons/spotify-badge"
 import RenderInView from "../render-inview"
 
 export default function HomeMood() {
   const router = useRouter()
-  const titleSize = useBreakpointValue({ base: "lg", md: "lg" })
 
   const badgeStyle = {
     cursor: "pointer",
@@ -36,26 +35,28 @@ export default function HomeMood() {
           justify="center"
           w="100%"
           id="home-mood"
+          my={{ base: 6, md: 10 }}
         >
-          {inView && (
-            <AspectRatio
-              ratio={2 / 2}
-              w="100%"
-              maxW={{ base: null, md: "14rem", lg: "18rem" }}
-              mb={{ base: 4, md: 0 }}
-              ml={{ base: 0, md: 5, lg: 6, xl: 8 }}
-            >
-              <Image
-                h="100%"
-                w="100%"
-                objectFit="cover"
-                src={config.mood_cover_url}
-                loading="lazy"
-                boxShadow="xl"
-                alt="Mood cover"
-              />
-            </AspectRatio>
-          )}
+          <AspectRatio
+            ratio={2 / 2}
+            w="100%"
+            maxW={{ base: null, md: "14rem", lg: "18rem" }}
+            mb={{ base: 4, md: 0 }}
+            ml={{ base: 0, md: 5, lg: 6, xl: 8 }}
+            boxShadow="lg"
+          >
+            <Skeleton height="100%" width="100%" isLoaded={!!inView}>
+              {inView && (
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  src="/images/mood/v5/mood-v5-cover.jpg"
+                  alt="Mood cover"
+                  quality={50}
+                />
+              )}
+            </Skeleton>
+          </AspectRatio>
           <VStack
             align="flex-start"
             justify={{ base: "flex-start", md: "center" }}
@@ -71,7 +72,7 @@ export default function HomeMood() {
               <Badge h="fit-content" fontWeight="normal" colorScheme="blue">
                 Mood
               </Badge>
-              <Heading mt={{ base: 0, md: 2 }} as="h1" size={titleSize}>
+              <Heading mt={{ base: 0, md: 2 }} as="h1" size="lg">
                 Vol .05: SUMMER
               </Heading>
             </Flex>

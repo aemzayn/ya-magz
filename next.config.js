@@ -24,7 +24,7 @@ module.exports = withPWA({
   images: {
     deviceSizes: [420, 768, 1024, 1200],
     iconSizes: [],
-    domains: [],
+    domains: ["res.cloudinary.com"],
     path: "/_next/image",
     loader: "default",
   },

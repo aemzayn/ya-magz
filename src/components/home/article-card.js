@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 import { getAuthor } from "@/lib/authors"
 import { getTag } from "@/lib/postTags"
 import { ChevronRightIcon } from "@chakra-ui/icons"
@@ -6,13 +8,12 @@ import {
   chakra,
   Flex,
   Heading,
-  Image,
+  Image as ChakraImage,
   Skeleton,
   Text,
   VStack,
 } from "@chakra-ui/react"
 import Link from "next/link"
-import { useInView } from "react-intersection-observer"
 import RenderInView from "../render-inview"
 
 const Item = ({ children }) => (
@@ -43,7 +44,7 @@ const Article = ({ article }) => {
 
   return (
     <RenderInView>
-      {({ ref, inView }) => (
+      {({ ref, inView, loaded, setIsLoaded }) => (
         <Box
           px={{ base: 0, md: "0.5rem", xl: "1rem" }}
           className="article"
@@ -51,23 +52,20 @@ const Article = ({ article }) => {
           pos="relative"
           ref={ref}
         >
-          <Box
-            w="100%"
-            h={{ base: "15rem", lg: "22rem" }}
-            maxH={{ base: "30rem", lg: "35rem" }}
-          >
-            {inView && (
-              <Skeleton height="100%" width="100%" isLoaded={!!inView}>
+          <Box w="100%" maxH={{ base: "30rem", lg: "35rem" }}>
+            <Skeleton height="100%" width="100%" isLoaded={loaded}>
+              {inView && (
                 <Image
-                  height="100%"
-                  width="100%"
+                  width={500}
+                  height={350}
                   objectFit="cover"
                   src={featuredimage || featuredimageurl}
-                  loading="lazy"
                   alt={title}
+                  quality={50}
+                  onLoad={setIsLoaded}
                 />
-              </Skeleton>
-            )}
+              )}
+            </Skeleton>
           </Box>
           <VStack
             spacing={{ base: 2, lg: excerpt ? 3 : 2 }}
