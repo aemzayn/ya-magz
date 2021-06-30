@@ -4,11 +4,13 @@ import path from "path"
 import yaml from "js-yaml"
 import config from "@/cms/site-settings.json"
 
-const postsDirectory = path.join("posts")
+// const postsDirectory = path.join("posts")
+const postsDirectory = path.resolve("./", "posts")
 
 let postCache = []
 
 function scanDirectory() {
+  console.log(postsDirectory)
   if (postCache.length > 0) {
     return postCache
   }
