@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react"
 import { useSession, signIn, signOut } from "next-auth/client"
 import { AiOutlineUser } from "react-icons/ai"
 import { FiLogOut } from "react-icons/fi"
-
 import {
   Icon,
   Menu,
@@ -15,30 +15,30 @@ import {
 
 const MobileAuthButton = () => {
   const [session] = useSession()
+
+  // remove warning server and client id does not match
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    setShow(true)
+  }, [])
   return (
     <Menu>
-      <MenuButton>
-        {session ? (
+      {show && (
+        <MenuButton>
           <Avatar
             size="sm"
             bg="gray.200"
             icon={<AiOutlineUser fontSize="1.1rem" />}
-            src={session.user.image}
+            src={session ? session.user.image : ""}
           />
-        ) : (
-          <Avatar
-            size="sm"
-            bg="gray.200"
-            icon={<AiOutlineUser fontSize="1.1rem" />}
-          />
-        )}
-      </MenuButton>
+        </MenuButton>
+      )}
       <MenuList borderRadius={false} borderColor="gray.200">
         {session ? (
           <>
             <MenuGroup title="Profile">
               <MenuItem minH="48px">
-                <span>My Account</span>
+                <span>My Account (soon)</span>
               </MenuItem>
             </MenuGroup>
             <MenuDivider />
@@ -49,9 +49,8 @@ const MobileAuthButton = () => {
             </MenuItem>
           </>
         ) : (
-          <MenuItem minH="48px">
-            {/* <span>Login</span> */}
-            <span>Coming soon</span>
+          <MenuItem minH="48px" onClick={() => signIn()}>
+            <span>Login</span>
           </MenuItem>
         )}
       </MenuList>

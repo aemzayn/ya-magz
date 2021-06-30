@@ -1,88 +1,126 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSession } from "next-auth/client"
 import { Heading, VStack, Text, Divider, Button } from "@chakra-ui/react"
 import CommentForm from "./comment-form"
 import CommentBubble from "./comment-bubble"
 import { IS_DEV } from "src/constanst/development"
-import { formatDistance, subDays } from "date-fns"
+import useFetch from "src/hooks/useFetch"
+import RenderInView from "@/components/render-inview"
+import { cleanComment } from "@/lib/comments"
 
-const Comment = ({}) => {
+const Comment = ({ slug }) => {
   const [session] = useSession()
-  const IS_AUTH = IS_DEV || !!session
   const [showForm, setShowForm] = useState(false)
-  const TODAY = new Date()
-
-  function getDistanceDate(date = new Date(), range = 0) {
-    return formatDistance(subDays(date, range), new Date(), {
-      addSuffix: true,
-    })
-  }
-
+  const { data } = useFetch(`/api/post/${slug}`)
   const [comments, setComments] = useState([])
+
+  useEffect(() => {
+    if (data) {
+      setComments(data.data.comments)
+    }
+  }, [data])
 
   function toggleForm() {
     setShowForm(show => !show)
   }
 
-  function addComment(comment) {
+  async function addComment(comment) {
     if (!session) return
-
-    let newComment = {
-      id: comment.length + 1,
-      name: session?.user?.name ?? "Bob",
-      email: session?.user?.email ?? "bob@bob.com",
-      avatar: session?.user?.image,
-      commented_at: getDistanceDate(TODAY),
-      comment,
+    const newComment = {
+      user: {
+        name: session.user.name,
+        email: session.user.email,
+        avatar: session.user.image,
+      },
+      post_slug: slug,
+      comment: cleanComment(comment),
+      commented_at: Date.now(),
     }
 
-    setComments(coms => [...coms, newComment])
-    setShowForm(false)
+    try {
+      const res = await fetch(`/api/post/${slug}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newComment),
+      })
+      const { data } = await res.json()
+      if (data) {
+        setComments(coms => [...coms, newComment])
+      }
+    } catch (error) {
+      if (IS_DEV) console.error(error)
+    } finally {
+      setShowForm(false)
+    }
   }
 
-  function deleteComment(id) {
-    setComments(comment => comment.filter(c => c.id !== id))
+  async function deleteComment(commentId) {
+    if (!session) return
+
+    try {
+      const res = await fetch(`/api/post/${slug}/${commentId}`, {
+        method: "DELETE",
+      })
+      const { data } = await res.json()
+      if (data) {
+        setComments(prevComments =>
+          prevComments.filter(comment => comment._id.toString() !== commentId)
+        )
+      }
+    } catch (error) {
+      if (IS_DEV) console.error(error)
+    }
   }
 
   return (
-    <VStack
-      alignItems="flex-start"
-      spacing={{ base: 6 }}
-      mt={6}
-      py={{ base: 6 }}
-      w="full"
-    >
-      <Divider color="gray.300" />
-      <Heading size="md">
-        Recent comments (<span>{comments.length}</span>)
-      </Heading>
-      {session ? (
-        showForm ? (
-          <CommentForm
-            toggleForm={toggleForm}
-            user={session.user}
-            addComment={addComment}
-          />
-        ) : (
-          <Button onClick={toggleForm} variant="link" fontWeight="normal">
-            Add comment
-          </Button>
-        )
-      ) : (
-        <Text>Login to leave a comment</Text>
+    <RenderInView>
+      {({ ref, inView }) => (
+        <VStack
+          alignItems="flex-start"
+          spacing={{ base: 6 }}
+          mt={6}
+          py={{ base: 6 }}
+          w="full"
+          ref={ref}
+        >
+          <Divider color="gray.300" />
+          <Heading size="md">
+            Recent comments (<span>{comments.length}</span>)
+          </Heading>
+          {session ? (
+            showForm ? (
+              <CommentForm
+                toggleForm={toggleForm}
+                user={session.user}
+                addComment={addComment}
+              />
+            ) : (
+              <Button onClick={toggleForm} variant="link" fontWeight="normal">
+                Add comment
+              </Button>
+            )
+          ) : (
+            <Text>Login to leave a comment</Text>
+          )}
+          {inView && (
+            <VStack spacing={6} w="full">
+              {comments.map((c, idx) => (
+                <CommentBubble
+                  deleteComment={deleteComment}
+                  isAuthenticated={!!session}
+                  key={idx}
+                  comment={c}
+                  user={session?.user}
+                />
+              ))}
+            </VStack>
+          )}
+        </VStack>
       )}
-      <VStack spacing={6} w="full">
-        {comments.map((c, idx) => (
-          <CommentBubble
-            deleteComment={deleteComment}
-            isAuthenticated={IS_AUTH}
-            key={idx}
-            comment={c}
-            user={session?.user}
-          />
-        ))}
-      </VStack>
-    </VStack>
+    </RenderInView>
   )
 }
 

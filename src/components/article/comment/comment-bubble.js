@@ -1,52 +1,43 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Heading,
-  HStack,
-  Icon,
-  Text,
-  VStack,
-} from "@chakra-ui/react"
-import { useState } from "react"
-import { RiThumbUpFill, RiThumbUpLine } from "react-icons/ri"
+import { getDistanceDate } from "@/lib/date"
+import { Avatar, Box, Heading, HStack, Text, VStack } from "@chakra-ui/react"
 import DeleteComment from "./delete-comment"
 
 const CommentBubble = ({ user, comment, isAuthenticated, deleteComment }) => {
-  const [upVote, setUpVote] = useState(0)
-  const [voted, setVoted] = useState(false)
   return (
     <VStack align="flex-start" spacing={1} w="full">
       <HStack w="full" justifyContent="space-between">
-        <HStack w="full">
-          <Avatar src={comment?.avatar} name={comment.name} size="sm" />
+        <HStack w="full" fontSize="1rem">
+          <Avatar src={comment?.user?.avatar} name={comment?.name} size="sm" />
           <Heading
             as="h3"
+            fontSize="inherit"
             textOverflow="ellipsis"
             overflow="hidden"
             whiteSpace="nowrap"
-            fontSize={"0.9rem"}
           >
-            {comment.name}
+            {comment?.user?.name}
           </Heading>
-          <Text
-            as="span"
-            fontSize={"0.9rem"}
-            flexGrow={1}
-            wordBreak="keep-all"
-            color="gray.400"
-          >
-            {comment.commented_at}
-          </Text>
+          {comment?.commented_at && (
+            <Text
+              as="span"
+              flexFlow
+              flexGrow={1}
+              wordBreak="keep-all"
+              color="gray.600"
+            >
+              {getDistanceDate(comment?.commented_at)}
+            </Text>
+          )}
         </HStack>
-        {user?.email === comment.email && (
-          <DeleteComment deleteComment={() => deleteComment(comment.id)} />
+        {user?.email === comment?.user?.email && (
+          <DeleteComment deleteComment={() => deleteComment(comment?._id)} />
         )}
       </HStack>
       <VStack align="flex-start">
-        <Box>{comment.comment}</Box>
+        <Box>{comment?.comment}</Box>
       </VStack>
-      <HStack>
+      {/* TODO: Add upvote features */}
+      {/* <HStack>
         <Button
           px={0}
           disabled={!isAuthenticated}
@@ -59,7 +50,7 @@ const CommentBubble = ({ user, comment, isAuthenticated, deleteComment }) => {
         >
           {upVote}
         </Button>
-      </HStack>
+      </HStack> */}
     </VStack>
   )
 }

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import renderToString from "next-mdx-remote/render-to-string"
 import yaml from "js-yaml"
 import hydrate from "next-mdx-remote/hydrate"
@@ -25,7 +26,6 @@ import { getPostContent, listPosts } from "@/lib/posts"
 import { getAuthor } from "@/lib/authors"
 import { getTag } from "@/lib/postTags"
 import Comment from "@/components/article/comment/comment"
-import { useState } from "react"
 
 export default function Article({ article, source }) {
   const content = hydrate(source, {})
@@ -39,7 +39,6 @@ export default function Article({ article, source }) {
     featuredimage,
     featuredimageurl,
   } = article
-  const [comments, setComments] = useState()
 
   const keywords = getTag(tags)
   const authorName = getAuthor(author).name
@@ -73,7 +72,7 @@ export default function Article({ article, source }) {
               flexWrap="wrap"
               spacing={{ base: 1, md: 2 }}
               my="4"
-              color="gray.400"
+              color="gray.600"
             >
               <Avatar
                 size="xs"
@@ -100,7 +99,7 @@ export default function Article({ article, source }) {
             />
           </header>
           <ArticleBody body={content} />
-          <Comment />
+          <Comment slug={slug} />
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>

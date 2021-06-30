@@ -5,13 +5,10 @@ const CommentSchema = new mongoose.Schema({
     type: String,
     required: [true, "Comment cannot be blank."],
   },
-  commented_by: {
-    type: String,
-    required: [true, "Name cannot be blank."],
-  },
-  user_id: {
-    type: String,
-    required: [true, "User id is required."],
+  user: {
+    name: String,
+    avatar: String,
+    email: String,
   },
   post_slug: {
     type: String,

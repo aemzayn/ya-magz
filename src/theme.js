@@ -21,6 +21,9 @@ export default extendTheme({
   },
   styles: {
     global: {
+      html: {
+        scrollBehavour: "smooth",
+      },
       "html, body": {
         overflowX: "hidden",
         backgroundColor: "white",

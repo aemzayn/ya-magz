@@ -113,3 +113,7 @@ export function getPostContent(slug) {
   const content = fs.readFileSync(fullPath, "utf8")
   return content
 }
+
+export function checkSlug(slug) {
+  return !!scanDirectory().find(it => it.slug === slug)
+}

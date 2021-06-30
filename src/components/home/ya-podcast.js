@@ -38,6 +38,10 @@ export default function YaPodcast() {
           justify="center"
           w="100%"
           my={{ base: 6, md: 10 }}
+          id="ya-podcast"
+          sx={{
+            scrollMarginTop: "2rem",
+          }}
         >
           <AspectRatio
             ratio={2 / 2}

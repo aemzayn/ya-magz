@@ -15,6 +15,10 @@ export const NAV_LINKS = [
     name: "Gallery",
     to: "/gallery",
   },
+  {
+    name: "Entertainment",
+    to: "/#ya-podcast",
+  },
 ]
 
 export const FOOTER_ROUTES = [
