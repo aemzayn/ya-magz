@@ -99,7 +99,7 @@ export default function Article({ article, source }) {
             />
           </header>
           <ArticleBody body={content} />
-          <Comment slug={slug} />
+          {/* <Comment slug={slug} /> */}
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>
