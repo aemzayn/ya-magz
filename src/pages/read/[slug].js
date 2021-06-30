@@ -22,7 +22,7 @@ import { Avatar, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
-import { getPostContent, listPosts } from "@/lib/posts"
+import { getPostContent } from "@/lib/posts"
 import { getAuthor } from "@/lib/authors"
 import { getTag } from "@/lib/postTags"
 import Comment from "@/components/article/comment/comment"
@@ -107,7 +107,7 @@ export default function Article({ article, source }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const postContent = getPostContent(params.slug)
   const { data, content } = matter(postContent, {
     engines: {
@@ -122,17 +122,5 @@ export async function getStaticProps({ params }) {
       source: mdxSource,
       article: data,
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const paths = listPosts(1, 65535).map(it => ({
-    params: {
-      slug: it.slug,
-    },
-  }))
-  return {
-    paths,
-    fallback: false,
   }
 }
