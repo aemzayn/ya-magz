@@ -1,10 +1,10 @@
-import fs from "fs"
-import matter from "gray-matter"
-import path from "path"
-import yaml from "js-yaml"
-import config from "@/cms/site-settings.json"
+const fs = require("fs")
+const matter = require("gray-matter")
+const path = require("path")
+const yaml = require("js-yaml")
+const config = require("../../cms/site-settings.json")
 
-const postsDirectory = path.join(process.cwd(), "src", "posts")
+const postsDirectory = path.join(process.cwd(), "./src/posts")
 
 let postCache = []
 
