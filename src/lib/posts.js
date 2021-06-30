@@ -4,7 +4,7 @@ import path from "path"
 import yaml from "js-yaml"
 import config from "@/cms/site-settings.json"
 
-const postsDirectory = path.join(process.cwd(), "posts")
+const postsDirectory = path.join("posts")
 
 let postCache = []
 
