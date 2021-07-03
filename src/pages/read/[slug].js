@@ -23,6 +23,7 @@ import { FiUser } from "react-icons/fi"
 import { getAuthor } from "src/libs/authors"
 import { getTag } from "src/libs/postTags"
 import Comment from "@/components/article/comment/comment"
+import markdownToHtml from "src/libs/markdownToHTML"
 
 export default function Article({ article }) {
   const {
@@ -102,9 +103,10 @@ export default function Article({ article }) {
 
 export async function getServerSideProps({ params }) {
   const article = await getArticleBySlug(params.slug)
+  const content = await markdownToHtml(article.content)
   return {
     props: {
-      article,
+      article: { ...article, content },
     },
   }
 }
