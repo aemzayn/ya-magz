@@ -110,15 +110,3 @@ export async function getServerSideProps({ params }) {
     },
   }
 }
-
-// export async function getStaticPaths() {
-//   const paths = await listPosts(1, 65535).map(it => ({
-//     params: {
-//       slug: it.slug,
-//     },
-//   }))
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }

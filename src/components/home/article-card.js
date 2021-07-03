@@ -75,9 +75,9 @@ const Article = ({ article }) => {
             alignItems="flex-start"
           >
             <Flex as="span" flexWrap="wrap">
-              {tags && <Item>{getTag(tags)?.name}</Item>}
+              {tags && <Item>{tags.name}</Item>}
               <Item>·</Item>
-              {author && <Item>{getAuthor(author)?.name}</Item>}
+              {author && <Item>{author.name}</Item>}
             </Flex>
             <Heading
               className="article-title"

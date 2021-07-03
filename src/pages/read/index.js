@@ -6,6 +6,7 @@ import OpenGraphMeta from "@/components/meta/openGraphMeta"
 import TwitterCardMeta from "@/components/meta/twitterCardMeta"
 import ArticleList from "@/components/article/article-list"
 import Meta from "@/components/meta/meta"
+import fetchApi from "src/libs/fetchApi"
 
 export default function ArticlesPage({ articles, pagination }) {
   const url = "/articles"
@@ -32,8 +33,8 @@ export default function ArticlesPage({ articles, pagination }) {
 }
 
 export async function getStaticProps() {
-  const posts = await listArticlesWithoutTag(1, config.posts_per_page)
-  const count = await countArticlesWithoutTag("art")
+  const posts = (await fetchApi("/articles")).slice(0, 9)
+  const count = await fetchApi("/articles/count")
   const pagination = {
     current: 1,
     pages: Math.ceil(count / config.posts_per_page),

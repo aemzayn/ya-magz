@@ -1,5 +1,3 @@
-import { getAuthor } from "src/libs/authors"
-import { getTag } from "src/libs/postTags"
 import { Text } from "@chakra-ui/react"
 
 export default function HeroAuthorCategory({
@@ -17,9 +15,7 @@ export default function HeroAuthorCategory({
         overflowY="hidden"
         fontSize={textSize}
       >
-        {`${author && getAuthor(author)?.name} · ${
-          category && getTag(category)?.name
-        }`}
+        {`${author.name} · ${category.name}`}
       </Text>
     </Text>
   )

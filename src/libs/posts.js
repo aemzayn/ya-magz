@@ -1,4 +1,5 @@
 import site from "@/config/site.js"
+import fetchApi from "./fetchApi"
 
 let postCache = []
 
@@ -6,10 +7,9 @@ async function scanDirectory() {
   if (postCache.length > 0) {
     return postCache
   }
-  const res = await fetch(`${process.env.SERVER_URL}/articles`)
-  const data = await res.json()
-  postCache = data
-  return data
+  const articles = await fetchApi("/articles")
+  postCache = articles
+  return articles
 }
 
 export async function getHomeArticles() {
