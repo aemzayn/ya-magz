@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react"
-import renderToString from "next-mdx-remote/render-to-string"
-import yaml from "js-yaml"
-import hydrate from "next-mdx-remote/hydrate"
-import matter from "gray-matter"
 import config from "@/cms/site-settings.json"
 import readingTime from "reading-time"
 
@@ -14,6 +10,7 @@ import ArticleCoverImage from "@/components/article/article-cover-image"
 import ArticleLayout from "@/components/article/article-layout"
 import ArticleTitle from "@/components/article/article-title"
 import Layout from "@/components/layout/layout"
+import { getArticleBySlug } from "src/libs/posts"
 import ArticleShare from "@/components/article/article-share"
 import Meta from "@/components/meta/meta"
 
@@ -22,13 +19,12 @@ import { Avatar, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
-import { getPostContent, listPosts } from "@/lib/posts"
-import { getAuthor } from "@/lib/authors"
-import { getTag } from "@/lib/postTags"
+// import { getArticleBySlug, listPosts } from "src/libs/posts"
+import { getAuthor } from "src/libs/authors"
+import { getTag } from "src/libs/postTags"
 import Comment from "@/components/article/comment/comment"
 
-export default function Article({ article, source }) {
-  const content = hydrate(source, {})
+export default function Article({ article }) {
   const {
     title,
     slug,
@@ -38,24 +34,22 @@ export default function Article({ article, source }) {
     author,
     featuredimage,
     featuredimageurl,
+    content,
   } = article
 
-  const keywords = getTag(tags)
-  const authorName = getAuthor(author).name
-  const url = `/read/${slug}`
-  const fullUrl = config.base_url + url
-  const readTime = readingTime(source.renderedOutput)
+  const fullUrl = `${config.base_url}/read/${slug}`
+  const readTime = readingTime(content)
   const datePublised = new Date(date)
 
   return (
     <Layout>
       <Meta
-        url={url}
+        url={`/read/${slug}`}
         title={title}
-        keywords={keywords}
+        keywords={tags.name}
         description={excerpt}
-        date={date}
-        author={authorName}
+        date={datePublised}
+        author={author.name}
         image={featuredimage || featuredimageurl}
       />
 
@@ -65,7 +59,7 @@ export default function Article({ article, source }) {
         <meta itemProp="publisher" content="Ya! Magazine" />
         <section itemProp="articleBody">
           <header>
-            <ArticleCategory tags={getTag(tags)} />
+            <ArticleCategory tags={tags} />
             <ArticleTitle slug={slug} title={title} />
             <Stack
               direction="row"
@@ -79,10 +73,10 @@ export default function Article({ article, source }) {
                 bgColor="gray.200"
                 icon={<Icon as={FiUser} />}
               />
-              <ArticleAuthor slug={author} name={getAuthor(author).name} />
+              <ArticleAuthor author={author} />
               <Text as="span" color="brand.gray">
                 {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
-                  new Date(date)
+                  datePublised
                 )}
               </Text>
               <Text as="span" color="brand.gray">
@@ -95,7 +89,6 @@ export default function Article({ article, source }) {
             <ArticleCoverImage
               featuredImage={featuredimage || featuredimageurl}
               alt={title}
-              imgsource={article?.imgsource}
             />
           </header>
           <ArticleBody body={content} />
@@ -107,32 +100,23 @@ export default function Article({ article, source }) {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const postContent = getPostContent(params.slug)
-  const { data, content } = matter(postContent, {
-    engines: {
-      yaml: s => yaml.load(s, { schema: yaml.JSON_SCHEMA }),
-    },
-  })
-  const mdxSource = await renderToString(content, {
-    scope: {},
-  })
+export async function getServerSideProps({ params }) {
+  const article = await getArticleBySlug(params.slug)
   return {
     props: {
-      source: mdxSource,
-      article: data,
+      article,
     },
   }
 }
 
-export async function getStaticPaths() {
-  const paths = listPosts(1, 65535).map(it => ({
-    params: {
-      slug: it.slug,
-    },
-  }))
-  return {
-    paths,
-    fallback: false,
-  }
-}
+// export async function getStaticPaths() {
+//   const paths = await listPosts(1, 65535).map(it => ({
+//     params: {
+//       slug: it.slug,
+//     },
+//   }))
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }

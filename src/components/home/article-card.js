@@ -1,7 +1,7 @@
 import Image from "next/image"
 
-import { getAuthor } from "@/lib/authors"
-import { getTag } from "@/lib/postTags"
+import { getAuthor } from "src/libs/authors"
+import { getTag } from "src/libs/postTags"
 import { ChevronRightIcon } from "@chakra-ui/icons"
 import {
   Box,

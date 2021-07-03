@@ -6,7 +6,7 @@ import "@/styles/nprogress.scss"
 
 import Router from "next/router"
 import NProgress from "nprogress"
-import * as gtag from "@/lib/gtag"
+import * as gtag from "src/libs/gtag"
 
 import "@fontsource/montserrat/500-italic.css"
 import "@fontsource/montserrat/900.css"

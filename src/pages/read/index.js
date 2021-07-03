@@ -1,4 +1,4 @@
-import { countArticlesWithoutTag, listArticlesWithoutTag } from "@/lib/posts"
+import { countArticlesWithoutTag, listArticlesWithoutTag } from "src/libs/posts"
 import config from "@/cms/site-settings.json"
 import Layout from "@/components/layout/layout"
 import BasicMeta from "@/components/meta/basicMeta"
@@ -32,10 +32,11 @@ export default function ArticlesPage({ articles, pagination }) {
 }
 
 export async function getStaticProps() {
-  const posts = listArticlesWithoutTag(1, config.posts_per_page)
+  const posts = await listArticlesWithoutTag(1, config.posts_per_page)
+  const count = await countArticlesWithoutTag("art")
   const pagination = {
     current: 1,
-    pages: Math.ceil(countArticlesWithoutTag("art") / config.posts_per_page),
+    pages: Math.ceil(count / config.posts_per_page),
   }
   return {
     props: {

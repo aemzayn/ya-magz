@@ -1,4 +1,4 @@
-import { getManagerialDivTeam } from "@/lib/team"
+import { getManagerialDivTeam } from "src/libs/team"
 import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
 import PrimaryButton from "../article/primary-button"
 import RenderInView from "../render-inview"

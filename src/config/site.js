@@ -1,0 +1,19 @@
+const site = {
+  instagram_account: "ya.magz",
+  site_title: "Ya! Magazine",
+  twitter_account: "@ya.magz",
+  base_url: "https://ya-magazine.com",
+  site_keywords: ["Ya! Magazine", "Magazine", "Edutainment Magazine"],
+  site_description:
+    "Ya! Magazine is a Media News company. We share stories at the intersection of entertainment, education and lifestyle.",
+  facebook_account: "Ya Magazine",
+  contact_address: "Bursa, Turkey",
+  contact_phonenumber: "+905050280533",
+  contact_email: "ya.magazine@gmail.com",
+  posts_per_page: 9,
+  podcast_cover_url:
+    "https://res.cloudinary.com/yacloud/image/upload/v1614332851/ya-pod_gi1tmm.jpg",
+  mood_cover_url: "/images/mood/v5/mood-v5-cover.jpg",
+}
+
+export default site

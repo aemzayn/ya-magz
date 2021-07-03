@@ -6,9 +6,9 @@ import HomeMood from "@/components/home/home-mood"
 import HomeTeam from "@/components/home/home-team"
 import YaPodcast from "@/components/home/ya-podcast"
 import Layout from "@/components/layout/layout"
-import { getFeaturedArticles, getHomeArticles } from "@/lib/posts"
+import { getFeaturedArticles, getHomeArticles } from "src/libs/posts"
 
-export default function Home({ articles, heroArticle, featuredArticle }) {
+export default function Home({ heroArticle, featuredArticle, articles }) {
   const [featuredOne, featuredTwo] = featuredArticle
   return (
     <Layout>
@@ -41,8 +41,9 @@ export default function Home({ articles, heroArticle, featuredArticle }) {
 }
 
 export async function getStaticProps() {
-  const { heroArticle, articles } = getHomeArticles()
-  const featuredArticle = getFeaturedArticles()
+  const { heroArticle, articles } = await getHomeArticles()
+  const featuredArticle = await getFeaturedArticles()
+
   return {
     props: {
       heroArticle,

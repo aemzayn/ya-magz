@@ -6,10 +6,11 @@
       "@/components/*": ["src/components/*"],
       "@/assets/*": ["src/assets/*"],
       "@/animations/*": ["src/components/animations/*"],
-      "@/lib/*": ["src/lib/*"],
+      "@/libs/*": ["src/libs/*"],
       "@/styles/*": ["styles/*"],
       "@/cms/*": ["cms/*"],
       "@/constants/*": ["src/constants/*"],
+      "@/config/*": ["src/config/*"],
       "@/public/*": ["public/*"]
     }
   },

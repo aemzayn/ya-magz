@@ -1,4 +1,4 @@
-import { getDistanceDate } from "@/lib/date"
+import { getDistanceDate } from "src/libs/date"
 import { Avatar, Box, Heading, HStack, Text, VStack } from "@chakra-ui/react"
 import DeleteComment from "./delete-comment"
 

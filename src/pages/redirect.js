@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import isUrl from "@/lib/isUrl"
+import isUrl from "src/libs/isUrl"
 import NotFound from "./404"
 import redirect from "nextjs-redirect"
 

@@ -1,5 +1,5 @@
-import { getAuthor } from "@/lib/authors"
-import { getTag } from "@/lib/postTags"
+import { getAuthor } from "src/libs/authors"
+import { getTag } from "src/libs/postTags"
 import { Text } from "@chakra-ui/react"
 
 export default function HeroAuthorCategory({

@@ -2,7 +2,7 @@ import dbConnect from "src/utils/dbConnect"
 import { getSession } from "next-auth/client"
 import Post from "src/models/Post"
 import Comment from "src/models/Comment"
-import { checkSlug } from "@/lib/posts"
+import { checkSlug } from "src/libs/posts"
 
 const DEV = process.env.NODE_ENV !== "production"
 

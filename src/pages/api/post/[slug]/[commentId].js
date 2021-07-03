@@ -2,7 +2,7 @@ import dbConnect from "src/utils/dbConnect"
 import { getSession, session } from "next-auth/client"
 import Post from "src/models/Post"
 import Comment from "src/models/Comment"
-import { checkSlug } from "@/lib/posts"
+import { checkSlug } from "src/libs/posts"
 
 export default async function handler(req, res) {
   const {

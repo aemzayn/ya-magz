@@ -22,7 +22,7 @@ module.exports = withPlugins(
     [
       withPWA,
       {
-        webpack(config) {
+        webpack(config, { isServer }) {
           config.module.rules.push(
             ...[
               {
@@ -32,6 +32,9 @@ module.exports = withPlugins(
               },
             ]
           )
+
+          config.resolve.fallback = { fs: false }
+
           return config
         },
       },

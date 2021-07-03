@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Meta from "@/components/meta/meta"
 import PageLayout from "@/components/layout/page-layout"
 import Layout from "@/components/layout/layout"
-import { listAuthor } from "@/lib/authors.js"
+import { listAuthor } from "src/libs/authors.js"
 import {
   Icon,
   Input,

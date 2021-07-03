@@ -6,7 +6,7 @@ import CommentBubble from "./comment-bubble"
 import { IS_DEV } from "src/constanst/development"
 import useFetch from "src/hooks/useFetch"
 import RenderInView from "@/components/render-inview"
-import { cleanComment } from "@/lib/comments"
+import { cleanComment } from "src/libs/comments"
 
 const Comment = ({ slug }) => {
   const [session] = useSession()

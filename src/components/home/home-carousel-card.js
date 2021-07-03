@@ -8,8 +8,8 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react"
 import PageLayout from "../layout/page-layout"
-import { getTag } from "@/lib/postTags"
-import { getAuthor } from "@/lib/authors"
+import { getTag } from "src/libs/postTags"
+import { getAuthor } from "src/libs/authors"
 
 const Item = ({ children }) => (
   <Text
