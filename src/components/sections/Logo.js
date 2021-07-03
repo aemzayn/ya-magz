@@ -1,4 +1,4 @@
-import { Flex, Text, Link } from "@chakra-ui/layout"
+import { Flex, Text } from "@chakra-ui/layout"
 import NextLink from "next/link"
 
 export default function Logo(props) {

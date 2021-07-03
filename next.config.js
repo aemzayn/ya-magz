@@ -19,26 +19,7 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
-    [
-      withPWA,
-      {
-        webpack(config, { isServer }) {
-          config.module.rules.push(
-            ...[
-              {
-                test: /\.yml$/,
-                type: "json",
-                use: "yaml-loader",
-              },
-            ]
-          )
-
-          config.resolve.fallback = { fs: false }
-
-          return config
-        },
-      },
-    ],
+    [withPWA],
     [
       optimizedImages,
       {

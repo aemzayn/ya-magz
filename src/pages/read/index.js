@@ -1,7 +1,7 @@
 import config from "@/cms/site-settings.json"
-import Layout from "@/components/layout/layout"
+import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
-import Meta from "@/components/meta/meta"
+import Meta from "@/components/meta"
 import fetchApi from "src/libs/fetchApi"
 
 export default function ArticlesPage({ articles, pagination }) {

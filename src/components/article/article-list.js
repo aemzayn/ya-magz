@@ -1,10 +1,10 @@
-import ArticleCard from "@/components/home/article-card"
-import { Flex, Heading, chakra, Center, SimpleGrid } from "@chakra-ui/react"
-import ArticleCategoryNav from "./article-category-nav"
-import PrimaryButton from "./primary-button"
-import Pagination from "./pagination"
-import PageLayout from "../layout/page-layout"
 import { useEffect, useState } from "react"
+import { Flex, Heading, chakra, Center, SimpleGrid } from "@chakra-ui/react"
+import ArticleCard from "@/components/article/article-card"
+import ArticleCategoryNav from "./article-category-nav"
+import PrimaryButton from "../buttons/primary-button"
+import Pagination from "../pagination"
+import PageLayout from "../layout/page-layout"
 
 export default function ArticleList({
   articles = [],
@@ -17,14 +17,18 @@ export default function ArticleList({
   type,
 }) {
   const [categories, setCategories] = useState([])
+
+  // Get categories for navigation
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/categories`)
       .then(res => res.json())
       .then(data => setCategories(data))
   }, [])
+
   const itemProp = () => {
     return itemProp === "author" ? "author" : "article-list"
   }
+
   return (
     <PageLayout py={{ base: 8, md: 10 }} px={{ base: 4 }}>
       <Flex

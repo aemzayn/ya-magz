@@ -1,4 +1,4 @@
-import Layout from "@/components/layout/layout"
+import Layout from "@/components/layout"
 import { Heading, VStack } from "@chakra-ui/react"
 import Head from "next/head"
 

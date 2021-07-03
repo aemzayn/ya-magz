@@ -1,10 +1,7 @@
-import Layout from "@/components/layout/layout"
-import BasicMeta from "@/components/meta/basicMeta"
-import OpenGraphMeta from "@/components/meta/openGraphMeta"
-import TwitterCardMeta from "@/components/meta/twitterCardMeta"
+import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
 import fetchApi from "@/libs/fetchApi"
-import Meta from "@/components/meta/meta"
+import Meta from "@/components/meta"
 
 export default function ArticlesByCategory({ articles, category }) {
   const url = `/category/${category.slug}`

@@ -14,7 +14,7 @@ import { HiX as CloseIcon } from "react-icons/hi"
 import { NAV_LINKS } from "src/constanst/routes"
 import NavItem from "./nav-item"
 
-const MobileNavbar = ({ isOpen, onClose }) => {
+export default function MobileNavbar({ isOpen, onClose }) {
   return (
     <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
@@ -51,5 +51,3 @@ const MobileNavbar = ({ isOpen, onClose }) => {
     </Drawer>
   )
 }
-
-export default MobileNavbar

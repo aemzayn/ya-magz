@@ -1,9 +1,8 @@
 import { Button, Flex } from "@chakra-ui/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import useFetch from "@/hooks/useFetch"
 
-const ArticleCategoryNav = ({ categories }) => {
+export default function ArticleCategoryNav({ categories }) {
   const router = useRouter()
   const {
     pathname,
@@ -81,5 +80,3 @@ const ArticleCategoryNav = ({ categories }) => {
     </Flex>
   )
 }
-
-export default ArticleCategoryNav

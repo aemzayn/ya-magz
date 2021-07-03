@@ -17,7 +17,22 @@ import BoringAvatar from "boring-avatars"
 import { FiFacebook, FiInstagram, FiMail, FiTwitter } from "react-icons/fi"
 import RenderInView from "../render-inview"
 
-export const Person = ({ person, showSocmed }) => {
+function SocmedIcon({ platform, ...rest }) {
+  switch (platform.trim().toLowerCase()) {
+    case "instagram":
+      return <Icon as={FiInstagram} {...rest} />
+    case "twitter":
+      return <Icon as={FiTwitter} {...rest} />
+    case "facebook":
+      return <Icon as={FiFacebook} {...rest} />
+    case "mail":
+      return <Icon as={FiMail} {...rest} />
+    default:
+      throw new Error(`${platform} is a false argument`)
+  }
+}
+
+export default function Person({ person, showSocmed }) {
   const nameSize = useBreakpointValue({ base: "sm", md: "sm" })
   const roleTitleSize = useBreakpointValue({ base: "0.8rem" })
   const router = useRouter()
@@ -140,21 +155,4 @@ export const Person = ({ person, showSocmed }) => {
       )}
     </RenderInView>
   )
-}
-
-export default Person
-
-const SocmedIcon = ({ platform, ...rest }) => {
-  switch (platform.trim().toLowerCase()) {
-    case "instagram":
-      return <Icon as={FiInstagram} {...rest} />
-    case "twitter":
-      return <Icon as={FiTwitter} {...rest} />
-    case "facebook":
-      return <Icon as={FiFacebook} {...rest} />
-    case "mail":
-      return <Icon as={FiMail} {...rest} />
-    default:
-      throw new Error(`${platform} is a false argument`)
-  }
 }

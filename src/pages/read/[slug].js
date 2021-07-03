@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import config from "@/cms/site-settings.json"
 import readingTime from "reading-time"
 
@@ -9,21 +8,19 @@ import ArticleCategory from "@/components/article/article-category"
 import ArticleCoverImage from "@/components/article/article-cover-image"
 import ArticleLayout from "@/components/article/article-layout"
 import ArticleTitle from "@/components/article/article-title"
-import Layout from "@/components/layout/layout"
-import { getArticleBySlug } from "src/libs/posts"
+import Layout from "@/components/layout"
 import ArticleShare from "@/components/article/article-share"
-import Meta from "@/components/meta/meta"
+import Meta from "@/components/meta"
 
 // Library Components
 import { Avatar, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
-// import { getArticleBySlug, listPosts } from "src/libs/posts"
-import { getAuthor } from "src/libs/authors"
-import { getTag } from "src/libs/postTags"
-import Comment from "@/components/article/comment/comment"
+import Comment from "@/components/comment"
 import markdownToHtml from "src/libs/markdownToHTML"
+import ArticleMeta from "@/components/meta/article-meta"
+import fetchApi from "@/libs/fetchApi"
 
 export default function Article({ article }) {
   const {
@@ -52,6 +49,15 @@ export default function Article({ article }) {
         date={datePublised}
         author={author.name}
         image={featuredimage || featuredimageurl}
+      />
+      <ArticleMeta
+        title={title}
+        description={excerpt}
+        author={author.name}
+        keywords={tags.title}
+        date={datePublised}
+        image={featuredimage || featuredimageurl}
+        url={`/read/${slug}`}
       />
 
       <ArticleLayout>
@@ -102,7 +108,7 @@ export default function Article({ article }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const article = await getArticleBySlug(params.slug)
+  const article = await fetchApi(`/articles/${params.slug}`)
   const content = await markdownToHtml(article.content)
   return {
     props: {

@@ -2,7 +2,6 @@ import dbConnect from "src/utils/dbConnect"
 import { getSession, session } from "next-auth/client"
 import Post from "src/models/Post"
 import Comment from "src/models/Comment"
-import { checkSlug } from "src/libs/posts"
 
 export default async function handler(req, res) {
   const {
@@ -11,13 +10,6 @@ export default async function handler(req, res) {
   } = req
 
   await dbConnect()
-
-  if (!checkSlug(slug)) {
-    return res.status(400).json({
-      error: `There is no post with slug of '${slug}'`,
-      data: null,
-    })
-  }
 
   switch (method) {
     case "DELETE":

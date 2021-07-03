@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { ListItem, Text } from "@chakra-ui/react"
 
-const NavItem = ({ children, isLast, to = "/", ...rest }) => {
+export default function NavItem({ children, isLast, to = "/", ...rest }) {
   const router = useRouter()
   return (
     <ListItem listStyleType="none">
@@ -26,5 +26,3 @@ const NavItem = ({ children, isLast, to = "/", ...rest }) => {
     </ListItem>
   )
 }
-
-export default NavItem

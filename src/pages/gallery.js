@@ -1,25 +1,5 @@
-import Meta from "@/components/meta/meta"
-import GalleryContainer from "@/components/indorsagraphy/gallery-container"
-import Layout from "@/components/layout/layout"
-import gallery from "@/cms/gallery.json"
+import Indorsagraphy from "@/components/indorsagraphy"
 
 export default function Gallery() {
-  const images = gallery.gallery
-  return (
-    <Layout>
-      <Meta
-        title="Gallery"
-        description="Galeri kolaborasi dengan Indorsagraphy"
-        url={"/gallery"}
-        keywords={[
-          "indorsagraphy",
-          "photography",
-          "bursa photograph",
-          "bursa",
-          "ppi bursa",
-        ]}
-      />
-      <GalleryContainer images={images} />
-    </Layout>
-  )
+  return <Indorsagraphy />
 }

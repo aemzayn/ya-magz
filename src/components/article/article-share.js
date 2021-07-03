@@ -14,7 +14,7 @@ import {
   LineShareButton,
 } from "react-share"
 
-const ArticleShare = ({ url }) => {
+export default function ArticleShare({ url }) {
   return (
     <VStack flexDir="column" mt="10" alignItems="center">
       <HStack d="flex" ml="2" mt="1" spacing={{ base: 4, md: 6 }}>
@@ -47,5 +47,3 @@ const ArticleShare = ({ url }) => {
     </VStack>
   )
 }
-
-export default ArticleShare

@@ -1,12 +1,12 @@
 import ArticleList from "@/components/article/article-list"
-import Meta from "@/components/meta/meta"
-import FeaturedArticle from "@/components/home/featured-article"
-import Hero from "@/components/home/hero"
-import HomeMood from "@/components/home/home-mood"
-import HomeTeam from "@/components/home/home-team"
-import YaPodcast from "@/components/home/ya-podcast"
-import Layout from "@/components/layout/layout"
-import { getFeaturedArticles, getHomeArticles } from "src/libs/posts"
+import Meta from "@/components/meta"
+import FeaturedArticle from "@/components/home/featured"
+import HomeMood from "@/components/home/mood"
+import HomeTeam from "@/components/home/entertainment/home-mood"
+import YaPodcast from "@/components/home/entertainment/ya-podcast"
+import Layout from "@/components/layout"
+import fetchApi from "@/libs/fetchApi"
+import Hero from "@/components/home/hero/index"
 
 export default function Home({ heroArticle, featuredArticle, articles }) {
   const [featuredOne, featuredTwo] = featuredArticle
@@ -41,14 +41,12 @@ export default function Home({ heroArticle, featuredArticle, articles }) {
 }
 
 export async function getStaticProps() {
-  const { heroArticle, articles } = await getHomeArticles()
-  const featuredArticle = await getFeaturedArticles()
-
+  const { hero, featured, articles } = await fetchApi("/articles/home")
   return {
     props: {
-      heroArticle,
-      featuredArticle,
-      articles,
+      heroArticle: hero,
+      featuredArticle: featured,
+      articles: articles,
     },
   }
 }

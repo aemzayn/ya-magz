@@ -1,14 +1,12 @@
-import { useMediaQuery } from "@chakra-ui/react"
 import { Box, Flex, UnorderedList, Icon, useDisclosure } from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
-
 import Logo from "./Logo"
 import MobileNavbar from "./mobile-navbar"
 import NavItem from "./nav-item"
 import { NAV_LINKS } from "src/constanst/routes"
-import MobileAuthButton from "../auth/mobile-auth-button"
+import AuthButton from "../auth/auth-button"
 
-const DesktopNavbar = () => {
+function DesktopNavbar() {
   return (
     <Box
       display={{ base: "none", md: "block" }}
@@ -32,8 +30,6 @@ const DesktopNavbar = () => {
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [isMobile] = useMediaQuery("(max-width: 47em)")
-
   return (
     <Flex
       as="nav"
@@ -78,7 +74,7 @@ export default function Header() {
 
       <DesktopNavbar />
 
-      <MobileAuthButton />
+      <AuthButton />
     </Flex>
   )
 }

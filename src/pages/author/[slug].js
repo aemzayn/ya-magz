@@ -1,25 +1,15 @@
-import { useRouter } from "next/router"
-import Layout from "@/components/layout/layout"
-import { getAuthor, listAuthor } from "src/libs/authors"
-import { getPostByAuthor } from "src/libs/posts"
-import config from "@/cms/site-settings.json"
-import BasicMeta from "@/components/meta/basicMeta"
-import OpenGraphMeta from "@/components/meta/openGraphMeta"
-import TwitterCardMeta from "@/components/meta/twitterCardMeta"
+import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
+import fetchApi from "@/libs/fetchApi"
+import Meta from "@/components/meta"
 
-export default function ArticlesByAuthor({ articles }) {
-  const router = useRouter()
-  const { slug } = router.query
-  const author = getAuthor(slug).name || ""
-  const url = `/author/${author}`
-  const title = `Articles by ${author}`
+export default function ArticlesByAuthor({ articles, author }) {
+  const url = `/author/${author.slug}`
+  const title = `Articles by ${author.name}`
 
   return (
     <Layout>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <Meta url={url} title={title} />
       <main role="main">
         <article itemScope itemType="https://schema.org/Author">
           <ArticleList
@@ -35,16 +25,20 @@ export default function ArticlesByAuthor({ articles }) {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = getPostByAuthor(1, config.posts_per_page, params.slug)
+  const data = await fetchApi(`/authors/${params.slug}`)
   return {
     props: {
-      articles,
+      articles: data.articles,
+      author: {
+        name: data.name,
+        slug: data.slug,
+      },
     },
   }
 }
 
 export async function getStaticPaths() {
-  const paths = listAuthor().map(it => ({
+  const paths = (await fetchApi("/authors")).map(it => ({
     params: {
       slug: it.slug,
     },
