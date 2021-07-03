@@ -1,39 +1,54 @@
-import { Fragment } from "react"
-import BasicMeta from "./basicMeta"
-import JsonLdMeta from "./jsonLdMeta"
-import OpenGraphMeta from "./openGraphMeta"
-import TwitterCardMeta from "./twitterCardMeta"
+import Head from "next/head"
+import config from "@/cms/site-settings.json"
 
-const Meta = ({ title, description, keywords, author, url, image, date }) => {
-  let metaImage =
-    image ||
-    "https://res.cloudinary.com/yacloud/image/upload/v1622365446/articles%20pictures/ya-magz-white_utg80x.png"
+const Meta = ({ title, description, keywords, url, image }) => {
   return (
-    <Fragment>
-      <BasicMeta
-        title={title}
-        description={description}
-        keywords={keywords}
-        author={author}
-        url={url}
+    <Head>
+      <title>
+        {title ? [title, config.site_title].join(" | ") : config.site_title}
+      </title>
+      <meta
+        name="description"
+        content={description ? description : config.site_description}
       />
-      <JsonLdMeta
-        title={title}
-        description={description}
-        keywords={keywords}
-        author={author}
-        url={url}
-        date={date}
-        image={metaImage}
+      <meta
+        name="keywords"
+        content={
+          keywords
+            ? keywords
+            : config.site_keywords.map(it => it.keyword).join(",")
+        }
       />
-      <OpenGraphMeta
-        url={url}
-        title={title}
-        description={description}
-        image={metaImage}
+
+      <link rel="canonical" href={config.base_url + url} />
+
+      {/* Open Graph Meta */}
+      <meta property="og:site_name" content={config.site_title} />
+      <meta property="og:url" content={config.base_url + url} />
+      <meta
+        property="og:title"
+        content={title ? [title, config.site_title].join(" | ") : ""}
       />
-      <TwitterCardMeta url={url} title={title} description={description} />
-    </Fragment>
+      <meta
+        property="og:description"
+        content={description ? description : config.site_description}
+      />
+      <meta property="og:image" content={image ?? config.seo_image} />
+      <meta property="og:type" content="article" />
+
+      {/* Twitter Card */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:site" content={config.twitter_account} />
+      <meta property="twitter:url" content={config.base_url + url} />
+      <meta
+        property="twitter:title"
+        content={title ? [title, config.site_title].join(" | ") : ""}
+      />
+      <meta
+        property="twitter:description"
+        content={description ? description : config.site_description}
+      />
+    </Head>
   )
 }
 
