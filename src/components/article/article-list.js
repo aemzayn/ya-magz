@@ -4,6 +4,7 @@ import ArticleCategoryNav from "./article-category-nav"
 import PrimaryButton from "./primary-button"
 import Pagination from "./pagination"
 import PageLayout from "../layout/page-layout"
+import { useEffect, useState } from "react"
 
 export default function ArticleList({
   articles = [],
@@ -15,6 +16,12 @@ export default function ArticleList({
   nav,
   type,
 }) {
+  const [categories, setCategories] = useState([])
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/categories`)
+      .then(res => res.json())
+      .then(data => setCategories(data))
+  }, [])
   const itemProp = () => {
     return itemProp === "author" ? "author" : "article-list"
   }
@@ -50,7 +57,7 @@ export default function ArticleList({
         )}
       </Flex>
 
-      {nav && <ArticleCategoryNav />}
+      {nav && <ArticleCategoryNav categories={categories} />}
 
       <chakra.div as="main" minH="40vh">
         {articles.length === 0 && (

@@ -3,15 +3,15 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/assets/*": ["src/assets/*"],
-      "@/animations/*": ["src/components/animations/*"],
-      "@/libs/*": ["src/libs/*"],
-      "@/styles/*": ["styles/*"],
+      "@/public/*": ["public/*"],
       "@/cms/*": ["cms/*"],
-      "@/constants/*": ["src/constants/*"],
+      "@/styles/*": ["styles/*"],
+      "@/assets/*": ["src/assets/*"],
       "@/config/*": ["src/config/*"],
-      "@/public/*": ["public/*"]
+      "@/constants/*": ["src/constants/*"],
+      "@/components/*": ["src/components/*"],
+      "@/libs/*": ["src/libs/*"],
+      "@/hooks/*": ["src/hooks/*"]
     }
   },
   "exclude": ["node_modules"]

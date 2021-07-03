@@ -1,47 +1,43 @@
-import { useRouter } from "next/router"
-import { listPosts } from "src/libs/posts"
-import config from "@/cms/site-settings.json"
 import Layout from "@/components/layout/layout"
-import { getTag, listTags } from "src/libs/postTags"
 import BasicMeta from "@/components/meta/basicMeta"
 import OpenGraphMeta from "@/components/meta/openGraphMeta"
 import TwitterCardMeta from "@/components/meta/twitterCardMeta"
 import ArticleList from "@/components/article/article-list"
+import fetchApi from "@/libs/fetchApi"
+import Meta from "@/components/meta/meta"
 
-export default function ArticlesByCategory({ articles }) {
-  const router = useRouter()
-  const { slug } = router.query
-  const category = getTag(slug).name || ""
-  const url = `/category/${category}`
-  const title = category
+export default function ArticlesByCategory({ articles, category }) {
+  const url = `/category/${category.slug}`
 
   return (
     <Layout>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <Meta title={category.name} url={url} />
       <ArticleList
         articles={articles}
         title="Category:"
-        subtitle={category}
+        subtitle={category.name}
         nav
-        url={slug}
+        url={category.slug}
       />
     </Layout>
   )
 }
 
 export async function getStaticProps({ params }) {
-  const articles = listPosts(1, config.posts_per_page, params.slug) || []
+  const data = await fetchApi(`/categories/${params.slug}`)
   return {
     props: {
-      articles,
+      articles: data.articles,
+      category: {
+        name: data.name,
+        slug: data.name,
+      },
     },
   }
 }
 
 export async function getStaticPaths() {
-  const paths = listTags().map(it => ({
+  const paths = (await fetchApi("/categories")).map(it => ({
     params: {
       slug: it.slug,
     },

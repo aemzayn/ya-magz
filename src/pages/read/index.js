@@ -1,9 +1,5 @@
-import { countArticlesWithoutTag, listArticlesWithoutTag } from "src/libs/posts"
 import config from "@/cms/site-settings.json"
 import Layout from "@/components/layout/layout"
-import BasicMeta from "@/components/meta/basicMeta"
-import OpenGraphMeta from "@/components/meta/openGraphMeta"
-import TwitterCardMeta from "@/components/meta/twitterCardMeta"
 import ArticleList from "@/components/article/article-list"
 import Meta from "@/components/meta/meta"
 import fetchApi from "src/libs/fetchApi"
@@ -19,9 +15,6 @@ export default function ArticlesPage({ articles, pagination }) {
         keywords={["article", "ya magazine", "ya emagazine"]}
         description={"All articles from Ya! Magazine"}
       />
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
       <ArticleList
         title={"Articles"}
         articles={articles}
@@ -33,7 +26,7 @@ export default function ArticlesPage({ articles, pagination }) {
 }
 
 export async function getStaticProps() {
-  const posts = (await fetchApi("/articles")).slice(0, 9)
+  const articles = (await fetchApi("/articles")).slice(0, 9)
   const count = await fetchApi("/articles/count")
   const pagination = {
     current: 1,
@@ -41,7 +34,7 @@ export async function getStaticProps() {
   }
   return {
     props: {
-      articles: posts,
+      articles,
       pagination,
     },
   }

@@ -1,16 +1,14 @@
-import { listTags } from "src/libs/postTags"
 import { Button, Flex } from "@chakra-ui/react"
-import { m } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import useFetch from "@/hooks/useFetch"
 
-const ArticleCategoryNav = () => {
+const ArticleCategoryNav = ({ categories }) => {
   const router = useRouter()
   const {
     pathname,
     query: { slug },
   } = router
-  const tags = listTags()
   const buttonStyle = {
     as: "a",
     borderRadius: false,
@@ -68,17 +66,18 @@ const ArticleCategoryNav = () => {
           All
         </Button>
       </Link>
-      {tags.map((tag, i) => (
-        <Link key={i} href={`/category/${tag.slug}`}>
-          <Button
-            color={tag.slug === slug ? "black" : "gray.400"}
-            bg={tag.slug === slug ? "gray.200" : "none"}
-            {...buttonStyle}
-          >
-            {tag.name}
-          </Button>
-        </Link>
-      ))}
+      {categories &&
+        categories.map((tag, i) => (
+          <Link key={i} href={`/category/${tag.slug}`}>
+            <Button
+              color={tag.slug === slug ? "black" : "gray.400"}
+              bg={tag.slug === slug ? "gray.200" : "none"}
+              {...buttonStyle}
+            >
+              {tag.name}
+            </Button>
+          </Link>
+        ))}
     </Flex>
   )
 }
