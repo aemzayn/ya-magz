@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <link
           rel="preload"
           as="font"
