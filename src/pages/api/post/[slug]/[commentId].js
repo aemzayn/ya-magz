@@ -1,5 +1,5 @@
 import dbConnect from "src/utils/dbConnect"
-import { getSession, session } from "next-auth/client"
+import { getSession } from "next-auth/client"
 import Post from "src/models/Post"
 import Comment from "src/models/Comment"
 

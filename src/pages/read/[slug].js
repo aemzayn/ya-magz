@@ -1,5 +1,6 @@
-import config from "@/cms/site-settings.json"
+import { useEffect, useState } from "react"
 import readingTime from "reading-time"
+import { useInView } from "react-intersection-observer"
 
 // Components
 import ArticleAuthor from "@/components/article/article-author"
@@ -20,9 +21,11 @@ import { FiUser } from "react-icons/fi"
 import Comment from "@/components/comment"
 import markdownToHtml from "src/libs/markdownToHTML"
 import ArticleMeta from "@/components/meta/article-meta"
+import config from "@/cms/site-settings.json"
 import fetchApi from "@/libs/fetchApi"
 
 export default function Article({ article }) {
+  const [comments, setComments] = useState([])
   const {
     title,
     slug,
@@ -34,6 +37,23 @@ export default function Article({ article }) {
     featuredimageurl,
     content,
   } = article
+
+  const { ref, inView } = useInView({
+    rootMargin: "50px 0px",
+    triggerOnce: true,
+  })
+
+  useEffect(() => {
+    if (slug && inView) {
+      fetch(`/api/post/${slug}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.data && data.data.comments) {
+            setComments(data.data.comments)
+          }
+        })
+    }
+  }, [slug, inView])
 
   const fullUrl = `${config.base_url}/read/${slug}`
   const readTime = readingTime(content)
@@ -99,7 +119,15 @@ export default function Article({ article }) {
             />
           </header>
           <ArticleBody body={content} />
-          {/* <Comment slug={slug} /> */}
+          <div ref={ref}>
+            {inView && (
+              <Comment
+                comments={comments}
+                setComments={setComments}
+                slug={slug}
+              />
+            )}
+          </div>
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>

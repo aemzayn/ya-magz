@@ -7,10 +7,9 @@ import { IS_DEV } from "src/constanst/development"
 import RenderInView from "@/components/render-inview"
 import { cleanComment } from "src/libs/comments"
 
-export default function Comment({ slug }) {
+export default function Comment({ slug, comments, setComments }) {
   const [session] = useSession()
   const [showForm, setShowForm] = useState(false)
-  const [comments, setComments] = useState([])
 
   function toggleForm() {
     setShowForm(show => !show)
@@ -41,6 +40,7 @@ export default function Comment({ slug }) {
       const { data } = await res.json()
       if (data) {
         setComments(coms => [...coms, newComment])
+        console.log(data)
       }
     } catch (error) {
       if (IS_DEV) console.error(error)

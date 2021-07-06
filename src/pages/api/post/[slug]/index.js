@@ -2,6 +2,7 @@ import dbConnect from "src/utils/dbConnect"
 import { getSession } from "next-auth/client"
 import Post from "src/models/Post"
 import Comment from "src/models/Comment"
+import fetchApi from "@/libs/fetchApi"
 
 const DEV = process.env.NODE_ENV !== "production"
 
@@ -12,6 +13,11 @@ export default async function handler(req, res) {
   } = req
 
   await dbConnect()
+
+  const validSlug = await fetchApi(`/articles/check/${slug}`)
+  if (!validSlug) {
+    return res.status(400).json({ error: "Post not found" })
+  }
 
   switch (method) {
     case "GET":
