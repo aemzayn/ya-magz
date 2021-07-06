@@ -1,6 +1,6 @@
 import Layout from "@/components/layout"
 import ArticleLayout from "@/components/article/article-layout"
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta"
 
 const {
   Heading,

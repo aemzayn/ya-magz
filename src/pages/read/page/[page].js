@@ -1,7 +1,7 @@
 import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
 import fetchApi from "@/libs/fetchApi"
-import Meta from "@/components/article/meta/meta"
+import Meta from "@/components/meta"
 
 export default function Page({ articles, pagination, page }) {
   const url = `/articles/page/${page}`
