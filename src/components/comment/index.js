@@ -40,7 +40,6 @@ export default function Comment({ slug, comments, setComments }) {
       const { data } = await res.json()
       if (data) {
         setComments(coms => [...coms, newComment])
-        console.log(data)
       }
     } catch (error) {
       if (IS_DEV) console.error(error)
