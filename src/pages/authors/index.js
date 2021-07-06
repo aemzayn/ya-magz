@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import Meta from "@/components/meta"
 import PageLayout from "@/components/layout/page-layout"
 import Layout from "@/components/layout"
-import { listAuthor } from "src/libs/authors.js"
 import {
   Icon,
   Input,
@@ -17,6 +16,7 @@ import {
 } from "@chakra-ui/react"
 import Link from "next/link"
 import { FiSearch } from "react-icons/fi"
+import fetchApi from "@/libs/fetchApi"
 
 export default function Author({ authors }) {
   const [showAuthors, setShowAuthors] = useState(authors)
@@ -36,8 +36,6 @@ export default function Author({ authors }) {
       author => author.name.toLowerCase().indexOf(text.toLowerCase()) !== -1
     )
   }
-
-  const nameTextAlign = useBreakpointValue({ base: "center", md: "center" })
 
   const url = "/author"
   const title = "Authors"
@@ -124,8 +122,8 @@ export default function Author({ authors }) {
   )
 }
 
-export function getStaticProps() {
-  const authors = listAuthor()
+export async function getStaticProps() {
+  const authors = await fetchApi("/authors")
   return {
     props: {
       authors,

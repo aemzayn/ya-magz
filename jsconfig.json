@@ -10,8 +10,7 @@
       "@/config/*": ["src/config/*"],
       "@/constants/*": ["src/constants/*"],
       "@/components/*": ["src/components/*"],
-      "@/libs/*": ["src/libs/*"],
-      "@/hooks/*": ["src/hooks/*"]
+      "@/libs/*": ["src/libs/*"]
     }
   },
   "exclude": ["node_modules"]

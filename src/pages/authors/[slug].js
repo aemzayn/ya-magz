@@ -14,7 +14,7 @@ export default function ArticlesByAuthor({ articles, author }) {
         <article itemScope itemType="https://schema.org/Author">
           <ArticleList
             title="Articles by"
-            subtitle={author}
+            subtitle={author.name}
             articles={articles}
             type="author"
           />
