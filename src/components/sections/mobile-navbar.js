@@ -16,7 +16,7 @@ import NavItem from "./nav-item"
 
 export default function MobileNavbar({ isOpen, onClose }) {
   return (
-    <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+    <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader
@@ -24,7 +24,7 @@ export default function MobileNavbar({ isOpen, onClose }) {
           borderBottomWidth="1px"
           borderBottomColor="gray.200"
         >
-          <Flex justifyContent="space-between" alignItems="center">
+          <Flex justifyContent="flex-end" alignItems="center">
             <Box
               cursor="pointer"
               display={{ base: "block", md: "none" }}

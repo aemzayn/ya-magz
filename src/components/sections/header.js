@@ -19,7 +19,7 @@ function DesktopNavbar() {
         justify={{ md: "space-between", lg: "flex-end" }}
       >
         {NAV_LINKS.map((r, i) => (
-          <NavItem key={i} to={r.to}>
+          <NavItem key={i} to={r.to} isLast={i === NAV_LINKS.length - 1}>
             {r.name}
           </NavItem>
         ))}
@@ -38,7 +38,7 @@ export default function Header() {
       wrap="wrap"
       w="100%"
       mx="auto"
-      py={{ base: 4, lg: 8 }}
+      py={{ base: 6, lg: 8 }}
       px={{ base: 6, md: 10 }}
       bg="white"
       color="black"
@@ -60,6 +60,8 @@ export default function Header() {
       id="header-nav"
     >
       {/* Hamburger menu */}
+      <Logo />
+
       <Box
         cursor="pointer"
         display={{ base: "block", md: "none" }}
@@ -70,11 +72,9 @@ export default function Header() {
 
       <MobileNavbar isOpen={isOpen} onClose={onClose} />
 
-      <Logo />
-
       <DesktopNavbar />
 
-      <AuthButton />
+      {/* <AuthButton /> */}
     </Flex>
   )
 }

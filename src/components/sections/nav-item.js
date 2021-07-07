@@ -17,7 +17,7 @@ export default function NavItem({ children, isLast, to = "/", ...rest }) {
           }}
           fontFamily="body"
           {...rest}
-          mb={{ base: isLast ? 0 : 8, md: 0 }}
+          mb={{ base: isLast ? 4 : 8, md: 0 }}
           mr={{ base: 0, md: isLast ? 0 : 8 }}
         >
           {children}
