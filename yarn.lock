@@ -1561,6 +1561,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/karla@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.0.tgz#f38e39e698a3efd60db46513fafbd3996aeae3fc"
+  integrity sha512-ULtbpNQ8Dw4kcdwG6bPkp9HMBFVsHbdNRzYaCE5vWfZPcSj1r0eIFW/cpUPqnpmspZpTCtltPAwaXkpA5/q4sQ==
+
+"@fontsource/lora@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/lora/-/lora-4.5.0.tgz#1b230175236c35d13b3a69a346ca5b0e2df0dbcf"
+  integrity sha512-4ThGnMFbktlQqsTW7kCdzT888esMFfnbHE9PJMQCtcP2JUIJXDQpxvmtlsio1AJBnvUxPxegAAp76Q8lm7t1VQ==
+
 "@fontsource/montserrat@^4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.4.5.tgz#f97ebea605f4a2d6b9b23a19bc9bf8fc6f4c79d5"

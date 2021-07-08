@@ -6,45 +6,109 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  Heading,
   Icon,
+  Link,
+  UnorderedList,
   VStack,
 } from "@chakra-ui/react"
-import { HiX as CloseIcon } from "react-icons/hi"
 
-import { NAV_LINKS } from "src/constanst/routes"
-import NavItem from "./nav-item"
+import MobileNavItem from "./mobile-nav-item"
+
+import {
+  AiFillHome,
+  AiOutlineHome,
+  AiFillRead,
+  AiOutlineRead,
+  AiOutlinePicture,
+  AiFillPicture,
+  AiOutlineInstagram,
+} from "react-icons/ai"
+import {
+  RiBook2Line,
+  RiBook2Fill,
+  RiSpotifyLine,
+  RiSpotifyFill,
+  RiExternalLinkLine,
+} from "react-icons/ri"
 
 export default function MobileNavbar({ isOpen, onClose }) {
   return (
-    <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+    <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader
-          py={6}
+          py={4}
           borderBottomWidth="1px"
           borderBottomColor="gray.200"
         >
-          <Flex justifyContent="flex-end" alignItems="center">
-            <Box
-              cursor="pointer"
-              display={{ base: "block", md: "none" }}
-              onClick={onClose}
-            >
-              <Icon boxSize="1.5em" as={CloseIcon} />
-            </Box>
+          <Flex alignItems="center">
+            <Heading size="md" fontWeight="medium" fontFamily="lora">
+              Ya! Magazine
+            </Heading>
           </Flex>
         </DrawerHeader>
-        <DrawerBody py={6}>
-          <VStack as="ul">
-            {NAV_LINKS.map((item, idx) => (
-              <NavItem
-                key={idx}
-                to={item.to}
-                isLast={idx === NAV_LINKS.length - 1 ? true : false}
+        <DrawerBody pt={0} px={0}>
+          <VStack
+            as="ul"
+            w="full"
+            spacing={0}
+            justifyContent="space-between"
+            height="full"
+          >
+            <div style={{ width: "100%" }}>
+              <MobileNavItem
+                to="/"
+                icon={AiOutlineHome}
+                activeIcon={AiFillHome}
               >
-                {item.name}
-              </NavItem>
-            ))}
+                Home
+              </MobileNavItem>
+              <MobileNavItem
+                to="/read"
+                icon={AiOutlineRead}
+                activeIcon={AiFillRead}
+              >
+                Read
+              </MobileNavItem>
+              <MobileNavItem
+                to="/magazine"
+                icon={RiBook2Line}
+                activeIcon={RiBook2Fill}
+              >
+                Magazine
+              </MobileNavItem>
+              <MobileNavItem
+                to="/gallery"
+                icon={AiOutlinePicture}
+                activeIcon={AiFillPicture}
+              >
+                Gallery
+              </MobileNavItem>
+              <MobileNavItem
+                to="/#ya-podcast"
+                icon={RiSpotifyLine}
+                activeIcon={RiSpotifyFill}
+              >
+                Entertainment
+              </MobileNavItem>
+            </div>
+
+            <UnorderedList
+              alignSelf="flex-end"
+              w="full"
+              px={6}
+              py={2}
+              color="brand.gray"
+              display="flex"
+              alignItems="center"
+            >
+              <Icon marginRight={4} boxSize="1.2em" as={AiOutlineInstagram} />
+              <Link isExternal="https://www.instagram.com/ya.magz">
+                Ya! Magazine
+              </Link>
+              <Icon marginLeft="auto" boxSize="1.2em" as={RiExternalLinkLine} />
+            </UnorderedList>
           </VStack>
         </DrawerBody>
       </DrawerContent>

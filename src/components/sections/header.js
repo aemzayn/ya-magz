@@ -1,4 +1,11 @@
-import { Box, Flex, UnorderedList, Icon, useDisclosure } from "@chakra-ui/react"
+import {
+  Box,
+  Flex,
+  UnorderedList,
+  Icon,
+  useDisclosure,
+  IconButton,
+} from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
 import Logo from "./Logo"
 import MobileNavbar from "./mobile-navbar"
@@ -38,7 +45,7 @@ export default function Header() {
       wrap="wrap"
       w="100%"
       mx="auto"
-      py={{ base: 6, lg: 8 }}
+      py={{ base: 3, lg: 8 }}
       px={{ base: 6, md: 10 }}
       bg="white"
       color="black"
@@ -61,15 +68,22 @@ export default function Header() {
     >
       {/* Hamburger menu */}
 
-      <Box
-        cursor="pointer"
+      <IconButton
+        aria-label="Hamburger menu"
         display={{ base: "block", md: "none" }}
+        marginRight={4}
+        variant="ghost"
         onClick={onOpen}
-      >
-        <Icon boxSize="1.5em" as={isOpen ? CloseIcon : MenuIcon} />
-      </Box>
+        icon={<Icon boxSize="1.5em" as={isOpen ? CloseIcon : MenuIcon} />}
+      />
 
-      <Logo />
+      <Box
+        position={{ base: "absolute", md: "static" }}
+        left={{ base: "50%", md: "unset" }}
+        transform={{ base: "translateX(-50%)", md: "unset" }}
+      >
+        <Logo />
+      </Box>
 
       <MobileNavbar isOpen={isOpen} onClose={onClose} />
 

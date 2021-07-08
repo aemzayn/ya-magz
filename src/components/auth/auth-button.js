@@ -24,7 +24,7 @@ const AuthButton = () => {
           <Avatar
             size="sm"
             bg="gray.200"
-            icon={<FiUser fontSize="1.1rem" />}
+            icon={<Icon as={FiUser} />}
             src={session ? session?.user?.image : ""}
           />
         </MenuButton>
