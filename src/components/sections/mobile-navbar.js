@@ -1,5 +1,4 @@
 import {
-  Box,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -29,7 +28,6 @@ import {
   RiBook2Fill,
   RiSpotifyLine,
   RiSpotifyFill,
-  RiExternalLinkLine,
 } from "react-icons/ri"
 
 export default function MobileNavbar({ isOpen, onClose }) {
@@ -43,7 +41,7 @@ export default function MobileNavbar({ isOpen, onClose }) {
           borderBottomColor="gray.200"
         >
           <Flex alignItems="center">
-            <Heading size="md" fontWeight="medium" fontFamily="lora">
+            <Heading size="md" fontWeight="medium">
               Ya! Magazine
             </Heading>
           </Flex>
@@ -98,16 +96,18 @@ export default function MobileNavbar({ isOpen, onClose }) {
               alignSelf="flex-end"
               w="full"
               px={6}
-              py={2}
+              pb={2}
+              pt={3}
               color="brand.gray"
               display="flex"
               alignItems="center"
+              borderTop="1px solid"
+              borderTopColor="gray.300"
             >
               <Icon marginRight={4} boxSize="1.2em" as={AiOutlineInstagram} />
-              <Link isExternal="https://www.instagram.com/ya.magz">
+              <Link href="/redirect?url=https://instagram.com/ya.magz">
                 Ya! Magazine
               </Link>
-              <Icon marginLeft="auto" boxSize="1.2em" as={RiExternalLinkLine} />
             </UnorderedList>
           </VStack>
         </DrawerBody>

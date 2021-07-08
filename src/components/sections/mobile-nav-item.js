@@ -25,6 +25,7 @@ export default function MobileNavItem({
           cursor="pointer"
           _hover={{
             color: "black",
+            bgColor: "gray.100",
           }}
           w="full"
           px={6}
