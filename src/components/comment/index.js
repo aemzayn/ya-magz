@@ -10,6 +10,7 @@ import { cleanComment } from "src/libs/comments"
 export default function Comment({ slug, comments, setComments }) {
   const [session] = useSession()
   const [showForm, setShowForm] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   function toggleForm() {
     setShowForm(show => !show)
@@ -18,11 +19,6 @@ export default function Comment({ slug, comments, setComments }) {
   async function addComment(comment) {
     if (!session) return
     const newComment = {
-      user: {
-        name: session.user.name,
-        email: session.user.email,
-        avatar: session.user.image,
-      },
       post_slug: slug,
       comment: cleanComment(comment),
       commented_at: Date.now(),
@@ -39,7 +35,7 @@ export default function Comment({ slug, comments, setComments }) {
       })
       const { data } = await res.json()
       if (data) {
-        setComments(coms => [...coms, newComment])
+        setComments(prev => [...prev, data])
       }
     } catch (error) {
       if (IS_DEV) console.error(error)
@@ -50,6 +46,7 @@ export default function Comment({ slug, comments, setComments }) {
 
   async function deleteComment(commentId) {
     if (!session) return
+    setLoading(true)
 
     try {
       const res = await fetch(`/api/post/${slug}/${commentId}`, {
@@ -57,12 +54,14 @@ export default function Comment({ slug, comments, setComments }) {
       })
       const { data } = await res.json()
       if (data) {
-        setComments(prevComments =>
-          prevComments.filter(comment => comment._id.toString() !== commentId)
+        setComments(allComments =>
+          allComments.filter(comment => comment._id.toString() !== commentId)
         )
       }
     } catch (error) {
       if (IS_DEV) console.error(error)
+    } finally {
+      setLoading(false)
     }
   }
 

@@ -38,22 +38,22 @@ export default function Article({ article }) {
     content,
   } = article
 
-  // const { ref, inView } = useInView({
-  //   rootMargin: "50px 0px",
-  //   triggerOnce: true,
-  // })
+  const { ref, inView } = useInView({
+    rootMargin: "50px 0px",
+    triggerOnce: true,
+  })
 
-  // useEffect(() => {
-  //   if (slug && inView) {
-  //     fetch(`/api/post/${slug}`)
-  //       .then(res => res.json())
-  //       .then(data => {
-  //         if (data && data.data && data.data.comments) {
-  //           setComments(data.data.comments)
-  //         }
-  //       })
-  //   }
-  // }, [slug, inView])
+  useEffect(() => {
+    if (slug && inView) {
+      fetch(`/api/post/${slug}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.data && data.data.comments) {
+            setComments(data.data.comments)
+          }
+        })
+    }
+  }, [slug, inView])
 
   const fullUrl = `${config.base_url}/read/${slug}`
   const readTime = readingTime(content)
@@ -119,7 +119,7 @@ export default function Article({ article }) {
             />
           </header>
           <ArticleBody body={content} />
-          {/* <div ref={ref}>
+          <div ref={ref}>
             {inView && (
               <Comment
                 comments={comments}
@@ -127,7 +127,7 @@ export default function Article({ article }) {
                 slug={slug}
               />
             )}
-          </div> */}
+          </div>
           <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>

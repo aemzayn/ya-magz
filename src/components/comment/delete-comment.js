@@ -12,13 +12,10 @@ export default function DeleteComment({ deleteComment }) {
   return (
     <Menu placement="bottom-end">
       <MenuButton>
-        <IconButton
-          aria-label="Delete comment"
-          size="sm"
-          variant="ghost"
-          icon={<Icon as={HiDotsVertical} />}
+        <Icon
           color="brand.gray"
           _hover={{ color: "black" }}
+          as={HiDotsVertical}
         />
       </MenuButton>
       <MenuList borderRadius={false} borderColor="gray.200">

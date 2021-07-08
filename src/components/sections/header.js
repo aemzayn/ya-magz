@@ -60,7 +60,6 @@ export default function Header() {
       id="header-nav"
     >
       {/* Hamburger menu */}
-      <Logo />
 
       <Box
         cursor="pointer"
@@ -70,11 +69,13 @@ export default function Header() {
         <Icon boxSize="1.5em" as={isOpen ? CloseIcon : MenuIcon} />
       </Box>
 
+      <Logo />
+
       <MobileNavbar isOpen={isOpen} onClose={onClose} />
 
       <DesktopNavbar />
 
-      {/* <AuthButton /> */}
+      <AuthButton />
     </Flex>
   )
 }

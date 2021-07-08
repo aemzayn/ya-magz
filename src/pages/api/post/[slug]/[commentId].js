@@ -1,7 +1,6 @@
 import dbConnect from "src/utils/dbConnect"
 import { getSession } from "next-auth/client"
-import Post from "src/models/Post"
-import Comment from "src/models/Comment"
+import { Comment, Post, User } from "@/models/index"
 
 export default async function handler(req, res) {
   const {
@@ -13,18 +12,20 @@ export default async function handler(req, res) {
 
   switch (method) {
     case "DELETE":
+      const session = await getSession({ req })
+
       try {
-        const session = await getSession({ req })
         if (!session) {
-          return res.status(401).json({ data: null, error: "Unauthorized" })
+          return res.status(401).json({ error: "Unauthenticated" }).end()
         }
 
         let post = await Post.findOne({ slug })
-        let comment = await Comment.findById(commentId)
+        const comment = await Comment.findById(commentId)
+        const user = await User.findOne({ email: session.user.email })
 
-        if (session.user.email !== comment.user.email) {
+        if (user._id?.toString() !== comment.user?.toString()) {
           return res
-            .status(401)
+            .status(403)
             .json({ error: "Can only delete your own comment.", data: null })
         }
 

@@ -2,17 +2,12 @@ import { getDistanceDate } from "src/libs/date"
 import { Avatar, Box, Heading, HStack, Text, VStack } from "@chakra-ui/react"
 import DeleteComment from "./delete-comment"
 
-export default function CommentBubble({
-  user,
-  comment,
-  isAuthenticated,
-  deleteComment,
-}) {
+export default function CommentBubble({ user, comment, deleteComment }) {
   return (
     <VStack align="flex-start" spacing={1} w="full">
       <HStack w="full" justifyContent="space-between">
         <HStack w="full" fontSize="1rem">
-          <Avatar src={comment?.user?.avatar} name={comment?.name} size="sm" />
+          <Avatar src={comment?.user?.image} name={comment?.name} size="sm" />
           <Heading
             as="h3"
             fontSize="inherit"

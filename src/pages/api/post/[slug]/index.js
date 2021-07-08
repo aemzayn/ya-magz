@@ -1,7 +1,6 @@
 import dbConnect from "src/utils/dbConnect"
 import { getSession } from "next-auth/client"
-import Post from "src/models/Post"
-import Comment from "src/models/Comment"
+import { Comment, User, Post } from "@/models/index.js"
 import fetchApi from "@/libs/fetchApi"
 
 const DEV = process.env.NODE_ENV !== "production"
@@ -22,8 +21,10 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        let post = await Post.findOne({ slug })
-        if (!post) post = await Post.create({ slug })
+        let post = await Post.findOne({ slug }).populate("comments.user")
+        if (!post) {
+          post = new Post({ slug })
+        }
         return res.status(200).json({ data: post })
       } catch (error) {
         if (DEV) console.error(error)
@@ -31,23 +32,27 @@ export default async function handler(req, res) {
       }
 
     case "POST":
-      try {
-        const session = await getSession({ req })
-        if (!session) {
-          return res.status(401).json({ error: "Unauthorized", data: null })
-        }
-      } catch (error) {
-        if (DEV) console.error(error)
-        return res.status(500).json({ error: "Auth error", data: null })
+      const session = await getSession({ req })
+      if (!session) {
+        return res.status(401).json({ error: "Unauthorized", data: null })
       }
 
       try {
+        const user = await User.findOne({ email: session.user.email })
+        if (!user) return res.status(400).json({ error: "User not found" })
         let post = await Post.findOne({ slug })
         if (!post) post = await Post.create({ slug })
-        let comment = await Comment.create(req.body)
+        let comment = await Comment.create({
+          ...req.body,
+          user: user._id,
+        })
         post.comments.push(comment)
         await post.save()
-        return res.status(200).json({ data: post })
+
+        const updatedComment = await Comment.findOne({
+          _id: comment._id,
+        }).populate("user")
+        return res.status(200).json({ data: updatedComment })
       } catch (error) {
         if (DEV) console.error(error)
         return res.status(500).json({ error })

@@ -6,9 +6,9 @@ const CommentSchema = new mongoose.Schema({
     required: [true, "Comment cannot be blank."],
   },
   user: {
-    name: String,
-    avatar: String,
-    email: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   },
   post_slug: {
     type: String,

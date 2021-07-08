@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { useSession, signIn, signOut } from "next-auth/client"
 import { AiOutlineUser } from "react-icons/ai"
 import { FiLogOut } from "react-icons/fi"
@@ -15,24 +14,16 @@ import {
 
 const AuthButton = () => {
   const [session] = useSession()
-
-  // remove warning server and client id does not match
-  const [show, setShow] = useState(false)
-  useEffect(() => {
-    setShow(true)
-  }, [])
   return (
     <Menu>
-      {show && (
-        <MenuButton>
-          <Avatar
-            size="sm"
-            bg="gray.200"
-            icon={<AiOutlineUser fontSize="1.1rem" />}
-            src={session ? session.user.image : ""}
-          />
-        </MenuButton>
-      )}
+      <MenuButton>
+        <Avatar
+          size="sm"
+          bg="gray.200"
+          icon={<AiOutlineUser fontSize="1.1rem" />}
+          src={session ? session?.user?.image : ""}
+        />
+      </MenuButton>
       <MenuList borderRadius={false} borderColor="gray.200">
         {session ? (
           <>
