@@ -18,6 +18,7 @@ import {
 import Link from "next/link"
 import React from "react"
 import { FiLink } from "react-icons/fi"
+import { AiFillInfoCircle } from "react-icons/ai"
 import { MdCopyright } from "react-icons/md"
 import { FOOTER_ROUTES } from "src/constanst/routes"
 import Logo from "./Logo"
@@ -97,6 +98,33 @@ export default function Footer() {
       variant: "left-accent",
       duration: 6000,
       isClosable: true,
+      render: () => (
+        <Flex
+          p={3}
+          alignItems="flex-start"
+          bg="white"
+          border="1px solid"
+          borderColor="black"
+          pos="relative"
+          _before={{
+            content: "''",
+            pos: "absolute",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: 1,
+            bgColor: "black",
+          }}
+        >
+          <Box>
+            <Icon boxSize="1.2em" as={AiFillInfoCircle} />
+          </Box>
+          <Box marginLeft={2}>
+            <Heading fontSize="xl">Coming soon</Heading>
+            <Text>This feature is not available at the moment.</Text>
+          </Box>
+        </Flex>
+      ),
     })
   }
 

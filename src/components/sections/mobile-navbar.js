@@ -37,11 +37,12 @@ export default function MobileNavbar({ isOpen, onClose }) {
       autoFocus={false}
       onClose={onClose}
       isOpen={isOpen}
+      zIndex={12}
     >
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader
-          py={4}
+          py={5}
           borderBottomWidth="1px"
           borderBottomColor="gray.200"
         >

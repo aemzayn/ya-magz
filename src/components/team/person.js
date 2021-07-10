@@ -79,7 +79,6 @@ export default function Person({ person, showSocmed }) {
           {person && person.photo && inView && (
             <AspectRatio
               w="full"
-              // borderRadius="full"
               filter="grayscale(50%)"
               ratio={2 / 2}
               boxShadow="xs"
@@ -104,7 +103,7 @@ export default function Person({ person, showSocmed }) {
                 name={person.name}
                 variant="marble"
                 square={true}
-                colors={["#AFC7B9", "#FFE1C9", "#FAC7B4", "#FCA89D", "#998B82"]}
+                colors={["#CCCCCC", "#999999", "#666666", "#333333", "#000000"]}
               />
             </Box>
           )}

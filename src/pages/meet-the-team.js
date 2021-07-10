@@ -20,7 +20,7 @@ export default function MeetTheTeam() {
         keywords={keywords}
       />
       <Layout>
-        <Box px={{ base: 8 }} pt={2} my={5} pos="relative">
+        <Box px={{ base: 8 }} pt={10} my={5} pos="relative">
           <Heading as="h2" size="2xl" textAlign="center">
             Meet the Team
           </Heading>
