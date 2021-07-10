@@ -2,38 +2,29 @@ import { Button, Flex } from "@chakra-ui/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
+const NavButton = ({ children, href, asPath }) => {
+  return (
+    <Link href={href}>
+      <Button
+        variant="ghost"
+        as="a"
+        borderRadius={false}
+        cursor="pointer"
+        fontWeight="normal"
+        position="relative"
+        color={asPath === href ? "black" : "gray.400"}
+        bg={asPath === href ? "gray.200" : "none"}
+        outline="none"
+      >
+        {children}
+      </Button>
+    </Link>
+  )
+}
+
 export default function ArticleCategoryNav({ categories }) {
   const router = useRouter()
-  const {
-    pathname,
-    query: { slug },
-  } = router
-  const buttonStyle = {
-    as: "a",
-    borderRadius: false,
-    outline: false,
-    colorScheme: "black",
-    cursor: "pointer",
-    fontWeight: "normal",
-    position: "relative",
-    _after: {
-      content: '""',
-      pos: "absolute",
-      display: "block",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      height: 0,
-      bgColor: "gray.100",
-      zIndex: -1,
-      transition: "all 100ms ease-in-out",
-    },
-    _hover: {
-      _after: {
-        height: "full",
-      },
-    },
-  }
+  const { asPath } = router
 
   return (
     <Flex
@@ -56,26 +47,14 @@ export default function ArticleCategoryNav({ categories }) {
         backgroundColor: "gray.200",
       }}
     >
-      <Link href={`/read`}>
-        <Button
-          color={pathname.indexOf("/read") !== -1 ? "black" : "gray.400"}
-          bg={pathname.indexOf("/read") !== -1 ? "gray.200" : "none"}
-          {...buttonStyle}
-        >
-          All
-        </Button>
-      </Link>
+      <NavButton href="/read" asPath={asPath}>
+        All
+      </NavButton>
       {categories &&
         categories.map((tag, i) => (
-          <Link key={i} href={`/category/${tag.slug}`}>
-            <Button
-              color={tag.slug === slug ? "black" : "gray.400"}
-              bg={tag.slug === slug ? "gray.200" : "none"}
-              {...buttonStyle}
-            >
-              {tag.name}
-            </Button>
-          </Link>
+          <NavButton key={i} href={`/category/${tag.slug}`} asPath={asPath}>
+            {tag.name}
+          </NavButton>
         ))}
     </Flex>
   )

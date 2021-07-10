@@ -20,14 +20,15 @@ export default function MeetTheTeam() {
         keywords={keywords}
       />
       <Layout>
-        <Box px="8" pt="2" my={{ base: 5 }} pos="relative">
+        <Box px={{ base: 8 }} pt={2} my={5} pos="relative">
           <Heading as="h2" size="2xl" textAlign="center">
             Meet the Team
           </Heading>
           <SimpleGrid
             marginTop={{ base: 6, md: 10 }}
             columns={{ base: 2, md: 4, lg: 5 }}
-            gap={{ base: 2 }}
+            gridColumnGap={{ base: 2, md: 4, lg: 6 }}
+            gridRowGap={{ base: 4, md: 6, lg: 8 }}
           >
             {members.map((m, i) => (
               <Person person={m} key={i} showSocmed={true} />

@@ -7,7 +7,7 @@ export default function HeroAuthorCategory({
   ...rest
 }) {
   return (
-    <Text mb="1.2" color="brand.gray" {...rest}>
+    <Text mb="1.2" d="flex" alignItems="center" color="brand.gray" {...rest}>
       <Text
         as="span"
         px={{ base: 1 }}
@@ -15,7 +15,17 @@ export default function HeroAuthorCategory({
         overflowY="hidden"
         fontSize={textSize}
       >
-        {`${author.name} · ${category.name}`}
+        {author.name}
+      </Text>
+      <Text w={10} mx={1} h={0.4} bgColor="gray.400" />
+      <Text
+        as="span"
+        px={{ base: 1 }}
+        d="inline-flex"
+        overflowY="hidden"
+        fontSize={textSize}
+      >
+        {category.name}
       </Text>
     </Text>
   )

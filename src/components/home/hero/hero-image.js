@@ -2,6 +2,13 @@ import Image from "next/image"
 import { Flex } from "@chakra-ui/react"
 import { useState } from "react"
 
+/**
+ * TODO:
+ * 1. Fix image change position on load
+ * 2. Delete unused fonts and library
+ * 3. ...
+ */
+
 export default function HeroImage({ url, alt }) {
   const [loaded, setLoaded] = useState(false)
   return (

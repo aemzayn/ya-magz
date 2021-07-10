@@ -19,18 +19,11 @@ export default function NotFound() {
           size="2xl"
           mb="4"
           as="h1"
-          fontFamily="Product Sans"
           fontWeight="bold"
         >
           404 Not Found 😭
         </Heading>
-        <Heading
-          fontWeight="normal"
-          size="xl"
-          as="h2"
-          color="brand.gray"
-          fontFamily="Product Sans"
-        >
+        <Heading fontWeight="normal" size="xl" as="h2" color="brand.gray">
           The page you are looking for is not available.
         </Heading>
       </VStack>

@@ -8,12 +8,9 @@ const Item = ({ children }) => (
   <Text
     as="span"
     fontWeight="normal"
-    fontSize={{ base: "0.7rem", lg: "0.85rem" }}
+    fontSize={{ base: "sm", lg: "md" }}
     color="brand.gray"
     margin="0"
-    _notLast={{
-      marginRight: 1,
-    }}
   >
     {children}
   </Text>
@@ -29,11 +26,12 @@ const Article = ({ article }) => {
     author,
     tags,
   } = article
+  const excerptSplit = excerpt?.split(" ")
   return (
     <RenderInView>
       {({ ref, inView, loaded, setIsLoaded }) => (
         <Box
-          px={{ base: 0, md: "0.5rem", xl: "1rem" }}
+          mx={{ base: 4, md: 6, xl: 8 }}
           className="article"
           mb={{ base: excerpt ? 10 : -5, md: 8, lg: 20 }}
           pos="relative"
@@ -57,20 +55,21 @@ const Article = ({ article }) => {
           <VStack
             spacing={{ base: 2, lg: excerpt ? 3 : 2 }}
             w="100%"
-            mt="4"
+            py={4}
             pos="relative"
             alignItems="flex-start"
+            px={{ base: 0, md: 4, xl: "1rem" }}
           >
-            <Flex as="span" flexWrap="wrap">
+            <Flex as="span" alignItems="center" flexWrap="wrap">
               {tags && <Item>{tags.name}</Item>}
-              <Item>·</Item>
+              <Text w={6} mx={1.5} h={0.4} bgColor="gray.400" />
               {author && <Item>{author.name}</Item>}
             </Flex>
             <Heading
               className="article-title"
               as="h2"
               fontSize="xl"
-              fontWeight="medium"
+              fontWeight={600}
               maxW="90%"
               mr="auto"
               _hover={{
@@ -89,14 +88,19 @@ const Article = ({ article }) => {
                 d="block"
                 w="full"
               >
-                {excerpt}
+                {excerptSplit.length <= 20
+                  ? excerptSplit.join(" ")
+                  : `${excerptSplit.slice(0, 20).join(" ")}...`}
               </Text>
             )}
             <Text
               color="blue.700"
               className="article-link"
               fontSize={{ base: "0.8rem", lg: "1rem" }}
-              textDecor="underline"
+              transitionDuration={"150ms"}
+              _hover={{
+                color: "blue.700",
+              }}
             >
               <Link href={`/read/${slug}`}>
                 <a>

@@ -1,8 +1,6 @@
 import { Provider } from "next-auth/client"
-import { ThemeProvider, CSSReset } from "@chakra-ui/react"
+import { ChakraProvider, CSSReset } from "@chakra-ui/react"
 import theme from "../theme"
-import "@/styles/styles.scss"
-import "@/styles/nprogress.scss"
 
 import Router from "next/router"
 import NProgress from "nprogress"
@@ -10,6 +8,14 @@ import * as gtag from "src/libs/gtag"
 
 import "@fontsource/montserrat/500-italic.css"
 import "@fontsource/montserrat/900.css"
+
+import "@fontsource/karla/400.css"
+import "@fontsource/karla/600.css"
+import "@fontsource/lora/400.css"
+import "@fontsource/lora/500.css"
+import "@fontsource/lora/600.css"
+import "@fontsource/lora/700.css"
+
 import Container from "@/components/layout/container"
 
 NProgress.configure({ showSpinner: false })
@@ -27,12 +33,12 @@ Router.onRouteChangeError = () => {
 function MyApp({ Component, pageProps }) {
   return (
     <Provider session={pageProps.session}>
-      <ThemeProvider theme={theme}>
+      <ChakraProvider theme={theme}>
         <CSSReset />
         <Container>
           <Component {...pageProps} />
         </Container>
-      </ThemeProvider>
+      </ChakraProvider>
     </Provider>
   )
 }

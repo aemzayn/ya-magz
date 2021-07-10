@@ -32,7 +32,12 @@ import {
 
 export default function MobileNavbar({ isOpen, onClose }) {
   return (
-    <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+    <Drawer
+      placement="left"
+      autoFocus={false}
+      onClose={onClose}
+      isOpen={isOpen}
+    >
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader

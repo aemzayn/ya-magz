@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import {
   Box,
   Flex,
@@ -5,6 +6,7 @@ import {
   Icon,
   useDisclosure,
   IconButton,
+  useToken,
 } from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
 import Logo from "./Logo"
@@ -35,8 +37,12 @@ function DesktopNavbar() {
   )
 }
 
-export default function Header() {
+export default function Header({}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [white] = useToken("colors", ["white"])
+  const bgColor = `${white}E6`
+  const bgBlur = `${white}99`
+
   return (
     <Flex
       as="nav"
@@ -45,24 +51,27 @@ export default function Header() {
       wrap="wrap"
       w="100%"
       mx="auto"
-      py={{ base: 3, lg: 8 }}
+      py={{ base: 3, lg: 6 }}
       px={{ base: 6, md: 10 }}
-      bg="white"
+      bgColor={bgColor}
       color="black"
       className="header"
-      borderBottomWidth="1px"
+      pos="fixed"
+      top={0}
+      left={0}
+      right={0}
+      zIndex="9999"
+      borderBottom="1px solid"
       borderBottomColor="gray.200"
-      borderBottomStyle="solid"
-      pos="relative"
-      _after={{
-        pos: "absolute",
-        content: '""',
-        display: "block",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        borderBottom: "1px solid",
-        borderBottomColor: "gray.50",
+      sx={{
+        "@supports (backdrop-filter: blur(12px))": {
+          backdropFilter: "blur(12px)",
+          bgColor: bgBlur,
+        },
+        "@supports (-webkit-backdrop-filter: blur(12px))": {
+          WebkitBackdropFilter: "blur(12px)",
+          bgColor: bgBlur,
+        },
       }}
       id="header-nav"
     >

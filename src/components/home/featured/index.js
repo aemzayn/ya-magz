@@ -51,6 +51,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
                     height={360}
                     layout="responsive"
                     objectFit="cover"
+                    objectPosition="center bottom"
                     quality={60}
                     onLoad={setIsLoaded}
                   />

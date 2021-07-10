@@ -9,7 +9,7 @@ export default function Logo(props) {
           direction="column"
           color="black"
           fontSize="1.25rem"
-          className="logo"
+          className="ya-logo"
           _hover={{ color: "blue.900" }}
           {...props}
         >

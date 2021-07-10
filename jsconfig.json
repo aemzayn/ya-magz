@@ -12,7 +12,8 @@
       "@/components/*": ["src/components/*"],
       "@/libs/*": ["src/libs/*"],
       "@/utils/*": ["src/utils/*"],
-      "@/models/*": ["src/models/*"]
+      "@/models/*": ["src/models/*"],
+      "@/hooks/*": ["src/hooks/*"]
     }
   },
   "exclude": ["node_modules"]

@@ -137,6 +137,7 @@ export default function Article({ article }) {
 
 export async function getServerSideProps({ params }) {
   const article = await fetchApi(`/articles/${params.slug}`)
+  // TODO: Fix markdown table
   const content = await markdownToHtml(article.content)
   return {
     props: {

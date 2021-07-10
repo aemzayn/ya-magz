@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Box } from "@chakra-ui/react"
 import Footer from "../sections/footer"
 import Header from "../sections/header"
 
@@ -12,34 +13,11 @@ const Layout = ({ children }) => {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/product-sans/ProductSans-Regular.ttf"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/product-sans/ProductSans-Thin.ttf"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/product-sans/ProductSans-Medium.ttf"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/product-sans/ProductSans-Bold.ttf"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/product-sans/ProductSans-Black.ttf"
-        />
       </Head>
       <Header />
-      {children}
+      <Box marginTop={{ base: "65px", lg: "86px" }} id="__app" pos="relative">
+        {children}
+      </Box>
       <Footer />
     </div>
   )

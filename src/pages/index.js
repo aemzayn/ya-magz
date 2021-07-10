@@ -1,12 +1,11 @@
 import ArticleList from "@/components/article/article-list"
-import Meta from "@/components/meta"
 import FeaturedArticle from "@/components/home/featured"
-import HomeMood from "@/components/home/mood"
-import HomeTeam from "@/components/home/entertainment/home-mood"
-import YaPodcast from "@/components/home/entertainment/ya-podcast"
-import Layout from "@/components/layout"
-import fetchApi from "@/libs/fetchApi"
 import Hero from "@/components/home/hero/index"
+import HomeEntertainment from "@/components/home/entertainment"
+import Layout from "@/components/layout"
+import HomeTeam from "@/components/team/home-team"
+import Meta from "@/components/meta"
+import fetchApi from "@/libs/fetchApi"
 
 export default function Home({ heroArticle, featuredArticle, articles }) {
   const [featuredOne, featuredTwo] = featuredArticle
@@ -32,8 +31,7 @@ export default function Home({ heroArticle, featuredArticle, articles }) {
           moreBtn
           moreBtnHref="/read"
         />
-        <YaPodcast />
-        <HomeMood />
+        <HomeEntertainment />
         <HomeTeam />
       </main>
     </Layout>

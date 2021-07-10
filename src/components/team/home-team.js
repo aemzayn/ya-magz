@@ -1,8 +1,8 @@
 import { getManagerialDivTeam } from "src/libs/team"
 import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
-import PrimaryButton from "../../buttons/primary-button"
-import RenderInView from "../../render-inview"
-import Person from "../../team/person"
+import PrimaryButton from "../buttons/primary-button"
+import RenderInView from "../render-inview"
+import Person from "./person"
 
 export default function HomeTeam() {
   const teams = getManagerialDivTeam()
@@ -16,7 +16,7 @@ export default function HomeTeam() {
           {inView && (
             <Grid
               templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
-              gap={{ base: 2 }}
+              gap={{ base: 2, xl: 8 }}
               width={{ base: "100%", md: "65%", lg: "50%" }}
               py={{ base: 5 }}
               overflowX="hidden"

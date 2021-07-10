@@ -1,14 +1,14 @@
-import { extendTheme, theme } from "@chakra-ui/react"
+import { extendTheme, theme as chakraTheme } from "@chakra-ui/react"
 
-export default extendTheme({
+const theme = extendTheme({
   fonts: {
-    heading: "'Product Sans', sans-serif",
-    body: "'Product Sans', sans-serif",
+    heading: "Lora, sans-serif",
+    body: "Karla, sans-serif",
   },
   colors: {
     brand: {
-      main: theme.colors.black,
-      light: theme.colors.black,
+      main: chakraTheme.colors.black,
+      light: chakraTheme.colors.black,
       gray: "#57576B",
     },
   },
@@ -28,6 +28,110 @@ export default extendTheme({
         overflowX: "hidden",
         backgroundColor: "white",
       },
+      ".ya-logo": {
+        p: {
+          fontFamily: "'Montserrat', sans-serif",
+        },
+      },
+      ".markdown": {
+        "div.end-p": {
+          marginBottom: 4,
+        },
+        a: {
+          color: chakraTheme.colors.teal[500],
+        },
+        p: {
+          lineHeight: 7,
+          marginY: 6,
+          fontSize: "lg",
+        },
+        "h1, h2, h3, h4, h5, h6": {
+          fontFamily: "Lora",
+          fontWeight: 700,
+          marginTop: 6,
+          marginBottom: 2,
+          textOverflow: "ellipsis",
+          lineHeight: "initial",
+        },
+        h1: {
+          fontSize: "5xl",
+        },
+        h2: {
+          fontSize: "4xl",
+        },
+        h3: {
+          fontSize: "3xl",
+        },
+        h4: {
+          fontSize: "2xl",
+        },
+        h5: {
+          fontSize: "xl",
+        },
+        h6: {
+          fontSize: "lg",
+        },
+        blockquote: {
+          pl: 4,
+          pos: "relative",
+          _before: {
+            content: "''",
+            display: "block",
+            pos: "absolute",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            width: 1,
+            bgColor: chakraTheme.colors.teal[400],
+          },
+        },
+        table: {
+          maxWidth: "full",
+          borderSpacing: 0,
+          mt: 6,
+          thead: {
+            background: chakraTheme.colors.gray[100],
+          },
+          th: {
+            fontWeight: 500,
+          },
+          "th, td": {
+            padding: "0.5em 1em",
+            border: "1px double #eeeeee",
+          },
+          "ol, ul": {
+            padding: 0,
+            paddingRight: 6,
+            li: {
+              lineHeight: 6,
+              "ol, ul": {
+                margin: 0,
+              },
+            },
+          },
+          "abbr[title]": {
+            textDecoration: "underline double",
+          },
+        },
+      },
+      "#nprogress": {
+        pointerEvents: "none",
+      },
+      "#nprogress .bar": {
+        background: chakraTheme.colors.blue[400],
+        pos: "fixed",
+        zIndex: 99999,
+        top: 0,
+        left: 0,
+        width: "full",
+        height: 1,
+      },
+      ".nprogress-custom-parent": {
+        overflow: "hidden",
+        position: "absolute",
+      },
     },
   },
 })
+
+export default theme
