@@ -33,7 +33,6 @@ export default function ArticleCategoryNav({ categories }) {
       mt="4"
       mb="8"
       justifyContent="center"
-      overflowX="auto"
       flexWrap="wrap"
       pos="relative"
       _after={{

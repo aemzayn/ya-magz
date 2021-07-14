@@ -1,3 +1,4 @@
+import React, { useRef, useState } from "react"
 import {
   Box,
   Button,
@@ -14,14 +15,19 @@ import {
   useToast,
   VStack,
   Link as ChakraLink,
+  InputGroup,
+  InputLeftElement,
 } from "@chakra-ui/react"
 import Link from "next/link"
-import React from "react"
+
+import { HiOutlineMail, HiOutlineUser, HiX } from "react-icons/hi"
 import { FiLink } from "react-icons/fi"
-import { AiFillInfoCircle } from "react-icons/ai"
+import { AiFillCheckCircle } from "react-icons/ai"
 import { MdCopyright } from "react-icons/md"
+
 import { FOOTER_ROUTES } from "src/constanst/routes"
 import Logo from "./Logo"
+import CustomToast from "../toast"
 
 function FooterLink({ children, path }) {
   return (
@@ -49,7 +55,7 @@ function FooterTitle({ children }) {
   )
 }
 
-function FooterForm({ handleSubmit }) {
+function FooterForm({ form, setForm, handleSubmit, submitLoading }) {
   const placeholderFontSize = useBreakpointValue({ base: "sm", lg: "md" })
   const placeholderStyle = {
     color: "gray.300",
@@ -68,10 +74,55 @@ function FooterForm({ handleSubmit }) {
       onSubmit={handleSubmit}
       align="flex-start"
       w={{ base: "full", md: "unset" }}
+      name="contact-form"
     >
-      <Input type="email" placeholder="Your email" {...inputStyle} />
-      <Input placeholder="Your name (optional)" type="text" {...inputStyle} />
-      <Textarea placeholder="Message" resize="none" {...inputStyle}></Textarea>
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          color="gray.400"
+          children={<HiOutlineMail />}
+          _groupFocus={{
+            color: "gray.700",
+          }}
+        />
+        <Input
+          type="email"
+          name="email"
+          placeholder="Your email"
+          value={form.email}
+          onChange={e =>
+            setForm(values => ({ ...values, [e.target.name]: e.target.value }))
+          }
+          {...inputStyle}
+        />
+      </InputGroup>
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          color="gray.400"
+          children={<HiOutlineUser />}
+        />
+        <Input
+          placeholder="Your name (optional)"
+          name="name"
+          type="text"
+          value={form.name}
+          onChange={e =>
+            setForm(values => ({ ...values, [e.target.name]: e.target.value }))
+          }
+          {...inputStyle}
+        />
+      </InputGroup>
+      <Textarea
+        placeholder="Message"
+        name="message"
+        resize="none"
+        value={form.message}
+        onChange={e =>
+          setForm(values => ({ ...values, [e.target.name]: e.target.value }))
+        }
+        {...inputStyle}
+      ></Textarea>
       <Button
         type="submit"
         bgColor="black"
@@ -79,6 +130,7 @@ function FooterForm({ handleSubmit }) {
         borderRadius="false"
         w="full"
         fontWeight="normal"
+        isLoading={submitLoading}
       >
         Send
       </Button>
@@ -88,44 +140,53 @@ function FooterForm({ handleSubmit }) {
 
 export default function Footer() {
   let footerRoutes = FOOTER_ROUTES.filter(r => r.path !== "/")
+  const [form, setForm] = useState({ email: "", name: "", message: "" })
+  const [submitLoading, setSubmitLoading] = useState(false)
   const toast = useToast()
+  const toastRef = useRef()
+
   function handleSubmit(e) {
     e.preventDefault()
-    toast({
-      title: "Coming soon",
-      description: "This feature is not available at the moment.",
-      status: "info",
-      variant: "left-accent",
-      duration: 6000,
-      isClosable: true,
-      render: () => (
-        <Flex
-          p={3}
-          alignItems="flex-start"
-          bg="white"
-          border="1px solid"
-          borderColor="black"
-          pos="relative"
-          _before={{
-            content: "''",
-            pos: "absolute",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            width: 1,
-            bgColor: "black",
-          }}
-        >
-          <Box>
-            <Icon boxSize="1.2em" as={AiFillInfoCircle} />
-          </Box>
-          <Box marginLeft={2}>
-            <Heading fontSize="xl">Coming soon</Heading>
-            <Text>This feature is not available at the moment.</Text>
-          </Box>
-        </Flex>
-      ),
-    })
+    setSubmitLoading(true)
+    const SHEETS_URL =
+      "https://script.google.com/macros/s/AKfycbyl-9Z3pcTM9LwsS3cRrjW4I5Fy_5oV7Nbk-KU81D5s9fbA5KJUs4Tprn-mX7XSLPlSgg/exec"
+
+    const formData = new FormData(document.forms["contact-form"])
+
+    fetch(SHEETS_URL, { method: "POST", body: formData })
+      .then(res => res.json())
+      .then(() => {
+        toastRef.current = toast({
+          duration: 6000,
+          isClosable: true,
+          render: () => (
+            <CustomToast
+              title="Success"
+              body="Your message has been sent!"
+              toast={toast}
+              leftIcon={AiFillCheckCircle}
+            />
+          ),
+        })
+      })
+      .catch(error => {
+        toastRef.current = toast({
+          duration: 6000,
+          isClosable: true,
+          render: () => (
+            <CustomToast
+              title="Error"
+              body="An error has been occurred."
+              variant="error"
+              toast={toast}
+              leftIcon={HiX}
+            />
+          ),
+        })
+      })
+      .finally(() => {
+        setSubmitLoading(false)
+      })
   }
 
   return (
@@ -229,7 +290,12 @@ export default function Footer() {
             align="flex-start"
           >
             <FooterTitle>CONTACT US</FooterTitle>
-            <FooterForm handleSubmit={handleSubmit} />
+            <FooterForm
+              form={form}
+              setForm={setForm}
+              handleSubmit={handleSubmit}
+              submitLoading={submitLoading}
+            />
           </VStack>
         </Stack>
       </Flex>

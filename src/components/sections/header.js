@@ -64,12 +64,12 @@ export default function Header({}) {
       borderBottom="1px solid"
       borderBottomColor="gray.200"
       sx={{
-        "@supports (backdrop-filter: blur(12px))": {
-          backdropFilter: "blur(12px)",
+        "@supports (backdrop-filter: saturate(180%) blur(20px))": {
+          backdropFilter: "saturate(180%) blur(20px)",
           bgColor: bgBlur,
         },
-        "@supports (-webkit-backdrop-filter: blur(12px))": {
-          WebkitBackdropFilter: "blur(12px)",
+        "@supports (-webkit-backdrop-filter: saturate(180%) blur(20px))": {
+          WebkitBackdropFilter: "saturate(180%) blur(20px)",
           bgColor: bgBlur,
         },
       }}
