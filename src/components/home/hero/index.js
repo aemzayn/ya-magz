@@ -1,3 +1,4 @@
+import React from "react"
 import { GridItem, useBreakpointValue, VStack } from "@chakra-ui/react"
 import HeroTitle from "./hero-title"
 import HeroImage from "./hero-image"
@@ -7,7 +8,7 @@ import HeroAuthorCategory from "./hero-author-category"
 import PrimaryButton from "@/components/buttons/primary-button"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 
-export default function Hero({ article }) {
+export function Hero({ article }) {
   const url = article?.image_url
   const textSize = useBreakpointValue({ base: "sm", lg: "md" })
 
@@ -44,3 +45,5 @@ export default function Hero({ article }) {
     </HeroLayout>
   )
 }
+
+export default React.memo(Hero)
