@@ -1,7 +1,7 @@
 import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
-import fetchApi from "@/libs/fetchApi"
 import Meta from "@/components/meta"
+import { fetchAuthorArticles, fetchAuthorsSlug } from "@/libs/api"
 
 export default function ArticlesByAuthor({ articles, author }) {
   const url = `/author/${author.slug}`
@@ -25,20 +25,35 @@ export default function ArticlesByAuthor({ articles, author }) {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await fetchApi(`/authors/${params.slug}`)
+  const articles = (await fetchAuthorArticles(params.slug)) || [
+    { author: { name: "" } },
+  ]
+
+  if (!articles) {
+    return {
+      props: {
+        articles: null,
+      },
+      author: {
+        name: "",
+        slug: "",
+      },
+    }
+  }
+
   return {
     props: {
-      articles: data.articles,
+      articles,
       author: {
-        name: data.name,
-        slug: data.slug,
+        name: articles[0].author.name,
+        slug: params.slug,
       },
     },
   }
 }
 
 export async function getStaticPaths() {
-  const paths = (await fetchApi("/authors")).map(it => ({
+  const paths = (await fetchAuthorsSlug()).map(it => ({
     params: {
       slug: it.slug,
     },

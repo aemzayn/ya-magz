@@ -14,6 +14,7 @@ export default function HeroLayout({ children }) {
       sx={{
         gridTemplateAreas: gridTemplateAreas,
       }}
+      marginBottom={4}
     >
       {children}
     </Grid>

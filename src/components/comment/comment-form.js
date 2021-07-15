@@ -29,7 +29,12 @@ export default function CommentForm({ user, addComment, toggleForm }) {
           onChange={e => setInput(e.target.value)}
         />
         <HStack justifyContent="flex-end">
-          <Button borderRadius={false} onClick={toggleForm} colorScheme="red">
+          <Button
+            variant="ghost"
+            borderRadius={false}
+            onClick={toggleForm}
+            colorScheme="red"
+          >
             Cancel
           </Button>
           <Button borderRadius={false} colorScheme="blue" type="submit">

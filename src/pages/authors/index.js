@@ -12,11 +12,10 @@ import {
   Heading,
   Text,
   VStack,
-  useBreakpointValue,
 } from "@chakra-ui/react"
 import Link from "next/link"
 import { FiSearch } from "react-icons/fi"
-import fetchApi from "@/libs/fetchApi"
+import { fetchAuthorsSlug } from "@/libs/api"
 
 export default function Author({ authors }) {
   const [showAuthors, setShowAuthors] = useState(authors)
@@ -37,7 +36,7 @@ export default function Author({ authors }) {
     )
   }
 
-  const url = "/author"
+  const url = "/authors"
   const title = "Authors"
 
   return (
@@ -105,7 +104,7 @@ export default function Author({ authors }) {
         <VStack mt={{ base: 4 }} w="full" spacing={{ base: 4 }}>
           {Array.isArray(showAuthors) &&
             showAuthors.map((author, id) => (
-              <Link href={`/author/${author.slug}`}>
+              <Link href={`/authors/${author.slug}`}>
                 <Text
                   cursor="pointer"
                   as="a"
@@ -123,7 +122,7 @@ export default function Author({ authors }) {
 }
 
 export async function getStaticProps() {
-  const authors = await fetchApi("/authors")
+  const authors = await fetchAuthorsSlug()
   return {
     props: {
       authors,

@@ -118,7 +118,7 @@ const theme = extendTheme({
         pointerEvents: "none",
       },
       "#nprogress .bar": {
-        background: chakraTheme.colors.blue[400],
+        background: chakraTheme.colors.yellow[500],
         pos: "fixed",
         zIndex: 99999,
         top: 0,

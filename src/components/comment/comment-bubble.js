@@ -4,7 +4,7 @@ import DeleteComment from "./delete-comment"
 
 export default function CommentBubble({ user, comment, deleteComment }) {
   return (
-    <VStack align="flex-start" spacing={1} w="full">
+    <VStack align="flex-start" spacing={2} w="full">
       <HStack w="full" justifyContent="space-between">
         <HStack w="full" fontSize="1rem">
           <Avatar src={comment?.user?.image} name={comment?.name} size="sm" />

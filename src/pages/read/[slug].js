@@ -19,24 +19,15 @@ import { FiUser } from "react-icons/fi"
 
 // Libs
 import Comment from "@/components/comment"
-import markdownToHtml from "src/libs/markdownToHTML"
 import ArticleMeta from "@/components/meta/article-meta"
 import config from "@/cms/site-settings.json"
-import fetchApi from "@/libs/fetchApi"
+import { fetchArticle } from "@/libs/api"
+import markdownToHtml from "@/libs/markdownToHTML"
 
 export default function Article({ article }) {
   const [comments, setComments] = useState([])
-  const {
-    title,
-    slug,
-    excerpt,
-    date,
-    tags,
-    author,
-    featuredimage,
-    featuredimageurl,
-    content,
-  } = article
+  const { title, slug, excerpt, date, category, author, image_url, content } =
+    article
 
   const { ref, inView } = useInView({
     rootMargin: "50px 0px",
@@ -56,7 +47,7 @@ export default function Article({ article }) {
   }, [slug, inView])
 
   const fullUrl = `${config.base_url}/read/${slug}`
-  const readTime = readingTime(content)
+  const readTime = content && readingTime(content)
   const datePublised = new Date(date)
 
   return (
@@ -64,29 +55,29 @@ export default function Article({ article }) {
       <Meta
         url={`/read/${slug}`}
         title={title}
-        keywords={tags.name}
+        keywords={category?.name}
         description={excerpt}
         date={datePublised}
-        author={author.name}
-        image={featuredimage || featuredimageurl}
+        author={author?.name}
+        image={image_url}
       />
       <ArticleMeta
         title={title}
         description={excerpt}
-        author={author.name}
-        keywords={tags.title}
+        author={author?.name}
+        keywords={category?.name}
         date={datePublised}
-        image={featuredimage || featuredimageurl}
+        image={image_url}
         url={`/read/${slug}`}
       />
 
       <ArticleLayout>
         <meta itemProp="datePublished" content={datePublised} />
-        <meta itemProp="image" content={featuredimage || featuredimageurl} />
+        <meta itemProp="image" content={image_url} />
         <meta itemProp="publisher" content="Ya! Magazine" />
         <section itemProp="articleBody">
           <header>
-            <ArticleCategory tags={tags} />
+            {category && <ArticleCategory category={category} />}
             <ArticleTitle slug={slug} title={title} />
             <Stack
               direction="row"
@@ -100,12 +91,14 @@ export default function Article({ article }) {
                 bgColor="gray.200"
                 icon={<Icon as={FiUser} />}
               />
-              <ArticleAuthor author={author} />
-              <Text as="span" color="brand.gray">
-                {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
-                  datePublised
-                )}
-              </Text>
+              {author && <ArticleAuthor author={author} />}
+              {date && (
+                <Text as="span" color="brand.gray">
+                  {new Intl.DateTimeFormat("en-US", {
+                    dateStyle: "long",
+                  }).format(datePublised)}
+                </Text>
+              )}
               <Text as="span" color="brand.gray">
                 ·
               </Text>
@@ -113,12 +106,10 @@ export default function Article({ article }) {
                 {readTime?.text}
               </Text>
             </Stack>
-            <ArticleCoverImage
-              featuredImage={featuredimage || featuredimageurl}
-              alt={title}
-            />
+            <ArticleCoverImage featuredImage={image_url} alt={title} />
           </header>
           <ArticleBody body={content} />
+          <ArticleShare url={fullUrl} />
           <div ref={ref}>
             {inView && (
               <Comment
@@ -128,7 +119,6 @@ export default function Article({ article }) {
               />
             )}
           </div>
-          <ArticleShare url={fullUrl} />
         </section>
       </ArticleLayout>
     </Layout>
@@ -136,12 +126,14 @@ export default function Article({ article }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const article = await fetchApi(`/articles/${params.slug}`)
-  // TODO: Fix markdown table
+  const article = (await fetchArticle(params.slug))[0]
   const content = await markdownToHtml(article.content)
   return {
     props: {
-      article: { ...article, content },
+      article: {
+        ...article,
+        content,
+      },
     },
   }
 }

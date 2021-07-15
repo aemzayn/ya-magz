@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Flex, Heading, chakra, Center, SimpleGrid } from "@chakra-ui/react"
 import ArticleCard from "@/components/article/article-card"
 import ArticleCategoryNav from "./article-category-nav"
 import PrimaryButton from "../buttons/primary-button"
 import Pagination from "../pagination"
 import PageLayout from "../layout/page-layout"
+import { CategoryContext } from "src/context"
 
 export default function ArticleList({
   articles = [],
@@ -16,14 +17,7 @@ export default function ArticleList({
   nav,
   type,
 }) {
-  const [categories, setCategories] = useState([])
-
-  // Get categories for navigation
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/categories`)
-      .then(res => res.json())
-      .then(data => setCategories(data))
-  }, [])
+  const categories = useContext(CategoryContext)
 
   const itemProp = () => {
     return itemProp === "author" ? "author" : "article-list"
@@ -64,19 +58,13 @@ export default function ArticleList({
       {nav && <ArticleCategoryNav categories={categories} />}
 
       <chakra.div as="main" minH="40vh">
-        {articles.length === 0 && (
-          <Center minH="10vh">
-            <Heading textAlign="center">No articles with this category</Heading>
-          </Center>
-        )}
         <SimpleGrid
           w="100%"
           columns={{ base: 1, md: 2, lg: 3 }}
           mt={nav ? 0 : 8}
         >
-          {articles.map((ar, i) => (
-            <ArticleCard key={i} article={ar} />
-          ))}
+          {articles.length > 0 &&
+            articles.map((ar, i) => <ArticleCard key={i} article={ar} />)}
         </SimpleGrid>
       </chakra.div>
 

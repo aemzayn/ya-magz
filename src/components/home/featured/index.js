@@ -10,7 +10,6 @@ import HeroExcerpt from "../hero/hero-excerpt"
 import HeroTitle from "../hero/hero-title"
 
 export default function FeaturedArticle({ article, reverse, btnColor }) {
-  const image = article?.featuredimage || article?.featuredimageurl
   const titleSize = useBreakpointValue({ base: "lg", md: "xl" })
   const titleContainerWidth = useBreakpointValue({ base: "90%", md: "85%" })
   const textSize = useBreakpointValue({ base: "sm", lg: "md" })
@@ -45,7 +44,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
               <Skeleton height="100%" width="100%" isLoaded={loaded}>
                 {inView && (
                   <Image
-                    src={image}
+                    src={article?.image_url}
                     alt={article?.title}
                     width={360}
                     height={360}
@@ -67,7 +66,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
             >
               <HeroAuthorCategory
                 author={article?.author}
-                category={article?.tags}
+                category={article?.category}
                 fontSize={textSize}
               />
               <HeroTitle

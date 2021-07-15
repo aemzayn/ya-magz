@@ -17,15 +17,7 @@ const Item = ({ children }) => (
 )
 
 const Article = ({ article }) => {
-  const {
-    title,
-    slug,
-    excerpt,
-    featuredimage,
-    featuredimageurl,
-    author,
-    tags,
-  } = article
+  const { title, slug, excerpt, image_url, author, category } = article
   const excerptSplit = excerpt?.split(" ")
   return (
     <RenderInView>
@@ -44,7 +36,7 @@ const Article = ({ article }) => {
                   width={500}
                   height={350}
                   objectFit="cover"
-                  src={featuredimage || featuredimageurl}
+                  src={image_url}
                   alt={title}
                   quality={50}
                   onLoad={setIsLoaded}
@@ -61,7 +53,7 @@ const Article = ({ article }) => {
             px={{ base: 0, md: 4, xl: "1rem" }}
           >
             <Flex as="span" alignItems="center" flexWrap="wrap">
-              {tags && <Item>{tags.name}</Item>}
+              {category && <Item>{category.name}</Item>}
               <Text w={6} mx={1.5} h={0.4} bgColor="gray.400" />
               {author && <Item>{author.name}</Item>}
             </Flex>

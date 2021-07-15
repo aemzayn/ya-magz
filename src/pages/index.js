@@ -5,32 +5,40 @@ import HomeEntertainment from "@/components/home/entertainment"
 import Layout from "@/components/layout"
 import HomeTeam from "@/components/team/home-team"
 import Meta from "@/components/meta"
-import fetchApi from "@/libs/fetchApi"
+import { fetchFeatured, fetchHero, fetchHomeArticles } from "@/libs/api"
 
-export default function Home({ heroArticle, featuredArticle, articles }) {
-  const [featuredOne, featuredTwo] = featuredArticle
+export default function Home({ heroArticle, homeArticles, featuredArticles }) {
   return (
     <Layout>
       <Meta url="/" />
       <main>
         {heroArticle && <Hero article={heroArticle} />}
-        <ArticleList articles={articles.slice(0, 6)} />
-        {featuredOne && (
-          <FeaturedArticle article={featuredArticle[0]} btnColor="orange.600" />
+        {homeArticles.length > 6 && (
+          <ArticleList articles={homeArticles.slice(0, 6)} />
         )}
-        <ArticleList articles={articles.slice(6, 12)} />
-        {featuredTwo && (
+        {featuredArticles?.[0] && (
           <FeaturedArticle
-            article={featuredArticle[1]}
+            article={featuredArticles[0]}
+            btnColor="orange.600"
+          />
+        )}
+        {homeArticles.length > 12 && (
+          <ArticleList articles={homeArticles.slice(6, 12)} />
+        )}
+        {featuredArticles?.[1] && (
+          <FeaturedArticle
+            article={featuredArticles[1]}
             btnColor="blue.600"
             reverse
           />
         )}
-        <ArticleList
-          articles={articles.slice(12, articles.length)}
-          moreBtn
-          moreBtnHref="/read"
-        />
+        {homeArticles.length > 13 && (
+          <ArticleList
+            articles={homeArticles.slice(12, homeArticles.length)}
+            moreBtn
+            moreBtnHref="/read"
+          />
+        )}
         <HomeEntertainment />
         <HomeTeam />
       </main>
@@ -39,12 +47,15 @@ export default function Home({ heroArticle, featuredArticle, articles }) {
 }
 
 export async function getStaticProps() {
-  const { hero, featured, articles } = await fetchApi("/articles/home")
+  const homeArticles = await fetchHomeArticles()
+  const heroArticle = await fetchHero()
+  const featuredArticles = await fetchFeatured()
   return {
     props: {
-      heroArticle: hero,
-      featuredArticle: featured,
-      articles: articles,
+      homeArticles,
+      heroArticle,
+      featuredArticles,
     },
+    revalidate: 60,
   }
 }

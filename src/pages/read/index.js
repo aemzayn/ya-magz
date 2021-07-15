@@ -2,7 +2,7 @@ import config from "@/cms/site-settings.json"
 import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
 import Meta from "@/components/meta"
-import fetchApi from "src/libs/fetchApi"
+import { countArticles, fetchArticles } from "@/libs/api"
 
 export default function ArticlesPage({ articles, pagination }) {
   const url = "/articles"
@@ -26,8 +26,8 @@ export default function ArticlesPage({ articles, pagination }) {
 }
 
 export async function getStaticProps() {
-  const articles = (await fetchApi("/articles")).slice(0, 9)
-  const count = await fetchApi("/articles/count")
+  const articles = (await fetchArticles()).slice(0, 9)
+  const count = await countArticles()
   const pagination = {
     current: 1,
     pages: Math.ceil(count / config.posts_per_page),
@@ -37,5 +37,6 @@ export async function getStaticProps() {
       articles,
       pagination,
     },
+    revalidate: 60,
   }
 }

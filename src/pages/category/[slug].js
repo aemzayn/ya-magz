@@ -1,7 +1,7 @@
 import Layout from "@/components/layout"
 import ArticleList from "@/components/article/article-list"
-import fetchApi from "@/libs/fetchApi"
 import Meta from "@/components/meta"
+import { fetchByCategory, fetchCategorySlug } from "@/libs/api"
 
 export default function ArticlesByCategory({ articles, category }) {
   const url = `/category/${category.slug}`
@@ -21,20 +21,20 @@ export default function ArticlesByCategory({ articles, category }) {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await fetchApi(`/categories/${params.slug}`)
+  const articles = await fetchByCategory(params.slug)
   return {
     props: {
-      articles: data.articles,
+      articles,
       category: {
-        name: data.name,
-        slug: data.name,
+        name: articles?.[0]?.category.name,
+        slug: params.slug,
       },
     },
   }
 }
 
 export async function getStaticPaths() {
-  const paths = (await fetchApi("/categories")).map(it => ({
+  const paths = (await fetchCategorySlug()).map(it => ({
     params: {
       slug: it.slug,
     },

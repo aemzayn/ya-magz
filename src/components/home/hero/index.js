@@ -8,7 +8,7 @@ import PrimaryButton from "@/components/buttons/primary-button"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 export default function Hero({ article }) {
-  const url = article?.featuredimage || article?.featuredimageurl
+  const url = article?.image_url
   const textSize = useBreakpointValue({ base: "sm", lg: "md" })
 
   return (
@@ -26,7 +26,7 @@ export default function Hero({ article }) {
       >
         <HeroAuthorCategory
           author={article?.author}
-          category={article?.tags}
+          category={article?.category}
           textSize={textSize}
         />
         <HeroTitle title={article?.title} />
@@ -34,8 +34,7 @@ export default function Hero({ article }) {
         <PrimaryButton
           href={`/read/${article?.slug}`}
           rightIcon={<ArrowForwardIcon />}
-          bgColor="brand.main"
-          color="white"
+          colorScheme="yellow"
           fontSize={textSize}
         >
           Read Now

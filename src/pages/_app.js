@@ -17,6 +17,7 @@ import "@fontsource/lora/600.css"
 import "@fontsource/lora/700.css"
 
 import Container from "@/components/layout/container"
+import ContextProvider from "src/context"
 
 NProgress.configure({ showSpinner: false })
 Router.onRouteChangeStart = () => {
@@ -35,9 +36,11 @@ function MyApp({ Component, pageProps }) {
     <Provider session={pageProps.session}>
       <ChakraProvider theme={theme}>
         <CSSReset />
-        <Container>
-          <Component {...pageProps} />
-        </Container>
+        <ContextProvider>
+          <Container>
+            <Component {...pageProps} />
+          </Container>
+        </ContextProvider>
       </ChakraProvider>
     </Provider>
   )

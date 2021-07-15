@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Flex, Text } from "@chakra-ui/react"
 
-export default function ArticleCategory({ tags }) {
+export default function ArticleCategory({ category }) {
   return (
     <Flex d="flex" alignItems="center" mb={{ base: 3 }}>
       <Text color="brand.gray" mr="2">
@@ -13,14 +13,14 @@ export default function ArticleCategory({ tags }) {
         py="0.5"
         px="2"
         borderRadius="2px"
-        backgroundColor="blue.100"
+        backgroundColor="yellow.200"
         transition="background-color 200ms ease-in-out"
         _hover={{
-          backgroundColor: "blue.200",
+          backgroundColor: "yellow.300",
         }}
       >
-        <Link href="/category/[slug]" as={`/category/${tags.slug}`}>
-          <a>{tags.name}</a>
+        <Link href="/category/[slug]" as={`/category/${category?.slug}`}>
+          <a>{category?.name}</a>
         </Link>
       </Text>
     </Flex>
