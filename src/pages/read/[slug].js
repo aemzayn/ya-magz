@@ -23,6 +23,7 @@ import ArticleMeta from "@/components/meta/article-meta"
 import config from "@/cms/site-settings.json"
 import { fetchArticle } from "@/libs/api"
 import markdownToHtml from "@/libs/markdownToHTML"
+import { formatDate } from "@/libs/date"
 
 export default function Article({ article }) {
   const [comments, setComments] = useState([])
@@ -94,9 +95,7 @@ export default function Article({ article }) {
               {author && <ArticleAuthor author={author} />}
               {date && (
                 <Text as="span" color="brand.gray">
-                  {new Intl.DateTimeFormat("en-US", {
-                    dateStyle: "long",
-                  }).format(datePublised)}
+                  {formatDate(datePublised)}
                 </Text>
               )}
               <Text as="span" color="brand.gray">

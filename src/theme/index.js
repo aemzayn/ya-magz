@@ -21,6 +21,10 @@ const theme = extendTheme({
   },
   styles: {
     global: {
+      "::selection": {
+        color: chakraTheme.colors.black,
+        background: chakraTheme.colors.yellow[300],
+      },
       html: {
         scrollBehavour: "smooth",
       },
@@ -99,18 +103,13 @@ const theme = extendTheme({
             padding: "0.5em 1em",
             border: "1px double #eeeeee",
           },
-          "ol, ul": {
-            padding: 0,
-            paddingRight: 6,
-            li: {
-              lineHeight: 6,
-              "ol, ul": {
-                margin: 0,
-              },
-            },
-          },
-          "abbr[title]": {
-            textDecoration: "underline double",
+        },
+        "ol, ul": {
+          padding: 0,
+          li: {
+            lineHeight: 6,
+            marginLeft: 4,
+            paddingLeft: 0,
           },
         },
       },

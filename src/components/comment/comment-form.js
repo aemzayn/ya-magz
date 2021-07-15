@@ -1,8 +1,17 @@
-import { Button, HStack, Box, Avatar, VStack, Textarea } from "@chakra-ui/react"
+import {
+  Button,
+  HStack,
+  Box,
+  Avatar,
+  VStack,
+  Textarea,
+  useBreakpointValue,
+} from "@chakra-ui/react"
 import { useState } from "react"
 
 export default function CommentForm({ user, addComment, toggleForm }) {
   const [input, setInput] = useState("")
+  const submitButtonSize = useBreakpointValue({ base: "sm", md: "md" })
   return (
     <HStack w="full" alignItems="flex-start" spacing={3}>
       <Box>
@@ -37,7 +46,12 @@ export default function CommentForm({ user, addComment, toggleForm }) {
           >
             Cancel
           </Button>
-          <Button borderRadius={false} colorScheme="blue" type="submit">
+          <Button
+            borderRadius={false}
+            size={submitButtonSize}
+            colorScheme="blue"
+            type="submit"
+          >
             Submit
           </Button>
         </HStack>

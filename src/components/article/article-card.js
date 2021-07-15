@@ -25,7 +25,7 @@ const Article = ({ article }) => {
         <Box
           mx={{ base: 4, md: 6, xl: 8 }}
           className="article"
-          mb={{ base: excerpt ? 10 : -5, md: 8, lg: 20 }}
+          mb={{ base: 10, md: 8, lg: 20 }}
           pos="relative"
           ref={ref}
         >

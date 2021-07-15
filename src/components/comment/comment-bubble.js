@@ -1,33 +1,48 @@
 import { getDistanceDate } from "src/libs/date"
-import { Avatar, Box, Heading, HStack, Text, VStack } from "@chakra-ui/react"
+import {
+  Avatar,
+  Box,
+  Heading,
+  HStack,
+  Stack,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from "@chakra-ui/react"
 import DeleteComment from "./delete-comment"
 
 export default function CommentBubble({ user, comment, deleteComment }) {
+  const nameTextSize = useBreakpointValue({ base: "sm", md: "md" })
   return (
     <VStack align="flex-start" spacing={2} w="full">
       <HStack w="full" justifyContent="space-between">
-        <HStack w="full" fontSize="1rem">
+        <HStack w="full" fontSize="1rem" spacing={{ base: 3 }}>
           <Avatar src={comment?.user?.image} name={comment?.name} size="sm" />
-          <Heading
-            as="h3"
-            fontSize="inherit"
-            textOverflow="ellipsis"
-            overflow="hidden"
-            whiteSpace="nowrap"
+          <Stack
+            spacing={{ base: -1, md: 2 }}
+            direction={{ base: "column", md: "row" }}
           >
-            {comment?.user?.name}
-          </Heading>
-          {comment?.commented_at && (
-            <Text
-              as="span"
-              flexFlow
-              flexGrow={1}
-              wordBreak="keep-all"
-              color="gray.600"
+            <Heading
+              as="h3"
+              size={nameTextSize}
+              textOverflow="ellipsis"
+              overflow="hidden"
+              whiteSpace="nowrap"
             >
-              {getDistanceDate(comment?.commented_at)}
-            </Text>
-          )}
+              {comment?.user?.name}
+            </Heading>
+            {comment?.commented_at && (
+              <Text
+                as="span"
+                flexFlow
+                flexGrow={1}
+                wordBreak="keep-all"
+                color="gray.600"
+              >
+                {getDistanceDate(comment?.commented_at)}
+              </Text>
+            )}
+          </Stack>
         </HStack>
         {user?.email === comment?.user?.email && (
           <DeleteComment deleteComment={() => deleteComment(comment?._id)} />

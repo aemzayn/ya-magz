@@ -13,6 +13,7 @@ export default function CustomToast({
     <Flex
       p={3}
       alignItems="flex-start"
+      justifyContent="space-between"
       bg="white"
       border="1px solid"
       borderColor={color}
@@ -27,24 +28,26 @@ export default function CustomToast({
         bgColor: color,
       }}
     >
-      {leftIcon && (
-        <Box
-          bgColor={variant === "error" ? "red.100" : "white"}
-          p={3}
-          borderRadius="full"
-          w={5}
-          h={5}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Icon boxSize="1em" as={leftIcon} />
+      <div style={{ display: "flex" }}>
+        {leftIcon && (
+          <Box
+            bgColor={variant === "error" ? "red.100" : "white"}
+            p={3}
+            borderRadius="full"
+            w={5}
+            h={5}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Icon boxSize="1em" as={leftIcon} />
+          </Box>
+        )}
+        <Box marginLeft={2}>
+          <Heading fontSize="xl">{title}</Heading>
+          <Text>{body}</Text>
         </Box>
-      )}
-      <Box marginLeft={2}>
-        <Heading fontSize="xl">{title}</Heading>
-        <Text>{body}</Text>
-      </Box>
+      </div>
       <IconButton
         ml={2}
         size="sm"
