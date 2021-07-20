@@ -4,6 +4,7 @@ const theme = extendTheme({
   fonts: {
     heading: "Lora, sans-serif",
     body: "Karla, sans-serif",
+    serif: "Lora, serif",
   },
   colors: {
     brand: {
@@ -23,7 +24,17 @@ const theme = extendTheme({
     global: {
       "::selection": {
         color: chakraTheme.colors.black,
-        background: chakraTheme.colors.yellow[300],
+        background: chakraTheme.colors.cyan[300],
+      },
+      "::-webkit-scrollbar": {
+        width: "0.55em",
+      },
+      "::-webkit-scrollbar-thumb": {
+        transition: "150ms all ease-in-out",
+        bgColor: chakraTheme.colors.gray[300],
+      },
+      "::-webkit-scrollbar-thumb:hover": {
+        background: chakraTheme.colors.gray[400],
       },
       html: {
         scrollBehavour: "smooth",

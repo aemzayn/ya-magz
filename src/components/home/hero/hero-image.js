@@ -10,7 +10,7 @@ export default function HeroImage({ url, alt }) {
       justifyContent="center"
       gridArea="image"
       height={{ base: "30vh", md: "40vh", lg: "78vh" }}
-      bgColor="hsl(255,6%,0%)"
+      bgColor="gray.100"
       position="relative"
       opacity={loaded ? 1 : 0}
       transitionProperty="opacity"

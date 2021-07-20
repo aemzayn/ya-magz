@@ -1,11 +1,8 @@
-import ApplePodcastBadge from "@/assets/icons/apple-podcast-badge"
-import GooglePodcastBadge from "@/assets/icons/google-podcast-badge"
-import SpotifyBadge from "@/assets/icons/spotify-badge"
-import { Badge, Flex, Heading, Text, VStack } from "@chakra-ui/react"
-import { useRouter } from "next/router"
-import RenderInView from "../../render-inview"
+import { Badge, Flex, Heading, Text, VStack, HStack } from "@chakra-ui/react"
 import PosterCover from "./poster-cover"
-import useBadgeStyle from "@/hooks/useBadgeStyle"
+import RenderInView from "@/components/render-inview"
+import PodcastLink from "../shared/podcast-link"
+import { SiApplepodcasts, SiGooglepodcasts, SiSpotify } from "react-icons/si"
 
 export default function PodcastCard({
   title,
@@ -18,8 +15,6 @@ export default function PodcastCard({
   appleUrl,
   googleUrl,
 }) {
-  const router = useRouter()
-  const badgeStyle = useBadgeStyle()
   return (
     <RenderInView>
       {({ ref, inView }) => (
@@ -59,7 +54,12 @@ export default function PodcastCard({
                 </Badge>
               )}
               {title && (
-                <Heading mt={{ base: 0, md: 2 }} as="h2" size="lg">
+                <Heading
+                  fontFamily="sans-serif"
+                  mt={{ base: 0, md: 2 }}
+                  as="h2"
+                  size="lg"
+                >
                   {title}
                 </Heading>
               )}
@@ -74,30 +74,17 @@ export default function PodcastCard({
               </Text>
             )}
             {(spotifyUrl || googleUrl || appleUrl) && (
-              <Flex
-                flexDir={{ base: "column", md: "row" }}
-                w={{ base: "100%", md: "unset" }}
-                align={{ base: "center", md: "center" }}
-              >
+              <HStack w={{ base: "100%", md: "unset" }} spacing={3}>
                 {spotifyUrl && (
-                  <SpotifyBadge
-                    {...badgeStyle}
-                    onClick={() => router.push(`/redirect?url=${spotifyUrl}`)}
-                  />
+                  <PodcastLink link={spotifyUrl} icon={SiSpotify} />
                 )}
                 {appleUrl && (
-                  <ApplePodcastBadge
-                    {...badgeStyle}
-                    onClick={() => router.push(`/redirect?url=${appleUrl}`)}
-                  />
+                  <PodcastLink link={appleUrl} icon={SiApplepodcasts} />
                 )}
                 {googleUrl && (
-                  <GooglePodcastBadge
-                    {...badgeStyle}
-                    onClick={() => router.push(`/redirect?url=${googleUrl}`)}
-                  />
+                  <PodcastLink link={googleUrl} icon={SiGooglepodcasts} />
                 )}
-              </Flex>
+              </HStack>
             )}
           </VStack>
         </Flex>

@@ -49,6 +49,7 @@ export async function getStaticProps({ params }) {
         slug: params.slug,
       },
     },
+    revalidate: 60,
   }
 }
 

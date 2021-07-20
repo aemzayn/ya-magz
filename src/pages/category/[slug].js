@@ -23,6 +23,7 @@ export default function ArticlesByCategory({ articles, category }) {
 export async function getStaticProps({ params }) {
   const articles = await fetchByCategory(params.slug)
   return {
+    revalidate: 60,
     props: {
       articles,
       category: {

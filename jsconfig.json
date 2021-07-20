@@ -13,7 +13,8 @@
       "@/libs/*": ["src/libs/*"],
       "@/utils/*": ["src/utils/*"],
       "@/models/*": ["src/models/*"],
-      "@/hooks/*": ["src/hooks/*"]
+      "@/hooks/*": ["src/hooks/*"],
+      "@/module/*": ["src/module/*"]
     }
   },
   "exclude": ["node_modules"]

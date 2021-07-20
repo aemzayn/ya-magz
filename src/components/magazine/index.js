@@ -42,6 +42,7 @@ export default function Magazine() {
           >
             <Box display="flex" alignItems="center" mb={{ base: 4, md: 0 }}>
               <Heading
+                fontFamily="serif"
                 pos="relative"
                 top={-1}
                 className="page-title"

@@ -17,7 +17,7 @@ export const NAV_LINKS = [
   },
   {
     name: "Entertainment",
-    to: "/#ya-podcast",
+    to: "/entertainment",
   },
 ]
 
