@@ -7,6 +7,7 @@ import {
   Link,
   SimpleGrid,
   Text,
+  useBreakpointValue,
   VStack,
 } from "@chakra-ui/react"
 
@@ -19,6 +20,8 @@ export default function Mood({ width, titleSize }) {
     "/images/mood/v5/mood-v5-1.jpg",
     "/images/mood/v5/mood-v5-2.jpg",
   ]
+
+  const imageSize = useBreakpointValue({ base: 72, md: 64, lg: 80 })
 
   return (
     <Flex
@@ -48,21 +51,23 @@ export default function Mood({ width, titleSize }) {
       </VStack>
       <SimpleGrid mt={6} columns={{ base: 1, md: 2 }} gap={1}>
         {images.map((src, id) => (
-          <Image
-            className="keen-slider__slide"
-            src={src}
-            key={id}
-            alt="Mood vol 5"
-            height={300}
-            width={300}
-          />
+          <AspectRatio ratio={1 / 1} w={imageSize} h={imageSize}>
+            <Image
+              src={src}
+              key={id}
+              alt="Mood vol 5"
+              layout="fill"
+              objectFit="contain"
+              objectPosition="center"
+            />
+          </AspectRatio>
         ))}
         <AspectRatio
           ratio={1 / 1}
           justifyContent="center"
           bg="#fae68f"
-          w="full"
-          h="full"
+          w={imageSize}
+          h={imageSize}
         >
           <VStack>
             <Link
