@@ -6,7 +6,7 @@ export default function gallery({ photos }) {
 }
 
 export async function getStaticProps() {
-  const photos = await fetchAPI("/photos")
+  const photos = await fetchAPI("/photos?_sort=photographer.name")
   return {
     props: { photos },
     revalidate: 60,
