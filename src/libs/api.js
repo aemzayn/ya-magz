@@ -78,7 +78,7 @@ export async function fetchCategorySlug() {
 }
 
 export async function fetchAuthorsSlug() {
-  const authors = await fetchAPI("/authors")
+  const authors = await fetchAPI("/authors?_sort=slug")
   return authors.map(author => ({
     name: author.name,
     slug: author.slug,

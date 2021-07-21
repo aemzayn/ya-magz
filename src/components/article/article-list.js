@@ -5,7 +5,7 @@ import ArticleCategoryNav from "./article-category-nav"
 import PrimaryButton from "../buttons/primary-button"
 import Pagination from "../pagination"
 import PageLayout from "../layout/page-layout"
-import { CategoryContext } from "src/context"
+import { GlobalContext } from "src/context"
 
 export default function ArticleList({
   articles = [],
@@ -17,7 +17,7 @@ export default function ArticleList({
   nav,
   type,
 }) {
-  const categories = useContext(CategoryContext)
+  const { categories } = useContext(GlobalContext)
 
   const itemProp = () => {
     return itemProp === "author" ? "author" : "article-list"

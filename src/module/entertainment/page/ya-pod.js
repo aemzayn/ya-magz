@@ -47,7 +47,6 @@ export default function YaPod({ stackWidth, titleSize }) {
           d="inline-flex"
           alignItems="center"
           as="h1"
-          fontFamily="sans-serif"
           fontSize={titleSize}
         >
           Ya!Pod

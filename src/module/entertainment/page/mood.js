@@ -15,9 +15,9 @@ import { SiSpotify } from "react-icons/si"
 
 export default function Mood({ width, titleSize }) {
   const images = [
-    "https://res.cloudinary.com/yacloud/image/upload/v1626833810/Mood/vol%205/5-1_fenbq7.jpg",
-    "https://res.cloudinary.com/yacloud/image/upload/v1626833810/Mood/vol%205/5-2_si6zae.jpg",
-    "https://res.cloudinary.com/yacloud/image/upload/v1626833810/Mood/vol%205/5-3_w2hawn.jpg",
+    "/images/mood/v5/mood-v5-cover.jpg",
+    "/images/mood/v5/mood-v5-1.jpg",
+    "/images/mood/v5/mood-v5-2.jpg",
   ]
 
   return (
@@ -37,7 +37,7 @@ export default function Mood({ width, titleSize }) {
           <Badge ml={{ md: 2 }} colorScheme="red">
             NEW!
           </Badge>
-          <Heading as="h1" fontFamily="sans-serif" fontSize={titleSize}>
+          <Heading as="h1" fontSize={titleSize}>
             Mood Vol. 05: SUMMER
           </Heading>
         </Flex>
