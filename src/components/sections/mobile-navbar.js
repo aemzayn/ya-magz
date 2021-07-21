@@ -90,7 +90,7 @@ export default function MobileNavbar({ isOpen, onClose }) {
                 Gallery
               </MobileNavItem>
               <MobileNavItem
-                to="/#ya-podcast"
+                to="/entertainment"
                 icon={RiSpotifyLine}
                 activeIcon={RiSpotifyFill}
               >

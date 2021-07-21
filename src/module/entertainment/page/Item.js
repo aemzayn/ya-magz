@@ -1,6 +1,7 @@
 import React from "react"
 import {
   Button,
+  Icon,
   Image,
   Stack,
   Text,
@@ -23,10 +24,10 @@ const Item = ({ podcast, stackWidth }) => {
     >
       <Image
         src={podcast.thumbnail}
-        boxSize={{ base: "full", md: "150px", lg: "150px" }}
+        boxSize={{ base: "full", md: "150px" }}
         alt={podcast.title}
       />
-      <Stack dir="column" spacing={{ base: 1 }} alignItems="flex-start">
+      <Stack dir="column" spacing={{ base: 2, md: 1 }} alignItems="flex-start">
         <Text>{formatDate(new Date(podcast.date))}</Text>
         <Text fontSize="2xl" fontWeight="semibold" overflowWrap="break-word">
           {podcast.title}
@@ -38,10 +39,11 @@ const Item = ({ podcast, stackWidth }) => {
           hasArrow
         >
           <Button
+            width="fit-content"
             size={buttonSize}
             borderRadius={0}
             variant="outline"
-            leftIcon={<FiPlay />}
+            leftIcon={<Icon boxSize="0.8em" as={FiPlay} />}
             onClick={() => router.push(`/redirect?url=${podcast.link}`)}
           >
             {podcast.duration} minutes
