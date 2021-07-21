@@ -3,7 +3,7 @@ import { Flex, Text } from "@chakra-ui/react"
 
 export default function ArticleCategory({ category }) {
   return (
-    <Flex d="flex" alignItems="center" mb={{ base: 3 }}>
+    <Flex d="flex" alignItems="center" mb={3}>
       <Text color="brand.gray" mr="2">
         Category:{" "}
       </Text>

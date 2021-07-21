@@ -70,9 +70,9 @@ export default function Comment({ slug, comments, setComments }) {
       {({ ref, inView }) => (
         <VStack
           alignItems="flex-start"
-          spacing={{ base: 6 }}
+          spacing={6}
           mt={6}
-          py={{ base: 6 }}
+          py={6}
           w="full"
           ref={ref}
         >

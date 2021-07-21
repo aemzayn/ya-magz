@@ -14,7 +14,7 @@ export default function EntertainmentPage() {
         url="/entertaiment"
         keywords="Ya! Podcast, Mood, Ya! Magazine Podcast"
       />
-      <Box p={{ base: 8 }} pb={{ base: 10 }}>
+      <Box p={8} pb={10}>
         <Mood width={stackWidth} titleSize={titleSize} />
         <YaPod stackWidth={stackWidth} titleSize={titleSize} />
       </Box>

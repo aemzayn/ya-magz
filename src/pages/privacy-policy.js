@@ -13,7 +13,7 @@ const {
 
 const Privacy = () => {
   const Container = ({ children }) => (
-    <Box mb={{ base: 6 }} sx={{ "*": { mb: 3 } }}>
+    <Box mb={6} sx={{ "*": { mb: 3 } }}>
       {children}
     </Box>
   )

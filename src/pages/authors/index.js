@@ -64,7 +64,7 @@ export default function Author({ authors }) {
           w="full"
           flexDir={{ base: "column", md: "row" }}
           alignItems="center"
-          justifyContent={{ base: "space-between" }}
+          justifyContent="space-between"
           pos="relative"
         >
           <Box
@@ -88,7 +88,7 @@ export default function Author({ authors }) {
                 onChange={e => setSearch(e.target.value)}
                 borderRadius="0"
                 borderColor="gray.300"
-                px={{ base: 2 }}
+                px={2}
                 focusBorderColor="brand.main"
                 placeholder="Search author"
                 _placeholder={{
@@ -101,7 +101,7 @@ export default function Author({ authors }) {
             </InputGroup>
           </Box>
         </Flex>
-        <VStack mt={{ base: 4 }} w="full" spacing={{ base: 4 }}>
+        <VStack mt={4} w="full" spacing={4}>
           {Array.isArray(showAuthors) &&
             showAuthors.map((author, id) => (
               <Link href={`/authors/${author.slug}`}>

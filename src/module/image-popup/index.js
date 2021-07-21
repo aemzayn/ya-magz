@@ -17,7 +17,7 @@ export default function ImagePopup({ image, setSelected, isOpen, onClose }) {
       }}
       isCentered
     >
-      <ModalOverlay />
+      <ModalOverlay bgColor="blackAlpha.700" />
       <ModalContent>
         <ModalBody p={0} bg="none">
           <Image src={image} />

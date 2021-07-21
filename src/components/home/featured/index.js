@@ -77,7 +77,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
               <HeroExcerpt
                 excerpt={article?.excerpt}
                 maxW={{ base: "80%", lg: "78%" }}
-                color={{ base: "brand.gray" }}
+                color="brand.gray"
                 fontSize={textSize}
                 marginBottom={{ base: 2, md: 4 }}
               />

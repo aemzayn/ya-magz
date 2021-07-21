@@ -18,7 +18,7 @@ export default function HomeTeam() {
               templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
               gap={{ base: 2, xl: 8 }}
               width={{ base: "100%", md: "65%", lg: "50%" }}
-              py={{ base: 5 }}
+              py={5}
               overflowX="hidden"
             >
               {teams.map((m, i) => (

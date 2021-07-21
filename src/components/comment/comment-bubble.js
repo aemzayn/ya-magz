@@ -16,7 +16,7 @@ export default function CommentBubble({ user, comment, deleteComment }) {
   return (
     <VStack align="flex-start" spacing={2} w="full">
       <HStack w="full" justifyContent="space-between">
-        <HStack w="full" fontSize="1rem" spacing={{ base: 3 }}>
+        <HStack w="full" fontSize="1rem" spacing={3}>
           <Avatar src={comment?.user?.image} name={comment?.name} size="sm" />
           <Stack
             spacing={{ base: -1, md: 2 }}

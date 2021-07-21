@@ -24,12 +24,12 @@ export default function ArticleList({
   }
 
   return (
-    <PageLayout py={{ base: 8, md: 10 }} px={{ base: 4 }}>
+    <PageLayout py={{ base: 8, md: 10 }} px={4}>
       <Flex
         flexDir={{ base: "column", sm: "row" }}
         alignItems={{ base: "center", xl: "flex-end" }}
         textAlign="center"
-        mb={{ base: 1 }}
+        mb={1}
       >
         {title && (
           <Heading

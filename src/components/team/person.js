@@ -70,8 +70,8 @@ export default function Person({ person, showSocmed }) {
         <VStack
           alignItems="flex-start"
           ref={ref}
-          py={{ base: 2 }}
-          spacing={{ base: 4 }}
+          py={2}
+          spacing={4}
           borderBottom="1px solid"
           borderColor="gray.400"
           height="full"
@@ -110,7 +110,7 @@ export default function Person({ person, showSocmed }) {
           <Flex
             flexDir="column"
             w="full"
-            pt={{ base: 2 }}
+            pt={2}
             borderTop="1px solid"
             borderColor="gray.400"
             textAlign="center"

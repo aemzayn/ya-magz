@@ -118,7 +118,7 @@ export default function ProfileForm({ isOpen, onClose }) {
                 type="submit"
                 colorScheme="blue"
                 fontWeight="normal"
-                px={{ base: 8 }}
+                px={8}
                 isLoading={loading}
               >
                 Edit

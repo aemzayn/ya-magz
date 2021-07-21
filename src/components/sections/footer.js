@@ -202,7 +202,7 @@ export default function Footer() {
       <Flex
         py={{ base: 8, md: 16 }}
         px={{ base: 6, md: 10, lg: 20 }}
-        alignItems={{ base: "flex-start" }}
+        alignItems="flex-start"
         flexDirection={{ base: "column-reverse", md: "row" }}
         w={{ base: "full", md: "unset" }}
         pos="relative"
@@ -210,13 +210,13 @@ export default function Footer() {
         <VStack
           w={{ base: "full", md: "unset" }}
           align="flex-start"
-          spacing={{ base: 6 }}
+          spacing={6}
           mt={{ base: 8, md: 0 }}
         >
           <Logo fontSize={{ base: "1.5rem", md: "1.25rem" }} />
           <HStack
             spacing={1}
-            align={{ base: "center" }}
+            align="center"
             color="brand.gray"
             order={{ base: 1, md: 0 }}
             fontSize={{ base: "sm", lg: "md" }}
@@ -228,7 +228,7 @@ export default function Footer() {
             </Text>
           </HStack>
           <HStack color="gray.700" spacing={{ base: 2, md: 3 }}>
-            <Center p={{ base: 2 }} bgColor="brand.main" color="white">
+            <Center p={2} bgColor="brand.main" color="white">
               <Icon as={FiLink} boxSize="1em" aria-label="External links" />
             </Center>
             <ChakraLink
@@ -267,7 +267,7 @@ export default function Footer() {
           w={{ base: "full", md: "unset" }}
           pos="relative"
         >
-          <VStack align={{ base: "flex-start" }} spacing={{ base: 4 }}>
+          <VStack align={{ base: "flex-start" }} spacing={4}>
             <FooterTitle>READ</FooterTitle>
             {footerRoutes.slice(0, 3).map(route => (
               <FooterLink key={route.path} path={route.path}>
@@ -276,7 +276,7 @@ export default function Footer() {
             ))}
           </VStack>
 
-          <VStack align={{ base: "flex-start" }} spacing={{ base: 4 }}>
+          <VStack align={{ base: "flex-start" }} spacing={4}>
             <FooterTitle>ABOUT</FooterTitle>
             {footerRoutes.slice(3, footerRoutes.length).map(route => (
               <FooterLink key={route.path} path={route.path}>
@@ -285,7 +285,7 @@ export default function Footer() {
             ))}
           </VStack>
           <VStack
-            spacing={{ base: 4 }}
+            spacing={4}
             w={{ base: "full", md: "unset" }}
             align="flex-start"
           >
