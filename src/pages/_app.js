@@ -10,6 +10,7 @@ import "@fontsource/montserrat/500-italic.css"
 import "@fontsource/montserrat/900.css"
 
 import "@fontsource/karla/400.css"
+import "@fontsource/karla/500.css"
 import "@fontsource/karla/600.css"
 import "@fontsource/lora/400.css"
 import "@fontsource/lora/500.css"

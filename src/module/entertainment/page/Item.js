@@ -29,7 +29,12 @@ const Item = ({ podcast, stackWidth }) => {
       />
       <Stack dir="column" spacing={{ base: 2, md: 1 }} alignItems="flex-start">
         <Text>{formatDate(new Date(podcast.date))}</Text>
-        <Text fontSize="2xl" fontWeight="semibold" overflowWrap="break-word">
+        <Text
+          fontSize="2xl"
+          as="h2"
+          fontWeight="semibold"
+          overflowWrap="break-word"
+        >
           {podcast.title}
         </Text>
         <Text>{podcast.desc}</Text>
