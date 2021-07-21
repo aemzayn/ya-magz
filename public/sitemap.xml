@@ -37,7 +37,12 @@
 		<lastmod>2021-05-29T13:56:10.578Z</lastmod>
 	</url>
 	<url>
-		<loc>https://ya-magazine.com/author</loc>
+		<loc>https://ya-magazine.com/authors</loc>
+		<priority>0.8</priority>
+		<lastmod>2021-05-29T13:56:10.578Z</lastmod>
+	</url>
+	<url>
+		<loc>https://ya-magazine.com/entertainment</loc>
 		<priority>0.8</priority>
 		<lastmod>2021-05-29T13:56:10.578Z</lastmod>
 	</url>
@@ -80,5 +85,10 @@
 		<loc>https://ya-magazine.com/category/art</loc>
 		<lastmod>2021-06-06T03:01:00+00:00</lastmod>
 		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://ya-magazine.com/privacy-policy</loc>
+		<lastmod>2021-06-06T03:01:00+00:00</lastmod>
+		<priority>0.40</priority>
 	</url>
 </urlset>
