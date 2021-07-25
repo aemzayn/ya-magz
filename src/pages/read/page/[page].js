@@ -31,7 +31,6 @@ export async function getStaticProps({ params }) {
     pages: Math.ceil(count / 9),
   }
   return {
-    revalidate: 60,
     props: {
       articles,
       pagination,

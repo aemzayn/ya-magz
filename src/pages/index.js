@@ -58,6 +58,5 @@ export async function getStaticProps() {
       heroArticle,
       featuredArticles,
     },
-    revalidate: 60,
   }
 }
