@@ -65,12 +65,6 @@ export default function About() {
           </Text>
 
           <Text>
-            The dream that we keep on realizing is like breathing the oxygen.
-            Runs through vein. Pumps the heart. Storms the brain. And here we
-            live our lives.
-          </Text>
-
-          <Text>
             YA! towards the future with its format Education, Entertainment and
             Electronics Magazine. We want everyone know that educating can be so
             entertaining while catching up with the industry revolution 4.0 that

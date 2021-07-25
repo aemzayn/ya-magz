@@ -8,7 +8,7 @@ export default function ArticleAuthor({ author }) {
       transitionDuration="150ms"
       _hover={{ color: "yellow.300" }}
     >
-      <Link href={`/author/${author?.slug}`}>
+      <Link href={`/authors/${author?.slug}`}>
         <a itemProp="author" name={author?.name}>
           {author?.name}
         </a>

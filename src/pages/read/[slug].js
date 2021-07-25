@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import dynamic from "next/dynamic"
 import readingTime from "reading-time"
 import { useInView } from "react-intersection-observer"
 
@@ -12,13 +13,13 @@ import ArticleTitle from "@/components/article/article-title"
 import Layout from "@/components/layout"
 import ArticleShare from "@/components/article/article-share"
 import Meta from "@/components/meta"
+const Comment = dynamic(() => import("@/components/comment"))
 
 // Library Components
 import { Avatar, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
-import Comment from "@/components/comment"
 import ArticleMeta from "@/components/meta/article-meta"
 import config from "@/cms/site-settings.json"
 import { fetchArticle } from "@/libs/api"

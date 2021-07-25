@@ -4,7 +4,7 @@ import Meta from "@/components/meta"
 import { fetchAuthorArticles, fetchAuthorsSlug } from "@/libs/api"
 
 export default function ArticlesByAuthor({ articles, author }) {
-  const url = `/author/${author.slug}`
+  const url = `/authors/${author.slug}`
   const title = `Articles by ${author.name}`
 
   return (
