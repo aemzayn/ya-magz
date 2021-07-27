@@ -21,7 +21,7 @@ export default function Home({ heroArticle, homeArticles, featuredArticles }) {
         {featuredArticles?.[0] && (
           <FeaturedArticle
             article={featuredArticles[0]}
-            btnColor="orange.600"
+            btnColor="yellow.500"
           />
         )}
         {homeArticles.length > 12 && (
@@ -30,7 +30,7 @@ export default function Home({ heroArticle, homeArticles, featuredArticles }) {
         {featuredArticles?.[1] && (
           <FeaturedArticle
             article={featuredArticles[1]}
-            btnColor="blue.600"
+            btnColor="orange.600"
             reverse
           />
         )}

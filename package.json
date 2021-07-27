@@ -10,7 +10,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export -o ./dist"
+    "export": "next build && next export -o ./dist",
+    "strapi": "cd ../ya-strapi && yarn develop"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.2",
