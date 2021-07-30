@@ -16,10 +16,10 @@ export default function HomeEntertainment() {
         googleUrl="https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xM2RjZGIwYy9wb2RjYXN0L3Jzcw%3D%3D"
       />
       <PodcastCard
-        title="Vol .05: SUMMER"
+        title="Mood vol .05: SUMMER"
         desc="Menikmati liburan musim panas dengan lagu-lagu yang bakal ngebuat kamu betah berlama-lama untuk menikmatinya"
         coverUrl="/images/mood/v5/mood-v5-cover.jpg"
-        tag="MOOD"
+        tag="PLAYLIST"
         tagColor="blue"
         spotifyUrl="https://open.spotify.com/playlist/2K19a0sPgjI1rG097PsOaP"
         reverse

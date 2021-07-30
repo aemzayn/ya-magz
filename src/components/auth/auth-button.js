@@ -51,7 +51,7 @@ const AuthButton = () => {
             </>
           )}
           {!session && (
-            <MenuItem minH="48px" onClick={() => signIn()}>
+            <MenuItem minH="48px" onClick={() => signIn("google")}>
               <span>Login</span>
             </MenuItem>
           )}

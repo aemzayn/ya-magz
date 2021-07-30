@@ -54,12 +54,7 @@ export default function PodcastCard({
                 </Badge>
               )}
               {title && (
-                <Heading
-                  fontFamily="sans-serif"
-                  mt={{ base: 0, md: 2 }}
-                  as="h2"
-                  size="lg"
-                >
+                <Heading mt={{ base: 0, md: 2 }} as="h2" size="lg">
                   {title}
                 </Heading>
               )}

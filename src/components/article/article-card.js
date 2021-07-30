@@ -1,19 +1,27 @@
 import Image from "next/image"
 import { ChevronRightIcon } from "@chakra-ui/icons"
-import { Box, Flex, Heading, Skeleton, Text, VStack } from "@chakra-ui/react"
+import {
+  Box,
+  Flex,
+  Heading,
+  Skeleton,
+  Text,
+  VStack,
+  Link as ChakraLink,
+} from "@chakra-ui/react"
 import Link from "next/link"
 import RenderInView from "../render-inview"
 
-const Item = ({ children }) => (
-  <Text
-    as="span"
+const Item = ({ children, href }) => (
+  <ChakraLink
+    href={href}
     fontWeight="normal"
     fontSize={{ base: "sm", lg: "md" }}
     color="brand.gray"
     margin="0"
   >
     {children}
-  </Text>
+  </ChakraLink>
 )
 
 const Article = ({ article }) => {
@@ -53,9 +61,15 @@ const Article = ({ article }) => {
             px={{ base: 0, md: 4, xl: "1rem" }}
           >
             <Flex as="span" alignItems="center" flexWrap="wrap">
-              {category && <Item>{category.name}</Item>}
+              {category && (
+                <Item href={`/categories/${category.slug}`}>
+                  {category.name}
+                </Item>
+              )}
               <Text w={6} mx={1.5} h={0.4} bgColor="gray.400" />
-              {author && <Item>{author.name}</Item>}
+              {author && (
+                <Item href={`/authors/${author.slug}`}>{author.name}</Item>
+              )}
             </Flex>
             <Heading
               className="article-title"

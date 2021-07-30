@@ -17,8 +17,8 @@ import {
   Link as ChakraLink,
   InputGroup,
   InputLeftElement,
+  Link,
 } from "@chakra-ui/react"
-import Link from "next/link"
 
 import { HiOutlineMail, HiOutlineUser, HiX } from "react-icons/hi"
 import { FiLink } from "react-icons/fi"
@@ -31,17 +31,13 @@ import CustomToast from "../toast"
 
 function FooterLink({ children, path }) {
   return (
-    <Link href={path}>
-      <Text
-        as="a"
-        cursor="pointer"
-        fontSize={{ base: "sm", lg: "md" }}
-        color="brand.gray"
-        _hover={{ color: "black" }}
-        rel="noopener"
-      >
-        {children}
-      </Text>
+    <Link
+      href={path}
+      fontSize={{ base: "sm", lg: "md" }}
+      color="brand.gray"
+      _hover={{ color: "black" }}
+    >
+      {children}
     </Link>
   )
 }
@@ -232,7 +228,7 @@ export default function Footer() {
               <Icon as={FiLink} boxSize="1em" aria-label="External links" />
             </Center>
             <ChakraLink
-              href="https://www.instagram.com/ya.magz/"
+              href="/redirect?url=https://www.instagram.com/ya.magz/"
               aria-label="Ya! Magazine Instagram"
               isExternal
               rel="noopener"
@@ -245,11 +241,10 @@ export default function Footer() {
               INSTAGRAM
             </ChakraLink>
             <ChakraLink
-              href="https://ppibursablog.wordpress.com/"
+              href="/redirect?url=https://ppibursablog.wordpress.com/"
               aria-label="PPI Bursa Website"
               cursor="pointer"
               rel="noopener"
-              isExternal
               _hover={{
                 textDecoration: "underline",
                 color: "black",
