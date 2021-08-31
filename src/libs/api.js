@@ -63,7 +63,7 @@ export async function fetchArticle(slug) {
   return await fetchAPI(`/articles?slug=${slug}`)
 }
 
-export async function fetchArticlesSlug() {
+export async function fetchArticleSlugs() {
   const articles = await fetchAPI("/articles?_sort=title:ASC")
   return articles.map(ar => ({ title: ar.title, slug: ar.slug }))
 }

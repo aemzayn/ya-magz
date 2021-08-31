@@ -22,7 +22,7 @@ import { FiUser } from "react-icons/fi"
 // Libs
 import ArticleMeta from "@/components/meta/article-meta"
 import config from "@/cms/site-settings.json"
-import { fetchArticle } from "@/libs/api"
+import { fetchArticle, fetchArticleSlugs } from "@/libs/api"
 import markdownToHtml from "@/libs/markdownToHTML"
 import { formatDate } from "@/libs/date"
 
@@ -125,7 +125,7 @@ export default function Article({ article }) {
   )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const article = (await fetchArticle(params.slug))[0]
   const content = await markdownToHtml(article.content)
   return {
@@ -135,5 +135,15 @@ export async function getServerSideProps({ params }) {
         content,
       },
     },
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = await fetchArticleSlugs()
+  return {
+    paths: paths.map(path => ({
+      params: { slug: path.slug },
+    })),
+    fallback: false,
   }
 }
