@@ -21,7 +21,7 @@ export default function HeroImage({ url, alt }) {
         alt={alt}
         onLoad={() => setLoaded(true)}
         layout="fill"
-        objectFit="contain"
+        objectFit="cover"
         objectPosition="center"
         quality={90}
       />
