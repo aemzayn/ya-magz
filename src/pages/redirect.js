@@ -1,19 +1,34 @@
-import Head from "next/head"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
+import Head from "next/head"
 import isUrl from "src/libs/isUrl"
 import NotFound from "./404"
 import redirect from "nextjs-redirect"
 
 export default function Redirect() {
+  const [isRedirecting, setIsRedirecting] = useState(false)
+  const [isValidUrl, setIsValidUrl] = useState(null)
   const router = useRouter()
-  const { url } = router.query
-  const isValid = isUrl(url)
 
-  if (!url && !isValid) {
+  useEffect(() => {
+    if (router.query.url) {
+      const isValid = isUrl(router.query.url)
+      setIsRedirecting(isValid)
+      if (!isValid) {
+        setIsValidUrl(false)
+      }
+    }
+  }, [router.query])
+
+  if (!isRedirecting && isValidUrl === false) {
     return <NotFound />
   }
 
-  const Redirect = redirect(url)
+  if (!isRedirecting) {
+    return "redirecting..."
+  }
+
+  const Redirect = redirect(router.query.url)
 
   return (
     <Redirect>
