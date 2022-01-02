@@ -10,18 +10,21 @@ export default function MobileNavItem({
   activeIcon,
 }) {
   const router = useRouter()
+  const isActive = router.pathname === to
 
   return (
     <ListItem
       listStyleType="none"
       w="full"
-      bgColor={router.pathname === to ? "gray.200" : "white"}
+      bgColor={isActive ? "gray.200" : "white"}
+      position="relative"
     >
       <Link href={to}>
         <Text
           as="a"
-          display="block"
-          color={router.pathname === to ? "black" : "brand.gray"}
+          display="flex"
+          alignItems="center"
+          color={isActive ? "black" : "brand.gray"}
           cursor="pointer"
           _hover={{
             color: "black",
@@ -36,9 +39,7 @@ export default function MobileNavItem({
             <Icon
               marginRight={4}
               boxSize="1.2em"
-              as={
-                router.pathname === to ? (activeIcon ? activeIcon : icon) : icon
-              }
+              as={isActive ? (activeIcon ? activeIcon : icon) : icon}
             />
           )}
           {children}
