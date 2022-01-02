@@ -21,7 +21,7 @@ export default function NotFound() {
           as="h1"
           fontWeight="bold"
         >
-          404 Not Found 😭
+          Page not found
         </Heading>
         <Heading fontWeight="normal" size="xl" as="h2" color="brand.gray">
           The page you are looking for is not available.
