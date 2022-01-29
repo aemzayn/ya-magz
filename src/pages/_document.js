@@ -31,6 +31,11 @@ export default class MyDocument extends Document {
             <Fragment>
               <script
                 async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8695710654350407"
+                crossorigin="anonymous"
+              ></script>
+              <script
+                async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               />
               <script
