@@ -23,7 +23,7 @@ export default function HeroImage({ url, alt }) {
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-        quality={90}
+        quality={70}
       />
     </Flex>
   )
