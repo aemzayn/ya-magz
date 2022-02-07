@@ -2,9 +2,9 @@ import { getManagerialDivTeam } from "src/libs/team"
 import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
 import PrimaryButton from "../buttons/PrimaryButton"
 import RenderInView from "../RenderInView"
-import Person from "./Person"
 
 export default function HomeTeam() {
+  const Person = (await import("./Person")).default
   const teams = getManagerialDivTeam()
   return (
     <RenderInView>
