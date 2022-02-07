@@ -1,7 +1,7 @@
 import Meta from "@/components/meta"
 import Layout from "@/components/layout"
-import Person from "@/components/team/Person"
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
+import Person from "src/components/team/Person"
 import { listMembers } from "src/libs/team"
 
 export default function MeetTheTeam() {
