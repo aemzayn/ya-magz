@@ -1,4 +1,4 @@
-import ArticleLayout from "@/components/article/article-layout"
+import ArticleLayout from "@/components/article/ArticleLayout"
 import Layout from "@/components/layout"
 import Meta from "@/components/meta"
 import { Heading, Text, VStack } from "@chakra-ui/layout"

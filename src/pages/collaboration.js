@@ -1,4 +1,4 @@
-import UnderConstructionPage from '@/components/sections/under-construction-page'
+import UnderConstructionPage from "@/components/sections/UnderConstructionPage"
 
 export default function Collaborate() {
   return <UnderConstructionPage />
