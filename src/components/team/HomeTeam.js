@@ -2,7 +2,7 @@ import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
 import { getManagerialDivTeam } from "@/libs/team"
 import PrimaryButton from "@/components/buttons/PrimaryButton"
 import RenderInView from "@/components/RenderInView"
-import Person from "@/components/team/Person"
+import { Person } from "@/components/team/Person"
 
 export default function HomeTeam() {
   const teams = getManagerialDivTeam()

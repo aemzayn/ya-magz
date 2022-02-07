@@ -30,7 +30,7 @@ function Social({ platform }) {
   }
 }
 
-const Person = ({ person, showSocmed }) => {
+export const Person = ({ person, showSocmed }) => {
   const nameSize = useBreakpointValue({ base: "sm", md: "md", xl: "lg" })
   const roleTitleSize = useBreakpointValue({ base: "sm", lg: "md" })
 
