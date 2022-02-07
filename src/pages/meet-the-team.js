@@ -2,7 +2,7 @@ import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
 import Meta from "@/components/meta"
 import Layout from "@/components/layout"
 import { listMembers } from "src/libs/team"
-import { Person } from "src/components/team/Person"
+import Person from "@/components/team/person"
 
 export default function MeetTheTeam() {
   const url = "/meet-the-team"
