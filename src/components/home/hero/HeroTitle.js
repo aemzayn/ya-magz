@@ -5,12 +5,12 @@ export default function HeroTitle({ title, stack }) {
     <HStack
       d="flex"
       flexWrap="wrap"
-      maxW={{ base: "90%", md: "80%", xl: "55%" }}
       mt={{ base: 3, md: 0 }}
       justify="center"
       {...stack}
     >
       <Heading
+        maxW={{ base: "90%", md: "80%" }}
         d="flex"
         flexWrap="wrap"
         textAlign="center"

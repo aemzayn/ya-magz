@@ -23,7 +23,7 @@ export function Hero({ article }) {
         justifyContent="center"
       >
         <HeroAuthorCategory
-          author={article?.author}
+          authors={article?.authors}
           category={article?.category}
           textSize={textSize}
         />

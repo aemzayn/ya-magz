@@ -59,7 +59,7 @@ export async function fetchPaginated(page = 1, category) {
 }
 
 export async function fetchArticle(slug) {
-  if (!slug) return null
+  if (!slug) return {}
   return await fetchAPI(`/articles?slug=${slug}`)
 }
 
@@ -87,9 +87,9 @@ export async function fetchAuthorsSlug() {
 }
 
 export async function fetchAuthorArticles(slug) {
-  if (!slug) return null
+  if (!slug) return []
   return await fetchAPI(
-    `/articles?author.slug=${slug}&_sort=date:DESC,title:ASC`
+    `/articles?authors.slug=${slug}&_sort=date:DESC,title:ASC`
   )
 }
 

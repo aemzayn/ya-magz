@@ -25,7 +25,7 @@ const Item = ({ children, href }) => (
 )
 
 const Article = ({ article }) => {
-  const { title, slug, excerpt, image_url, author, category } = article
+  const { title, slug, excerpt, image_url, authors, category } = article
   const excerptSplit = excerpt?.split(" ")
   return (
     <RenderInView>
@@ -67,9 +67,13 @@ const Article = ({ article }) => {
                 </Item>
               )}
               <Text w={6} mx={1.5} h={0.4} bgColor="gray.400" />
-              {author && (
-                <Item href={`/authors/${author.slug}`}>{author.name}</Item>
-              )}
+              {authors &&
+                authors.map((author, index) => (
+                  <Item key={author._id} href={`/authors/${author.slug}`}>
+                    {author.name}
+                    {authors.length > 0 && index < authors.length - 1 && ", "}
+                  </Item>
+                ))}
             </Flex>
             <Heading
               className="article-title"
