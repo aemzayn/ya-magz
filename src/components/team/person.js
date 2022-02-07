@@ -13,7 +13,7 @@ import {
   Link,
 } from "@chakra-ui/react"
 import BoringAvatar from "boring-avatars"
-import RenderInView from "../RenderInView"
+import RenderInView from "@/components/RenderInView"
 
 function Social({ platform }) {
   switch (platform.trim().toLowerCase()) {
@@ -30,7 +30,7 @@ function Social({ platform }) {
   }
 }
 
-export default function Person({ person, showSocmed }) {
+const Person = ({ person, showSocmed }) => {
   const nameSize = useBreakpointValue({ base: "sm", md: "md", xl: "lg" })
   const roleTitleSize = useBreakpointValue({ base: "sm", lg: "md" })
 
@@ -164,3 +164,5 @@ export default function Person({ person, showSocmed }) {
     </RenderInView>
   )
 }
+
+export default Person

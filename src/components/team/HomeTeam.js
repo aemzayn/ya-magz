@@ -1,9 +1,8 @@
-import dynamic from "next/dynamic"
-import { getManagerialDivTeam } from "src/libs/team"
 import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
-import PrimaryButton from "../buttons/PrimaryButton"
-import RenderInView from "../RenderInView"
-const Person = dynamic(() => import("./Person"))
+import { getManagerialDivTeam } from "@/libs/team"
+import PrimaryButton from "@/components/buttons/PrimaryButton"
+import RenderInView from "@/components/RenderInView"
+import Person from "@/components/team/Person"
 
 export default function HomeTeam() {
   const teams = getManagerialDivTeam()
