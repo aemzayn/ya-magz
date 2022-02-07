@@ -2,6 +2,7 @@ import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
 import Meta from "@/components/meta"
 import Layout from "@/components/layout"
 import { listMembers } from "src/libs/team"
+const Person = dynamic(() => import("../components/team/Person"))
 
 export default function MeetTheTeam() {
   const url = "/meet-the-team"
@@ -9,7 +10,6 @@ export default function MeetTheTeam() {
   const description = "Our wonderful team member"
   const keywords = ["teams", "members"]
   const members = listMembers()
-  const Person = (await import("../components/team/Person")).default
 
   return (
     <>
