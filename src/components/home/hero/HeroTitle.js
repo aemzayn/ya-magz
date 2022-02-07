@@ -16,7 +16,6 @@ export default function HeroTitle({ title, stack }) {
         textAlign="center"
         align="center"
         justifyContent="center"
-        userSelect="none"
         d="flex"
         overflowY="hidden"
       >

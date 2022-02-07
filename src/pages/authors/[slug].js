@@ -1,5 +1,5 @@
 import Layout from "@/components/layout"
-import ArticleList from "@/components/article/article-list"
+import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { fetchAuthorArticles, fetchAuthorsSlug } from "@/libs/api"
 
@@ -28,15 +28,20 @@ export async function getStaticProps({ params }) {
   const articles = (await fetchAuthorArticles(params.slug)) || [
     { author: { name: "" } },
   ]
+  const author =
+    params.slug &&
+    params.slug
+      .split("-")
+      .map(name => name[0].toUpperCase() + name.slice(1, name.length))
 
   if (!articles) {
     return {
       props: {
-        articles: null,
+        articles: [],
       },
       author: {
-        name: "",
-        slug: "",
+        name: author,
+        slug: params.slug,
       },
     }
   }
@@ -45,7 +50,7 @@ export async function getStaticProps({ params }) {
     props: {
       articles,
       author: {
-        name: articles[0].author.name,
+        name: author,
         slug: params.slug,
       },
     },

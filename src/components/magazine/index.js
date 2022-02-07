@@ -10,8 +10,8 @@ import {
 
 import Meta from "@/components/meta"
 import Layout from "@/components/layout"
-import MagazineGrid from "@/components/magazine/magazine-grid"
-import MagazinePageLayout from "@/components/magazine/grid-layout"
+import MagazineGrid from "@/components/magazine/MagazineGrid"
+import MagazinePageLayout from "@/components/magazine/MagazinePageLayout"
 
 import magazines from "@/cms/magazines.json"
 import bulletins from "@/cms/bulletins.json"

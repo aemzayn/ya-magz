@@ -9,10 +9,10 @@ import {
 } from "@chakra-ui/react"
 import { HiX as CloseIcon, HiMenu as MenuIcon } from "react-icons/hi"
 import Logo from "./Logo"
-import MobileNavbar from "./mobile-navbar"
-import NavItem from "./nav-item"
+import MobileNavbar from "./MobileNavbar"
+import NavItem from "./NavItem"
+import AuthButton from "../auth/AuthButton"
 import { NAV_LINKS } from "src/constanst/routes"
-import AuthButton from "../auth/auth-button"
 
 function DesktopNavbar() {
   return (
@@ -36,7 +36,7 @@ function DesktopNavbar() {
   )
 }
 
-export default function Header({}) {
+export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [white] = useToken("colors", ["white"])
   const bgColor = `${white}E6`

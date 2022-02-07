@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { AspectRatio, Box, Skeleton, Text, VStack } from "@chakra-ui/react"
-import RenderInView from "@/components/render-inview"
+import RenderInView from "@/components/RenderInView"
 
 export default function ImageItem({ image, setSelected, onOpen }) {
   const [hover, setHover] = useState(false)

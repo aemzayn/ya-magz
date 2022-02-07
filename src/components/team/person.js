@@ -13,7 +13,7 @@ import {
   Link,
 } from "@chakra-ui/react"
 import BoringAvatar from "boring-avatars"
-import RenderInView from "../render-inview"
+import RenderInView from "../RenderInView"
 
 function Social({ platform }) {
   switch (platform.trim().toLowerCase()) {

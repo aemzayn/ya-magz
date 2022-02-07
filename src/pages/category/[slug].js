@@ -1,5 +1,5 @@
 import Layout from "@/components/layout"
-import ArticleList from "@/components/article/article-list"
+import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { fetchByCategory, fetchCategorySlug } from "@/libs/api"
 

@@ -10,11 +10,11 @@ export default function HeroImage({ url, alt }) {
       justifyContent="center"
       gridArea="image"
       height={{ base: "30vh", md: "40vh", lg: "78vh" }}
-      bgColor="gray.50"
       position="relative"
       opacity={loaded ? 1 : 0}
       transitionProperty="opacity"
       transitionDuration="300ms"
+      width={{ base: "full", md: "30vw", lg: "35vw" }}
     >
       <Image
         src={url}
@@ -23,7 +23,7 @@ export default function HeroImage({ url, alt }) {
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-        quality={90}
+        quality={70}
       />
     </Flex>
   )

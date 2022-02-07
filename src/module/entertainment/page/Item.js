@@ -37,7 +37,7 @@ const Item = ({ podcast, stackWidth }) => {
         >
           {podcast.title}
         </Text>
-        <Text>{podcast.desc}</Text>
+        <Text my={2}>{podcast.desc}</Text>
         <Tooltip
           aria-label="Play podcast on spotify"
           label="Play on Spotify"

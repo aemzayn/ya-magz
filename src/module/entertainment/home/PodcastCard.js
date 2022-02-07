@@ -1,6 +1,6 @@
 import { Badge, Flex, Heading, Text, VStack, HStack } from "@chakra-ui/react"
-import PosterCover from "./poster-cover"
-import RenderInView from "@/components/render-inview"
+import PosterCover from "./PodcastCover"
+import RenderInView from "@/components/RenderInView"
 import PodcastLink from "../shared/podcast-link"
 import { SiApplepodcasts, SiGooglepodcasts, SiSpotify } from "react-icons/si"
 

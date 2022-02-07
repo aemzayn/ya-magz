@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
   VStack,
 } from "@chakra-ui/react"
-import DeleteComment from "./delete-comment"
+import DeleteComment from "./DeleteComment"
 
 export default function CommentBubble({ user, comment, deleteComment }) {
   const nameTextSize = useBreakpointValue({ base: "sm", md: "md" })

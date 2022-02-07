@@ -1,11 +1,11 @@
 import dynamic from "next/dynamic"
 import Layout from "@/components/layout"
 import Hero from "@/components/home/hero/index"
-import HomeTeam from "@/components/team/home-team"
+import HomeTeam from "@/components/team/HomeTeam"
 import Meta from "@/components/meta"
 import { fetchFeatured, fetchHero, fetchHomeArticles } from "@/libs/api"
 
-const ArticleList = dynamic(() => import("../components/article/article-list"))
+const ArticleList = dynamic(() => import("../components/article/ArticleList"))
 const FeaturedArticle = dynamic(() => import("../components/home/featured"))
 const HomeEntertainment = dynamic(() => import("../module/entertainment/home"))
 

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Flex, Text } from "@chakra-ui/react"
 
 export default function HeroAuthorCategory({
@@ -15,7 +16,9 @@ export default function HeroAuthorCategory({
         overflowY="hidden"
         fontSize={textSize}
       >
-        {author?.name}
+        <Link href={`/authors/${author.slug}`}>
+          <a>{author?.name}</a>
+        </Link>
       </Text>
       <Text w={10} mx={1} h={0.4} bgColor="gray.400" />
       <Text
@@ -25,7 +28,9 @@ export default function HeroAuthorCategory({
         overflowY="hidden"
         fontSize={textSize}
       >
-        {category?.name}
+        <Link href={`/category/${category.slug}`}>
+          <a>{category?.name}</a>
+        </Link>
       </Text>
     </Flex>
   )

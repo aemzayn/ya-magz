@@ -4,14 +4,14 @@ import readingTime from "reading-time"
 import { useInView } from "react-intersection-observer"
 
 // Components
-import ArticleAuthor from "@/components/article/article-author"
-import ArticleBody from "@/components/article/article-body"
-import ArticleCategory from "@/components/article/article-category"
-import ArticleCoverImage from "@/components/article/article-cover-image"
-import ArticleLayout from "@/components/article/article-layout"
-import ArticleTitle from "@/components/article/article-title"
+import ArticleAuthor from "@/components/article/ArticleAuthor"
+import ArticleBody from "@/components/article/ArticleBody"
+import ArticleCategory from "@/components/article/ArticleCategory"
+import ArticleCoverImage from "@/components/article/ArticleCoverImage"
+import ArticleLayout from "@/components/article/ArticleLayout"
+import ArticleTitle from "@/components/article/ArticleTitle"
 import Layout from "@/components/layout"
-import ArticleShare from "@/components/article/article-share"
+import ArticleShare from "@/components/article/ArticleShare"
 import Meta from "@/components/meta"
 const Comment = dynamic(() => import("@/components/comment"))
 
@@ -20,7 +20,7 @@ import { Avatar, Icon, Stack, Text } from "@chakra-ui/react"
 import { FiUser } from "react-icons/fi"
 
 // Libs
-import ArticleMeta from "@/components/meta/article-meta"
+import ArticleMeta from "@/components/meta/ArticleMeta"
 import config from "@/cms/site-settings.json"
 import { fetchArticle, fetchArticleSlugs } from "@/libs/api"
 import markdownToHtml from "@/libs/markdownToHTML"

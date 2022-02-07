@@ -10,7 +10,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react"
 import Link from "next/link"
-import RenderInView from "../render-inview"
+import RenderInView from "../RenderInView"
 
 const Item = ({ children, href }) => (
   <ChakraLink

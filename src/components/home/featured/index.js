@@ -2,12 +2,12 @@ import Image from "next/image"
 import { Box, Flex, VStack } from "@chakra-ui/layout"
 import { useBreakpointValue } from "@chakra-ui/media-query"
 import { Skeleton } from "@chakra-ui/skeleton"
-import PrimaryButton from "../../buttons/primary-button"
-import PageLayout from "../../layout/page-layout"
-import RenderInView from "../../render-inview"
-import HeroAuthorCategory from "../hero/hero-author-category"
-import HeroExcerpt from "../hero/hero-excerpt"
-import HeroTitle from "../hero/hero-title"
+import PrimaryButton from "../../buttons/PrimaryButton"
+import PageLayout from "../../layout/PageLayout"
+import RenderInView from "../../RenderInView"
+import HeroAuthorCategory from "../hero/HeroAuthorCategory"
+import HeroExcerpt from "../hero/HeroExcerpt"
+import HeroTitle from "../hero/HeroTitle"
 
 export default function FeaturedArticle({ article, reverse, btnColor }) {
   const titleSize = useBreakpointValue({ base: "lg", md: "xl" })

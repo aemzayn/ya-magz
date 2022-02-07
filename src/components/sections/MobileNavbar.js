@@ -11,9 +11,6 @@ import {
   UnorderedList,
   VStack,
 } from "@chakra-ui/react"
-
-import MobileNavItem from "./mobile-nav-item"
-
 import {
   AiFillHome,
   AiOutlineHome,
@@ -29,6 +26,8 @@ import {
   RiSpotifyLine,
   RiSpotifyFill,
 } from "react-icons/ri"
+
+import MobileNavItem from "./MobileNavItem"
 
 export default function MobileNavbar({ isOpen, onClose }) {
   return (

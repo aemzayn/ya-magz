@@ -1,6 +1,6 @@
 import config from "@/cms/site-settings.json"
 import Layout from "@/components/layout"
-import ArticleList from "@/components/article/article-list"
+import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { countArticles, fetchArticles } from "@/libs/api"
 

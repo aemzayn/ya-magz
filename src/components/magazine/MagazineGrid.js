@@ -1,5 +1,5 @@
 import { Grid } from "@chakra-ui/react"
-import MagazineItem from "./magazine-item"
+import MagazineItem from "./MagazineItem"
 
 export default function MagazineGrid({ items }) {
   return (

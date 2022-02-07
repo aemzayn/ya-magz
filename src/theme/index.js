@@ -27,7 +27,7 @@ const theme = extendTheme({
         background: chakraTheme.colors.cyan[300],
       },
       "::-webkit-scrollbar": {
-        width: "0.55em",
+        width: "0.7em",
       },
       "::-webkit-scrollbar-thumb": {
         transition: "150ms all ease-in-out",
@@ -54,6 +54,9 @@ const theme = extendTheme({
         },
         a: {
           color: chakraTheme.colors.teal[500],
+          _hover: {
+            textDecoration: "underline",
+          },
         },
         p: {
           lineHeight: 7,
@@ -117,11 +120,13 @@ const theme = extendTheme({
         },
         "ol, ul": {
           padding: 0,
-          li: {
-            lineHeight: 6,
-            marginLeft: 4,
-            paddingLeft: 0,
-          },
+          fontSize: "lg",
+        },
+        li: {
+          lineHeight: 6,
+          marginLeft: 4,
+          paddingLeft: 0,
+          marginBottom: 2,
         },
       },
       "#nprogress": {

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import { Flex, Heading, chakra, Center, SimpleGrid } from "@chakra-ui/react"
-import ArticleCard from "@/components/article/article-card"
-import ArticleCategoryNav from "./article-category-nav"
-import PrimaryButton from "../buttons/primary-button"
+import ArticleCard from "@/components/article/ArticleCard"
+import ArticleCategoryNav from "./ArticleCategoryNav"
+import PrimaryButton from "../buttons/PrimaryButton"
 import Pagination from "../pagination"
-import PageLayout from "../layout/page-layout"
+import PageLayout from "../layout/PageLayout"
 import { GlobalContext } from "src/context"
 
 export default function ArticleList({

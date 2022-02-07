@@ -11,7 +11,7 @@ import {
   MenuDivider,
   useDisclosure,
 } from "@chakra-ui/react"
-import ProfileForm from "./profile-form"
+import ProfileForm from "./ProfileForm"
 
 const AuthButton = () => {
   const [session] = useSession()

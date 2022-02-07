@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { useSession } from "next-auth/client"
 import { Heading, VStack, Text, Divider, Button } from "@chakra-ui/react"
-import CommentForm from "./comment-form"
-import CommentBubble from "./comment-bubble"
+import CommentForm from "./CommentForm"
+import CommentBubble from "./CommentBuble"
 import { IS_DEV } from "src/constanst/development"
-import RenderInView from "@/components/render-inview"
+import RenderInView from "@/components/RenderInView"
 import { cleanComment } from "src/libs/comments"
 
 export default function Comment({ slug, comments, setComments }) {
