@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Meta from "@/components/meta"
-import PageLayout from "@/components/layout/page-layout"
+import PageLayout from "@/components/layout/PageLayout"
 import Layout from "@/components/layout"
 import {
   Icon,
