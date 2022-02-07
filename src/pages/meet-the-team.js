@@ -1,7 +1,6 @@
+import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
 import Meta from "@/components/meta"
 import Layout from "@/components/layout"
-import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
-import Person from "src/components/team/Person"
 import { listMembers } from "src/libs/team"
 
 export default function MeetTheTeam() {
@@ -10,6 +9,7 @@ export default function MeetTheTeam() {
   const description = "Our wonderful team member"
   const keywords = ["teams", "members"]
   const members = listMembers()
+  const Person = (await import("../components/team/Person")).default
 
   return (
     <>
