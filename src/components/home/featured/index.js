@@ -65,7 +65,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
               py={{ base: 8, md: 10 }}
             >
               <HeroAuthorCategory
-                author={article?.author}
+                authors={article?.authors}
                 category={article?.category}
                 fontSize={textSize}
               />

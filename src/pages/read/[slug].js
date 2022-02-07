@@ -28,7 +28,7 @@ import { formatDate } from "@/libs/date"
 
 export default function Article({ article }) {
   const [comments, setComments] = useState([])
-  const { title, slug, excerpt, date, category, author, image_url, content } =
+  const { title, slug, excerpt, date, category, authors, image_url, content } =
     article
 
   const { ref, inView } = useInView({
@@ -51,7 +51,12 @@ export default function Article({ article }) {
   const fullUrl = `${config.base_url}/read/${slug}`
   const readTime = content && readingTime(content)
   const datePublised = new Date(date)
+  const authorsMeta = authors.reduce((all, author, index) => {
+    let sep = index < authors.length - 1
+    return all + author.name + (sep ? ", " : "")
+  }, "")
 
+  console.log(authorsMeta)
   return (
     <Layout>
       <Meta
@@ -60,13 +65,13 @@ export default function Article({ article }) {
         keywords={category?.name}
         description={excerpt}
         date={datePublised}
-        author={author?.name}
+        author={authorsMeta}
         image={image_url}
       />
       <ArticleMeta
         title={title}
         description={excerpt}
-        author={author?.name}
+        author={authorsMeta}
         keywords={category?.name}
         date={datePublised}
         image={image_url}
@@ -93,7 +98,7 @@ export default function Article({ article }) {
                 bgColor="gray.200"
                 icon={<Icon as={FiUser} />}
               />
-              {author && <ArticleAuthor author={author} />}
+              {authors && <ArticleAuthor authors={authors} />}
               {date && (
                 <Text as="span" color="brand.gray">
                   {formatDate(datePublised)}
