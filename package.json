@@ -37,7 +37,7 @@
     "next-pwa": "^5.2.21",
     "nextjs-redirect": "^5.0.0",
     "nprogress": "^0.2.0",
-    "preact": "^10.5.14",
+    "preact": "^10.6.6",
     "preact-render-to-string": "^5.1.19",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
