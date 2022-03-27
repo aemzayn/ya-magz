@@ -34,7 +34,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
     "next-plugin-preact": "^3.0.6",
-    "next-pwa": "^5.2.21",
+    "next-pwa": "^5.4.5",
     "nextjs-redirect": "^5.0.0",
     "nprogress": "^0.2.0",
     "preact": "^10.5.14",
