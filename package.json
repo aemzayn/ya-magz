@@ -22,7 +22,7 @@
     "@fontsource/lora": "^4.5.0",
     "@fontsource/montserrat": "^4.4.5",
     "bad-words": "^3.0.4",
-    "boring-avatars": "^1.5.3",
+    "boring-avatars": "^1.6.3",
     "date-fns": "^2.22.1",
     "framer-motion": "^4.1.17",
     "imagemin-mozjpeg": "^9.0.0",
