@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { jsonLdScriptProps } from "react-schemaorg"
-import config from "@/cms/site-settings.json"
+import config from "@/contents/site-settings.json"
 
 export default function ArticleMeta({
   title,

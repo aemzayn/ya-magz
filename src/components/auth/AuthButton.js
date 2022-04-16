@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/client"
+import { useSession, signIn, signOut } from "next-auth/react"
 import { FiLogOut, FiUser } from "react-icons/fi"
 import {
   Icon,
@@ -14,7 +14,7 @@ import {
 import ProfileForm from "./ProfileForm"
 
 const AuthButton = () => {
-  const [session] = useSession()
+  const { data: session } = useSession()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (

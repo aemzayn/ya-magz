@@ -23,7 +23,7 @@ export default function Pagination({ current, pages, link }) {
                 color: it.page === current ? "black" : "gray.700",
               }}
             >
-              <Link href={link.href(it.page)} as={link.as(it.page)}>
+              <Link href={link.href(it.page)} passHref as={link.as(it.page)}>
                 <Button
                   bgColor={it.page === current ? "gray.100" : "white"}
                   as="a"

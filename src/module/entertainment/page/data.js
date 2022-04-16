@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     title: "#00. PILOT",
     desc: "Seperti layaknya UUD 1945 yang memiliki preambule, izinkan kami untuk membuka podcast perdana ini dengan ucapan basmalah dan juga preambule versi kami. Enjoy!",
@@ -117,3 +117,5 @@ export default [
     link: "https://open.spotify.com/episode/3XoR2Luf05VVwtZvR1xPaf?si=MgAQIVozTti4PaQWwv1S2w&dl_branch=1",
   },
 ]
+
+export default data

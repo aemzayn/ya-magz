@@ -13,8 +13,8 @@ import Layout from "@/components/layout"
 import MagazineGrid from "@/components/magazine/MagazineGrid"
 import MagazinePageLayout from "@/components/magazine/MagazinePageLayout"
 
-import magazines from "@/cms/magazines.json"
-import bulletins from "@/cms/bulletins.json"
+import magazines from "@/contents/magazines.json"
+import bulletins from "@/contents/bulletins.json"
 
 export default function Magazine() {
   return (

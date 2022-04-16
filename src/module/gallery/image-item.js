@@ -46,7 +46,6 @@ export default function ImageItem({ image, setSelected, onOpen }) {
                   position="absolute"
                   left={0}
                   bottom={0}
-                  zIndex={0}
                   zIndex={2}
                 >
                   <Text color="white" fontWeight="semibold">

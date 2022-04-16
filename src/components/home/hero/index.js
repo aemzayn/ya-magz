@@ -1,12 +1,13 @@
 import React from "react"
-import { GridItem, useBreakpointValue, VStack } from "@chakra-ui/react"
+import { useBreakpointValue, VStack } from "@chakra-ui/react"
+import { ArrowForwardIcon } from "@chakra-ui/icons"
+
 import HeroTitle from "./HeroTitle"
 import HeroImage from "./HeroImage"
 import HeroLayout from "./HeroLayout"
 import HeroExcerpt from "./HeroExcerpt"
 import HeroAuthorCategory from "./HeroAuthorCategory"
 import PrimaryButton from "@/components/buttons/PrimaryButton"
-import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 export function Hero({ article }) {
   const url = article?.image_url

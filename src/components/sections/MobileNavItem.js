@@ -19,7 +19,7 @@ export default function MobileNavItem({
       bgColor={isActive ? "gray.200" : "white"}
       position="relative"
     >
-      <Link href={to}>
+      <Link passHref href={to}>
         <Text
           as="a"
           display="flex"

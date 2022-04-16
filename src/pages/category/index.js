@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 
 export default function Category() {
   const { push } = useRouter()
   useEffect(() => {
-    push('/read')
-  }, [])
+    push("/read")
+  }, [push])
   return null
 }

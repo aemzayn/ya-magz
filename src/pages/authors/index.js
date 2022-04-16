@@ -28,6 +28,7 @@ export default function Author({ authors }) {
     } else {
       setShowAuthors(authors)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, setShowAuthors])
 
   const searchAuthor = text => {
@@ -76,11 +77,9 @@ export default function Author({ authors }) {
           </Box>
           <Box ml={{ base: "unset", xl: "auto" }} mt={{ base: 2, md: "unset" }}>
             <InputGroup>
-              <InputLeftElement
-                children={<Icon as={FiSearch} />}
-                pointerEvents="none"
-                color="gray.300"
-              />
+              <InputLeftElement pointerEvents="none" color="gray.300">
+                <Icon as={FiSearch} />
+              </InputLeftElement>
               <Input
                 type="text"
                 maxLength={15}
@@ -104,7 +103,7 @@ export default function Author({ authors }) {
         <VStack mt={4} w="full" spacing={4}>
           {Array.isArray(showAuthors) &&
             showAuthors.map((author, id) => (
-              <Link href={`/authors/${author.slug}`}>
+              <Link key={author.slug} href={`/authors/${author.slug}`} passHref>
                 <Text
                   cursor="pointer"
                   as="a"

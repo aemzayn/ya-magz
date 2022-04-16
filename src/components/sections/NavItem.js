@@ -6,7 +6,7 @@ export default function NavItem({ children, isLast, to = "/", ...rest }) {
   const router = useRouter()
   return (
     <ListItem listStyleType="none">
-      <Link href={to}>
+      <Link href={to} passHref>
         <Text
           as="a"
           display="block"

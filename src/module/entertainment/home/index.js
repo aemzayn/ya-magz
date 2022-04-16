@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react"
 import PodcastCard from "./PodcastCard"
-import config from "@/cms/site-settings.json"
+import config from "@/contents/site-settings.json"
 
 export default function HomeEntertainment() {
   return (

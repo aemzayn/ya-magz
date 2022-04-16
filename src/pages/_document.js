@@ -1,6 +1,6 @@
-import Document, { Html, Head, Main, NextScript } from "next/document"
-import { GA_TRACKING_ID } from "src/libs/gtag.js"
+import Document, { Head, Html, Main, NextScript } from "next/document"
 import { Fragment } from "react"
+import { GA_TRACKING_ID } from "src/libs/gtag.js"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -26,13 +26,14 @@ export default class MyDocument extends Document {
           />
           <link rel="icon" href="/meta/favicon.ico" type="image/x-icon" />
           <link rel="apple-touch-icon" href="/meta/apple-touch-icon.png" />
+
           {/* We only want to add the scripts if in production */}
           {isProduction && GA_TRACKING_ID && (
             <Fragment>
               <script
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8695710654350407"
-                crossorigin="anonymous"
+                crossOrigin="anonymous"
               ></script>
               <script
                 async

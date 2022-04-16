@@ -1,5 +1,5 @@
 import Head from "next/head"
-import config from "@/cms/site-settings.json"
+import config from "@/contents/site-settings.json"
 
 export default function Meta({ title, description, keywords, url, image }) {
   return (

@@ -20,7 +20,7 @@ export default function ImagePopup({ image, setSelected, isOpen, onClose }) {
       <ModalOverlay bgColor="blackAlpha.700" />
       <ModalContent>
         <ModalBody p={0} bg="none">
-          <Image src={image} />
+          <Image alt="Indorsagraphy" src={image} />
         </ModalBody>
       </ModalContent>
     </Modal>
