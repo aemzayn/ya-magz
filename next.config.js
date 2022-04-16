@@ -23,7 +23,7 @@ module.exports = withPlugins(
     [
       optimizedImages,
       {
-        handleImages: ["jpeg", "png", "svg"],
+        handleImages: ["png", "svg"],
       },
     ],
   ],
