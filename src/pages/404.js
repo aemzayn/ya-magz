@@ -14,13 +14,7 @@ export default function NotFound() {
         spacing={2}
         minH="75vh"
       >
-        <Heading
-          fontWeight="normal"
-          size="2xl"
-          mb="4"
-          as="h1"
-          fontWeight="bold"
-        >
+        <Heading size="2xl" mb="4" as="h1" fontWeight="bold">
           Page not found
         </Heading>
         <Heading fontWeight="normal" size="xl" as="h2" color="brand.gray">

@@ -76,11 +76,12 @@ function FooterForm({ form, setForm, handleSubmit, submitLoading }) {
         <InputLeftElement
           pointerEvents="none"
           color="gray.400"
-          children={<HiOutlineMail />}
           _groupFocus={{
             color: "gray.700",
           }}
-        />
+        >
+          <HiOutlineMail />
+        </InputLeftElement>
         <Input
           type="email"
           name="email"
@@ -93,11 +94,9 @@ function FooterForm({ form, setForm, handleSubmit, submitLoading }) {
         />
       </InputGroup>
       <InputGroup>
-        <InputLeftElement
-          pointerEvents="none"
-          color="gray.400"
-          children={<HiOutlineUser />}
-        />
+        <InputLeftElement pointerEvents="none" color="gray.400">
+          <HiOutlineUser />
+        </InputLeftElement>
         <Input
           placeholder="Your name (optional)"
           name="name"

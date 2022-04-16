@@ -21,7 +21,7 @@ import { FiUser } from "react-icons/fi"
 
 // Libs
 import ArticleMeta from "@/components/meta/ArticleMeta"
-import config from "@/cms/site-settings.json"
+import config from "@/contents/site-settings.json"
 import { fetchArticle, fetchArticleSlugs } from "@/libs/api"
 import markdownToHtml from "@/libs/markdownToHTML"
 import { formatDate } from "@/libs/date"

@@ -51,7 +51,7 @@ export default function Mood({ width, titleSize }) {
       </VStack>
       <SimpleGrid mt={6} columns={{ base: 1, md: 2 }} gap={1}>
         {images.map((src, id) => (
-          <AspectRatio ratio={1 / 1} w={imageSize} h={imageSize}>
+          <AspectRatio key={src} ratio={1 / 1} w={imageSize} h={imageSize}>
             <Image
               src={src}
               key={id}

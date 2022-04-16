@@ -1,6 +1,6 @@
 import dbConnect from "@/utils/dbConnect"
 import User from "@/models/User"
-import { getSession } from "next-auth/client"
+import { getSession } from "next-auth/react"
 
 export default async function handler(req, res) {
   await dbConnect()

@@ -1,5 +1,5 @@
 import dbConnect from "src/utils/dbConnect"
-import { getSession } from "next-auth/client"
+import { getSession } from "next-auth/react"
 import { Comment, User, Post } from "@/models/index.js"
 import { checkSlug } from "@/libs/api"
 

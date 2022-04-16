@@ -1,4 +1,4 @@
-import teams from "@/cms/teams.json"
+import teams from "@/contents/teams.json"
 
 export function listMembers() {
   const members = teams.teams.flatMap(team => team.members)

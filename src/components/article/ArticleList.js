@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { Flex, Heading, chakra, Center, SimpleGrid } from "@chakra-ui/react"
 import ArticleCard from "@/components/article/ArticleCard"
 import ArticleCategoryNav from "./ArticleCategoryNav"
@@ -18,10 +18,6 @@ export default function ArticleList({
   type,
 }) {
   const { categories } = useContext(GlobalContext)
-
-  const itemProp = () => {
-    return itemProp === "author" ? "author" : "article-list"
-  }
 
   return (
     <PageLayout py={{ base: 8, md: 10 }} px={4}>
@@ -45,8 +41,8 @@ export default function ArticleList({
         {subtitle && (
           <Heading
             className="page-title"
-            itemProp={itemProp}
-            id={type === "author" && subtitle}
+            itemProp={type === "author" ? "author" : "article-list"}
+            id={type === "author" ? subtitle : undefined}
             size="2xl"
             display="block"
           >

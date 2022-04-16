@@ -1,4 +1,4 @@
-import config from "@/cms/site-settings.json"
+import config from "@/contents/site-settings.json"
 import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"

@@ -1,14 +1,14 @@
 import { useState } from "react"
-import { useSession } from "next-auth/client"
+import { useSession } from "next-auth/react"
 import { Heading, VStack, Text, Divider, Button } from "@chakra-ui/react"
 import CommentForm from "./CommentForm"
 import CommentBubble from "./CommentBuble"
-import { IS_DEV } from "src/constanst/development"
+import { isDevelopment } from "src/constanst/development"
 import RenderInView from "@/components/RenderInView"
 import { cleanComment } from "src/libs/comments"
 
 export default function Comment({ slug, comments, setComments }) {
-  const [session] = useSession()
+  const { data: session } = useSession()
   const [showForm, setShowForm] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -38,7 +38,7 @@ export default function Comment({ slug, comments, setComments }) {
         setComments(prev => [...prev, data])
       }
     } catch (error) {
-      if (IS_DEV) console.error(error)
+      if (isDevelopment) console.error(error)
     } finally {
       setShowForm(false)
     }
@@ -59,7 +59,7 @@ export default function Comment({ slug, comments, setComments }) {
         )
       }
     } catch (error) {
-      if (IS_DEV) console.error(error)
+      if (isDevelopment) console.error(error)
     } finally {
       setLoading(false)
     }

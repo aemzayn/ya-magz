@@ -8,16 +8,15 @@ export default function PrimaryButton({
   ...rest
 }) {
   return (
-    <Link href={href}>
+    <Link passHref href={href}>
       <Button
         as="a"
         py={{ base: 5, md: 6, lg: 7 }}
         px={{ base: 10, md: 14, lg: 20 }}
         lineHeight="1"
         size="lg"
-        borderRadius="50px"
         fontWeight="normal"
-        borderRadius="false"
+        borderRadius="none"
         _hover={{
           opacity: 0.9,
         }}

@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 
 const NavButton = ({ children, href, asPath }) => {
   return (
-    <Link href={href}>
+    <Link passHref href={href}>
       <Button
         variant="ghost"
         as="a"

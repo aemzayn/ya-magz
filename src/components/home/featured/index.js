@@ -39,7 +39,6 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
               h={{ base: "25vh", md: "31rem", lg: "full" }}
               maxH={{ base: "unset", md: "30vh", lg: "unset" }}
               overflowY="hidden"
-              h="full"
             >
               <Skeleton height="100%" width="100%" isLoaded={loaded}>
                 {inView && (
