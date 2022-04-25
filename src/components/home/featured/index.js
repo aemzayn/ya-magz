@@ -40,7 +40,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
               maxH={{ base: "unset", md: "30vh", lg: "unset" }}
               overflowY="hidden"
             >
-              <Skeleton height="100%" width="100%" isLoaded={loaded}>
+              <Skeleton height="100%" width="100%" isLoaded={inView}>
                 {inView && (
                   <Image
                     src={article?.image_url}

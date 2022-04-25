@@ -29,7 +29,7 @@ const Article = ({ article }) => {
   const excerptSplit = excerpt?.split(" ")
   return (
     <RenderInView>
-      {({ ref, inView, loaded, setIsLoaded }) => (
+      {({ ref, inView, setIsLoaded }) => (
         <Box
           mx={{ base: 4, md: 6, xl: 8 }}
           className="article"
@@ -38,7 +38,7 @@ const Article = ({ article }) => {
           ref={ref}
         >
           <Box w="100%" maxH={{ base: "30rem", lg: "35rem" }}>
-            <Skeleton height="100%" width="100%" isLoaded={loaded}>
+            <Skeleton height="100%" width="100%" isLoaded={inView}>
               {inView && (
                 <Image
                   width={500}

@@ -56,7 +56,7 @@ export default function ImageItem({ image, setSelected, onOpen }) {
                   </Text>
                 </Box>
               )}
-              <Skeleton isLoaded={loaded} w="full" h="full">
+              <Skeleton isLoaded={inView} w="full" h="full">
                 {inView && (
                   <Image
                     onLoad={() => setIsLoaded()}

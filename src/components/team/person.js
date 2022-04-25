@@ -61,7 +61,7 @@ export const Person = ({ person, showSocmed }) => {
 
   return (
     <RenderInView>
-      {({ ref, inView, loaded, setIsLoaded }) => (
+      {({ ref, inView, setIsLoaded }) => (
         <VStack
           alignItems="flex-start"
           ref={ref}
@@ -79,7 +79,7 @@ export const Person = ({ person, showSocmed }) => {
               boxShadow="xs"
               overflow="hidden"
             >
-              <Skeleton width="full" height="full" isLoaded={loaded}>
+              <Skeleton width="full" height="full" isLoaded={inView}>
                 <Image
                   layout="fill"
                   objectFit="cover"
