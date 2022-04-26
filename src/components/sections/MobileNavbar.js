@@ -53,13 +53,12 @@ export default function MobileNavbar({ isOpen, onClose }) {
         </DrawerHeader>
         <DrawerBody pt={0} px={0}>
           <VStack
-            as="ul"
             w="full"
             spacing={0}
             justifyContent="space-between"
             height="full"
           >
-            <div style={{ width: "100%" }}>
+            <UnorderedList width={"full"}>
               <MobileNavItem
                 to="/"
                 icon={AiOutlineHome}
@@ -95,7 +94,7 @@ export default function MobileNavbar({ isOpen, onClose }) {
               >
                 Entertainment
               </MobileNavItem>
-            </div>
+            </UnorderedList>
 
             <UnorderedList
               alignSelf="flex-end"
