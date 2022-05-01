@@ -26,7 +26,7 @@ const Privacy = () => {
         />
         <Container>
           <Heading size="xl" as="h1">
-            Privacy Policy for Ya! Magazine
+            Privacy Policy of Ya! Magazine
           </Heading>
           <Text>
             At Ya! Magazine, accessible from https://ya-magazine.com, one of our
