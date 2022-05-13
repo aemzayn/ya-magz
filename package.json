@@ -32,7 +32,7 @@
     "boring-avatars": "^1.6.3",
     "date-fns": "^2.28.0",
     "framer-motion": "^6.3.0",
-    "mongoose": "^6.3.0",
+    "mongoose": "^6.3.1",
     "next": "^12.1.5",
     "next-auth": "^4.3.2",
     "next-compose-plugins": "^2.2.1",
