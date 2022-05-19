@@ -37,7 +37,7 @@
     "next-auth": "^4.3.2",
     "next-compose-plugins": "^2.2.1",
     "next-plugin-preact": "^3.0.6",
-    "next-pwa": "^5.5.0",
+    "next-pwa": "^5.5.1",
     "nextjs-redirect": "^6.0.0",
     "nprogress": "^0.2.0",
     "preact": "^10.7.1",
