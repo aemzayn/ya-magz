@@ -1602,10 +1602,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/karla@^4.5.5":
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.5.tgz#0360f966f5c0301227164b3fcbf8cc8154c73b20"
-  integrity sha512-vbY5Ll1M9sC+JCsL35QUSyPCpNcMM1l4rCxU9Fk6Z3YUEhCiKKk9n/9sx9tk2NSiO6otQtR8y1RbfKjMmVLeCQ==
+"@fontsource/karla@^4.5.7":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.8.tgz#776baf80120fc74a46e9d291e3b3de540c8eccb9"
+  integrity sha512-QbImqQ2cuXrkbqEA+UspuMUBJ3J5NOPalvyCxs8qPYmi/KRBBYu6an62gQlNv/WN54ogJ7CPDii7YVI4pBSgIg==
 
 "@fontsource/lora@^4.5.6":
   version "4.5.6"

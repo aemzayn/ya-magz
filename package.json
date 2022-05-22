@@ -25,7 +25,7 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@fontsource/karla": "^4.5.5",
+    "@fontsource/karla": "^4.5.7",
     "@fontsource/lora": "^4.5.6",
     "@fontsource/montserrat": "^4.5.7",
     "bad-words": "^3.0.4",
