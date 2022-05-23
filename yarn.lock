@@ -1607,10 +1607,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/karla/-/karla-4.5.5.tgz#0360f966f5c0301227164b3fcbf8cc8154c73b20"
   integrity sha512-vbY5Ll1M9sC+JCsL35QUSyPCpNcMM1l4rCxU9Fk6Z3YUEhCiKKk9n/9sx9tk2NSiO6otQtR8y1RbfKjMmVLeCQ==
 
-"@fontsource/lora@^4.5.6":
-  version "4.5.6"
-  resolved "https://registry.yarnpkg.com/@fontsource/lora/-/lora-4.5.6.tgz#f564c0be3e609efd158306fc15fac524ef048ca2"
-  integrity sha512-HUKUFTj2stjpSbEEeQ4CFHMqjUqRTkmRhGmiICemovZvGdjJnnDRx9HmA9Bj/3kVeJaH3/NyRt/ft5onlLy5/g==
+"@fontsource/lora@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/lora/-/lora-4.5.9.tgz#e0af833966fe234928c40fbbbc05db87a56577f4"
+  integrity sha512-P8yVmdSyMhAA2UbxctmtkInOKwuOFG6EniwajO96o/1ZiFmJMtEP/e2oZLmrY5ZqpUIG+83K4TFEAGAnWsZkuA==
 
 "@fontsource/montserrat@^4.5.7":
   version "4.5.7"
