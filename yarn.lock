@@ -1612,10 +1612,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/lora/-/lora-4.5.6.tgz#f564c0be3e609efd158306fc15fac524ef048ca2"
   integrity sha512-HUKUFTj2stjpSbEEeQ4CFHMqjUqRTkmRhGmiICemovZvGdjJnnDRx9HmA9Bj/3kVeJaH3/NyRt/ft5onlLy5/g==
 
-"@fontsource/montserrat@^4.5.7":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.7.tgz#5fa342958655d3309eeae552a409f75a5453173f"
-  integrity sha512-eROpR2P7faJpXtjPx7XGESSNJXT6zUKUnLuUalR8YRpAi7Z4Hg+++LSTRX2GItQDaQliScGapTW10cYunhQDiw==
+"@fontsource/montserrat@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.10.tgz#0dc94425c575c785c2ac92d244c543bfbb005080"
+  integrity sha512-JXe9wURwLFtPfrD3yYnfvue/Uv2L1iSEor4w6M5CcGO4iWSoaFgk7BPLUwksGD7ChKpGKpaNNLUt67VlCu2A1g==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"

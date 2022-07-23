@@ -27,7 +27,7 @@
     "@emotion/styled": "^11.8.1",
     "@fontsource/karla": "^4.5.7",
     "@fontsource/lora": "^4.5.6",
-    "@fontsource/montserrat": "^4.5.7",
+    "@fontsource/montserrat": "^4.5.10",
     "bad-words": "^3.0.4",
     "boring-avatars": "^1.6.3",
     "date-fns": "^2.28.0",
