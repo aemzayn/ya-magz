@@ -11,8 +11,6 @@ export default function ArticleCoverImage({ featuredImage, alt, imgsource }) {
     >
       <Box width="full" height="500px">
         <Image
-          // width={1000}
-          // height={1000}
           layout="fill"
           objectFit="contain"
           src={featuredImage}

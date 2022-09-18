@@ -19,7 +19,7 @@ export default function HeroAuthorCategory({
             overflowY="hidden"
             fontSize={textSize}
           >
-            <Link href={`/authors/${author.slug}`}>
+            <Link href={`/authors/${author?.slug}`}>
               <a>
                 {author?.name}
                 {authors.length > 1 && index < authors.length - 1 && ", "}
@@ -35,7 +35,7 @@ export default function HeroAuthorCategory({
         overflowY="hidden"
         fontSize={textSize}
       >
-        <Link href={`/category/${category.slug}`}>
+        <Link href={`/category/${category?.slug}`}>
           <a>{category?.name}</a>
         </Link>
       </Text>

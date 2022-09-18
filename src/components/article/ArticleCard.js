@@ -12,7 +12,7 @@ import {
 import Link from "next/link"
 import RenderInView from "../RenderInView"
 
-const Item = ({ children, href }) => (
+const ArticleLink = ({ children, href }) => (
   <ChakraLink
     href={href}
     fontWeight="normal"
@@ -39,7 +39,7 @@ const Article = ({ article }) => {
         >
           <Box w="100%" maxH={{ base: "30rem", lg: "35rem" }}>
             <Skeleton height="100%" width="100%" isLoaded={inView}>
-              {inView && (
+              {inView && image_url && (
                 <Image
                   width={500}
                   height={350}
@@ -62,17 +62,20 @@ const Article = ({ article }) => {
           >
             <Flex as="span" alignItems="center" flexWrap="wrap">
               {category && (
-                <Item href={`/categories/${category.slug}`}>
+                <ArticleLink href={`/categories/${category.slug}`}>
                   {category.name}
-                </Item>
+                </ArticleLink>
               )}
               <Text w={6} mx={1.5} h={0.4} bgColor="gray.400" />
               {authors &&
                 authors.map((author, index) => (
-                  <Item key={author._id} href={`/authors/${author.slug}`}>
+                  <ArticleLink
+                    key={author._id}
+                    href={`/authors/${author.slug}`}
+                  >
                     {author.name}
                     {authors.length > 0 && index < authors.length - 1 && ", "}
-                  </Item>
+                  </ArticleLink>
                 ))}
             </Flex>
             <Heading
