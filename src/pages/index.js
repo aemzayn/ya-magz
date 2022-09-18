@@ -54,9 +54,9 @@ export async function getStaticProps() {
   const featuredArticles = await fetchFeatured()
   return {
     props: {
-      homeArticles,
-      heroArticle,
-      featuredArticles,
+      homeArticles: homeArticles,
+      heroArticle: heroArticle,
+      featuredArticles: featuredArticles,
     },
   }
 }

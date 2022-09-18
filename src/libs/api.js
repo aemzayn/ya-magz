@@ -17,10 +17,7 @@ export async function fetchArticles() {
 }
 
 export async function fetchHomeArticles() {
-  const articles = await fetchAPI(
-    "/articles?_sort=date:DESC,title:ASC&featured=false"
-  )
-  return articles.slice(0, 18)
+  return await fetchAPI("/articles?_sort=date:DESC,title:ASC&featured=false")
 }
 
 export async function fetchFeatured() {
@@ -33,7 +30,7 @@ export async function fetchHero() {
   const data = await fetchAPI(
     "/articles?_sort=date:DESC,title:ASC&featured=true&_limit=1"
   )
-  return data[0]
+  return data.length > 0 ? data[0] : null
 }
 
 export async function fetchByCategory(slug) {
