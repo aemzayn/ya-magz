@@ -130,7 +130,7 @@ export default function Article({ article }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const article = (await fetchArticle(params.slug))[0]
   const content = await markdownToHtml(article.content)
   return {
@@ -140,15 +140,5 @@ export async function getStaticProps({ params }) {
         content,
       },
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const paths = await fetchArticleSlugs()
-  return {
-    paths: paths.map(path => ({
-      params: { slug: path.slug },
-    })),
-    fallback: false,
   }
 }

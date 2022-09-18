@@ -48,7 +48,7 @@ export default function Home({ heroArticle, homeArticles, featuredArticles }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const homeArticles = await fetchHomeArticles()
   const heroArticle = await fetchHero()
   const featuredArticles = await fetchFeatured()

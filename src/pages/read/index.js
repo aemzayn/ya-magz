@@ -25,8 +25,8 @@ export default function ArticlesPage({ articles, pagination }) {
   )
 }
 
-export async function getStaticProps() {
-  const articles = (await fetchArticles()).slice(0, 9)
+export async function getServerSideProps() {
+  const articles = (await fetchArticles())?.slice(0, 9) || []
   const count = await countArticles()
   const pagination = {
     current: 1,

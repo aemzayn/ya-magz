@@ -120,7 +120,7 @@ export default function Author({ authors }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const authors = await fetchAuthorsSlug()
   return {
     props: {

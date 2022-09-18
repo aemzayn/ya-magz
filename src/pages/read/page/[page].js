@@ -19,7 +19,7 @@ export default function Page({ articles, pagination, page }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const page = parseInt(params.page)
   const articles = (await fetchArticles()).slice(
     (params.page - 1) * 9,
@@ -36,17 +36,5 @@ export async function getStaticProps({ params }) {
       pagination,
       page,
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const count = await countArticles()
-  const pages = Math.ceil(count / 9)
-  const paths = Array.from(Array(pages - 1).keys()).map(it => ({
-    params: { page: (it + 2).toString() },
-  }))
-  return {
-    paths: paths,
-    fallback: false,
   }
 }
