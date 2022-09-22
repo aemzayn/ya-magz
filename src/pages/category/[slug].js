@@ -20,7 +20,7 @@ export default function ArticlesByCategory({ articles, category }) {
   )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const articles = await fetchByCategory(params.slug)
   return {
     props: {
@@ -30,5 +30,17 @@ export async function getServerSideProps({ params }) {
         slug: params.slug,
       },
     },
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = (await fetchCategorySlug()).map(it => ({
+    params: {
+      slug: it.slug,
+    },
+  }))
+  return {
+    paths,
+    fallback: false,
   }
 }

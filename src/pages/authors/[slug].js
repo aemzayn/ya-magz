@@ -24,7 +24,7 @@ export default function ArticlesByAuthor({ articles, author }) {
   )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const articles = (await fetchAuthorArticles(params.slug)) || [
     { author: { name: "" } },
   ]
@@ -54,5 +54,17 @@ export async function getServerSideProps({ params }) {
         slug: params.slug,
       },
     },
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = (await fetchAuthorsSlug()).map(it => ({
+    params: {
+      slug: it.slug,
+    },
+  }))
+  return {
+    paths,
+    fallback: false,
   }
 }

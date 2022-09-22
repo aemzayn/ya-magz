@@ -5,7 +5,7 @@ export default function gallery({ photos }) {
   return <GalleryPage photos={photos} />
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const photos = await fetchAPI("/photos?_sort=photographer.name")
   return {
     props: { photos },

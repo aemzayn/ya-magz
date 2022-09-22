@@ -23,10 +23,14 @@ export default function ProfileForm({ isOpen, onClose }) {
     fetch("/api/user/me")
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         setProfile({
           name: data.name,
           image: data.image,
         })
+      })
+      .catch(err => {
+        console.log(err)
       })
   }, [])
 
@@ -106,12 +110,24 @@ export default function ProfileForm({ isOpen, onClose }) {
               <FormHelperText>Your avatar url</FormHelperText>
             </FormControl>
 
-            <Flex alignSelf="flex-end" alignItems="center">
+            <Flex alignSelf="flex-end" alignItems="center" gap={2}>
               {msg && (
                 <Text fontSize="sm" as="span" marginRight={2}>
                   {msg}
                 </Text>
               )}
+              <Button
+                borderRadius={0}
+                type="button"
+                colorScheme="red"
+                fontWeight="normal"
+                px={8}
+                variant="ghost"
+                onClick={onClose}
+              >
+                Cancel
+              </Button>
+
               <Button
                 borderRadius={0}
                 disabled={!profile.name || !profile.image}
