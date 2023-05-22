@@ -3,10 +3,12 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { countArticles, fetchArticles } from "@/libs/api"
+import { READ_ROUTE } from "src/constanst/routes"
 
 export default function ArticlesPage({ articles, pagination }) {
-  const url = "/articles"
+  const url = READ_ROUTE
   const title = "Articles"
+
   return (
     <Layout>
       <Meta

@@ -16,6 +16,7 @@ import {
 import Link from "next/link"
 import { FiSearch } from "react-icons/fi"
 import { fetchAuthorsSlug } from "@/libs/api"
+import { AUTHORS_ROUTE, AUTHOR_ID_ROUTE } from "src/constanst/routes"
 
 export default function Author({ authors }) {
   const [showAuthors, setShowAuthors] = useState(authors)
@@ -37,7 +38,7 @@ export default function Author({ authors }) {
     )
   }
 
-  const url = "/authors"
+  const url = AUTHORS_ROUTE
   const title = "Authors"
 
   return (
@@ -103,7 +104,11 @@ export default function Author({ authors }) {
         <VStack mt={4} w="full" spacing={4}>
           {Array.isArray(showAuthors) &&
             showAuthors.map((author, id) => (
-              <Link key={author.slug} href={`/authors/${author.slug}`} passHref>
+              <Link
+                key={author.slug}
+                href={AUTHOR_ID_ROUTE(author.slug)}
+                passHref
+              >
                 <Text
                   cursor="pointer"
                   as="a"

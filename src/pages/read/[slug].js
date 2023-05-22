@@ -25,6 +25,7 @@ import config from "@/contents/site-settings.json"
 import { fetchArticle, fetchArticleSlugs } from "@/libs/api"
 import markdownToHtml from "@/libs/markdownToHTML"
 import { formatDate } from "@/libs/date"
+import { READ_ID_ROUTE } from "src/constanst/routes"
 
 export default function Article({ article }) {
   const [comments, setComments] = useState([])
@@ -48,7 +49,7 @@ export default function Article({ article }) {
     }
   }, [slug, inView])
 
-  const fullUrl = `${config.base_url}/read/${slug}`
+  const fullUrl = `${config.base_url}${READ_ID_ROUTE(slug)}`
   const readTime = content && readingTime(content)
   const datePublised = new Date(date)
   const authorsMeta = authors.reduce((all, author, index) => {
@@ -56,11 +57,10 @@ export default function Article({ article }) {
     return all + author.name + (sep ? ", " : "")
   }, "")
 
-  console.log(authorsMeta)
   return (
     <Layout>
       <Meta
-        url={`/read/${slug}`}
+        url={READ_ID_ROUTE(slug)}
         title={title}
         keywords={category?.name}
         description={excerpt}
@@ -75,7 +75,7 @@ export default function Article({ article }) {
         keywords={category?.name}
         date={datePublised}
         image={image_url}
-        url={`/read/${slug}`}
+        url={READ_ID_ROUTE(slug)}
       />
 
       <ArticleLayout>

@@ -5,7 +5,8 @@ import ArticleCategoryNav from "./ArticleCategoryNav"
 import PrimaryButton from "../buttons/PrimaryButton"
 import Pagination from "../pagination"
 import PageLayout from "../layout/PageLayout"
-import { GlobalContext } from "src/context"
+import { useGlobalContext } from "src/context"
+import { READ_PAGE_ROUTE } from "src/constanst/routes"
 
 export default function ArticleList({
   articles = [],
@@ -17,7 +18,7 @@ export default function ArticleList({
   nav,
   type,
 }) {
-  const { categories } = useContext(GlobalContext)
+  const { categories } = useGlobalContext()
 
   return (
     <PageLayout py={{ base: 8, md: 10 }} px={4}>
@@ -70,7 +71,7 @@ export default function ArticleList({
           pages={pagination.pages}
           link={{
             href: page => (page === 1 ? "/read" : "/read/page/[page]"),
-            as: page => (page === 1 ? null : "/read/page/" + page),
+            as: page => (page === 1 ? null : READ_PAGE_ROUTE(page)),
           }}
         />
       )}

@@ -11,23 +11,10 @@ import {
   UnorderedList,
   VStack,
 } from "@chakra-ui/react"
-import {
-  AiFillHome,
-  AiOutlineHome,
-  AiFillRead,
-  AiOutlineRead,
-  AiOutlinePicture,
-  AiFillPicture,
-  AiOutlineInstagram,
-} from "react-icons/ai"
-import {
-  RiBook2Line,
-  RiBook2Fill,
-  RiSpotifyLine,
-  RiSpotifyFill,
-} from "react-icons/ri"
+import { AiOutlineInstagram } from "react-icons/ai"
 
 import MobileNavItem from "./MobileNavItem"
+import { navigationLinks } from "src/constanst/routes"
 
 export default function MobileNavbar({ isOpen, onClose }) {
   return (
@@ -59,41 +46,17 @@ export default function MobileNavbar({ isOpen, onClose }) {
             height="full"
           >
             <UnorderedList width={"full"}>
-              <MobileNavItem
-                to="/"
-                icon={AiOutlineHome}
-                activeIcon={AiFillHome}
-              >
-                Home
-              </MobileNavItem>
-              <MobileNavItem
-                to="/read"
-                icon={AiOutlineRead}
-                activeIcon={AiFillRead}
-              >
-                Read
-              </MobileNavItem>
-              <MobileNavItem
-                to="/magazine"
-                icon={RiBook2Line}
-                activeIcon={RiBook2Fill}
-              >
-                Magazine
-              </MobileNavItem>
-              <MobileNavItem
-                to="/gallery"
-                icon={AiOutlinePicture}
-                activeIcon={AiFillPicture}
-              >
-                Gallery
-              </MobileNavItem>
-              <MobileNavItem
-                to="/entertainment"
-                icon={RiSpotifyLine}
-                activeIcon={RiSpotifyFill}
-              >
-                Entertainment
-              </MobileNavItem>
+              {navigationLinks.map((link, index, arr) => (
+                <MobileNavItem
+                  key={link.name}
+                  to={link.to}
+                  icon={link.icon}
+                  activeIcon={link.activeIcon}
+                  isLast={index === arr.length - 1}
+                >
+                  {link.name}
+                </MobileNavItem>
+              ))}
             </UnorderedList>
 
             <UnorderedList

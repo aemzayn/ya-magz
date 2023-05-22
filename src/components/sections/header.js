@@ -12,7 +12,7 @@ import Logo from "./Logo"
 import MobileNavbar from "./MobileNavbar"
 import NavItem from "./NavItem"
 import AuthButton from "../auth/AuthButton"
-import { NAV_LINKS } from "src/constanst/routes"
+import { navigationLinks } from "src/constanst/routes"
 
 function DesktopNavbar() {
   return (
@@ -26,8 +26,8 @@ function DesktopNavbar() {
         alignItems="center"
         justify={{ md: "space-between", lg: "flex-end" }}
       >
-        {NAV_LINKS.map((r, i) => (
-          <NavItem key={i} to={r.to} isLast={i === NAV_LINKS.length - 1}>
+        {navigationLinks.map((r, i) => (
+          <NavItem key={i} to={r.to} isLast={i === navigationLinks.length - 1}>
             {r.name}
           </NavItem>
         ))}

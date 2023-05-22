@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Flex, Text } from "@chakra-ui/react"
+import { CATEGORY_ID_ROUTE } from "src/constanst/routes"
 
 export default function ArticleCategory({ category }) {
   return (
@@ -19,7 +20,7 @@ export default function ArticleCategory({ category }) {
           backgroundColor: "yellow.300",
         }}
       >
-        <Link href="/category/[slug]" as={`/category/${category?.slug}`}>
+        <Link href="/category/[slug]" as={CATEGORY_ID_ROUTE(category?.slug)}>
           <a>{category?.name}</a>
         </Link>
       </Text>

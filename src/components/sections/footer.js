@@ -25,7 +25,7 @@ import { FiLink } from "react-icons/fi"
 import { AiFillCheckCircle } from "react-icons/ai"
 import { MdCopyright } from "react-icons/md"
 
-import { FOOTER_ROUTES } from "src/constanst/routes"
+import { footerLinks } from "src/constanst/routes"
 import Logo from "./Logo"
 import CustomToast from "../toast"
 
@@ -134,7 +134,7 @@ function FooterForm({ form, setForm, handleSubmit, submitLoading }) {
 }
 
 export default function Footer() {
-  let footerRoutes = FOOTER_ROUTES.filter(r => r.path !== "/")
+  let footerRoutes = footerLinks.filter(r => r.path !== "/")
   const [form, setForm] = useState({ email: "", name: "", message: "" })
   const [submitLoading, setSubmitLoading] = useState(false)
   const toast = useToast()

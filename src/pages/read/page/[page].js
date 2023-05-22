@@ -2,9 +2,10 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { countArticles, fetchArticles } from "@/libs/api"
+import { READ_PAGE_ROUTE } from "src/constanst/routes"
 
 export default function Page({ articles, pagination, page }) {
-  const url = `/articles/page/${page}`
+  const url = READ_PAGE_ROUTE(page)
   const title = `All posts page ${page}`
   return (
     <Layout>

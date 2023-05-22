@@ -8,6 +8,7 @@ import HeroLayout from "./HeroLayout"
 import HeroExcerpt from "./HeroExcerpt"
 import HeroAuthorCategory from "./HeroAuthorCategory"
 import PrimaryButton from "@/components/buttons/PrimaryButton"
+import { READ_ID_ROUTE } from "src/constanst/routes"
 
 export function Hero({ article }) {
   const url = article?.image_url
@@ -31,7 +32,7 @@ export function Hero({ article }) {
         <HeroTitle title={article?.title} />
         <HeroExcerpt excerpt={article?.excerpt} textSize={textSize} />
         <PrimaryButton
-          href={`/read/${article?.slug}`}
+          href={READ_ID_ROUTE(article?.slug)}
           rightIcon={<ArrowForwardIcon />}
           colorScheme="yellow"
           fontSize={textSize}

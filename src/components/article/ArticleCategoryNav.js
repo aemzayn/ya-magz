@@ -1,6 +1,7 @@
 import { Button, Flex } from "@chakra-ui/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { CATEGORY_ID_ROUTE } from "src/constanst/routes"
 
 const NavButton = ({ children, href, asPath }) => {
   return (
@@ -51,7 +52,7 @@ export default function ArticleCategoryNav({ categories }) {
       </NavButton>
       {categories &&
         categories.map((tag, i) => (
-          <NavButton key={i} href={`/category/${tag.slug}`} asPath={asPath}>
+          <NavButton key={i} href={CATEGORY_ID_ROUTE(tag.slug)} asPath={asPath}>
             {tag.name}
           </NavButton>
         ))}

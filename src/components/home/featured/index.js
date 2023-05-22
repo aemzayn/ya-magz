@@ -8,6 +8,7 @@ import RenderInView from "../../RenderInView"
 import HeroAuthorCategory from "../hero/HeroAuthorCategory"
 import HeroExcerpt from "../hero/HeroExcerpt"
 import HeroTitle from "../hero/HeroTitle"
+import { READ_ID_ROUTE } from "src/constanst/routes"
 
 export default function FeaturedArticle({ article, reverse, btnColor }) {
   const titleSize = useBreakpointValue({ base: "lg", md: "xl" })
@@ -81,7 +82,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
                 marginBottom={{ base: 2, md: 4 }}
               />
               <PrimaryButton
-                href={`/read/${article?.slug}`}
+                href={READ_ID_ROUTE(article?.slug)}
                 colorScheme="blue"
                 fontSize={textSize}
                 bgColor={btnColor}

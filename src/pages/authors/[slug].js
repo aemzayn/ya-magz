@@ -2,9 +2,10 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { fetchAuthorArticles, fetchAuthorsSlug } from "@/libs/api"
+import { AUTHOR_ID_ROUTE } from "src/constanst/routes"
 
 export default function ArticlesByAuthor({ articles, author }) {
-  const url = `/authors/${author.slug}`
+  const url = AUTHOR_ID_ROUTE(author.slug)
   const title = `Articles by ${author.name}`
 
   return (

@@ -2,9 +2,10 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { fetchByCategory, fetchCategorySlug } from "@/libs/api"
+import { CATEGORY_ID_ROUTE } from "src/constanst/routes"
 
 export default function ArticlesByCategory({ articles, category }) {
-  const url = `/category/${category.slug}`
+  const url = CATEGORY_ID_ROUTE(category.slug)
 
   return (
     <Layout>

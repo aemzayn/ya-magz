@@ -1,22 +1,63 @@
 import { fetchCategorySlug } from "@/libs/api"
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 let categoriesCache = []
 
+const initialCategories = [
+  {
+    name: "Art",
+    slug: "art",
+  },
+  {
+    name: "Knowledge Center",
+    slug: "knowledge-center",
+  },
+  {
+    name: "Lifehacks",
+    slug: "lifehacks",
+  },
+  {
+    name: "Lifestyle",
+    slug: "lifestyle",
+  },
+  {
+    name: "Opini",
+    slug: "opini",
+  },
+  {
+    name: "News",
+    slug: "news",
+  },
+  {
+    name: "Plesiran",
+    slug: "plesiran",
+  },
+  {
+    name: "Religion",
+    slug: "religion",
+  },
+  {
+    name: "Tokoh",
+    slug: "tokoh",
+  },
+]
+
 export const GlobalContext = createContext({
-  categories: [],
+  categories: [...initialCategories],
   imagePopup: "",
 })
 
 export default function ContextProvider({ children }) {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([...initialCategories])
   const [imagePopup, setImagePopup] = useState("")
 
   useEffect(() => {
     if (categoriesCache.length === 0) {
       fetchCategorySlug().then(data => {
-        setCategories(data)
-        categoriesCache.concat(data)
+        if (data) {
+          setCategories(data)
+          categoriesCache.concat(data)
+        }
       })
     }
   }, [])
@@ -27,3 +68,5 @@ export default function ContextProvider({ children }) {
     </GlobalContext.Provider>
   )
 }
+
+export const useGlobalContext = () => useContext(GlobalContext)

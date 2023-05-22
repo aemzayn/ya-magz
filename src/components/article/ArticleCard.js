@@ -11,6 +11,11 @@ import {
 } from "@chakra-ui/react"
 import Link from "next/link"
 import RenderInView from "../RenderInView"
+import {
+  AUTHOR_ID_ROUTE,
+  CATEGORY_ID_ROUTE,
+  READ_ID_ROUTE,
+} from "src/constanst/routes"
 
 const ArticleLink = ({ children, href }) => (
   <ChakraLink
@@ -62,7 +67,7 @@ const Article = ({ article }) => {
           >
             <Flex as="span" alignItems="center" flexWrap="wrap">
               {category && (
-                <ArticleLink href={`/categories/${category.slug}`}>
+                <ArticleLink href={CATEGORY_ID_ROUTE(category.slug)}>
                   {category.name}
                 </ArticleLink>
               )}
@@ -71,7 +76,7 @@ const Article = ({ article }) => {
                 authors.map((author, index) => (
                   <ArticleLink
                     key={author._id}
-                    href={`/authors/${author.slug}`}
+                    href={AUTHOR_ID_ROUTE(author.slug)}
                   >
                     {author.name}
                     {authors.length > 0 && index < authors.length - 1 && ", "}
@@ -89,7 +94,7 @@ const Article = ({ article }) => {
                 color: "brand.gray",
               }}
             >
-              <Link href={`/read/${slug}`}>
+              <Link href={READ_ID_ROUTE(slug)}>
                 <a>{title}</a>
               </Link>
             </Heading>
@@ -115,7 +120,7 @@ const Article = ({ article }) => {
                 color: "blue.700",
               }}
             >
-              <Link href={`/read/${slug}`}>
+              <Link href={READ_ID_ROUTE(slug)}>
                 <a>
                   continue reading
                   <ChevronRightIcon />
