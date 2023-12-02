@@ -1,7 +1,7 @@
 import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
-import { fetchAuthorArticles, fetchAuthorsSlug } from "@/libs/api"
+import { fetchAuthorArticles, fetchAuthorsSlug, getAuthor } from "@/libs/api"
 import { AUTHOR_ID_ROUTE } from "src/constanst/routes"
 
 export default function ArticlesByAuthor({ articles, author }) {
@@ -29,11 +29,10 @@ export async function getStaticProps({ params }) {
   const articles = (await fetchAuthorArticles(params.slug)) || [
     { author: { name: "" } },
   ]
-  const author =
-    params.slug &&
-    params.slug
-      .split("-")
-      .map(name => name[0].toUpperCase() + name.slice(1, name.length))
+
+  const authorList = await getAuthor(params.slug)
+
+  const author = authorList.length > 0 ? authorList[0].name : ""
 
   if (!articles) {
     return {
