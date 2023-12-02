@@ -16,7 +16,7 @@ export default function HeroAuthorCategory({
             key={author._id}
             as="span"
             px={1}
-            d="inline-flex"
+            display="inline-flex"
             overflowY="hidden"
             fontSize={textSize}
           >

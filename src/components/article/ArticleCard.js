@@ -17,13 +17,14 @@ import {
   READ_ID_ROUTE,
 } from "src/constanst/routes"
 
-const ArticleLink = ({ children, href }) => (
+const ArticleLink = ({ children, href, ...restProps }) => (
   <ChakraLink
     href={href}
     fontWeight="normal"
     fontSize={{ base: "sm", lg: "md" }}
     color="brand.gray"
     margin="0"
+    {...restProps}
   >
     {children}
   </ChakraLink>
@@ -77,6 +78,7 @@ const Article = ({ article }) => {
                   <ArticleLink
                     key={author._id}
                     href={AUTHOR_ID_ROUTE(author.slug)}
+                    paddingLeft={authors.length > 1 && index === 0 ? 0 : 1}
                   >
                     {author.name}
                     {authors.length > 0 && index < authors.length - 1 && ", "}
