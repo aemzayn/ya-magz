@@ -100,3 +100,8 @@ export async function checkSlug(slug) {
     return false
   }
 }
+
+export async function getAuthor(slug) {
+  if (!slug) return {}
+  return await fetchAPI(`/authors?slug=${slug}`)
+}
