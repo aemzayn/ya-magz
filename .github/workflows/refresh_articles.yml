@@ -1,0 +1,38 @@
+name: Auto commit
+
+on:
+
+  push:
+    branches:
+      - main
+      
+  schedule:
+  - cron: "1 * * * *"
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 
+        with:
+         persist-credentials: false
+         fetch-depth: 0
+
+      - name: Modify last update
+        run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > LAST_UPDATED
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "ahmad.muslih22@gmail.com"
+          git config --local user.name "aemzayn"
+          git add -A
+          git commit -m "feat: auto refresh articles"
+          
+      - name: GitHub Push
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          directory: "."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
