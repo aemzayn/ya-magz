@@ -1,11 +1,9 @@
 import { Box, Grid, Heading, VStack } from "@chakra-ui/react"
-import { getManagerialDivTeam } from "@/libs/team"
 import PrimaryButton from "@/components/buttons/PrimaryButton"
 import RenderInView from "@/components/RenderInView"
 import Person from "@/components/team/person"
 
-export default function HomeTeam() {
-  const teams = getManagerialDivTeam()
+export default function HomeTeam({ managerialTeams }) {
   return (
     <RenderInView>
       {({ ref, inView }) => (
@@ -21,9 +19,30 @@ export default function HomeTeam() {
               py={5}
               overflowX="hidden"
             >
-              {teams.map((m, i) => (
-                <Person person={m} key={i} />
-              ))}
+              {managerialTeams.map((m, i) => {
+                const socialMedia = [
+                  {
+                    platform: "instagram",
+                    identifier: m.instagram,
+                  },
+                  {
+                    platform: "twitter",
+                    identifier: m.twitter,
+                  },
+                  {
+                    platform: "mail",
+                    identifier: m.email,
+                  },
+                ].filter(s => s.identifier !== null && s.identifier !== "")
+                const person = {
+                  name: m.name,
+                  role: m.role,
+                  social_media: socialMedia,
+                  photo: m.profile_picture,
+                  id: m.id,
+                }
+                return <Person person={person} key={person.id} />
+              })}
             </Grid>
           )}
           <PrimaryButton

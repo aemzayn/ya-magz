@@ -105,3 +105,17 @@ export async function getAuthor(slug) {
   if (!slug) return {}
   return await fetchAPI(`/authors?slug=${slug}`)
 }
+
+export async function fetchManagerial() {
+  const members = await fetchAPI(
+    "/members?showInLandingPage_eq=true&active_eq=true&_sort=orderInGroup:ASC"
+  )
+  return members
+}
+
+export async function fetchFullTeam() {
+  const members = await fetchAPI(
+    "/members?active_eq=true&_sort=team.order:ASC,orderInGroup:ASC"
+  )
+  return members
+}

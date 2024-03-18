@@ -3,13 +3,23 @@ import Layout from "@/components/layout"
 import Hero from "@/components/home/hero/index"
 import HomeTeam from "@/components/team/HomeTeam"
 import Meta from "@/components/meta"
-import { fetchFeatured, fetchHero, fetchHomeArticles } from "@/libs/api"
+import {
+  fetchFeatured,
+  fetchHero,
+  fetchHomeArticles,
+  fetchManagerial,
+} from "@/libs/api"
 
 const ArticleList = dynamic(() => import("../components/article/ArticleList"))
 const FeaturedArticle = dynamic(() => import("../components/home/featured"))
 const HomeEntertainment = dynamic(() => import("../module/entertainment/home"))
 
-export default function Home({ heroArticle, homeArticles, featuredArticles }) {
+export default function Home({
+  heroArticle,
+  homeArticles,
+  featuredArticles,
+  managerialTeams,
+}) {
   return (
     <Layout>
       <Meta url="/" />
@@ -42,7 +52,7 @@ export default function Home({ heroArticle, homeArticles, featuredArticles }) {
           />
         )}
         <HomeEntertainment />
-        <HomeTeam />
+        <HomeTeam managerialTeams={managerialTeams} />
       </main>
     </Layout>
   )
@@ -52,11 +62,13 @@ export async function getStaticProps() {
   const homeArticles = await fetchHomeArticles()
   const heroArticle = await fetchHero()
   const featuredArticles = await fetchFeatured()
+  const managerialTeams = await fetchManagerial()
   return {
     props: {
       homeArticles: homeArticles,
       heroArticle: heroArticle,
       featuredArticles: featuredArticles,
+      managerialTeams,
     },
   }
 }
