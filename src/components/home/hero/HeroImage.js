@@ -16,9 +16,8 @@ export default function HeroImage({ url, alt }) {
       <Image
         src={url}
         alt={alt}
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
+        fill
+        style={{ objectFit: "cover", objectPosition: "center" }}
         quality={70}
       />
     </Flex>

@@ -62,8 +62,8 @@ export default function ImageItem({ image, setSelected, onOpen }) {
                     onLoad={() => setIsLoaded()}
                     src={image?.link}
                     alt={image?.photographer?.name || ""}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: "cover" }}
                     quality={50}
                   />
                 )}

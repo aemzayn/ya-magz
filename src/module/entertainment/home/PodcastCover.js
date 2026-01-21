@@ -30,8 +30,8 @@ export default function PosterCover({
       <Skeleton height="100%" width="100%" isLoaded={!!inView}>
         {inView && (
           <Image
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             src={src}
             alt={alt}
             quality={50}

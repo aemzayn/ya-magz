@@ -56,9 +56,8 @@ export default function Mood({ width, titleSize }) {
               src={src}
               key={id}
               alt="Mood vol 5"
-              layout="fill"
-              objectFit="contain"
-              objectPosition="center"
+              fill
+              style={{ objectFit: "contain", objectPosition: "center" }}
             />
           </AspectRatio>
         ))}

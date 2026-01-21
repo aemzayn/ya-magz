@@ -81,8 +81,8 @@ export const Person = ({ person, showSocmed }) => {
             >
               <Skeleton width="full" height="full" isLoaded={inView}>
                 <Image
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   src={person?.photo}
                   alt={`${person?.name} from ${person?.role}`}
                   quality={30}

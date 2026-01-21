@@ -1,7 +1,5 @@
 import Image from "next/image"
-import { Box, Flex, VStack } from "@chakra-ui/layout"
-import { useBreakpointValue } from "@chakra-ui/media-query"
-import { Skeleton } from "@chakra-ui/skeleton"
+import { Box, Flex, VStack, Skeleton, useBreakpointValue } from "@chakra-ui/react"
 import PrimaryButton from "../../buttons/PrimaryButton"
 import PageLayout from "../../layout/PageLayout"
 import RenderInView from "../../RenderInView"
@@ -48,9 +46,7 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
                     alt={article?.title}
                     width={360}
                     height={360}
-                    layout="responsive"
-                    objectFit="cover"
-                    objectPosition="center bottom"
+                    style={{ width: '100%', height: 'auto', objectFit: 'cover', objectPosition: 'center bottom' }}
                     quality={60}
                     onLoad={setIsLoaded}
                   />
