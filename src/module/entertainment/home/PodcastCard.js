@@ -2,7 +2,8 @@ import { Badge, Flex, Heading, Text, VStack, HStack } from "@chakra-ui/react"
 import PosterCover from "./PodcastCover"
 import RenderInView from "@/components/RenderInView"
 import PodcastLink from "../shared/podcast-link"
-import { SiApplepodcasts, SiPodcastindex, SiSpotify } from "react-icons/si"
+import { SiApplepodcasts, SiSpotify } from "react-icons/si"
+import { FaPodcast } from "react-icons/fa"
 
 export default function PodcastCard({
   title,
@@ -77,7 +78,7 @@ export default function PodcastCard({
                   <PodcastLink link={appleUrl} icon={SiApplepodcasts} />
                 )}
                 {googleUrl && (
-                  <PodcastLink link={googleUrl} icon={SiPodcastindex} />
+                  <PodcastLink link={googleUrl} icon={FaPodcast} />
                 )}
               </HStack>
             )}

@@ -39,3 +39,7 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# PWA service worker (generated during build)
+public/service-worker.js
+public/workbox-*.js

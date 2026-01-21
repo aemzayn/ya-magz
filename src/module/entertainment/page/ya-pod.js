@@ -8,7 +8,8 @@ import {
   Text,
 } from "@chakra-ui/react"
 import { HiOutlineSwitchVertical } from "react-icons/hi"
-import { SiApplepodcasts, SiPodcastindex, SiSpotify } from "react-icons/si"
+import { SiApplepodcasts, SiSpotify } from "react-icons/si"
+import { FaPodcast } from "react-icons/fa"
 
 import IGTag from "../shared/IGTag"
 import PodcastButton from "../shared/podcast-link"
@@ -69,7 +70,7 @@ export default function YaPod({ stackWidth, titleSize }) {
           />
           <PodcastButton
             link="https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xM2RjZGIwYy9wb2RjYXN0L3Jzcw%3D%3D"
-            icon={SiPodcastindex}
+            icon={FaPodcast}
           />
         </Stack>
       </Stack>
