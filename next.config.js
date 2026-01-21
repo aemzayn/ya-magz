@@ -1,18 +1,21 @@
-const withPlugins = require("next-compose-plugins")
-const withPWA = require("next-pwa")
-const workboxConfig = require("./wb.config")
+const withSerwist = require("@serwist/next").default
 
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
-  pwa: workboxConfig,
   eslint: {
     ignoreDuringBuilds: true,
   },
-  serverRuntimeConfig: {
-    PROJECT_ROOT: __dirname,
-  },
 }
 
-module.exports = withPlugins([[withPWA]], nextConfig)
+module.exports = withSerwist({
+  swSrc: "src/sw.js",
+  swDest: "public/service-worker.js",
+  disable: process.env.NODE_ENV === "development",
+})(nextConfig)

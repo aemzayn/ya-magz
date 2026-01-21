@@ -1,4 +1,4 @@
-import { Text, Link } from "@chakra-ui/layout"
+import { Text, Link } from "@chakra-ui/react"
 
 export default function Logo() {
   return (

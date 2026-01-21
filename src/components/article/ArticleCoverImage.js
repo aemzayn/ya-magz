@@ -11,8 +11,8 @@ export default function ArticleCoverImage({ featuredImage, alt, imgsource }) {
     >
       <Box width="full" height="500px">
         <Image
-          layout="fill"
-          objectFit="contain"
+          fill
+          style={{ objectFit: "contain" }}
           src={featuredImage}
           alt={alt}
         />

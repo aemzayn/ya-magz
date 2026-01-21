@@ -1,7 +1,7 @@
 import ArticleLayout from "@/components/article/ArticleLayout"
 import Layout from "@/components/layout"
 import Meta from "@/components/meta"
-import { Heading, Text, VStack } from "@chakra-ui/layout"
+import { Heading, Text, VStack } from "@chakra-ui/react"
 
 export default function About() {
   return (

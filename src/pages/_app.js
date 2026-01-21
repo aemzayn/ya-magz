@@ -9,7 +9,7 @@ import "@fontsource/lora/600.css"
 import "@fontsource/lora/700.css"
 
 import { useEffect } from "react"
-import { ChakraProvider, CSSReset } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
 import theme from "../theme"
 
 import { SessionProvider } from "next-auth/react"
@@ -23,15 +23,15 @@ import { isProduction } from "src/constanst/development"
 import Script from "next/script"
 
 NProgress.configure({ showSpinner: false })
-Router.onRouteChangeStart = () => {
+Router.events.on("routeChangeStart", () => {
   NProgress.start()
-}
-Router.onRouteChangeComplete = () => {
+})
+Router.events.on("routeChangeComplete", () => {
   NProgress.done()
-}
-Router.onRouteChangeError = () => {
+})
+Router.events.on("routeChangeError", () => {
   NProgress.done()
-}
+})
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter()
@@ -53,7 +53,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
-        <CSSReset />
         <ContextProvider>
           <Container>
             <Component {...pageProps} />
